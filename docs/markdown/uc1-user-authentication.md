@@ -25,3 +25,5 @@
 
 
 \[*Εισάγουμε διαγράμματα δραστηριοτήτων με τα βήματα επιλεγμένων σεναρίων χρήσης.*\]
+
+![Use Case 1: User Authentication](uml/requirements/useCase1.jpg)
