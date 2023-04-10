@@ -73,7 +73,7 @@
 #### [ ΠΧ 5 Αναζήτηση Πληροφοριών Μαθημάτων ]( uc5-course-info-presentation.md)
 #### [ ΠΧ 6 Δήλωση Μαθημάτων ]( uc6-course-submission.md)
 #### [ ΠΧ 7 Καταχώρηση Βαθμών ]( uc7-new-grades-upload.md)
-#### [ ΠΧ 8 Προβολή Στατιστικών Στοιχείων ]( uc8-statistic-presentation.md)
+#### [ ΠΧ 8 Προβολή Προόδου Φοιτητή ]( uc8-progress-review.md)
 
 ## Συμπληρωματικές προδιαγραφές
 
