@@ -28,4 +28,4 @@
 
 ## Διαγράμματα
 \[*Εισάγουμε διαγράμματα δραστηριοτήτων με τα βήματα επιλεγμένων σεναρίων χρήσης.*\]
-![Use Case 8: ](uml/requirements/useCase8.jpg)
+![Use Case 8: progress-review](uml/requirements/useCase8.jpg)
