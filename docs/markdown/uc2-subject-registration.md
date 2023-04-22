@@ -50,3 +50,7 @@
 
 ![Διάγραμμα Δραστηριοτήτων 2](uml/requirements/UseCase2.jpg)
 
+**Διαγραμμα Ακολουθίας**
+![Διάγραμμα Ακολουθίας 2](uml/requirements/sequence2.jpg)
+
+
