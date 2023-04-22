@@ -43,5 +43,5 @@
 
 **Διάγραμμα Δραστηριοτήτων**
 
-![Διάγραμμα Δραστηριοτήτων 5](uml/requirements/UseCase5.jpg)
+![Διάγραμμα Δραστηριοτήτων 5](uml/requirements/useCase5.jpg)
 
