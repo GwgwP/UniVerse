@@ -52,6 +52,7 @@
 ![Διάγραμμα Δραστηριοτήτων 6](uml/requirements/useCase6.jpg)
 
 ---
+
 **Διαγραμμα Ακολουθίας**
 
 ![Διαγραμμα Ακολουθίας 6](uml/requirements/sequence6.jpg)
