@@ -1,15 +1,18 @@
+package gr.aueb.softeng.team02.model;
+
 public class Submission {
 
     private static int Gid = 0;
     private int id;
     private int semester;
-    private ArrayList<OfferedSubject> chosenSub = new ArrayList<>();
-    private String ac_year;
+    private ArrayList<OfferedSubject> chosenSub;
+    // What we are going to do with the academic year
 
     public Submission(int semester, String ac_year) {
         this.id = Submission.Gid++;
         this.semester = semester;
-        this.ac_year = ac_year;
+        this.acYearList = new ArrayList<>();
+        this.acYearList = new ArrayList<>();
     }
 
     public String getAc_year() {

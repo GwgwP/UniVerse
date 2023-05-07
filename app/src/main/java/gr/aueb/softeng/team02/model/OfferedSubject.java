@@ -1,15 +1,16 @@
+package gr.aueb.softeng.team02.model;
+
 import javax.security.auth.Subject;
 
 public class OfferedSubject {
 
-    private Subject sub; // maybe 
+    private Subject sub;
     private int semester;
-    private String ac_year; 
-    private ArrayList<Subject> offeredSub = new ArrayList<>();
+    private Grade grade;
 
-    public OfferedSubject(int semester, String ac_year){
+    public OfferedSubject(int semester) {
         this.semester = semester;
-        this.ac_year = ac_year;
+        this.grade = null;
     }
 
     public int getSemester() {
@@ -20,21 +21,17 @@ public class OfferedSubject {
         this.semester = semester;
     }
 
-    public String getAc_year() {
-        return ac_year;
+    public void setGrade(int grade) {
+        this.grade = new Grade(grade);
     }
 
-    public void setAc_year(String ac_year) {
-        this.ac_year = ac_year;
+    public Grade getGrade() {
+        return this.grade;
     }
 
-    public ArrayList<Subject> getOfferedSub() {
-        return offeredSub;
+    @Override
+    public String toString() {
+        return this.sub.toString();
     }
 
-    public void addOfferedSub(Subject sub) {
-        this.offeredSub.add(sub);
-    }
-
-    
 }

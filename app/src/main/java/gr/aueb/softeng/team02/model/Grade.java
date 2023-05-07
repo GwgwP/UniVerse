@@ -1,16 +1,10 @@
 import java.util.ArrayList;
 
-public class OfSubjects_Grades {
-   
-    private int student_id;
-    private int subject_id;
-    private double grade;
+public class Grade {
 
-    private static ArrayList<OfSubjects_Grades> grades = new ArrayList<>();
+    private double grade;
  
-    public OfSubjects_Grades(int st, int sub, double grade ){
-        this.student_id = st;
-        this.subject_id = sub;
+    public Grade(double grade) {
         this.grade = grade;    
     }
 

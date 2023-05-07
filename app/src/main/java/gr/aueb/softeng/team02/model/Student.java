@@ -1,3 +1,5 @@
+package gr.aueb.softeng.team02.model;
+
 public class Student  extends User{
 
     private int semester;

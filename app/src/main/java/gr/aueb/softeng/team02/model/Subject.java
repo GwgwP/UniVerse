@@ -8,6 +8,7 @@ public class Subject {
     private int ECTS;
     private String desc;
     private String title;
+    // This List contains all the subjects that a student must pass in order to 
     private ArrayList<Subject> prerequisities = new ArrayList<>();
 
     public Subject() {
@@ -23,7 +24,7 @@ public class Subject {
     }
 
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public void setId(int id) {
@@ -31,7 +32,7 @@ public class Subject {
     }
 
     public String getProfessor() {
-        return professor;
+        return this.professor;
     }
 
     public void setProfessor(String professor) {
@@ -39,15 +40,15 @@ public class Subject {
     }
 
     public int getECTS() {
-        return ECTS;
+        return this.ECTS;
     }
 
     public void setECTS(int eCTS) {
-        ECTS = eCTS;
+        this.ECTS = eCTS;
     }
 
     public String getDesc() {
-        return desc;
+        return this.desc;
     }
 
     public void setDesc(String desc) {
@@ -55,11 +56,19 @@ public class Subject {
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
         this.title = title;
     }
     
+    public String toString() {
+        return "\n" +
+        "Title: " + this.title + "\n"
+        "Professor: " + this.professor + "\n"
+        "ECTS: " + this.ECTS + "\n"
+        "Description: " + this.desc + "\n"
+
+    }
 }
