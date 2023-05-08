@@ -1,9 +1,11 @@
+// package gr.aueb.softeng.team02;
+
 import java.util.ArrayList;
 
 public class Grade {
 
     private double grade;
- 
+    private int student_id;
     public Grade(double grade) {
         this.grade = grade;    
     }
@@ -17,11 +19,11 @@ public class Grade {
     }
 
     public int getSubject_id() {
-        return subject_id;
+        return this.student_id;
     }
 
     public void setSubject_id(int subject_id) {
-        this.subject_id = subject_id;
+        this.student_id = subject_id;
     }
 
     public double getGrade() {

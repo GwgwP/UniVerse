@@ -1,15 +1,18 @@
+// package gr.aueb.softeng.team02;
+
 public abstract class User {
-    private static int idU = 0;
-    
     private int id;
     private String username;
     private String password;
     private String name;
     private String surname;
 
+    public User() {
+    }
 
-    public User(String username , String password , String name , String surname ){
-        this.id = User.idU++;
+    public User(int id, String username, String password, String name, String surname) {
+        // TODO id is given automatically from controller
+        this.id = id;
         this.username = username;
         this.password = password;
         this.name = name;
