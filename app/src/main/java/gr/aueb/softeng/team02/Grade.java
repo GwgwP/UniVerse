@@ -31,8 +31,11 @@ public class Grade {
     }
 
     public void setGrade(double grade) {
+        // TODO Check exceptions cases and throws exception classes
+        if (grade < 0 || grade > 10) {
+            throw new RuntimeException("Invalid grade");
+        }
         this.grade = grade;
     }
 
-        
 }

@@ -22,4 +22,17 @@ public class Student extends User {
     public void setSubmission(Submission sub) {
         this.submissions.add(sub);
     }
+    // General Search Function -- No criteria
+     public Set<OfferedSubject> getExaminedSubjects() {
+        // TODO Check this method later
+        Set<OfferedSubject> subjectList = new HashSet<>();
+        for (Submission submission : this.submissions) {
+            for (OfferedSubject subject : submission.getChosenSubjects()) {
+                subjectList.add(subject);
+            }
+        }
+        return subjectList;
+     }
+
+     // TODO similar methods of the above but with search criteria eg semester & year, grade
 }

@@ -93,4 +93,9 @@ public class Subject {
         Subject subject = (Subject) other;
         return this.id == subject.id;
     }
+    @Override
+    public int hashCode() {
+        // TODO Check if it is needed and how
+        return this.id;
+    }
 }
