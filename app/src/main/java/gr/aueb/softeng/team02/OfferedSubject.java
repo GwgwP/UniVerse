@@ -78,6 +78,8 @@ public class OfferedSubject {
        return(this.sub.equals(subject.sub) && this.ac_year.equals(subject.getAc_year()));
     }
 
+
+
     @Override
     public String toString() {
         return this.sub.toString();

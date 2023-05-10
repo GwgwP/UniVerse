@@ -26,6 +26,23 @@ public class AcademicYear {
         this.circList.add(c);
     }
 
+    /**
+     * get the circumscriptioin depending on the semsster.
+     *
+     *
+     * */
+    public Circumscription getCircumscription(int semester)
+    {
+        for ( Circumscription c : circList)
+        {
+           if (c.getSemester() == semester)
+           {
+               return c;
+           }
+        }
+        return null;
+    }
+
     @Override
     public boolean equals(Object other) {
         if (other == null) {

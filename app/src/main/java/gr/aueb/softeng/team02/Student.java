@@ -34,5 +34,21 @@ public class Student extends User {
         return subjectList;
      }
 
+     public Set<OfferedSubject> getPassedSubjects()
+     {
+         Set <OfferedSubject> subjects = new HashSet<>();
+         for (Submission sm: submissions)
+         {
+             for(OfferedSubject sub: sm.getChosenSubjects())
+             {
+                 if (sub.getGrade().getGrade() > 5.0)
+                 {
+                  subjects.add(sub);
+                 }
+             }
+         }
+         return subjects;
+     }
+
      // TODO similar methods of the above but with search criteria eg semester & year, grade
 }
