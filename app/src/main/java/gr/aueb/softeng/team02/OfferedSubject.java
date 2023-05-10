@@ -4,6 +4,7 @@ public class OfferedSubject {
     private Subject sub;
     private int semester;
     private Grade grade;
+    private AcademicYear ac_year;
     public OfferedSubject(int semester) {
         this.semester = semester;
         this.grade = null;

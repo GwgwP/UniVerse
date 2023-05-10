@@ -2,7 +2,7 @@
 import java.util.*;
 public class AcademicYear {
     private String ac_year;
-    // private Set<Circumscription> circList;
+    private Set<Circumscription> circList;
     public AcademicYear(String ac_year) {
         this.ac_year = ac_year;
         // this.circList = new HashSet<Circumscription>();
