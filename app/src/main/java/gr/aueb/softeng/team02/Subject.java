@@ -1,4 +1,4 @@
-// package gr.aueb.softeng.team02;
+package gr.aueb.softeng.team02;
 import java.util.*;
 
 public class Subject {
@@ -89,7 +89,7 @@ public class Subject {
         if (!(other instanceof Subject)) {
             return false;
         }
-        // TODO Check if there are other parameters to check the equality between two objects
+        //TODO: Check if there are other parameters to check the equality between two objects
         Subject subject = (Subject) other;
         return this.id == subject.id;
     }

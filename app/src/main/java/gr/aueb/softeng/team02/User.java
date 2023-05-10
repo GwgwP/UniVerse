@@ -1,4 +1,4 @@
-// package gr.aueb.softeng.team02;
+package gr.aueb.softeng.team02;
 
 public abstract class User {
     private int id;
@@ -7,8 +7,6 @@ public abstract class User {
     private String name;
     private String surname;
 
-    public User() {
-    }
 
     public User(int id, String username, String password, String name, String surname) {
         // TODO id is given automatically from controller
@@ -18,6 +16,7 @@ public abstract class User {
         this.name = name;
         this.surname = surname;
     }
+    public User(){}
 
     public int getId() {
         return id;

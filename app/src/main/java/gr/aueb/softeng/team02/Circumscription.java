@@ -1,4 +1,4 @@
-// package gr.aueb.softeng.team02;
+package gr.aueb.softeng.team02;
 
 public class Circumscription {
     private int ects;
@@ -31,5 +31,23 @@ public class Circumscription {
             return false;
         }
         return true;
+    }
+
+    @Override
+    public boolean equals(Object other)
+    {
+        if (other == null) {
+            return false;
+        }
+
+        if (this == other) {
+            return true;
+        }
+
+        if (!(other instanceof Circumscription)) {
+            return false;
+        }
+
+        return this.semester == ((Circumscription) other).semester;
     }
 }
