@@ -1,4 +1,5 @@
 package gr.aueb.softeng.team02;
+
 import java.util.*;
 
 public class Subject {
@@ -17,7 +18,7 @@ public class Subject {
         this.title = title;
         this.prerequisities = new HashSet<>();
     }
-    
+
     public Set<Subject> getPrerequisities() {
         return this.prerequisities;
     }
@@ -93,6 +94,7 @@ public class Subject {
         Subject subject = (Subject) other;
         return this.id == subject.id;
     }
+
     @Override
     public int hashCode() {
         // TODO Check if it is needed and how

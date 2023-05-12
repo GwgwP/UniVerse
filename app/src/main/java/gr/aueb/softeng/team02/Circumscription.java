@@ -4,7 +4,9 @@ public class Circumscription {
     private int ects;
     private int semester;
 
-    public Circumscription() {}
+    public Circumscription() {
+    }
+
     public Circumscription(int semester, int Ects) {
         this.ects = Ects;
         this.semester = semester;
@@ -27,27 +29,26 @@ public class Circumscription {
     }
 
     public boolean checkValidity() {
-        if (this.ects < 30 || this.ects > 130 || this.semester == 0) {
+        if (this.ects < 30 || this.ects > 130 || this.semester <= 0 || this.semester > 8) {
             return false;
         }
         return true;
     }
 
-    @Override
-    public boolean equals(Object other)
-    {
-        if (other == null) {
-            return false;
-        }
-
-        if (this == other) {
-            return true;
-        }
-
-        if (!(other instanceof Circumscription)) {
-            return false;
-        }
-
-        return this.semester == ((Circumscription) other).semester;
-    }
+//    @Override
+//    public boolean equals(Object other) {
+//        if (other == null) {
+//            return false;
+//        }
+//
+//        if (this == other) {
+//            return true;
+//        }
+//
+//        if (!(other instanceof Circumscription)) {
+//            return false;
+//        }
+//
+//        return this.semester == ((Circumscription) other).semester;
+//    }
 }
