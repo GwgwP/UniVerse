@@ -3,12 +3,34 @@ package gr.aueb.softeng.team02;
 import java.util.*;
 
 public class Submission {
+
+    private AcademicYear year;
+
+    private Student student;
     private int semester;
     private Set<OfferedSubject> chosenSub;
 
-    public Submission(int semester) {
+    public Submission(AcademicYear year, int semester, Student student) {
+        this.year = year;
         this.semester = semester;
+        this.student = student;
         this.chosenSub = new HashSet<OfferedSubject>();
+    }
+
+    public AcademicYear getAcademicYear() {
+        return this.year;
+    }
+
+    public void setAcademicYear(AcademicYear year) {
+        this.year = year;
+    }
+
+    public Student getStudent() {
+        return this.student;
+    }
+
+    public void setStudent(Student student) {
+        this.student = student;
     }
 
     public int getSemester() {
