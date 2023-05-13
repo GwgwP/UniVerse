@@ -11,13 +11,13 @@ public class Circumscription {
     public Circumscription() {
     }
 
-    public Circumscription(int semester, int Ects) {
-        this.ects = Ects;
+    public Circumscription(int semester, int ects) {
+        this.ects = ects;
         this.semester = semester;
     }
 
-    public void setEcts(int Ects) {
-        this.ects = Ects;
+    public void setEcts(int ects) {
+        this.ects = ects;
     }
 
     public int getEcts() {
@@ -49,10 +49,7 @@ public class Circumscription {
     }
 
     public boolean checkValidity() {
-        if (this.ects < 30 || this.ects > 130 || this.semester <= 0 || this.semester > 8) {
-            return false;
-        }
-        return true;
+        return this.ects >= 30 && this.ects <= 130 && this.semester > 0 && this.semester <= 8;
     }
 
 //    @Override
