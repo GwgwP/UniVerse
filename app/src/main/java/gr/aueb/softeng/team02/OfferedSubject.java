@@ -4,10 +4,35 @@ public class OfferedSubject {
     private Subject sub;
     private int semester;
     private Grade grade;
+    private AcademicYear year;
 
     public OfferedSubject(int semester) {
         this.semester = semester;
         this.grade = null;
+    }
+
+    public void setSub(Subject sub) {
+        this.sub = sub;
+    }
+
+    public String getProf() {
+        return this.sub.getProfessor();
+    }
+
+    public AcademicYear getYear() {
+        return this.year;
+    }
+
+    public void setYear(AcademicYear year) {
+        this.year = year;
+    }
+
+    public String getTitle() {
+        return this.sub.getTitle();
+    }
+
+    public String getDesc() {
+        return this.sub.getDesc();
     }
 
     public int getSemester() {
@@ -24,10 +49,6 @@ public class OfferedSubject {
 
     public Grade getGrade() {
         return this.grade;
-    }
-
-    public int getSubjectId() {
-        return this.sub.getId();
     }
 
     public int getEcts() {

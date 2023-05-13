@@ -4,11 +4,69 @@ import java.util.*;
 
 public class Student extends User {
     private int semester;
-    private Set<Submission> submissions;
-    public Student(int id, String username, String password, String name, String surname, int semester, int am) {
+    private double avg;
+    private int numPassed;
+
+    private int totalEcts;
+    private Map<Integer, Double> avgPerSemester;
+
+    public Student(int id, String username, String password, String name, String surname, int semester) {
         super(id, username, password, name, surname);
         this.semester = semester;
-        this.submissions = new HashSet<>();
+        this.avgPerSemester = new HashMap<>();
+    }
+
+    public void setAvgPerSemester(int semester, double avg) throws Exception {
+        if (this.avgPerSemester.get(semester) != null) {
+            throw new Exception();
+        } else {
+            this.avgPerSemester.put(semester, avg);
+        }
+    }
+
+    public Map<Integer, Double> getAvgPerSemester() {
+        return this.avgPerSemester;
+    }
+
+    public Double getAvgBySpecificSemester(int semester) throws Exception {
+        if (this.getAvgPerSemester().get(semester) == null) {
+            throw new Exception();
+        } else {
+            return this.avgPerSemester.get(semester);
+        }
+    }
+
+    private double getAvg() {
+        return this.avg;
+    }
+
+    public void setAvg(double avg) {
+        this.avg = avg;
+    }
+
+    public int getNumPassed() {
+        return this.numPassed;
+    }
+
+    public void setNumPassed(int numPassed) {
+        this.numPassed = numPassed;
+    }
+
+    public int getTotalEcts() {
+        return this.totalEcts;
+    }
+
+    public void setTotalEcts(int totalEcts) {
+        this.totalEcts = totalEcts;
+    }
+
+    public void updateAvg(double score, int passed) {
+        this.avg = (this.avg * this.numPassed + score) / (this.numPassed + passed);
+        this.numPassed = this.numPassed + passed;
+    }
+
+    public void updateEcts(int Ects) {
+        this.totalEcts += Ects;
     }
 
     public int getSemester() {
@@ -18,37 +76,4 @@ public class Student extends User {
     public void setSemester(int semester) {
         this.semester = semester;
     }
-
-    public void setSubmission(Submission sub) {
-        this.submissions.add(sub);
-    }
-    // General Search Function -- No criteria
-     public Set<OfferedSubject> getExaminedSubjects() {
-        // TODO Check this method later
-        Set<OfferedSubject> subjectList = new HashSet<>();
-        for (Submission submission : this.submissions) {
-            for (OfferedSubject subject : submission.getChosenSubjects()) {
-                subjectList.add(subject);
-            }
-        }
-        return subjectList;
-     }
-
-     public Set<OfferedSubject> getPassedSubjects()
-     {
-         Set <OfferedSubject> subjects = new HashSet<>();
-         for (Submission sm: submissions)
-         {
-             for(OfferedSubject sub: sm.getChosenSubjects())
-             {
-                 if (sub.getGrade().getGrade() > 5.0)
-                 {
-                  subjects.add(sub);
-                 }
-             }
-         }
-         return subjects;
-     }
-
-     // TODO similar methods of the above but with search criteria eg semester & year, grade
 }

@@ -1,8 +1,12 @@
 package gr.aueb.softeng.team02;
 
+import java.util.Date;
+
 public class Circumscription {
     private int ects;
     private int semester;
+    private Date start;
+    private Date end;
 
     public Circumscription() {
     }
@@ -26,6 +30,22 @@ public class Circumscription {
 
     public int getSemester() {
         return this.semester;
+    }
+
+    public Date getStart() {
+        return start;
+    }
+
+    public void setStart(Date start) {
+        this.start = start;
+    }
+
+    public Date getEnd() {
+        return end;
+    }
+
+    public void setEnd(Date end) {
+        this.end = end;
     }
 
     public boolean checkValidity() {
