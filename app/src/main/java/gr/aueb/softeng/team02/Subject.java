@@ -70,11 +70,7 @@ public class Subject {
     public boolean checkFields() {
         // TODO Check if there are others parameters to check for every variable
         // Eg : if ects >= 30 & ects < = limit
-        if (this.title == null || this.desc == null || this.ects <= 0 || this.professor == null || this.id <= 0) {
-            return false;
-        } else {
-            return true;
-        }
+        return this.title != null && this.desc != null && this.ects > 0 && this.professor != null && this.id > 0;
     }
 
     @Override

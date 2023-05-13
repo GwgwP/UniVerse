@@ -23,11 +23,12 @@ public class AcademicYear {
     public void addCircumscription(Circumscription c) throws IllegalAccessException {
         // TODO throw exception if there is a previous circumscription in the semester
         // Only one circumscription per semester
-        if (this.circList.get(c.getSemester()) != null) {
-            throw new IllegalAccessException();
-        }
         if (c != null) {
-            this.circList.put(c.getSemester(), c);
+            if (this.circList.get(c.getSemester()) != null) {
+                throw new IllegalAccessException();
+            } else {
+                this.circList.put(c.getSemester(), c);
+            }
         }
     }
     /**
@@ -38,7 +39,7 @@ public class AcademicYear {
         // Only one circumscription per semester
         if (this.circList.get(semester) == null) {
             throw new IllegalAccessException();
-        } else {
+        } else  {
             return this.circList.get(semester);
         }
     }

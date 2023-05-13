@@ -60,6 +60,4 @@ public class Submission {
         }
         return sum;
     }
-
-    // TODO Controller will check if the submission is valid, by accessing the daos
 }

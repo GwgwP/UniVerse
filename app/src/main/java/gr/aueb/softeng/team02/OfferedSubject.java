@@ -55,8 +55,4 @@ public class OfferedSubject {
         return this.sub.getECTS();
     }
 
-    @Override
-    public String toString() {
-        return this.sub.toString();
-    }
 }
