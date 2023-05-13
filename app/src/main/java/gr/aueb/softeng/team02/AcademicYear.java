@@ -33,13 +33,13 @@ public class AcademicYear {
     /**
      * get the circumscription depending on the semester.
      */
-    public int getEctsCircumscription(int semester) throws IllegalAccessException {
+    public Circumscription getCircumscription(int semester) throws IllegalAccessException {
         // TODO Throw exception if there is no circumscription on the specific semester
         // Only one circumscription per semester
         if (this.circList.get(semester) == null) {
             throw new IllegalAccessException();
         } else {
-            return this.circList.get(semester).getEcts();
+            return this.circList.get(semester);
         }
     }
 
