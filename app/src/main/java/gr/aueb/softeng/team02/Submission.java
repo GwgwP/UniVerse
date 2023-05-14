@@ -5,11 +5,13 @@ import java.util.*;
 public class Submission {
 
     private AcademicYear year;
-
     private Student student;
     private int semester;
     private Set<OfferedSubject> chosenSub;
 
+    public Submission() {
+        this.chosenSub = new HashSet<>();
+    }
     public Submission(AcademicYear year, int semester, Student student) {
         this.year = year;
         this.semester = semester;
@@ -49,7 +51,7 @@ public class Submission {
 
     public void setChosenSub(OfferedSubject sub) throws Exception {
         // If one subject is chosen, then it cannot be selected again. Implement it with UI
-        if (this.chosenSub.contains(sub)) {
+        if (this.chosenSub.contains(sub) || sub == null) {
             throw new Exception();
         }
         this.chosenSub.add(sub);
