@@ -16,12 +16,8 @@ public class Student extends User {
         this.avgPerSemester = new HashMap<>();
     }
 
-    public void setAvgPerSemester(int semester, double avg) throws Exception {
-        if (this.avgPerSemester.get(semester) != null) {
-            throw new Exception();
-        } else {
-            this.avgPerSemester.put(semester, avg);
-        }
+    public void setAvgPerSemester(int semester, double avg) {
+        this.avgPerSemester.put(semester, avg);
     }
 
     public Map<Integer, Double> getAvgPerSemester() {
@@ -36,7 +32,7 @@ public class Student extends User {
         }
     }
 
-    private double getAvg() {
+    public double getAvg() {
         return this.avg;
     }
 
