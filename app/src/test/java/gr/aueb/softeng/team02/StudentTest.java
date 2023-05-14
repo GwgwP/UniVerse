@@ -84,7 +84,6 @@ public class StudentTest {
 
     }
 
-
     @Test()
     public void checkExceptions() throws StudentException {
         assertThrows(Exception.class, () -> {

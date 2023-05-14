@@ -10,7 +10,7 @@ public class Subject {
     private String title;
     private Set<Subject> prerequisities;
 
-    public Subject(int id, String Professor, int ects, String desc, String title) {
+    public Subject(int id, String professor, int ects, String desc, String title) {
         this.id = id;
         this.professor = professor;
         this.ects = ects;
