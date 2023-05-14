@@ -20,6 +20,8 @@ public class OfferedSubjectTest {
         this.grade = new Grade();
         this.subject = new OfferedSubject(8);
         this.year = new AcademicYear("2023-2024");
+        this.grade = new Grade();
+        this.grade.setGrade(7);
         this.sub = new Subject(1, "Katerinis", 8, "An introduction to linear algebra", "Mathematics 2");
     }
 
