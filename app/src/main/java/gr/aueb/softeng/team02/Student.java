@@ -24,9 +24,9 @@ public class Student extends User {
         return this.avgPerSemester;
     }
 
-    public Double getAvgBySpecificSemester(int semester) throws Exception {
+    public Double getAvgBySpecificSemester(int semester) throws StudentException {
         if (this.getAvgPerSemester().get(semester) == null) {
-            throw new Exception();
+            throw new StudentException("nullSemester");
         } else {
             return this.avgPerSemester.get(semester);
         }
