@@ -1,11 +1,12 @@
 package gr.aueb.softeng.team02;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import java.util.Date;
 
 public class CircumscriptionTest {
@@ -33,6 +34,11 @@ public class CircumscriptionTest {
         this.c.setEcts(40);
         this.c.setEnd(new Date(2024, 9, 18));
         this.c.setStart(new Date(2025, 1, 23));
+
+        Assert.assertNotSame(this.c.getStart(), start);
+        Assert.assertNotSame(this.c.getEnd(), end);
+        assertEquals(this.c.getSemester(), 1);
+        assertEquals(this.c.getEcts(), 40);
     }
     @Test
     public void TestCheckValidity() {

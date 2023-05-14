@@ -3,15 +3,14 @@ package gr.aueb.softeng.team02;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
-
 import static org.junit.Assert.*;
-
 import java.util.Date;
 
 public class AcademicYearTest {
     private AcademicYear year;
     Date start;
     Date end;
+
     @Before
     public void setUp() {
         this.year = new AcademicYear("2022-2023");
@@ -19,7 +18,6 @@ public class AcademicYearTest {
         this.end = new Date(2023, 3, 25);
     }
 
-    /*Check the equality of two AcademicYear objects*/
     @Test
     public void checkEquals_HashCode() throws AcademicYearException {
         AcademicYear year2 = new AcademicYear("2021-2022");
@@ -48,6 +46,7 @@ public class AcademicYearTest {
         this.year.getCircumscription(1);
         this.year.getCircumscription(2);
     }
+
     @Test(expected = AcademicYearException.class)
     public void checkAddCircumscription() throws AcademicYearException {
         Circumscription c = new Circumscription(1, 80, start, end);
