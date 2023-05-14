@@ -7,7 +7,9 @@ public class Grade {
 
     public Grade() {
     }
-
+    public Grade(Grade g) {
+        this.grade = g.grade;
+    }
     public int getGrade() {
         return grade;
     }
