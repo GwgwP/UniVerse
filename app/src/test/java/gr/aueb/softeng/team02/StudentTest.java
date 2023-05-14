@@ -2,6 +2,7 @@ package gr.aueb.softeng.team02;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertThrows;
 
 import org.junit.Before;
@@ -48,6 +49,12 @@ public class StudentTest {
         assertEquals(65, this.student.getTotalEcts());
 
     }
+    @Test
+    public void chech_DEF_constr()
+    {
+        Student stud =  new Student();
+        assertNull(stud.getName());
+    }
 
     @Test
     public void check_semesters_and_averages_per_semester() throws Exception {
@@ -83,7 +90,6 @@ public class StudentTest {
 
 
     }
-
 
     @Test()
     public void checkExceptions() throws StudentException {
