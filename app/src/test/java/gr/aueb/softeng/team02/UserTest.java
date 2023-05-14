@@ -1,0 +1,33 @@
+package gr.aueb.softeng.team02;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
+import static org.junit.Assert.*;
+import java.util.Date;
+
+public class UserTest {
+    private Student us;
+    private Student rs;
+
+    @Before
+    public void setUp() {
+        this.us = new Student(1, "Lydiacwall", "kk", "Lydia", "Wallace", 7);
+        this.rs = new Student();
+    }
+
+    @Test
+    public void checkGetterSetters() {
+        this.rs.setUsername("Gwgwpet");
+        this.rs.setPassword("pi");
+        this.rs.setId(2);
+        this.rs.setName("Gwgw");
+        this.rs.setSurname("Petsa");
+
+        assertNotEquals(this.rs.getPassword(), this.us.getPassword());
+        assertNotEquals(this.rs.getUsername(), this.us.getUsername());
+        assertNotEquals(this.rs.getName(), this.us.getName());
+        assertNotEquals(this.rs.getSurname(), this.us.getSurname());
+        assertNotEquals(this.rs.getId(), this.us.getId());
+    }
+}

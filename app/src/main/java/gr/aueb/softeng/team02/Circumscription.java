@@ -23,7 +23,7 @@ public class Circumscription {
         return this.ects;
     }
 
-    public void setSemester(int semester) {
+    public void setSemester(int semester) throws Exception {
         this.semester = semester;
     }
 

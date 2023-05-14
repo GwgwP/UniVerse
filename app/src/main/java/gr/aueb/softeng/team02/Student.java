@@ -10,6 +10,8 @@ public class Student extends User {
     private int totalEcts;
     private Map<Integer, Double> avgPerSemester;
 
+    public Student() {}
+
     public Student(int id, String username, String password, String name, String surname, int semester) {
         super(id, username, password, name, surname);
         this.semester = semester;

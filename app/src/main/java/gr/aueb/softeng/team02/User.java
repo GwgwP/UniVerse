@@ -16,7 +16,8 @@ public abstract class User {
         this.name = name;
         this.surname = surname;
     }
-    public User(){}
+
+    public User() {}
 
     public int getId() {
         return id;

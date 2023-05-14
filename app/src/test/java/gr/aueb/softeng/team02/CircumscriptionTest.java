@@ -29,7 +29,7 @@ public class CircumscriptionTest {
     }
 
     @Test
-    public void checkSetters() {
+    public void checkSetters() throws Exception {
         this.c.setSemester(1);
         this.c.setEcts(40);
         this.c.setEnd(new Date(2024, 9, 18));
@@ -41,7 +41,7 @@ public class CircumscriptionTest {
         assertEquals(this.c.getEcts(), 40);
     }
     @Test
-    public void TestCheckValidity() {
+    public void TestCheckValidity() throws Exception {
         assertTrue(this.c.checkValidity());
 
         this.c.setSemester(0);

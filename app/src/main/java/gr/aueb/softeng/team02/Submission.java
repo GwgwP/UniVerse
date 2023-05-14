@@ -37,7 +37,9 @@ public class Submission {
         return semester;
     }
 
-    public void setSemester(int semester) {
+    public void setSemester(int semester) throws Exception {
+        if (semester > 8 || semester < 1)
+            throw new Exception("Invalid value of semester");
         this.semester = semester;
     }
 

@@ -39,13 +39,15 @@ public class OfferedSubject {
         return semester;
     }
 
-    public void setSemester(int semester) {
+    public void setSemester(int semester) throws Exception {
+        if (semester > 8 || semester < 1) {
+            throw new Exception("Invalid value of semester");
+        }
         this.semester = semester;
     }
 
-    public void setGrade(int grade) {
-        this.grade = new Grade();
-        this.grade.setGrade(grade);
+    public void setGrade(Grade grade) {
+        this.grade = new Grade(grade);
     }
 
     public Grade getGrade() {

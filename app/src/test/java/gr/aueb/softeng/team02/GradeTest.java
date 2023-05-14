@@ -18,6 +18,12 @@ public class GradeTest {
     }
 
     @Test
+    public void checkCopyConstructor() {
+        Grade testGrade = new Grade(this.grade);
+        Assert.assertEquals(this.grade, testGrade);
+    }
+
+    @Test
     public void checkEquals() {
         Grade grade1 = new Grade();
         grade1.setGrade(10);
