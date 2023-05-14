@@ -44,7 +44,8 @@ public class OfferedSubject {
     }
 
     public void setGrade(int grade) {
-        this.grade = new Grade(grade);
+        this.grade = new Grade();
+        this.grade.setGrade(grade);
     }
 
     public Grade getGrade() {

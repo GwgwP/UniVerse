@@ -8,12 +8,11 @@ public class Circumscription {
     private Date start;
     private Date end;
 
-    public Circumscription() {
-    }
-
-    public Circumscription(int semester, int ects) {
+    public Circumscription(int semester, int ects, Date start, Date end) {
         this.ects = ects;
         this.semester = semester;
+        this.start = start;
+        this.end = end;
     }
 
     public void setEcts(int ects) {
@@ -24,7 +23,7 @@ public class Circumscription {
         return this.ects;
     }
 
-    public void setSemester(int Semester) {
+    public void setSemester(int semester) {
         this.semester = semester;
     }
 
@@ -49,23 +48,6 @@ public class Circumscription {
     }
 
     public boolean checkValidity() {
-        return this.ects >= 30 && this.ects <= 130 && this.semester > 0 && this.semester <= 8;
+        return this.ects >= 30 && this.ects <= 130 && this.semester >= 1 && this.semester <= 8;
     }
-
-//    @Override
-//    public boolean equals(Object other) {
-//        if (other == null) {
-//            return false;
-//        }
-//
-//        if (this == other) {
-//            return true;
-//        }
-//
-//        if (!(other instanceof Circumscription)) {
-//            return false;
-//        }
-//
-//        return this.semester == ((Circumscription) other).semester;
-//    }
 }
