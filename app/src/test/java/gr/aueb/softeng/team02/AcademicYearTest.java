@@ -3,7 +3,9 @@ package gr.aueb.softeng.team02;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
+
 import static org.junit.Assert.*;
+
 import java.util.Date;
 
 public class AcademicYearTest {
@@ -36,6 +38,9 @@ public class AcademicYearTest {
 
         yearTest = null;
         assertNotEquals(this.year, yearTest);
+
+        yearTest = new AcademicYear();
+        assertNotEquals(yearTest, this.year);
     }
 
     /*Check AddCircumscription*/
@@ -50,7 +55,9 @@ public class AcademicYearTest {
     @Test(expected = AcademicYearException.class)
     public void checkAddCircumscription() throws AcademicYearException {
         Circumscription c = new Circumscription(1, 80, start, end);
+
         this.year.addCircumscription(c);
+
         Circumscription c1 = new Circumscription(1, 90, start, end);
         Circumscription finalC = c1;
         Assertions.assertThrows(AcademicYearException.class, () -> {
@@ -64,15 +71,10 @@ public class AcademicYearTest {
         this.year.addCircumscription(c3);
     }
 
-    @Test(expected = AcademicYearException.class)
-    public void checkAddCircumscriptionException() throws AcademicYearException {
-        Circumscription c1 = new Circumscription(2, 90, start, end);
-        this.year.addCircumscription(c1);
-        this.year.addCircumscription(c1);
-    }
 
     @Test(expected = AcademicYearException.class)
     public void checkSetYear() throws AcademicYearException {
+        this.year = new AcademicYear();
         Assertions.assertThrows(AcademicYearException.class, () -> {
             this.year.setAc_year(null);
         });

@@ -48,7 +48,6 @@ public class GradeTest {
 
     @Test(expected = RuntimeException.class)
     public void checkSetters() throws RuntimeException {
-        this.grade.setGrade(9);
         this.grade.setGrade(-1);
     }
 }

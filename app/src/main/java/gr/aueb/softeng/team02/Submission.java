@@ -57,7 +57,7 @@ public class Submission {
         this.chosenSub.add(sub);
     }
 
-    private int calculateECTS() {
+    public int calculateECTS() {
         int sum = 0;
         for (OfferedSubject sub : this.chosenSub) {
             sum += sub.getEcts();

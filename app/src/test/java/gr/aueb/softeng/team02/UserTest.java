@@ -1,5 +1,6 @@
 package gr.aueb.softeng.team02;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.jupiter.api.Assertions;
@@ -29,5 +30,9 @@ public class UserTest {
         assertNotEquals(this.rs.getName(), this.us.getName());
         assertNotEquals(this.rs.getSurname(), this.us.getSurname());
         assertNotEquals(this.rs.getId(), this.us.getId());
+
+        // Check Secretary
+        Secretary sec = new Secretary();
+        Assert.assertNotNull(sec);
     }
 }

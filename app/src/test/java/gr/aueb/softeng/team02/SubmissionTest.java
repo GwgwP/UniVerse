@@ -73,6 +73,20 @@ public class SubmissionTest {
 
     @Test
     public void checkCalculateEcts() throws Exception {
-        //TODO
+        Assert.assertEquals(this.submission.calculateECTS(), 0);
+
+        Subject subject2 = new Subject(1234, "Giannis Parios", 10, "introduction to robotics", "Robotics");
+        Subject subject3 = new Subject(2543, "Mohamed Ali", 5, "introduction to aa", "aaa");
+
+        OfferedSubject sub1 = new OfferedSubject(6);
+        OfferedSubject sub2 = new OfferedSubject(6);
+
+        sub1.setSub(subject2);
+        sub2.setSub(subject3);
+
+        this.submission.setChosenSub(sub1);
+        this.submission.setChosenSub(sub2);
+
+        Assert.assertEquals(this.submission.calculateECTS(), 15);
     }
 }

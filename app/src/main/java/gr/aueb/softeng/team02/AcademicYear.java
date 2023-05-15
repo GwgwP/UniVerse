@@ -7,6 +7,9 @@ public class AcademicYear {
     private String ac_year;
     private Map<Integer, Circumscription> circList;
 
+    public AcademicYear() {
+        this.circList = new HashMap<>();
+    }
     public AcademicYear(String ac_year) {
         this.ac_year = ac_year;
         this.circList = new HashMap<Integer, Circumscription>();
@@ -53,6 +56,8 @@ public class AcademicYear {
         if (this == other)
             return true;
         if (!(other instanceof AcademicYear))
+            return false;
+        if (this.ac_year == null)
             return false;
         AcademicYear year = (AcademicYear) other;
         return (this.ac_year.equals(year.ac_year));

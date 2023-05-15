@@ -16,9 +16,7 @@ public class StudentTest {
 
     @Before
     public void setUp() {
-
         this.student = new Student(3200155, "gepap", "12345", "Georgios", "Papadopoulos", 2);
-
     }
 
     @Test
@@ -28,7 +26,6 @@ public class StudentTest {
         this.student.setAvg(9);
         this.student.setNumPassed(9);
         this.student.setTotalEcts(45);
-
 
         //the student passes another subject
         this.student.updateAvg(10, 1);
@@ -49,10 +46,10 @@ public class StudentTest {
         assertEquals(65, this.student.getTotalEcts());
 
     }
+
     @Test
-    public void chech_DEF_constr()
-    {
-        Student stud =  new Student();
+    public void checkDEFConstr() {
+        Student stud = new Student();
         assertNull(stud.getName());
     }
 
@@ -68,7 +65,6 @@ public class StudentTest {
         //updating the average
         this.student.setAvgPerSemester(2, 10);
 
-
         //update & check the semester of the old student
         this.student.setSemester(3);
         assertEquals(3, this.student.getSemester());
@@ -78,7 +74,6 @@ public class StudentTest {
         newStudent.setSemester(8);
         assertEquals(8, newStudent.getSemester());
         newStudent.setAvgPerSemester(8, 5.5);
-
 
         //checking averages for the 2 semesters on the old student
         assertEquals(10, this.student.getAvgBySpecificSemester(2), 0);
@@ -93,9 +88,14 @@ public class StudentTest {
 
     @Test()
     public void checkExceptions() throws StudentException {
-        assertThrows(Exception.class, () -> {
+        assertThrows(StudentException.class, () -> {
             this.student.getAvgBySpecificSemester(0);
-
+        });
+        assertThrows(StudentException.class, () -> {
+            this.student.setAvgPerSemester(0, 9);
+        });
+        assertThrows(StudentException.class, () -> {
+            this.student.setAvgPerSemester(9, 8);
         });
     }
 

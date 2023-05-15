@@ -18,7 +18,9 @@ public class Student extends User {
         this.avgPerSemester = new HashMap<>();
     }
 
-    public void setAvgPerSemester(int semester, double avg) {
+    public void setAvgPerSemester(int semester, double avg) throws StudentException {
+        if (semester > 8 || semester < 1)
+            throw new StudentException("Invalid semester");
         this.avgPerSemester.put(semester, avg);
     }
 
