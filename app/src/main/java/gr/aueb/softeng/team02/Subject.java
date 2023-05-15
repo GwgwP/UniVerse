@@ -23,8 +23,9 @@ public class Subject {
         return this.prerequisities;
     }
 
-    public void addPrerequisities(Subject sub) {
-        this.prerequisities.add(sub);
+    public void addPrerequisities(Subject sub) throws Exception {
+        if (!this.prerequisities.add(sub))
+            throw new Exception("Already in the set");
     }
 
     public int getId() {
@@ -68,7 +69,6 @@ public class Subject {
     }
 
     public boolean checkFields() {
-        // TODO Check if there are others parameters to check for every variable
         // Eg : if ects >= 30 & ects < = limit
         return this.title != null && this.desc != null && this.ects > 0 && this.professor != null && this.id > 0;
     }
@@ -86,14 +86,13 @@ public class Subject {
         if (!(other instanceof Subject)) {
             return false;
         }
-        //TODO: Check if there are other parameters to check the equality between two objects
+
         Subject subject = (Subject) other;
         return this.id == subject.id;
     }
 
     @Override
     public int hashCode() {
-        // TODO Check if it is needed and how
         return this.id;
     }
 }

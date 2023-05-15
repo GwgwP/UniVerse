@@ -22,10 +22,13 @@ public class CircumscriptionTest {
 
     @Test
     public void checkGetters() {
-        this.c.getEcts();
+        Assert.assertEquals(this.c.getEcts(), 60);
         this.c.getSemester();
+        Assert.assertEquals(this.c.getSemester(), 6);
         this.c.getEnd();
+        Assert.assertEquals(this.c.getStart(), start);
         this.c.getStart();
+        Assert.assertEquals(this.c.getEnd(), end);
     }
 
     @Test

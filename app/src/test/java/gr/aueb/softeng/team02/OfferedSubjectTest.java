@@ -31,7 +31,12 @@ public class OfferedSubjectTest {
             this.subject.setSemester(0);
         });
 
+        Assert.assertThrows(Exception.class, () -> {
+            this.subject.setSemester(9);
+        });
+
         this.subject.setSemester(7);
+
         this.grade.setGrade(7);
 
         this.subject.setGrade(this.grade);
@@ -39,6 +44,11 @@ public class OfferedSubjectTest {
         this.subject.setSub(this.sub);
 
         this.subject.setYear(this.year);
+
+        AcademicYear yeartest = new AcademicYear();
+        Assert.assertThrows(Exception.class, () -> {
+            this.subject.setYear(yeartest);
+        });
     }
 
     @Test

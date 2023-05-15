@@ -23,7 +23,9 @@ public class OfferedSubject {
         return this.year;
     }
 
-    public void setYear(AcademicYear year) {
+    public void setYear(AcademicYear year) throws Exception {
+        if (year.getAc_year() == null)
+            throw new Exception("Year has not been initialized");
         this.year = year;
     }
 
