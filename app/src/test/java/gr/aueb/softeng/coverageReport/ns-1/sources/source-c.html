@@ -1,0 +1,201 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Subject</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">gr.aueb.softeng.team02</a>
+</div>
+
+<h1>Coverage Summary for Class: Subject (gr.aueb.softeng.team02)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Subject</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (16/16)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (30/30)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package gr.aueb.softeng.team02;
+&nbsp;
+&nbsp;import java.util.*;
+&nbsp;
+&nbsp;public class Subject {
+&nbsp;    private int id;
+&nbsp;    private String professor;
+&nbsp;    private int ects;
+&nbsp;    private String desc;
+&nbsp;    private String title;
+&nbsp;    private Set&lt;Subject&gt; prerequisities;
+&nbsp;
+<b class="fc">&nbsp;    public Subject(int id, String professor, int ects, String desc, String title) {</b>
+<b class="fc">&nbsp;        this.id = id;</b>
+<b class="fc">&nbsp;        this.professor = professor;</b>
+<b class="fc">&nbsp;        this.ects = ects;</b>
+<b class="fc">&nbsp;        this.desc = desc;</b>
+<b class="fc">&nbsp;        this.title = title;</b>
+<b class="fc">&nbsp;        this.prerequisities = new HashSet&lt;&gt;();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Set&lt;Subject&gt; getPrerequisities() {
+<b class="fc">&nbsp;        return this.prerequisities;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void addPrerequisities(Subject sub) throws Exception {
+<b class="fc">&nbsp;        if (!this.prerequisities.add(sub))</b>
+<b class="fc">&nbsp;            throw new Exception(&quot;Already in the set&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getId() {
+<b class="fc">&nbsp;        return this.id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setId(int id) {
+<b class="fc">&nbsp;        this.id = id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getProfessor() {
+<b class="fc">&nbsp;        return this.professor;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setProfessor(String professor) {
+<b class="fc">&nbsp;        this.professor = professor;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getECTS() {
+<b class="fc">&nbsp;        return this.ects;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setECTS(int ects) {
+<b class="fc">&nbsp;        this.ects = ects;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getDesc() {
+<b class="fc">&nbsp;        return this.desc;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setDesc(String desc) {
+<b class="fc">&nbsp;        this.desc = desc;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getTitle() {
+<b class="fc">&nbsp;        return this.title;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setTitle(String title) {
+<b class="fc">&nbsp;        this.title = title;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean checkFields() {
+&nbsp;        // Eg : if ects &gt;= 30 &amp; ects &lt; = limit
+<b class="fc">&nbsp;        return this.title != null &amp;&amp; this.desc != null &amp;&amp; this.ects &gt; 0 &amp;&amp; this.professor != null &amp;&amp; this.id &gt; 0;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean equals(Object other) {
+<b class="fc">&nbsp;        if (other == null) {</b>
+<b class="fc">&nbsp;            return false;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        if (this == other) {</b>
+<b class="fc">&nbsp;            return true;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        if (!(other instanceof Subject)) {</b>
+<b class="fc">&nbsp;            return false;</b>
+&nbsp;        }
+&nbsp;
+<b class="fc">&nbsp;        Subject subject = (Subject) other;</b>
+<b class="fc">&nbsp;        return this.id == subject.id;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+<b class="fc">&nbsp;        return this.id;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-05-15 22:34</div>
+</div>
+</body>
+</html>

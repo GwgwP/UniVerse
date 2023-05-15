@@ -1,0 +1,182 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Student</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">gr.aueb.softeng.team02</a>
+</div>
+
+<h1>Coverage Summary for Class: Student (gr.aueb.softeng.team02)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Student</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (15/15)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (22/22)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package gr.aueb.softeng.team02;
+&nbsp;
+&nbsp;import java.util.*;
+&nbsp;
+&nbsp;public class Student extends User {
+&nbsp;    private int semester;
+&nbsp;    private double avg;
+&nbsp;    private int numPassed;
+&nbsp;
+&nbsp;    private int totalEcts;
+&nbsp;    private Map&lt;Integer, Double&gt; avgPerSemester;
+&nbsp;
+<b class="fc">&nbsp;    public Student() {}</b>
+&nbsp;
+&nbsp;    public Student(int id, String username, String password, String name, String surname, int semester) {
+<b class="fc">&nbsp;        super(id, username, password, name, surname);</b>
+<b class="fc">&nbsp;        this.semester = semester;</b>
+<b class="fc">&nbsp;        this.avgPerSemester = new HashMap&lt;&gt;();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setAvgPerSemester(int semester, double avg) throws StudentException {
+<b class="fc">&nbsp;        if (semester &gt; 8 || semester &lt; 1)</b>
+<b class="fc">&nbsp;            throw new StudentException(&quot;Invalid semester&quot;);</b>
+<b class="fc">&nbsp;        this.avgPerSemester.put(semester, avg);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Map&lt;Integer, Double&gt; getAvgPerSemester() {
+<b class="fc">&nbsp;        return this.avgPerSemester;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Double getAvgBySpecificSemester(int semester) throws StudentException {
+<b class="fc">&nbsp;        if (this.getAvgPerSemester().get(semester) == null) {</b>
+<b class="fc">&nbsp;            throw new StudentException(&quot;nullSemester&quot;);</b>
+&nbsp;        } else {
+<b class="fc">&nbsp;            return this.avgPerSemester.get(semester);</b>
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    public double getAvg() {
+<b class="fc">&nbsp;        return this.avg;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setAvg(double avg) {
+<b class="fc">&nbsp;        this.avg = avg;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getNumPassed() {
+<b class="fc">&nbsp;        return this.numPassed;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setNumPassed(int numPassed) {
+<b class="fc">&nbsp;        this.numPassed = numPassed;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getTotalEcts() {
+<b class="fc">&nbsp;        return this.totalEcts;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setTotalEcts(int totalEcts) {
+<b class="fc">&nbsp;        this.totalEcts = totalEcts;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void updateAvg(double score, int passed) {
+<b class="fc">&nbsp;        this.avg = (this.avg * this.numPassed + score) / (this.numPassed + passed);</b>
+<b class="fc">&nbsp;        this.numPassed = this.numPassed + passed;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void updateEcts(int Ects) {
+<b class="fc">&nbsp;        this.totalEcts += Ects;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getSemester() {
+<b class="fc">&nbsp;        return semester;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setSemester(int semester) {
+<b class="fc">&nbsp;        this.semester = semester;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-05-15 22:34</div>
+</div>
+</body>
+</html>

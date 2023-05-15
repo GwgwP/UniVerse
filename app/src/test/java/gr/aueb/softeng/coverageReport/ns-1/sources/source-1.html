@@ -1,0 +1,173 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > AcademicYear</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">gr.aueb.softeng.team02</a>
+</div>
+
+<h1>Coverage Summary for Class: AcademicYear (gr.aueb.softeng.team02)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">AcademicYear</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (8/8)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (32/32)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package gr.aueb.softeng.team02;
+&nbsp;
+&nbsp;import java.util.*;
+&nbsp;import java.util.regex.Pattern;
+&nbsp;
+&nbsp;public class AcademicYear {
+&nbsp;    private String ac_year;
+&nbsp;    private Map&lt;Integer, Circumscription&gt; circList;
+&nbsp;
+<b class="fc">&nbsp;    public AcademicYear() {</b>
+<b class="fc">&nbsp;        this.circList = new HashMap&lt;&gt;();</b>
+&nbsp;    }
+<b class="fc">&nbsp;    public AcademicYear(String ac_year) {</b>
+<b class="fc">&nbsp;        this.ac_year = ac_year;</b>
+<b class="fc">&nbsp;        this.circList = new HashMap&lt;Integer, Circumscription&gt;();</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setAc_year(String ac_year) throws AcademicYearException {
+<b class="fc">&nbsp;        if (ac_year != null) {</b>
+<b class="fc">&nbsp;            String regex = &quot;\\d{4}-\\d{4}&quot;;</b>
+<b class="fc">&nbsp;            if (Pattern.matches(regex, ac_year)) {</b>
+<b class="fc">&nbsp;                this.ac_year = ac_year;</b>
+&nbsp;                return;
+&nbsp;            }
+&nbsp;        }
+<b class="fc">&nbsp;        throw new AcademicYearException(&quot;Invalid year&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public String getAc_year() {
+<b class="fc">&nbsp;        return ac_year;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void addCircumscription(Circumscription c) throws AcademicYearException {
+<b class="fc">&nbsp;        if (c != null) {</b>
+<b class="fc">&nbsp;            if (this.circList.get(c.getSemester()) != null)</b>
+<b class="fc">&nbsp;                throw new AcademicYearException(&quot;There is already a circumscription for this semester&quot;);</b>
+<b class="fc">&nbsp;            else if (c.checkValidity())</b>
+<b class="fc">&nbsp;                this.circList.put(c.getSemester(), c);</b>
+&nbsp;            else
+<b class="fc">&nbsp;                throw new AcademicYearException(&quot;Invalid circumscription&quot;);</b>
+&nbsp;        } else
+<b class="fc">&nbsp;            throw new AcademicYearException(&quot;Invalid circumscription&quot;);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Circumscription getCircumscription(int semester) throws AcademicYearException {
+<b class="fc">&nbsp;        if (this.circList.get(semester) == null)</b>
+<b class="fc">&nbsp;            throw new AcademicYearException(&quot;Circumscription of the: &quot; + semester + &quot;semester not found&quot;);</b>
+&nbsp;        else
+<b class="fc">&nbsp;            return this.circList.get(semester);</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public boolean equals(Object other) {
+<b class="fc">&nbsp;        if (other == null)</b>
+<b class="fc">&nbsp;            return false;</b>
+<b class="fc">&nbsp;        if (this == other)</b>
+<b class="fc">&nbsp;            return true;</b>
+<b class="fc">&nbsp;        if (!(other instanceof AcademicYear))</b>
+<b class="fc">&nbsp;            return false;</b>
+<b class="fc">&nbsp;        if (this.ac_year == null)</b>
+<b class="fc">&nbsp;            return false;</b>
+<b class="fc">&nbsp;        AcademicYear year = (AcademicYear) other;</b>
+<b class="fc">&nbsp;        return (this.ac_year.equals(year.ac_year));</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    @Override
+&nbsp;    public int hashCode() {
+<b class="fc">&nbsp;        return this.ac_year.hashCode();</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-05-15 22:34</div>
+</div>
+</body>
+</html>

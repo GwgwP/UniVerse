@@ -60,4 +60,7 @@ public class OfferedSubject {
         return this.sub.getECTS();
     }
 
+    public Subject getSubject() {
+        return this.sub;
+    }
 }

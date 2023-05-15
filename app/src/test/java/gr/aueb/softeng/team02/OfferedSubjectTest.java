@@ -72,8 +72,8 @@ public class OfferedSubjectTest {
 
         Assert.assertEquals(this.subject.getTitle(), this.sub.getTitle());
 
+        Assert.assertEquals(this.subject.getSubject(), this.sub);
         this.subject.setSemester(3);
         Assert.assertEquals(this.subject.getSemester(), 3);
-
     }
 }

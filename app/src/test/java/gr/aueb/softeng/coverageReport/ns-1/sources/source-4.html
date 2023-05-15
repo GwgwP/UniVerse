@@ -1,0 +1,156 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > Circumscription</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">gr.aueb.softeng.team02</a>
+</div>
+
+<h1>Coverage Summary for Class: Circumscription (gr.aueb.softeng.team02)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+</tr>
+<tr>
+  <td class="name">Circumscription</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (10/10)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (14/14)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package gr.aueb.softeng.team02;
+&nbsp;
+&nbsp;import java.util.Date;
+&nbsp;
+&nbsp;public class Circumscription {
+&nbsp;    private int ects;
+&nbsp;    private int semester;
+&nbsp;    private Date start;
+&nbsp;    private Date end;
+&nbsp;
+<b class="fc">&nbsp;    public Circumscription(int semester, int ects, Date start, Date end) {</b>
+<b class="fc">&nbsp;        this.ects = ects;</b>
+<b class="fc">&nbsp;        this.semester = semester;</b>
+<b class="fc">&nbsp;        this.start = start;</b>
+<b class="fc">&nbsp;        this.end = end;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setEcts(int ects) {
+<b class="fc">&nbsp;        this.ects = ects;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getEcts() {
+<b class="fc">&nbsp;        return this.ects;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setSemester(int semester) throws Exception {
+<b class="fc">&nbsp;        this.semester = semester;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public int getSemester() {
+<b class="fc">&nbsp;        return this.semester;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Date getStart() {
+<b class="fc">&nbsp;        return start;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setStart(Date start) {
+<b class="fc">&nbsp;        this.start = start;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public Date getEnd() {
+<b class="fc">&nbsp;        return end;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public void setEnd(Date end) {
+<b class="fc">&nbsp;        this.end = end;</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    public boolean checkValidity() {
+<b class="fc">&nbsp;        return this.ects &gt;= 30 &amp;&amp; this.ects &lt;= 130 &amp;&amp; this.semester &gt;= 1 &amp;&amp; this.semester &lt;= 8;</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2023-05-15 22:34</div>
+</div>
+</body>
+</html>
