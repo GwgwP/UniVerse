@@ -8,7 +8,8 @@ import static org.junit.Assert.assertThrows;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Date;
+import gr.aueb.softeng.team02.model.Student;
+import gr.aueb.softeng.team02.model.StudentException;
 
 public class StudentTest {
     private Student student;

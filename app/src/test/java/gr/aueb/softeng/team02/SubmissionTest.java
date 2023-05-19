@@ -4,6 +4,12 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import gr.aueb.softeng.team02.model.AcademicYear;
+import gr.aueb.softeng.team02.model.OfferedSubject;
+import gr.aueb.softeng.team02.model.Student;
+import gr.aueb.softeng.team02.model.Subject;
+import gr.aueb.softeng.team02.model.Submission;
+
 public class SubmissionTest {
     private Submission submission;
     private AcademicYear year;
@@ -34,15 +40,15 @@ public class SubmissionTest {
         this.submission.setStudent(this.student);
 
         Assert.assertThrows(Exception.class, () -> {
-            this.submission.setChosenSub(sub);
+            this.submission.addChosenSub(sub);
         });
 
         OfferedSubject test = new OfferedSubject(2);
 
-        submission.setChosenSub(test);
+        submission.addChosenSub(test);
 
         Assert.assertThrows(Exception.class, () -> {
-            this.submission.setChosenSub(test);
+            this.submission.addChosenSub(test);
         });
     }
 
@@ -60,12 +66,12 @@ public class SubmissionTest {
 
         OfferedSubject test = new OfferedSubject(2);
 
-        this.submission.setChosenSub(test);
+        this.submission.addChosenSub(test);
 
         Assert.assertEquals(this.submission.getChosenSub().size(), 1);
 
         Assert.assertThrows(Exception.class, () -> {
-            this.submission.setChosenSub(test);
+            this.submission.addChosenSub(test);
         });
 
         Assert.assertEquals(this.submission.getChosenSub().size(), 1);
@@ -84,8 +90,8 @@ public class SubmissionTest {
         sub1.setSub(subject2);
         sub2.setSub(subject3);
 
-        this.submission.setChosenSub(sub1);
-        this.submission.setChosenSub(sub2);
+        this.submission.addChosenSub(sub1);
+        this.submission.addChosenSub(sub2);
 
         Assert.assertEquals(this.submission.calculateECTS(), 15);
     }

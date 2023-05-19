@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02;
+package gr.aueb.softeng.team02.model;
 
 import java.util.Date;
 

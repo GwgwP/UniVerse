@@ -1,15 +1,19 @@
-package gr.aueb.softeng.team02;
-
-import java.util.ArrayList;
+package gr.aueb.softeng.team02.model;
 
 public class Grade {
     private int grade;
+    private Student stud;
+    private OfferedSubject subject;
 
     public Grade() {
     }
+
     public Grade(Grade g) {
+        this.stud = g.stud;
+        this.subject = g.subject;
         this.grade = g.grade;
     }
+
     public int getGrade() {
         return grade;
     }
@@ -21,8 +25,29 @@ public class Grade {
         this.grade = grade;
     }
 
+    public void setStudent(Student stud) {
+        this.stud = stud;
+    }
+
+    public int getStudentId() {
+        return this.stud.getId();
+    }
+
+    public AcademicYear getAcademicYear() {
+        return this.subject.getYear();
+    }
+
+    public void setSubject(OfferedSubject sub) {
+        this.subject = sub;
+    }
+
+    public OfferedSubject getSubject() {
+        return this.subject;
+    }
+
     @Override
     public boolean equals(Object other) {
+        // TODO CHECK IT LATER IF IT IS NEEDED
         if (other == null)
             return false;
         if (this == other)

@@ -13,8 +13,7 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import org.junit.Before;
-import org.junit.Test;
+import gr.aueb.softeng.team02.model.Subject;
 
 public class SubjectTest {
     private Subject subject;

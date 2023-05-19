@@ -8,6 +8,10 @@ import static org.junit.Assert.*;
 
 import java.util.Date;
 
+import gr.aueb.softeng.team02.model.AcademicYear;
+import gr.aueb.softeng.team02.model.AcademicYearException;
+import gr.aueb.softeng.team02.model.Circumscription;
+
 public class AcademicYearTest {
     private AcademicYear year;
     Date start;
@@ -50,6 +54,16 @@ public class AcademicYearTest {
         this.year.addCircumscription(c1);
         this.year.getCircumscription(1);
         this.year.getCircumscription(2);
+    }
+
+    @Test(expected = AcademicYearException.class)
+    public void checkgetEctstPerSemester() throws AcademicYearException{
+        Circumscription c1 = new Circumscription(1, 90, start, end);
+        this.year.addCircumscription(c1);
+        assertEquals(90, this.year.getEctsPerSemester(1));
+
+        // In case it doesnt exist
+        this.year.getEctsPerSemester(2);
     }
 
     @Test(expected = AcademicYearException.class)

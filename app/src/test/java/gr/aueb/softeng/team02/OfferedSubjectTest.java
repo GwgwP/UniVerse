@@ -3,11 +3,11 @@ package gr.aueb.softeng.team02;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.Assertions;
 
-import static org.junit.Assert.*;
-
-import java.util.Date;
+import gr.aueb.softeng.team02.model.AcademicYear;
+import gr.aueb.softeng.team02.model.Grade;
+import gr.aueb.softeng.team02.model.OfferedSubject;
+import gr.aueb.softeng.team02.model.Subject;
 
 public class OfferedSubjectTest {
     private OfferedSubject subject;
@@ -37,10 +37,6 @@ public class OfferedSubjectTest {
 
         this.subject.setSemester(7);
 
-        this.grade.setGrade(7);
-
-        this.subject.setGrade(this.grade);
-
         this.subject.setSub(this.sub);
 
         this.subject.setYear(this.year);
@@ -57,10 +53,6 @@ public class OfferedSubjectTest {
 
         this.subject.setYear(this.year);
         Assert.assertSame(this.subject.getYear(), this.year);
-
-        this.subject.setGrade(this.grade);
-        Assert.assertNotSame(this.subject.getGrade(), this.grade);
-        Assert.assertEquals(this.subject.getGrade(), this.grade);
 
         this.subject.setSub(this.sub);
 

@@ -1,14 +1,12 @@
-package gr.aueb.softeng.team02;
+package gr.aueb.softeng.team02.model;
 
 public class OfferedSubject {
     private Subject sub;
     private int semester;
-    private Grade grade;
     private AcademicYear year;
 
     public OfferedSubject(int semester) {
         this.semester = semester;
-        this.grade = null;
     }
 
     public void setSub(Subject sub) {
@@ -46,14 +44,6 @@ public class OfferedSubject {
             throw new Exception("Invalid value of semester");
         }
         this.semester = semester;
-    }
-
-    public void setGrade(Grade grade) {
-        this.grade = new Grade(grade);
-    }
-
-    public Grade getGrade() {
-        return this.grade;
     }
 
     public int getEcts() {

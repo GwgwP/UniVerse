@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02;
+package gr.aueb.softeng.team02.model;
 
 import java.util.*;
 import java.util.regex.Pattern;
@@ -47,6 +47,10 @@ public class AcademicYear {
             throw new AcademicYearException("Circumscription of the: " + semester + "semester not found");
         else
             return this.circList.get(semester);
+    }
+
+    public int getEctsPerSemester(int semester) throws AcademicYearException {
+        return this.getCircumscription(semester).getEcts();
     }
 
     @Override

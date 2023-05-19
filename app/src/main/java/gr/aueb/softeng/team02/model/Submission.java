@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02;
+package gr.aueb.softeng.team02.model;
 
 import java.util.*;
 
@@ -7,16 +7,16 @@ public class Submission {
     private AcademicYear year;
     private Student student;
     private int semester;
-    private Set<OfferedSubject> chosenSub;
+    private Set<OfferedSubject> chosenSubjects;
 
     public Submission() {
-        this.chosenSub = new HashSet<>();
+        this.chosenSubjects = new HashSet<>();
     }
     public Submission(AcademicYear year, int semester, Student student) {
         this.year = year;
         this.semester = semester;
         this.student = student;
-        this.chosenSub = new HashSet<OfferedSubject>();
+        this.chosenSubjects = new HashSet<OfferedSubject>();
     }
 
     public AcademicYear getAcademicYear() {
@@ -46,20 +46,25 @@ public class Submission {
     }
 
     public Set<OfferedSubject> getChosenSub() {
-        return chosenSub;
+        return chosenSubjects;
     }
 
-    public void setChosenSub(OfferedSubject sub) throws Exception {
+    public void addChosenSub(OfferedSubject sub) throws Exception {
         // If one subject is chosen, then it cannot be selected again. Implement it with UI
-        if (this.chosenSub.contains(sub) || sub == null) {
+        if (this.chosenSubjects.contains(sub) || sub == null) {
             throw new Exception();
         }
-        this.chosenSub.add(sub);
+        // calculate Ects
+        int sum = this.calculateECTS() + sub.getEcts();
+        int maxEcts = this.year.getEctsPerSemester(this.semester);
+
+        if (sum <= maxEcts)
+            this.chosenSubjects.add(sub);
     }
 
     public int calculateECTS() {
         int sum = 0;
-        for (OfferedSubject sub : this.chosenSub) {
+        for (OfferedSubject sub : this.chosenSubjects) {
             sum += sub.getEcts();
         }
         return sum;
