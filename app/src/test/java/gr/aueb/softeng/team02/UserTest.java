@@ -12,6 +12,7 @@ import gr.aueb.softeng.team02.model.Student;
 public class UserTest {
     private Student us;
     private Student rs;
+//mm
 
     @Before
     public void setUp() {
