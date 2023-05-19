@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02;
+package gr.aueb.softeng.team02.modelTest;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;

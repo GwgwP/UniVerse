@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02;
+package gr.aueb.softeng.team02.modelTest;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -28,7 +28,6 @@ public class GradeTest {
         this.sub.setSub(subject);
         this.grade.setStudent(this.student);
         this.grade.setSubject(this.sub);
-
     }
 
     @Test
@@ -63,7 +62,7 @@ public class GradeTest {
         Assert.assertEquals(this.grade.getAcademicYear(), new AcademicYear("2022-2023"));
         Assert.assertEquals(3200199, this.grade.getStudentId());
         Assert.assertEquals("SDAD", this.grade.getSubjectTitle());
-        this.sub.getSubject();
+        this.grade.getSubject();
     }
 
     @Test(expected = RuntimeException.class)
