@@ -60,6 +60,8 @@ public class Submission {
 
         if (sum <= maxEcts)
             this.chosenSubjects.add(sub);
+        else
+            throw new Exception("Number of ects exceeded the maximum");
     }
 
     public int calculateECTS() {

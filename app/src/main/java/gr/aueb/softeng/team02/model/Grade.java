@@ -45,6 +45,10 @@ public class Grade {
         return this.subject;
     }
 
+    public String getSubjectTitle() {
+        return this.subject.getTitle();
+    }
+
     @Override
     public boolean equals(Object other) {
         // TODO CHECK IT LATER IF IT IS NEEDED
