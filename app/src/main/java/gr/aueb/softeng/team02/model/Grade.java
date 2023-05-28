@@ -33,6 +33,8 @@ public class Grade {
         return this.stud.getId();
     }
 
+    public String getTitle() {return this.subject.getTitle(); }
+
     public AcademicYear getAcademicYear() {
         return this.subject.getYear();
     }
