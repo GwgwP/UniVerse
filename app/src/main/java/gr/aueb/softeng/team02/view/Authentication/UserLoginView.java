@@ -16,4 +16,7 @@ public interface UserLoginView {
 
     public void showErrorMessage(String title, String message);
 
+    public void studentLogin();
+    public void secretaryLogin();
+
 }

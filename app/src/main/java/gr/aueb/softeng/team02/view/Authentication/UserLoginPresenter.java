@@ -1,6 +1,7 @@
 package gr.aueb.softeng.team02.view.Authentication;
 
 import android.annotation.SuppressLint;
+import android.util.Log;
 
 import gr.aueb.softeng.team02.dao.SecretaryDAO;
 import gr.aueb.softeng.team02.dao.StudentDAO;
@@ -24,14 +25,27 @@ public class UserLoginPresenter {
         this.secretaries = secretaries;
     }
 
-    public User findUser(String username, String password) {
+    public int findUser(String username, String password) {
+        if (students == null) {
+            Log.e("DEBUGGER", "WHAT");
+        }
         Student student = students.findStudent(username, password);
         Secretary secretary = secretaries.findSecretary(username, password);
 
         if (student != null)
-            return student;
+            return 1;
+            //return student;
         if (secretary != null)
-            return secretary;
-        return null;
+            return 2;
+            // return secretary;
+        return 0;
+    }
+
+    public void secretaryLogin() {
+        view.secretaryLogin();
+    }
+
+    public void studentLogin() {
+        view.studentLogin();
     }
 }

@@ -1,5 +1,7 @@
 package gr.aueb.softeng.team02.memorydao;
 
+import android.util.Log;
+
 import java.util.HashSet;
 
 import gr.aueb.softeng.team02.dao.SecretaryDAO;
