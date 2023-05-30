@@ -9,12 +9,6 @@ import gr.aueb.softeng.team02.model.Subject;
 
 public abstract class Initializer {
 
-
-    static SecretaryDAO secretaryDAO;
-    static StudentDAO studentDAO;
-
-    static SubjectDAO subjectDao;
-
     //διαγράφουμε όλα τα δεδομένα στη βάση δεδομένων
     protected abstract void eraseData();
 
@@ -32,11 +26,7 @@ public abstract class Initializer {
         Secretary r1 = new Secretary(12345, "p12345", "0000", "Eusta8ios", "Xaralampidhs");
 
 
-        secretaryDAO.save(new Secretary(12345, "p12345", "0000", "Eusta8ios", "Xaralampidhs"));
-
-        subjectDao = new SubjectDAOMemory();
-        subjectDao.save(new Subject(123, "ak", 5, "alalal", "title"));
-
+        Subject b1 = new Subject(123, "ak", 5, "alalal", "title");
         getStudentDAO().save(s1);
         getStudentDAO().save(s2);
         getStudentDAO().save(s3);
