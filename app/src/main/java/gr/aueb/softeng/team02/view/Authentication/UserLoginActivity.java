@@ -8,6 +8,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Switch;
+import android.widget.Toast;
 
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
@@ -18,6 +21,9 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
     Button login;
     EditText name;
     EditText pass;
+    Switch role ;
+    ImageView firstX;
+    ImageView secondX;
 
     private UserLoginPresenter presenter;
     private Initializer init = new Initializer();
@@ -32,6 +38,12 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
         name = (EditText) findViewById(R.id.nameEditText);
         pass = (EditText) findViewById(R.id.passwordEditText);
         login = (Button) findViewById(R.id.logInButton);
+        role = (Switch) findViewById(R.id.roleSwitch);
+        firstX = (ImageView) findViewById(R.id.exfirImage);
+        secondX = findViewById(R.id.exsecImage);
+
+        firstX.setVisibility(View.GONE);
+        secondX.setVisibility(View.GONE);
 //
         // Define initializer & prepareData & presenter
         init.prepareData();
@@ -45,19 +57,37 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
             //Todo: if the user has not written in all the text boxes error symbols
             public void onClick(View view) { ///the button login was pressed and we take the two(later three) inputs
                 //Todo : take the input for the role (student or secretaty)
+                firstX.setVisibility(View.GONE);
+                secondX.setVisibility(View.GONE);
+
+
                 String username = getUsername();
                 String password = getPassword();
-                Log.e("DEBUGGER","username : "+ username +" and password "+password);
-                int user = presenter.findUser(username, password);
-                Log.e("DEBUGGER", String.valueOf(user));
-                switch (user) {
+
+
+                if(username.equals("")){
+                    firstX.setVisibility(View.VISIBLE);
+                    Toast.makeText(getApplicationContext(), "Please write your username ", Toast.LENGTH_SHORT).show();
+                }
+                if(password.equals("")){
+                    secondX.setVisibility(View.VISIBLE);
+                    Toast.makeText(getApplicationContext(), "Please write your password ", Toast.LENGTH_SHORT).show();
+                }
+
+               if(!(password.equals("")||username.equals(""))){
+                   Log.e("DEBUGGER","username : "+ username +" and password "+password);
+                   int user = presenter.findUser(username, password);
+                   Log.e("DEBUGGER", String.valueOf(user));
+
+                   switch (user) {
                     case 1:
                         presenter.studentLogin();
                         break;
                     case 2:
                         presenter.secretaryLogin();
                         break;
-                }
+                    }
+               }
             }
         });
     }
@@ -86,6 +116,10 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
     @Override
     public void secretaryLogin() {
 
+    }
+
+    public int getRole(){
+        return 0;
     }
 
 

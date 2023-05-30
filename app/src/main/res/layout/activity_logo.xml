@@ -3,33 +3,33 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.Logo">
+    android:layout_height="match_parent">
 
     <ImageView
-        android:id="@+id/LogoBackground"
-        android:layout_width="415dp"
-        android:layout_height="0dp"
-        android:scaleType="centerCrop"
-        android:theme="@style/Theme.AppCompat"
+        android:id="@+id/imageLogo"
+        android:layout_width="361dp"
+        android:layout_height="499dp"
+        android:contentDescription="@string/logImageDesc"
+        android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@tools:sample/backgrounds/scenic[1]" />
+        app:layout_constraintVertical_bias="0.241"
+        android:src="@drawable/logouniverse" />
 
-    <ImageButton
-        android:id="@+id/LogoButton"
-        android:layout_width="116dp"
-        android:layout_height="99dp"
-        android:layout_marginStart="16dp"
-        android:scaleType="centerInside"
+    <TextView
+        android:id="@+id/namesAll"
+        android:layout_width="271dp"
+        android:layout_height="40dp"
+
+        android:text="@string/creators"
+        android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.47"
-        app:layout_constraintStart_toStartOf="@+id/LogoBackground"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.515"
-        app:srcCompat="@drawable/ic_sports" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageLogo"
+        app:layout_constraintVertical_bias="0.494" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

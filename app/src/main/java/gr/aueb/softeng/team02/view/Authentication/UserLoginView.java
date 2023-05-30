@@ -19,4 +19,6 @@ public interface UserLoginView {
     public void studentLogin();
     public void secretaryLogin();
 
+    public int getRole();
+
 }
