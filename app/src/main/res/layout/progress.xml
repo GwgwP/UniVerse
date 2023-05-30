@@ -41,10 +41,10 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
-                android:paddingBottom="15"
+                android:paddingBottom="15dp"
                 android:text="@string/semester_1"
                 android:textColor="@color/purple_700"
-                android:textSize="23" />
+                android:textSize="23sp" />
 
             <TextView
                 android:id="@+id/average_1"
@@ -53,12 +53,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="0dp"
                 android:paddingEnd="40dp"
-                android:paddingBottom="10"
+                android:paddingBottom="10dp"
                 android:text="@string/a_g_1"
 
                 android:textAlignment="viewEnd"
 
-                android:textSize="13"
+                android:textSize="13sp"
                 tools:ignore="RtlSymmetry" />
 
             <ListView
@@ -71,10 +71,10 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
-                android:paddingBottom="15"
+                android:paddingBottom="15dp"
                 android:text="@string/semester2"
                 android:textColor="@color/purple_700"
-                android:textSize="23" />
+                android:textSize="23sp" />
 
             <TextView
                 android:id="@+id/average_2"
@@ -83,12 +83,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="0dp"
                 android:paddingEnd="40dp"
-                android:paddingBottom="10"
+                android:paddingBottom="10dp"
                 android:text="@string/a_g_2"
 
                 android:textAlignment="viewEnd"
 
-                android:textSize="13"
+                android:textSize="13sp"
                 tools:ignore="RtlSymmetry" />
 
             <ListView
@@ -101,10 +101,10 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
-                android:paddingBottom="15"
+                android:paddingBottom="15dp"
                 android:text="@string/semester3"
                 android:textColor="@color/purple_700"
-                android:textSize="23" />
+                android:textSize="23sp" />
 
             <TextView
                 android:id="@+id/average_3"
@@ -113,12 +113,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="0dp"
                 android:paddingEnd="40dp"
-                android:paddingBottom="10"
+                android:paddingBottom="10dp"
                 android:text="@string/a_g_3"
 
                 android:textAlignment="viewEnd"
 
-                android:textSize="13"
+                android:textSize="13sp"
                 tools:ignore="RtlSymmetry" />
 
             <ListView
@@ -131,10 +131,10 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
-                android:paddingBottom="15"
+                android:paddingBottom="15dp"
                 android:text="@string/semester__4"
                 android:textColor="@color/purple_700"
-                android:textSize="23" />
+                android:textSize="23sp" />
 
             <TextView
                 android:id="@+id/average_4"
@@ -143,12 +143,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="0dp"
                 android:paddingEnd="40dp"
-                android:paddingBottom="10"
+                android:paddingBottom="10dp"
                 android:text="@string/a_g_4"
 
                 android:textAlignment="viewEnd"
 
-                android:textSize="13"
+                android:textSize="13sp"
                 tools:ignore="RtlSymmetry" />
 
             <ListView
@@ -161,10 +161,10 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
-                android:paddingBottom="15"
+                android:paddingBottom="15dp"
                 android:text="@string/semester_5"
                 android:textColor="@color/purple_700"
-                android:textSize="23" />
+                android:textSize="23sp" />
 
             <TextView
                 android:id="@+id/average_5"
@@ -173,12 +173,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="0dp"
                 android:paddingEnd="40dp"
-                android:paddingBottom="10"
+                android:paddingBottom="10dp"
                 android:text="@string/a_g_5"
 
                 android:textAlignment="viewEnd"
 
-                android:textSize="13"
+                android:textSize="13sp"
                 tools:ignore="RtlSymmetry" />
 
             <ListView
@@ -191,10 +191,10 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
-                android:paddingBottom="15"
+                android:paddingBottom="15dp"
                 android:text="@string/semester_6"
                 android:textColor="@color/purple_700"
-                android:textSize="23" />
+                android:textSize="23sp" />
 
             <TextView
                 android:id="@+id/average_6"
@@ -203,12 +203,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="0dp"
                 android:paddingEnd="40dp"
-                android:paddingBottom="10"
+                android:paddingBottom="10dp"
                 android:text="@string/a_g_6"
 
                 android:textAlignment="viewEnd"
 
-                android:textSize="13"
+                android:textSize="13sp"
                 tools:ignore="RtlSymmetry" />
 
             <ListView
@@ -221,10 +221,10 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
-                android:paddingBottom="15"
+                android:paddingBottom="15dp"
                 android:text="@string/semester_7"
                 android:textColor="@color/purple_700"
-                android:textSize="23" />
+                android:textSize="23sp" />
 
             <TextView
                 android:id="@+id/average_7"
@@ -233,12 +233,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="0dp"
                 android:paddingEnd="40dp"
-                android:paddingBottom="10"
+                android:paddingBottom="10dp"
                 android:text="@string/a_g_7"
 
                 android:textAlignment="viewEnd"
 
-                android:textSize="13"
+                android:textSize="13sp"
                 tools:ignore="RtlSymmetry" />
 
             <ListView
@@ -251,10 +251,10 @@
                 android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginStart="10dp"
-                android:paddingBottom="15"
+                android:paddingBottom="15dp"
                 android:text="@string/semester_8"
                 android:textColor="@color/purple_700"
-                android:textSize="23" />
+                android:textSize="23sp" />
 
             <TextView
                 android:id="@+id/average_8"
@@ -263,12 +263,12 @@
                 android:layout_height="match_parent"
                 android:layout_marginStart="0dp"
                 android:paddingEnd="40dp"
-                android:paddingBottom="10"
+                android:paddingBottom="10dp"
                 android:text="@string/a_g_8"
 
                 android:textAlignment="viewEnd"
 
-                android:textSize="13"
+                android:textSize="13sp"
                 tools:ignore="RtlSymmetry" />
             <ListView
                 android:layout_width="match_parent"

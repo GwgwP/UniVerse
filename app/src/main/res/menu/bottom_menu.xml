@@ -1,25 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <item
-        android:id="@+id/home_nav"
+        android:id="@+id/homeFragment"
         android:title="Home"
         android:icon="@drawable/home_logo"/>
 
-
     <item
-        android:id="@+id/progress_nav"
+        android:id="@+id/progressFragment"
         android:title="Progress"
         android:icon="@drawable/progress_logo"/>
 
-
     <item
-        android:id="@+id/submission_nav"
+        android:id="@+id/submissionFragment"
         android:title="Submission"
         android:icon="@drawable/submission_icon"/>
 
     <item
-        android:id="@+id/search_nav"
+        android:id="@+id/searchFragment"
         android:title="Search"
-        android:icon="@drawable/search_logo"/>
-
+        android:icon="@drawable/search_logo" />
 </menu>
