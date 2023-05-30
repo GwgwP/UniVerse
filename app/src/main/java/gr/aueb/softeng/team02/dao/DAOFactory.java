@@ -48,4 +48,30 @@ public abstract class DAOFactory {
      * @return Το αντικείμενο DAO.
      */
     public abstract AcademicYearDAO getAcademicYearDAO();
+
+    /**
+     * Επιστρέφει το αντικείμενο για τη διεπαφή {@link SubjectDAO}.
+     *
+     * @return Το αντικείμενο DAO.
+     */
+    public abstract SubjectDAO getSubjectDAO();
+
+    /**
+     * Επιστρέφει το αντικείμενο για τη διεπαφή {@link GradeDAO}.
+     *
+     * @return Το αντικείμενο DAO.
+     */
+    public abstract GradeDAO getGradeDAO();
+    /**
+     * Επιστρέφει το αντικείμενο για τη διεπαφή {@link OfferedSubjectDAO}.
+     *
+     * @return Το αντικείμενο DAO.
+     */
+    public abstract OfferedSubjectDAO getOfferedSubjectDAO();
+    /**
+     * Επιστρέφει το αντικείμενο για τη διεπαφή {@link SubmissionDAO}.
+     *
+     * @return Το αντικείμενο DAO.
+     */
+    public abstract SubmissionDAO getSubmissionDAO();
 }

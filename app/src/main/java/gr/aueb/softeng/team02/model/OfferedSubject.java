@@ -53,4 +53,28 @@ public class OfferedSubject {
     public Subject getSubject() {
         return this.sub;
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == null) {
+            return false;
+        }
+
+        if (this == other) {
+            return true;
+        }
+
+        if (!(other instanceof OfferedSubject)) {
+            return false;
+        }
+
+        OfferedSubject subject = (OfferedSubject) other;
+        // check two conditions
+        /*
+        * Check two conditions for equality
+        * 1. Academic Year
+        * 2. Subject (title)
+        * !!! Not semester because we want an offered subject only once in the academic year !!!*/
+        return (this.year.equals(subject.getYear()) && this.sub.equals(subject.getSubject()));
+    }
 }

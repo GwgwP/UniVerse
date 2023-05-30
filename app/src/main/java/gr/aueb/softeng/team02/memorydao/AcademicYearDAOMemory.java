@@ -32,6 +32,6 @@ public class AcademicYearDAOMemory implements AcademicYearDAO {
 
     @Override
     public HashSet<AcademicYear> findAll() {
-        return entities;
+        return new HashSet<>(entities);
     }
 }

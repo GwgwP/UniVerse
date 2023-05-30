@@ -13,7 +13,7 @@ public class SecretaryDAOMemory implements SecretaryDAO {
 
     @Override
     public HashSet<Secretary> findAll() {
-        return entities;
+        return new HashSet<>(entities);
     }
 
     @Override

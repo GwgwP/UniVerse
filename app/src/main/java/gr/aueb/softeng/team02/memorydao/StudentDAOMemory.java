@@ -13,7 +13,7 @@ public class StudentDAOMemory implements StudentDAO {
 
     @Override
     public HashSet<Student> findAll() {
-        return entities;
+        return new HashSet<>(entities);
     }
 
     @Override

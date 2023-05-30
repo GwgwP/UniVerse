@@ -22,6 +22,7 @@ public class GradeDAOMemory implements GradeDAO {
         }
         return studentGrades;
     }
+
     @Override
     public Grade findBySubject(String title, int studentId) {
         for (Grade grade : this.entities) {
@@ -44,5 +45,8 @@ public class GradeDAOMemory implements GradeDAO {
             entities.add(entity);
     }
 
-
+    @Override
+    public Set<Grade> findAll() {
+        return new HashSet<>(entities);
+    }
 }

@@ -27,8 +27,8 @@ public class Submission {
         this.year = year;
     }
 
-    public Student getStudent() {
-        return this.student;
+    public int getStudentId() {
+        return this.student.getId();
     }
 
     public void setStudent(Student student) {
@@ -70,5 +70,18 @@ public class Submission {
             sum += sub.getEcts();
         }
         return sum;
+    }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == null)
+            return false;
+        if (this == other)
+            return true;
+        if (!(other instanceof Submission))
+            return false;
+
+        Submission sub = (Submission) other;
+        return (this.year.equals(((Submission) other).getAcademicYear()) && this.student.getId() == ((Submission) other).getStudentId() && this.semester == sub.semester);
     }
 }

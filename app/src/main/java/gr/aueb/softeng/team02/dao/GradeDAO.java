@@ -13,4 +13,6 @@ public interface GradeDAO {
 
     public void delete(Grade entity);
 
+    public Set<Grade> findAll();
+
 }

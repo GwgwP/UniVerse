@@ -18,6 +18,14 @@ public abstract class Initializer {
 
     public abstract AcademicYearDAO getAcademicYearDAO();
 
+    public abstract OfferedSubjectDAO getOfferedSubjectDAO();
+
+    public abstract SubjectDAO getSubjectSAO();
+
+    public abstract SubmissionDAO getSubmissionSAO();
+
+    public abstract GradeDAO getGradeDAO();
+
     public void prepareData() {
         Student s1 = new Student(3200125, "p3200125", "Irma", "Lydia-Christina", "Wallace", 6);
         Student s2 = new Student(3200155, "p3200155", "Well", "Georgia", "Petsa", 6);
@@ -25,8 +33,8 @@ public abstract class Initializer {
 
         Secretary r1 = new Secretary(12345, "p12345", "0000", "Eusta8ios", "Xaralampidhs");
 
-
         Subject b1 = new Subject(123, "ak", 5, "alalal", "title");
+
         getStudentDAO().save(s1);
         getStudentDAO().save(s2);
         getStudentDAO().save(s3);

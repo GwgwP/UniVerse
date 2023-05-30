@@ -8,7 +8,7 @@ public class SubjectDAOMemory implements SubjectDAO {
     ArrayList<Subject> entities = new ArrayList<>();
     @Override
     public List<Subject> findAll() {
-        return entities;
+        return new ArrayList<>(entities);
     }
 
     @Override

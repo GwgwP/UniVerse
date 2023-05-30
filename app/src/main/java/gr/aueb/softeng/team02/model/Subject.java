@@ -88,11 +88,12 @@ public class Subject {
         }
 
         Subject subject = (Subject) other;
-        return this.id == subject.id;
+        return subject.title.equals(((Subject) other).title);
     }
 
     @Override
     public int hashCode() {
         return this.id;
     }
+
 }
