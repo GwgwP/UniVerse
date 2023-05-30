@@ -2,6 +2,7 @@ package gr.aueb.softeng.team02.memorydao;
 
 import java.util.HashSet;
 
+import gr.aueb.softeng.team02.dao.AcademicYearDAO;
 import gr.aueb.softeng.team02.dao.DAOFactory;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.dao.SecretaryDAO;
@@ -32,5 +33,10 @@ public class MemoryInitializer extends Initializer {
     @Override
     public StudentDAO getStudentDAO() {
         return DAOFactory.getFactory().getStudentDAO();
+    }
+
+    @Override
+    public AcademicYearDAO getAcademicYearDAO() {
+        return DAOFactory.getFactory().getAcademicYearDAO();
     }
 }
