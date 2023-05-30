@@ -12,15 +12,9 @@ import gr.aueb.softeng.team02.R;
 
 public class HomeFragment extends Fragment {
 
-    public HomeFragment() {
-        super(R.layout.fragment_home);
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        // setHasOptionsMenu(true);
-    }
+//    public HomeFragment() {
+//        super(R.layout.fragment_home);
+//    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

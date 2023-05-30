@@ -11,8 +11,6 @@ import android.view.ViewGroup;
 import gr.aueb.softeng.team02.R;
 
 public class SubmissionFragment extends Fragment {
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

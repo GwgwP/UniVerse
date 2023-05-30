@@ -13,7 +13,7 @@
 
     <item
         android:id="@+id/submissionFragment"
-        android:title="Submission"
+        android:title="Submit"
         android:icon="@drawable/submission_icon"/>
 
     <item

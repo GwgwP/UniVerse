@@ -38,13 +38,15 @@ public class Home extends AppCompatActivity {
         searchFragment = new SearchFragment();
 
         // Set the initial fragment to be displayed
-        // replaceFragment(new HomeFragment());
+        replaceFragment(new HomeFragment());
+        // bottomNavigationView.setBackground(null);
 
         // Set up the bottom navigation view
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         // bottomNavigationView.setOnNavigationItemSelectedListener(this);
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
+            @SuppressLint("NonConstantResourceId")
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 switch (item.getItemId()) {
@@ -52,16 +54,19 @@ public class Home extends AppCompatActivity {
                         replaceFragment(new HomeFragment());
                         Log.e("DEBUGGER", "Home");
                         break;
-                    case R.id.submission_frag:
+                    case R.id.submissionFragment:
                         replaceFragment(new SubmissionFragment());
                         Log.e("DEBUGGER", "Submission");
                         break;
                     case R.id.progressFragment:
-                        // replaceFragment(new ProgressFragment());
-                        Log.e("DEBUGGER", "Progres");
+                        replaceFragment(new ProgressFragment());
+                        Log.e("DEBUGGER", "Progress");
+                        break;
+                    case R.id.searchFragment:
+                        replaceFragment(new SearchFragment());
                         break;
                 }
-                return false;
+                return true;
             }
         });
     }
@@ -69,42 +74,8 @@ public class Home extends AppCompatActivity {
     private void replaceFragment(Fragment fragment) {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
-        transaction.replace(R.id.homeFragment, fragment);
+        transaction.replace(R.id.frame_layout, fragment);
+        transaction.commit();
     }
-
-//    @Override
-//    public void onStart() {
-//        super.onStart();
-//
-//    }
-
-//    @Override
-//    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-//        Fragment selectedFragment = null;
-//
-//        switch (item.getItemId()) {
-//            case R.id.homeFragment:
-//                selectedFragment = homeFragment;
-//                break;
-//            case R.id.progress_frag:
-//                selectedFragment = progressFragment;
-//                break;
-//            case R.id.submission_frag:
-//                selectedFragment = submissionFragment;
-//                break;
-//            case R.id.search_frag:
-//                selectedFragment = searchFragment;
-//                break;
-//        }
-//
-//        if (selectedFragment != null) {
-//            FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-//            fragmentTransaction.replace(R.id.fragment, selectedFragment);
-//            fragmentTransaction.commit();
-//            return true;
-//        }
-//
-//        return false;
-//    }
 
 }

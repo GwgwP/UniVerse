@@ -12,8 +12,6 @@ import gr.aueb.softeng.team02.R;
 
 
 public class SearchFragment extends Fragment {
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

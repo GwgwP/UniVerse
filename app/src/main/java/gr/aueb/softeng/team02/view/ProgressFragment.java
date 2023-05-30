@@ -11,9 +11,6 @@ import android.view.ViewGroup;
 import gr.aueb.softeng.team02.R;
 
 public class ProgressFragment extends Fragment {
-    public ProgressFragment() {
-        super(R.layout.fragment_progress);
-    }
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
