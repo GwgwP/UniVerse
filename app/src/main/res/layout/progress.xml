@@ -1,6 +1,293 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
 
+    <TextView
+        android:id="@+id/progress_txt"
+        android:layout_width="148dp"
+        android:layout_height="59dp"
+        android:layout_marginTop="32dp"
+        android:text="Progress"
+        android:textColor="#2196F3"
+        android:textSize="34sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="378dp"
+        android:layout_height="623dp"
+        android:overScrollMode="never"
+        android:scrollbars="vertical"
+        tools:layout_editor_absoluteX="14dp"
+        tools:layout_editor_absoluteY="104dp">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/semester_one"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:paddingBottom="15"
+                android:text="@string/semester_1"
+                android:textColor="@color/purple_700"
+                android:textSize="23" />
+
+            <TextView
+                android:id="@+id/average_1"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:paddingEnd="40dp"
+                android:paddingBottom="10"
+                android:text="@string/a_g_1"
+
+                android:textAlignment="viewEnd"
+
+                android:textSize="13"
+                tools:ignore="RtlSymmetry" />
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/semester_two"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:paddingBottom="15"
+                android:text="@string/semester2"
+                android:textColor="@color/purple_700"
+                android:textSize="23" />
+
+            <TextView
+                android:id="@+id/average_2"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:paddingEnd="40dp"
+                android:paddingBottom="10"
+                android:text="@string/a_g_2"
+
+                android:textAlignment="viewEnd"
+
+                android:textSize="13"
+                tools:ignore="RtlSymmetry" />
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/semester_three"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:paddingBottom="15"
+                android:text="@string/semester3"
+                android:textColor="@color/purple_700"
+                android:textSize="23" />
+
+            <TextView
+                android:id="@+id/average_3"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:paddingEnd="40dp"
+                android:paddingBottom="10"
+                android:text="@string/a_g_3"
+
+                android:textAlignment="viewEnd"
+
+                android:textSize="13"
+                tools:ignore="RtlSymmetry" />
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/semester_four"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:paddingBottom="15"
+                android:text="@string/semester__4"
+                android:textColor="@color/purple_700"
+                android:textSize="23" />
+
+            <TextView
+                android:id="@+id/average_4"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:paddingEnd="40dp"
+                android:paddingBottom="10"
+                android:text="@string/a_g_4"
+
+                android:textAlignment="viewEnd"
+
+                android:textSize="13"
+                tools:ignore="RtlSymmetry" />
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/semester_five"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:paddingBottom="15"
+                android:text="@string/semester_5"
+                android:textColor="@color/purple_700"
+                android:textSize="23" />
+
+            <TextView
+                android:id="@+id/average_5"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:paddingEnd="40dp"
+                android:paddingBottom="10"
+                android:text="@string/a_g_5"
+
+                android:textAlignment="viewEnd"
+
+                android:textSize="13"
+                tools:ignore="RtlSymmetry" />
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/semester_six"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:paddingBottom="15"
+                android:text="@string/semester_6"
+                android:textColor="@color/purple_700"
+                android:textSize="23" />
+
+            <TextView
+                android:id="@+id/average_6"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:paddingEnd="40dp"
+                android:paddingBottom="10"
+                android:text="@string/a_g_6"
+
+                android:textAlignment="viewEnd"
+
+                android:textSize="13"
+                tools:ignore="RtlSymmetry" />
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/semester_seven"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:paddingBottom="15"
+                android:text="@string/semester_7"
+                android:textColor="@color/purple_700"
+                android:textSize="23" />
+
+            <TextView
+                android:id="@+id/average_7"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:paddingEnd="40dp"
+                android:paddingBottom="10"
+                android:text="@string/a_g_7"
+
+                android:textAlignment="viewEnd"
+
+                android:textSize="13"
+                tools:ignore="RtlSymmetry" />
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/semester_eight"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:layout_marginStart="10dp"
+                android:paddingBottom="15"
+                android:text="@string/semester_8"
+                android:textColor="@color/purple_700"
+                android:textSize="23" />
+
+            <TextView
+                android:id="@+id/average_8"
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="0dp"
+                android:paddingEnd="40dp"
+                android:paddingBottom="10"
+                android:text="@string/a_g_8"
+
+                android:textAlignment="viewEnd"
+
+                android:textSize="13"
+                tools:ignore="RtlSymmetry" />
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="94dp"
+        android:layout_height="89dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginBottom="11dp"
+        app:layout_constraintBottom_toTopOf="@+id/scrollView2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        tools:srcCompat="@tools:sample/avatars" />
 </androidx.constraintlayout.widget.ConstraintLayout>

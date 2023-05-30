@@ -7,5 +7,25 @@
     <string name="loginButton">Login</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="semester_1">Semester 1</string>
+    <string name="semester_2">Semester_2</string>
+    <string name="semester_3">semester_3</string>
+    <string name="semester2">semester 2</string>
+    <string name="semester3">Semester 3</string>
+    <string name="semester_4">semester_4</string>
+    <string name="semester4">Semester 4</string>
+    <string name="semester__4">Semester 4</string>
+    <string name="semester_5">Semester 5</string>
+    <string name="semester_6">Semester 6</string>
+    <string name="semester_7">Semester 7</string>
+    <string name="semester_8">Semester 8</string>
+    <string name="a_g_1">A.G 1:</string>
+    <string name="a_g_2">A.G 2:</string>
+    <string name="a_g_3">A.G 3:</string>
+    <string name="a_g_4">A.G 4:</string>
+    <string name="a_g_5">A.G 5:</string>
+    <string name="a_g_6">A.G 6:</string>
+    <string name="a_g_7">A.G 7:</string>
+    <string name="a_g_8">A.G 8:</string>
 
 </resources>

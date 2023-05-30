@@ -2,13 +2,17 @@ package gr.aueb.softeng.team02.dao;
 
 import gr.aueb.softeng.team02.memorydao.SecretaryDAOMemory;
 import gr.aueb.softeng.team02.memorydao.StudentDAOMemory;
+import gr.aueb.softeng.team02.memorydao.SubjectDAOMemory;
 import gr.aueb.softeng.team02.model.Secretary;
 import gr.aueb.softeng.team02.model.Student;
+import gr.aueb.softeng.team02.model.Subject;
 
 public class Initializer {
 
     static SecretaryDAO secretaryDAO;
     static StudentDAO studentDAO;
+
+    static SubjectDAO subjectDao;
     protected void eraseData() {
         for (Secretary secretary : secretaryDAO.findAll()) {
             getSecretaryDAO().delete(secretary);
@@ -36,5 +40,8 @@ public class Initializer {
         studentDAO.save(new Student(3200199, "p3200199", "Link", "Panagiotis", "Triantafillidis", 6));
 
         secretaryDAO.save(new Secretary(12345, "p12345", "0000", "Eusta8ios", "Xaralampidhs"));
+
+        subjectDao = new SubjectDAOMemory();
+        subjectDao.save(new Subject(123, "ak", 5, "alalal", "title"));
     }
 }
