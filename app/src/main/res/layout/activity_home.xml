@@ -28,6 +28,5 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:menu="@menu/bottom_nav_menu"
-
         />
 </RelativeLayout>
