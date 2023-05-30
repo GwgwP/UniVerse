@@ -14,6 +14,8 @@ public abstract class Initializer {
 
     public abstract StudentDAO getStudentDAO();
 
+    public abstract AcademicYearDAO getAcademicYearDAO();
+
     public void prepareData() {
         Student s1 = new Student(3200125, "p3200125", "Irma", "Lydia-Christina", "Wallace", 6);
         Student s2 = new Student(3200155, "p3200155", "Well", "Georgia", "Petsa", 6);
