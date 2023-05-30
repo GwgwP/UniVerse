@@ -1,13 +1,11 @@
 package gr.aueb.softeng.team02.view.Authentication;
 
-import android.annotation.SuppressLint;
 import android.util.Log;
 
 import gr.aueb.softeng.team02.dao.SecretaryDAO;
 import gr.aueb.softeng.team02.dao.StudentDAO;
 import gr.aueb.softeng.team02.model.Secretary;
 import gr.aueb.softeng.team02.model.Student;
-import gr.aueb.softeng.team02.model.User;
 
 public class UserLoginPresenter {
 
