@@ -6,7 +6,6 @@ import java.util.HashSet;
 
 import gr.aueb.softeng.team02.dao.StudentDAO;
 import gr.aueb.softeng.team02.model.Student;
-import gr.aueb.softeng.team02.model.User;
 
 public class StudentDAOMemory implements StudentDAO {
 
