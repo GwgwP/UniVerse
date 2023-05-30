@@ -62,10 +62,8 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
                 firstX.setVisibility(View.GONE);
                 secondX.setVisibility(View.GONE);
 
-
                 String username = getUsername();
                 String password = getPassword();
-
 
                 if(username.equals("")){
                     firstX.setVisibility(View.VISIBLE);

@@ -1,7 +1,6 @@
 package gr.aueb.softeng.team02.dao;
 
 import gr.aueb.softeng.team02.UniverseException;
-import gr.aueb.softeng.team02.model.AcademicYear;
 
 public abstract class DAOFactory {
     private static DAOFactory factory = null;

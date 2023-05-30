@@ -14,18 +14,9 @@ public abstract class Initializer {
     static StudentDAO studentDAO;
 
     static SubjectDAO subjectDao;
-    protected void eraseData() {
-        for (Secretary secretary : secretaryDAO.findAll()) {
-            getSecretaryDAO().delete(secretary);
-        }
-        for (Student student : studentDAO.findAll()) {
-            getStudentDAO().delete(student);
-        }
-    }
 
     //διαγράφουμε όλα τα δεδομένα στη βάση δεδομένων
     protected abstract void eraseData();
-
 
     public abstract SecretaryDAO getSecretaryDAO();
 
