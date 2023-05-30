@@ -9,7 +9,7 @@ import gr.aueb.softeng.team02.model.Secretary;
 
 public class SecretaryDAOMemory implements SecretaryDAO {
 
-    HashSet<Secretary> entities = new HashSet<>();
+    protected HashSet<Secretary> entities = new HashSet<>();
 
     @Override
     public HashSet<Secretary> findAll() {

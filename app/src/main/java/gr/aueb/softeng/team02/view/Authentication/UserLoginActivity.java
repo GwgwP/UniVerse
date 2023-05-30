@@ -14,6 +14,7 @@ import android.widget.Toast;
 
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
+import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 import gr.aueb.softeng.team02.view.Home;
 
 public class UserLoginActivity extends AppCompatActivity implements UserLoginView {
@@ -26,7 +27,7 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
     ImageView secondX;
 
     private UserLoginPresenter presenter;
-    private Initializer init = new Initializer();
+    private Initializer init;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,6 +47,7 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
         secondX.setVisibility(View.GONE);
 //
         // Define initializer & prepareData & presenter
+        init = new MemoryInitializer();
         init.prepareData();
         presenter = new UserLoginPresenter(this, init.getStudentDAO(), init.getSecretaryDAO());
     }
@@ -121,6 +123,5 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
     public int getRole(){
         return 0;
     }
-
 
 }
