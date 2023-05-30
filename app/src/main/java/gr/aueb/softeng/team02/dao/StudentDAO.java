@@ -2,6 +2,7 @@ package gr.aueb.softeng.team02.dao;
 import java.util.HashSet;
 
 import gr.aueb.softeng.team02.model.*;
+import gr.aueb.softeng.team02.model.Student;
 
 public interface StudentDAO {
     public HashSet<Student> findAll();
