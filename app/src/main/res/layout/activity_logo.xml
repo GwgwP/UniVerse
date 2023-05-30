@@ -7,22 +7,25 @@
 
     <ImageView
         android:id="@+id/imageLogo"
-        android:layout_width="361dp"
-        android:layout_height="499dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:contentDescription="@string/logImageDesc"
         android:scaleType="fitCenter"
+        android:src="@drawable/logouniverse"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent=".8"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.241"
-        android:src="@drawable/logouniverse" />
+        app:layout_constraintWidth_percent=".8" />
 
     <TextView
         android:id="@+id/namesAll"
-        android:layout_width="271dp"
-        android:layout_height="40dp"
-
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintWidth_percent=".6"
+        app:layout_constraintHeight_percent=".4"
         android:text="@string/creators"
         android:textAlignment="center"
         app:layout_constraintBottom_toBottomOf="parent"
