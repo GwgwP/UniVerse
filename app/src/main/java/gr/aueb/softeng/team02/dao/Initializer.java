@@ -42,9 +42,15 @@ public abstract class Initializer {
 
         getSecretaryDAO().save(r1);
 
+        //TODO periorismous
+
         AcademicYear y1 = new AcademicYear("2022-2023");
         AcademicYear y2 = new AcademicYear("2021-2022");
         getAcademicYearDAO().save(y1);
         getAcademicYearDAO().save(y2);
+
+        //TODO mathimata
+
+
     }
 }
