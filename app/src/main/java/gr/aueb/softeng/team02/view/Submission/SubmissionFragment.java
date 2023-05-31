@@ -67,7 +67,7 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
 
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
-
+                spinner.setPrompt("Select Academic Year");
             }
         });
 
