@@ -17,11 +17,20 @@ public class StudentDAOMemory implements StudentDAO {
     }
 
     @Override
-    public Student findStudent(String username, String password) {
+    public Student findStudentByUsernameAndPassword(String username, String password) {
         Log.e("DEBUGGER", "here");
         for (Student student : this.entities) {
             Log.e("DEBUGGER", student.getUsername());
             if (student.getUsername().equals(username) && student.getPassword().equals(password))
+                return student;
+        }
+        return null;
+    }
+
+    @Override
+    public Student findStudentById(int id) {
+        for (Student student : this.entities) {
+            if (student.getId() == id)
                 return student;
         }
         return null;

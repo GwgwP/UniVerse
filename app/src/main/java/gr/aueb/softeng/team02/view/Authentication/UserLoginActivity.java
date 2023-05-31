@@ -12,9 +12,14 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import java.util.Map;
+
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
+import gr.aueb.softeng.team02.model.Secretary;
+import gr.aueb.softeng.team02.model.Student;
+import gr.aueb.softeng.team02.model.User;
 import gr.aueb.softeng.team02.view.Home;
 
 public class UserLoginActivity extends AppCompatActivity implements UserLoginView {
@@ -75,16 +80,16 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
                 }
 
                if(!(password.equals("")||username.equals(""))){
-                   Log.e("DEBUGGER","username : "+ username +" and password "+password);
-                   int user = presenter.findUser(username, password);
-                   Log.e("DEBUGGER", String.valueOf(user));
+                   // Log.e("DEBUGGER","username : "+ username +" and password "+password);
+                   Map.Entry<Integer, User> user = presenter.findUser(username, password);
+                   // Log.e("DEBUGGER", String.valueOf(user.getKey()));
 
-                   switch (user) {
+                   switch (user.getKey()) {
                     case 1:
-                        presenter.studentLogin();
+                        presenter.studentLogin(user.getValue().getId());
                         break;
                     case 2:
-                        presenter.secretaryLogin();
+                        presenter.secretaryLogin(user.getValue().getId());
                         break;
                     }
                }
@@ -108,13 +113,14 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
     }
 
     @Override
-    public void studentLogin() {
+    public void studentLogin(int id) {
         Intent userActivityScreen = new Intent(getApplicationContext(), Home.class);
+        // userActivityScreen.putExtra(Home.STUDENT_ID, id);
         startActivity(userActivityScreen);
     }
 
     @Override
-    public void secretaryLogin() {
+    public void secretaryLogin(int id) {
 
     }
 

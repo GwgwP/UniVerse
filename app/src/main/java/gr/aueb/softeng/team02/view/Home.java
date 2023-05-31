@@ -2,7 +2,7 @@ package gr.aueb.softeng.team02.view;
 
 
 import android.annotation.SuppressLint;
-import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -18,28 +18,37 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import gr.aueb.softeng.team02.R;
+import gr.aueb.softeng.team02.view.Submission.SubmissionFragment;
 
 public class Home extends AppCompatActivity {
+    public static final String STUDENT_ID = "student_id";
+    private int studentId;
     private Fragment homeFragment;
     private Fragment progressFragment;
     private Fragment submissionFragment;
     private Fragment searchFragment;
 
     BottomNavigationView bottomNavigationView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.student_home);
 
+        Intent intert = getIntent();
+        studentId = intert.getIntExtra(STUDENT_ID, 0);
+
+        setTitle("Universe");
+        setTitle(String.valueOf(studentId));
+
         // Initialize the fragments
-        homeFragment = new HomeFragment();
-        progressFragment = new ProgressFragment();
-        submissionFragment = new SubmissionFragment();
-        searchFragment = new SearchFragment();
+//        homeFragment = new HomeFragment();
+//        progressFragment = new ProgressFragment();
+//        submissionFragment = new SubmissionFragment();
+//        searchFragment = new SearchFragment();
 
         // Set the initial fragment to be displayed
         replaceFragment(new HomeFragment());
-        // bottomNavigationView.setBackground(null);
 
         // Set up the bottom navigation view
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
@@ -52,15 +61,15 @@ public class Home extends AppCompatActivity {
                 switch (item.getItemId()) {
                     case R.id.homeFragment:
                         replaceFragment(new HomeFragment());
-                        Log.e("DEBUGGER", "Home");
+                        // Log.e("DEBUGGER", "Home");
                         break;
                     case R.id.submissionFragment:
                         replaceFragment(new SubmissionFragment());
-                        Log.e("DEBUGGER", "Submission");
+                        // Log.e("DEBUGGER", "Submission");
                         break;
                     case R.id.progressFragment:
                         replaceFragment(new ProgressFragment());
-                        Log.e("DEBUGGER", "Progress");
+                        // Log.e("DEBUGGER", "Progress");
                         break;
                     case R.id.searchFragment:
                         replaceFragment(new SearchFragment());

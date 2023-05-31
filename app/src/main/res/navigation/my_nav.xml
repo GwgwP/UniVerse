@@ -17,7 +17,7 @@
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/submissionFragment"
-        android:name="gr.aueb.softeng.team02.view.SubmissionFragment"
+        android:name="gr.aueb.softeng.team02.view.Submission.SubmissionFragment"
         android:label="fragment_submission"
         tools:layout="@layout/fragment_submission" />
     <fragment

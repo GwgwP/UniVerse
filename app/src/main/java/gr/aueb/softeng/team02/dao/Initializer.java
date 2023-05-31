@@ -3,6 +3,7 @@ package gr.aueb.softeng.team02.dao;
 import gr.aueb.softeng.team02.memorydao.SecretaryDAOMemory;
 import gr.aueb.softeng.team02.memorydao.StudentDAOMemory;
 import gr.aueb.softeng.team02.memorydao.SubjectDAOMemory;
+import gr.aueb.softeng.team02.model.AcademicYear;
 import gr.aueb.softeng.team02.model.Secretary;
 import gr.aueb.softeng.team02.model.Student;
 import gr.aueb.softeng.team02.model.Subject;
@@ -41,5 +42,9 @@ public abstract class Initializer {
 
         getSecretaryDAO().save(r1);
 
+        AcademicYear y1 = new AcademicYear("2022-2023");
+        AcademicYear y2 = new AcademicYear("2021-2022");
+        getAcademicYearDAO().save(y1);
+        getAcademicYearDAO().save(y2);
     }
 }

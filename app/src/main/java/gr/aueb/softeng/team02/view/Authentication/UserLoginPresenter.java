@@ -2,10 +2,14 @@ package gr.aueb.softeng.team02.view.Authentication;
 
 import android.util.Log;
 
+import java.util.AbstractMap;
+import java.util.Map;
+
 import gr.aueb.softeng.team02.dao.SecretaryDAO;
 import gr.aueb.softeng.team02.dao.StudentDAO;
 import gr.aueb.softeng.team02.model.Secretary;
 import gr.aueb.softeng.team02.model.Student;
+import gr.aueb.softeng.team02.model.User;
 
 public class UserLoginPresenter {
 
@@ -23,27 +27,25 @@ public class UserLoginPresenter {
         this.secretaries = secretaries;
     }
 
-    public int findUser(String username, String password) {
-        if (students == null) {
-            Log.e("DEBUGGER", "WHAT");
-        }
-        Student student = students.findStudent(username, password);
+    public Map.Entry<Integer, User> findUser(String username, String password) {
+        Student student = students.findStudentByUsernameAndPassword(username, password);
         Secretary secretary = secretaries.findSecretary(username, password);
 
         if (student != null)
-            return 1;
+            return new AbstractMap.SimpleEntry<Integer, User>(1, student);
             //return student;
         if (secretary != null)
-            return 2;
-            // return secretary;
-        return 0;
+            return new AbstractMap.SimpleEntry<Integer, User>(1, secretary);
+        // return secretary;
+        return new AbstractMap.SimpleEntry<Integer, User>(-1, null);
+
     }
 
-    public void secretaryLogin() {
-        view.secretaryLogin();
+    public void secretaryLogin(int id) {
+        view.secretaryLogin(id);
     }
 
-    public void studentLogin() {
-        view.studentLogin();
+    public void studentLogin(int id) {
+        view.studentLogin(id);
     }
 }
