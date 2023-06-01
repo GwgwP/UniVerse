@@ -51,7 +51,7 @@ public class MemoryInitializer extends Initializer {
     }
 
     @Override
-    public SubjectDAO getSubjectSAO() {
+    public SubjectDAO getSubjectDAO() {
         return DAOFactory.getFactory().getSubjectDAO();
     }
 

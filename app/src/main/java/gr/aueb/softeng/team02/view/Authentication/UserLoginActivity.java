@@ -17,6 +17,7 @@ import java.util.Map;
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
+import gr.aueb.softeng.team02.model.AcademicYearException;
 import gr.aueb.softeng.team02.model.Secretary;
 import gr.aueb.softeng.team02.model.Student;
 import gr.aueb.softeng.team02.model.User;
@@ -53,7 +54,11 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
 //
         // Define initializer & prepareData & presenter
         init = new MemoryInitializer();
-        init.prepareData();
+        try {
+            init.prepareData();
+        } catch (AcademicYearException e) {
+            throw new RuntimeException(e);
+        }
         presenter = new UserLoginPresenter(this, init.getStudentDAO(), init.getSecretaryDAO());
     }
 
@@ -115,7 +120,7 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
     @Override
     public void studentLogin(int id) {
         Intent userActivityScreen = new Intent(getApplicationContext(), Home.class);
-        // userActivityScreen.putExtra(Home.STUDENT_ID, id);
+        userActivityScreen.putExtra(Home.STUDENT_ID, id);
         startActivity(userActivityScreen);
     }
 

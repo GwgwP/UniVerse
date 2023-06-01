@@ -18,9 +18,9 @@ public class StudentDAOMemory implements StudentDAO {
 
     @Override
     public Student findStudentByUsernameAndPassword(String username, String password) {
-        Log.e("DEBUGGER", "here");
+        // Log.e("DEBUGGER", "here");
         for (Student student : this.entities) {
-            Log.e("DEBUGGER", student.getUsername());
+            // Log.e("DEBUGGER", student.getUsername());
             if (student.getUsername().equals(username) && student.getPassword().equals(password))
                 return student;
         }

@@ -36,7 +36,7 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.student_home);
 
         Intent intert = getIntent();
-        studentId = intert.getIntExtra(STUDENT_ID, 0);
+        studentId = intert.getIntExtra(STUDENT_ID, 12);
 
         setTitle("Universe");
         setTitle(String.valueOf(studentId));
@@ -83,6 +83,11 @@ public class Home extends AppCompatActivity {
     private void replaceFragment(Fragment fragment) {
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
+
+        Bundle bundle = new Bundle();
+        bundle.putInt("STUDENT_ID", studentId);
+        fragment.setArguments(bundle);
+
         transaction.replace(R.id.frame_layout, fragment);
         transaction.commit();
     }

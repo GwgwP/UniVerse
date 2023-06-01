@@ -3,6 +3,10 @@ package gr.aueb.softeng.team02.view.Submission;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -27,6 +31,7 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
     private Spinner spinner;
     private Initializer init;
     private boolean isUserInteracted = false;
+    private int student_id;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -34,6 +39,11 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
 
         View myView = inflater.inflate(R.layout.fragment_submission, container, false);
         spinner = (Spinner) myView.findViewById(R.id.spinner);
+
+        Bundle bundle = getArguments();
+        this.student_id = bundle.getInt("STUDENT_ID", 0);
+
+        // Log.e("DEBUGGER", String.valueOf(student_id));
         init = new MemoryInitializer();
 
         presenter = new SubmissionFragmentPresenter(this, init.getAcademicYearDAO());
@@ -62,7 +72,7 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String year = yearList.get(position);
-                Toast.makeText(requireContext(), "You selected: " + year, Toast.LENGTH_LONG).show();
+                // Toast.makeText(requireContext(), "You selected: " + year, Toast.LENGTH_LONG).show();
             }
 
             @Override
@@ -70,6 +80,7 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
                 spinner.setPrompt("Select Academic Year");
             }
         });
+
 
     }
 
