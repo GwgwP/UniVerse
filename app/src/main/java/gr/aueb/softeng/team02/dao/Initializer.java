@@ -10,6 +10,7 @@ import gr.aueb.softeng.team02.memorydao.SubjectDAOMemory;
 import gr.aueb.softeng.team02.model.AcademicYear;
 import gr.aueb.softeng.team02.model.AcademicYearException;
 import gr.aueb.softeng.team02.model.Circumscription;
+import gr.aueb.softeng.team02.model.Grade;
 import gr.aueb.softeng.team02.model.OfferedSubject;
 import gr.aueb.softeng.team02.model.Secretary;
 import gr.aueb.softeng.team02.model.Student;
@@ -239,6 +240,13 @@ public abstract class Initializer {
         OfferedSubject k34 = new OfferedSubject(6, su34, y2);
         OfferedSubject k35 = new OfferedSubject(6, su35, y2);
         OfferedSubject k36 = new OfferedSubject(6, su36, y2);
+
+        Grade g1 = new Grade(s1, k24, 8);
+        Grade g2 = new Grade(s1, k25, 9);
+
+        getGradeDAO().save(g1);
+        getGradeDAO().save(g2);
+
 
         getSubjectDAO().save(su1);
         getSubjectDAO().save(su2);
