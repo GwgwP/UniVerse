@@ -224,21 +224,21 @@ public abstract class Initializer {
         OfferedSubject k22 = new OfferedSubject(5, su22, y2);
         OfferedSubject k23 = new OfferedSubject(5, su23, y2);
 
-        OfferedSubject k24 = new OfferedSubject(6, su24, y2);
-        OfferedSubject k25 = new OfferedSubject(6, su25, y2);
-        OfferedSubject k26 = new OfferedSubject(6, su26, y2);
-        OfferedSubject k27 = new OfferedSubject(6, su27, y2);
-        OfferedSubject k28 = new OfferedSubject(6, su28, y2);
+        OfferedSubject k24 = new OfferedSubject(8, su24, y2);
+        OfferedSubject k25 = new OfferedSubject(8, su25, y2);
+        OfferedSubject k26 = new OfferedSubject(8, su26, y2);
+        OfferedSubject k27 = new OfferedSubject(8, su27, y2);
+        OfferedSubject k28 = new OfferedSubject(8, su28, y2);
 
         OfferedSubject k29 = new OfferedSubject(7, su29, y2);
         OfferedSubject k30 = new OfferedSubject(7, su30, y2);
         OfferedSubject k31 = new OfferedSubject(7, su31, y2);
         OfferedSubject k32 = new OfferedSubject(7, su32, y2);
 
-        OfferedSubject k33 = new OfferedSubject(8, su33, y2);
-        OfferedSubject k34 = new OfferedSubject(8, su34, y2);
-        OfferedSubject k35 = new OfferedSubject(8, su35, y2);
-        OfferedSubject k36 = new OfferedSubject(8, su36, y2);
+        OfferedSubject k33 = new OfferedSubject(6, su33, y2);
+        OfferedSubject k34 = new OfferedSubject(6, su34, y2);
+        OfferedSubject k35 = new OfferedSubject(6, su35, y2);
+        OfferedSubject k36 = new OfferedSubject(6, su36, y2);
 
         getSubjectDAO().save(su1);
         getSubjectDAO().save(su2);
@@ -371,7 +371,6 @@ public abstract class Initializer {
         getOfferedSubjectDAO().save(k34);
         getOfferedSubjectDAO().save(k35);
         getOfferedSubjectDAO().save(k36);
-
 
     }
 }
