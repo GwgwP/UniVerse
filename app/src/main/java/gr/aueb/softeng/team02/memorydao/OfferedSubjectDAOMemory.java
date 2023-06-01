@@ -1,5 +1,7 @@
 package gr.aueb.softeng.team02.memorydao;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,10 +31,11 @@ public class OfferedSubjectDAOMemory implements OfferedSubjectDAO {
     }
 
     @Override
-    public List<OfferedSubject> findByYear(AcademicYear year, int semester) {
+    public List<OfferedSubject> findByYear(String year, int semester) {
         ArrayList<OfferedSubject> subjects = new ArrayList<>();
-        for (OfferedSubject sub : subjects) {
-            if (sub.getYear().equals(year) && sub.getSemester() == semester)
+
+        for (OfferedSubject sub : this.list) {
+            if (sub.getAcademicYearINString().equals(year) && sub.getSemester() == semester)
                 subjects.add(sub);
         }
         return subjects;

@@ -88,7 +88,7 @@ public class Subject {
         }
 
         Subject subject = (Subject) other;
-        return subject.title.equals(((Subject) other).title);
+        return title.equals(subject.title);
     }
 
     @Override

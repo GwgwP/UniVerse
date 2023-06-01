@@ -15,6 +15,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -22,6 +23,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
@@ -33,14 +36,14 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
     SubmissionFragmentPresenter presenter;
     private Spinner spinner;
     private Initializer init;
-    private boolean isUserInteracted = false;
     private int student_id;
+    private View myView;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
 
-        View myView = inflater.inflate(R.layout.fragment_submission, container, false);
+        myView = inflater.inflate(R.layout.fragment_submission, container, false);
         spinner = (Spinner) myView.findViewById(R.id.spinner);
 
         Bundle bundle = getArguments();
@@ -49,7 +52,7 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
         // Log.e("DEBUGGER", String.valueOf(student_id));
         init = new MemoryInitializer();
 
-        presenter = new SubmissionFragmentPresenter(this, init.getAcademicYearDAO());
+        presenter = new SubmissionFragmentPresenter(this, init.getAcademicYearDAO(), init.getOfferedSubjectDAO());
 
         // Create an ArrayList with the choices
         this.yearList = presenter.getAcademicYears();
@@ -71,37 +74,13 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
     @Override
     public void onStart() {
         super.onStart();
+        TableLayout tableLayout = myView.findViewById(R.id.tableLayout);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String year = yearList.get(position);
-//                TableLayout tableLayout = view.findViewById(R.id.tableLayout);
-//
-//                // Create the header row
-//                TableRow headerRow = new TableRow(requireContext());
-//                TableRow.LayoutParams headerLayoutParams = new TableRow.LayoutParams(
-//                        TableRow.LayoutParams.MATCH_PARENT,
-//                        TableRow.LayoutParams.WRAP_CONTENT
-//                );
-//                headerRow.setLayoutParams(headerLayoutParams);
-//
-//                // Create the "Select" header
-//                TextView selectHeaderTextView = new TextView(requireContext());
-//                selectHeaderTextView.setText("Select");
-//                headerRow.addView(selectHeaderTextView);
-//
-//                // Create the "Semester" header
-//                TextView semesterHeaderTextView = new TextView(requireContext());
-//                semesterHeaderTextView.setText("Semester");
-//                headerRow.addView(semesterHeaderTextView);
-//
-//                // Create the "Subject" header
-//                TextView subjectHeaderTextView = new TextView(requireContext());
-//                subjectHeaderTextView.setText("Subject");
-//                headerRow.addView(subjectHeaderTextView);
-//
-//                // Add the header row to the table
-//                tableLayout.addView(headerRow);
+                // presenter.setYear(year);
+                tableLayout.setVisibility(View.VISIBLE);
             }
 
             @Override
@@ -110,6 +89,61 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
             }
         });
 
+        // Create the header row
+        TableRow headerRow = new TableRow(requireContext());
+        TableRow.LayoutParams headerLayoutParams = new TableRow.LayoutParams(
+                TableRow.LayoutParams.MATCH_PARENT,
+                TableRow.LayoutParams.WRAP_CONTENT
+        );
+        headerRow.setLayoutParams(headerLayoutParams);
+
+        // Create the "Select" header
+        TextView selectHeaderTextView = new TextView(requireContext());
+        selectHeaderTextView.setText("Select");
+        headerRow.addView(selectHeaderTextView);
+
+        // Create the "Semester" header
+        TextView semesterHeaderTextView = new TextView(requireContext());
+        semesterHeaderTextView.setText("Semester");
+        headerRow.addView(semesterHeaderTextView);
+
+        // Create the "Subject" header
+        TextView subjectHeaderTextView = new TextView(requireContext());
+        subjectHeaderTextView.setText("Subject");
+        headerRow.addView(subjectHeaderTextView);
+
+        // Add the header row to the table
+        tableLayout.addView(headerRow);
+        presenter.setYear("2022-2023");
+        // Create an array of messages for the second column
+        HashMap<String, Integer> subjects = presenter.getOfferedSubjects();
+        Log.e("DEBUGGER", String.valueOf(subjects.size()));
+
+        for (Map.Entry<String, Integer> sub : subjects.entrySet()) {
+            TableRow tableRow = new TableRow(requireContext());
+            TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(
+                    TableRow.LayoutParams.MATCH_PARENT,
+                    TableRow.LayoutParams.WRAP_CONTENT
+            );
+            tableRow.setLayoutParams(layoutParams);
+
+            // Create the checkbox for the first column
+            CheckBox checkBox = new CheckBox(requireContext());
+            tableRow.addView(checkBox);
+
+            // Create the TextView for the second column
+            TextView messageTextView = new TextView(requireContext());
+            messageTextView.setText(String.valueOf(sub.getValue()));
+            tableRow.addView(messageTextView);
+
+            // Create the TextView for the third column
+            TextView thirdColumnTextView = new TextView(requireContext());
+            thirdColumnTextView.setText(sub.getKey());
+            tableRow.addView(thirdColumnTextView);
+
+            // Add the row to the table
+            tableLayout.addView(tableRow);
+        }
 
     }
 

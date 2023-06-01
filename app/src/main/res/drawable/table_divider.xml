@@ -1,0 +1,5 @@
+<!-- table_divider.xml -->
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+    <solid android:color="@color/black" />
+    <size android:height="1dp" />
+</shape>

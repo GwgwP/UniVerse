@@ -67,7 +67,11 @@
         android:id="@+id/tableLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:divider="@drawable/table_divider"
+        android:showDividers="middle"
         android:padding="16dp"
+        android:visibility="gone"
         android:stretchColumns="*">
 
     </TableLayout>

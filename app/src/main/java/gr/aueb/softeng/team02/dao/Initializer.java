@@ -82,14 +82,14 @@ public abstract class Initializer {
         y1.addCircumscription(c7);
         y1.addCircumscription(c8);
 
-        Circumscription c11 = new Circumscription(1, 30, start, end);
-        Circumscription c21 = new Circumscription(2, 30, start0, end0);
-        Circumscription c31 = new Circumscription(3, 30, start, end);
-        Circumscription c41 = new Circumscription(4, 30, start0, end0);
-        Circumscription c51 = new Circumscription(5, 30, start, end);
-        Circumscription c61 = new Circumscription(6, 30, start0, end0);
-        Circumscription c71 = new Circumscription(7, 30, start, end);
-        Circumscription c81 = new Circumscription(8, 30, start0, end0);
+        Circumscription c11 = new Circumscription(1, 30, start1, end1);
+        Circumscription c21 = new Circumscription(2, 30, start2, end2);
+        Circumscription c31 = new Circumscription(3, 30, start1, end1);
+        Circumscription c41 = new Circumscription(4, 30, start2, end2);
+        Circumscription c51 = new Circumscription(5, 30, start1, end1);
+        Circumscription c61 = new Circumscription(6, 30, start2, end2);
+        Circumscription c71 = new Circumscription(7, 30, start1, end1);
+        Circumscription c81 = new Circumscription(8, 30, start2, end2);
 
         y2.addCircumscription(c11);
         y2.addCircumscription(c21);
@@ -147,7 +147,7 @@ public abstract class Initializer {
         Subject su32 = new Subject(31, "John Markakis", 8,"Introduction on special topics in algorithms", "Special topics in algorithms");
         // 8th semester
         Subject su33 = new Subject(32, "John Kotidis", 8,"Introduction on development of information systems", "Development of information systems");
-        Subject su34 = new Subject(33, "Ion Androutsopoulos", 8,"Introduction on machine learning", "Machine Learning");
+        Subject su34 = new Subject(33, "Ion Androutsopoulos", 8,"Introduction on interaction of human with computer", "Interaction of human with computer");
         Subject su35 = new Subject(34, "Eugene Foustoukou", 8,"Introduction on theory of computability and complexity", "Theory of computability and complexity");
         Subject su36 = new Subject(35, "Euagellia Vagena", 8,"Introduction on Elements of law and information", "Elements of law and information");
 
@@ -371,6 +371,7 @@ public abstract class Initializer {
         getOfferedSubjectDAO().save(k34);
         getOfferedSubjectDAO().save(k35);
         getOfferedSubjectDAO().save(k36);
+
 
     }
 }
