@@ -57,6 +57,7 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
         try {
             init.prepareData();
         } catch (AcademicYearException e) {
+            Log.e("DEBUGGER", "Fault");
             throw new RuntimeException(e);
         }
         presenter = new UserLoginPresenter(this, init.getStudentDAO(), init.getSecretaryDAO());

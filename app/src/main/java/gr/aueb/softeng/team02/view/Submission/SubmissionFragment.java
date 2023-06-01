@@ -16,6 +16,9 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -72,7 +75,33 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 String year = yearList.get(position);
-                // Toast.makeText(requireContext(), "You selected: " + year, Toast.LENGTH_LONG).show();
+//                TableLayout tableLayout = view.findViewById(R.id.tableLayout);
+//
+//                // Create the header row
+//                TableRow headerRow = new TableRow(requireContext());
+//                TableRow.LayoutParams headerLayoutParams = new TableRow.LayoutParams(
+//                        TableRow.LayoutParams.MATCH_PARENT,
+//                        TableRow.LayoutParams.WRAP_CONTENT
+//                );
+//                headerRow.setLayoutParams(headerLayoutParams);
+//
+//                // Create the "Select" header
+//                TextView selectHeaderTextView = new TextView(requireContext());
+//                selectHeaderTextView.setText("Select");
+//                headerRow.addView(selectHeaderTextView);
+//
+//                // Create the "Semester" header
+//                TextView semesterHeaderTextView = new TextView(requireContext());
+//                semesterHeaderTextView.setText("Semester");
+//                headerRow.addView(semesterHeaderTextView);
+//
+//                // Create the "Subject" header
+//                TextView subjectHeaderTextView = new TextView(requireContext());
+//                subjectHeaderTextView.setText("Subject");
+//                headerRow.addView(subjectHeaderTextView);
+//
+//                // Add the header row to the table
+//                tableLayout.addView(headerRow);
             }
 
             @Override

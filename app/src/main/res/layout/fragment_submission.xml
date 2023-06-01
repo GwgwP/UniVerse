@@ -64,67 +64,11 @@
 
     <!-- Checkbox Table -->
     <TableLayout
+        android:id="@+id/tableLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/rounded_search_bar"
-        android:padding="8dp">
-
-        <!-- Header Row -->
-        <TableRow>
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Column 1"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Column 2"
-                android:textSize="16sp" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Column 3"
-                android:textSize="16sp" />
-        </TableRow>
-
-        <!-- First Row -->
-        <TableRow>
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Row 1, Column 1" />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Row 1, Column 2" />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Row 1, Column 3" />
-        </TableRow>
-
-        <!-- Second Row -->
-        <TableRow>
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Row 2, Column 1" />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Row 2, Column 2" />
-
-            <CheckBox
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Row 2, Column 3" />
-        </TableRow>
+        android:padding="16dp"
+        android:stretchColumns="*">
 
     </TableLayout>
 

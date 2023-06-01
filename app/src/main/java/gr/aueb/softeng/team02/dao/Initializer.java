@@ -1,5 +1,7 @@
 package gr.aueb.softeng.team02.dao;
 
+import android.util.Log;
+
 import java.sql.Date;
 
 import gr.aueb.softeng.team02.memorydao.SecretaryDAOMemory;
@@ -62,14 +64,14 @@ public abstract class Initializer {
         Date start0 = new Date(2022, 3, 15);
         Date end0 = new Date(2022, 4, 15);
 
-        Circumscription c1 = new Circumscription(1, 25, start, end);
-        Circumscription c2 = new Circumscription(2, 25, start0, end0);
-        Circumscription c3 = new Circumscription(3, 25, start, end);
-        Circumscription c4 = new Circumscription(4, 25, start0, end0);
-        Circumscription c5 = new Circumscription(5, 25, start, end);
-        Circumscription c6 = new Circumscription(6, 25, start0, end0);
-        Circumscription c7 = new Circumscription(7, 25, start, end);
-        Circumscription c8 = new Circumscription(8, 25, start0, end0);
+        Circumscription c1 = new Circumscription(1, 30, start, end);
+        Circumscription c2 = new Circumscription(2, 30, start0, end0);
+        Circumscription c3 = new Circumscription(3, 30, start, end);
+        Circumscription c4 = new Circumscription(4, 30, start0, end0);
+        Circumscription c5 = new Circumscription(5, 30, start, end);
+        Circumscription c6 = new Circumscription(6, 30, start0, end0);
+        Circumscription c7 = new Circumscription(7, 30, start, end);
+        Circumscription c8 = new Circumscription(8, 30, start0, end0);
 
         y1.addCircumscription(c1);
         y1.addCircumscription(c2);
@@ -97,6 +99,7 @@ public abstract class Initializer {
         y2.addCircumscription(c61);
         y2.addCircumscription(c71);
         y2.addCircumscription(c81);
+
 
         getAcademicYearDAO().save(y1);
         getAcademicYearDAO().save(y2);
@@ -368,5 +371,6 @@ public abstract class Initializer {
         getOfferedSubjectDAO().save(k34);
         getOfferedSubjectDAO().save(k35);
         getOfferedSubjectDAO().save(k36);
+
     }
 }
