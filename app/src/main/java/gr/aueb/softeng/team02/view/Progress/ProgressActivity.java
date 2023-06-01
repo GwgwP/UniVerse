@@ -8,11 +8,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Spinner;
 import android.widget.Switch;
 import android.widget.Toast;
 
-import java.util.ArrayList;
 import java.util.Map;
 
 import gr.aueb.softeng.team02.R;
@@ -24,18 +22,11 @@ import gr.aueb.softeng.team02.model.Student;
 import gr.aueb.softeng.team02.model.User;
 import gr.aueb.softeng.team02.view.Authentication.UserLoginPresenter;
 import gr.aueb.softeng.team02.view.Home;
-import gr.aueb.softeng.team02.view.Submission.SubmissionFragmentPresenter;
 
 public class ProgressActivity implements ProgressView {
     private ProgressPresenter presenter;
 
     private Initializer init;
-
-
-//    private Spinner spinner;
-
-    private int student_id;
-    private View myView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -4,7 +4,6 @@ public class Grade {
     private int grade;
     private Student stud;
     private OfferedSubject subject;
-
     public Grade() {
     }
 
