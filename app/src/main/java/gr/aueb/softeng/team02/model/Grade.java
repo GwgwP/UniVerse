@@ -8,6 +8,13 @@ public class Grade {
     public Grade() {
     }
 
+    public Grade(Student st, OfferedSubject os, int grade)
+    {
+        this.stud = st;
+        this.subject = os;
+        this.grade = grade;
+    }
+
     public Grade(Grade g) {
         this.stud = g.stud;
         this.subject = g.subject;
