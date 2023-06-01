@@ -8,8 +8,7 @@ public class Grade {
     public Grade() {
     }
 
-    public Grade(Student st, OfferedSubject os, int grade)
-    {
+    public Grade(Student st, OfferedSubject os, int grade) {
         this.stud = st;
         this.subject = os;
         this.grade = grade;
@@ -40,7 +39,9 @@ public class Grade {
         return this.stud.getId();
     }
 
-    public String getTitle() {return this.subject.getTitle(); }
+    public String getTitle() {
+        return this.subject.getTitle();
+    }
 
     public AcademicYear getAcademicYear() {
         return this.subject.getYear();
@@ -56,6 +57,11 @@ public class Grade {
 
     public String getSubjectTitle() {
         return this.subject.getTitle();
+    }
+
+
+    public int getSemester() {
+        return this.subject.getSemester();
     }
 
     @Override
