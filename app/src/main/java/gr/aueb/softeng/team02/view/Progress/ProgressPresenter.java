@@ -20,16 +20,8 @@ import gr.aueb.softeng.team02.view.Authentication.UserLoginView;
 import gr.aueb.softeng.team02.view.Progress.ProgressView;
 
 public class ProgressPresenter {
-
-
-
-
-
     private ProgressFragment view;
-
-
     private GradeDAO grades;
-    //private int id;
 
     public ProgressPresenter(ProgressFragment view, GradeDAO grades) {
         this.view = view;
@@ -50,54 +42,45 @@ public class ProgressPresenter {
     }
 
 
+    public void getAverage(int id) {
 
-
-    //TODO
-    public void getAverage(int id)
-    {
-
-        double sum =0;
+        double sum = 0;
         double counter = 0;
 
-        for (Grade g: grades.findByStudent(id))
-        {
+        for (Grade g : grades.findByStudent(id)) {
             sum += g.getGrade();
             counter++;
         }
         if (counter != 0) {
 
-            view.showAverage(sum/counter);
-        }
-        else view.showAverage(0);
-       // else return 0;
+            view.showAverage(sum / counter);
+        } else view.showAverage(0);
+        // else return 0;
     }
 
-    public HashMap<Integer, Double> getAGperSem(int id)
-    {
+
+    public void getAGperSem(int id) {
         HashMap<Integer, ArrayList<Integer>> grades_per_sem = new HashMap<>();
-        for (Grade g: grades.findByStudent(id))
-        {
+        for (Grade g : grades.findByStudent(id)) {
             if (!grades_per_sem.containsKey(g.getSemester()))
                 grades_per_sem.put(g.getSemester(), new ArrayList<Integer>());
 
             grades_per_sem.get(g.getSemester()).add(g.getGrade());
         }
         HashMap<Integer, Double> map = new HashMap<>();
-        for(Map.Entry<Integer, ArrayList<Integer>> entry : grades_per_sem.entrySet())
-        {
+        for (Map.Entry<Integer, ArrayList<Integer>> entry : grades_per_sem.entrySet()) {
             //calculating average per semester
-            map.put(entry.getKey(), entry.getValue().stream().mapToInt(Integer::intValue).average().orElse(0));
+            map.put(entry.getKey(), entry.getValue().stream().mapToInt(Integer::intValue).average().orElse(0.0));
         }
-        return map;
+        view.showAveragePerSemester(map);
     }
-    public int getNumOfSubs(int id)
-    {
+
+    public void getNumOfSubs(int id) {
         int counter = 0;
-        for (Grade g: grades.findByStudent(id))
-        {
+        for (Grade g : grades.findByStudent(id)) {
             counter++;
         }
-        return counter;
+        view.showNumPassed(counter);
     }
 
 
