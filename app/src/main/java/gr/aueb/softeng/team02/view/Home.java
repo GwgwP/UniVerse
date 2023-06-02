@@ -18,6 +18,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import gr.aueb.softeng.team02.R;
+import gr.aueb.softeng.team02.view.Progress.ProgressFragment;
 import gr.aueb.softeng.team02.view.Submission.SubmissionFragment;
 
 public class Home extends AppCompatActivity {
@@ -40,12 +41,6 @@ public class Home extends AppCompatActivity {
 
         setTitle("Universe");
         setTitle(String.valueOf(studentId));
-
-        // Initialize the fragments
-//        homeFragment = new HomeFragment();
-//        progressFragment = new ProgressFragment();
-//        submissionFragment = new SubmissionFragment();
-//        searchFragment = new SearchFragment();
 
         // Set the initial fragment to be displayed
         replaceFragment(new HomeFragment());
