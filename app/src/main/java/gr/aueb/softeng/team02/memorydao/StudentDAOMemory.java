@@ -9,7 +9,7 @@ import gr.aueb.softeng.team02.model.Student;
 
 public class StudentDAOMemory implements StudentDAO {
 
-    HashSet<Student> entities = new HashSet<>();
+    private static HashSet<Student> entities = new HashSet<>();
 
     @Override
     public HashSet<Student> findAll() {
@@ -19,7 +19,7 @@ public class StudentDAOMemory implements StudentDAO {
     @Override
     public Student findStudentByUsernameAndPassword(String username, String password) {
         // Log.e("DEBUGGER", "here");
-        for (Student student : this.entities) {
+        for (Student student : entities) {
             // Log.e("DEBUGGER", student.getUsername());
             if (student.getUsername().equals(username) && student.getPassword().equals(password))
                 return student;
@@ -28,8 +28,19 @@ public class StudentDAOMemory implements StudentDAO {
     }
 
     @Override
+    public int findSemesterOfStudent(int student_id) {
+        for (Student student : entities) {
+            if (student.getId() == student_id) {
+                return student.getSemester();
+            }
+        }
+        // No Subject
+        return 0;
+    }
+
+    @Override
     public Student findStudentById(int id) {
-        for (Student student : this.entities) {
+        for (Student student : entities) {
             if (student.getId() == id)
                 return student;
         }

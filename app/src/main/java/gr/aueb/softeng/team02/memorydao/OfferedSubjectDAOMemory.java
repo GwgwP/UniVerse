@@ -10,7 +10,7 @@ import gr.aueb.softeng.team02.model.AcademicYear;
 import gr.aueb.softeng.team02.model.OfferedSubject;
 
 public class OfferedSubjectDAOMemory implements OfferedSubjectDAO {
-    private ArrayList<OfferedSubject> list = new ArrayList<>();
+    private static ArrayList<OfferedSubject> list = new ArrayList<>();
 
     @Override
     public void save(OfferedSubject entity) {
@@ -31,10 +31,21 @@ public class OfferedSubjectDAOMemory implements OfferedSubjectDAO {
     }
 
     @Override
+    public List<OfferedSubject> findByModulo(int mod) {
+        ArrayList<OfferedSubject> subjects = new ArrayList<>();
+        for (OfferedSubject subject : list) {
+            if (subject.getSemester() % 2 == mod) {
+                subjects.add(subject);
+            }
+        }
+        return subjects;
+    }
+
+    @Override
     public List<OfferedSubject> findByYear(String year, int semester) {
         ArrayList<OfferedSubject> subjects = new ArrayList<>();
 
-        for (OfferedSubject sub : this.list) {
+        for (OfferedSubject sub : list) {
             if (sub.getAcademicYearINString().equals(year) && sub.getSemester() == semester)
                 subjects.add(sub);
         }
