@@ -1,5 +1,7 @@
 package gr.aueb.softeng.team02.memorydao;
 
+import android.util.Log;
+
 import gr.aueb.softeng.team02.dao.GradeDAO;
 import gr.aueb.softeng.team02.model.Grade;
 
@@ -14,7 +16,7 @@ public class GradeDAOMemory implements GradeDAO {
     @Override
     public Set<Grade> findByStudent(int studentId) {
         HashSet<Grade> studentGrades = new HashSet<Grade>();
-
+        Log.e("DEBUGGER", String.valueOf(entities.size()));
         for (Grade grade : this.entities) {
             if (grade.getStudentId() == studentId) {
                 studentGrades.add(grade);

@@ -12,17 +12,43 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text="Progress Frag"
-        tools:layout_editor_absoluteX="-67dp"
-        tools:layout_editor_absoluteY="16dp" />
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="0dp" />
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/average_grade_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Progress"
-        app:layout_constraintBottom_toBottomOf="@+id/progress_frag"
-        app:layout_constraintEnd_toEndOf="@+id/progress_frag"
+        android:layout_marginTop="32dp"
+        android:text="Total Aerage Grade:"
+        android:textColor="#3F6AB5"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="85dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/avatars" />
+
+    <TextView
+        android:id="@+id/ag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="48dp"
+        android:text="TextView"
+        android:textColor="#9C27B0"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/average_grade_text" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

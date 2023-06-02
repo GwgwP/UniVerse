@@ -18,6 +18,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import gr.aueb.softeng.team02.R;
+import gr.aueb.softeng.team02.view.Progress.ProgressFragment;
 import gr.aueb.softeng.team02.view.Submission.SubmissionFragment;
 
 public class Home extends AppCompatActivity {

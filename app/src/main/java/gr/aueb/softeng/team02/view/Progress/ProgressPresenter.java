@@ -22,7 +22,12 @@ import gr.aueb.softeng.team02.view.Progress.ProgressView;
 public class ProgressPresenter {
 
 
+
+
+
     private ProgressFragment view;
+
+
     private GradeDAO grades;
     //private int id;
 
@@ -32,33 +37,45 @@ public class ProgressPresenter {
 
     }
 
-    public HashSet<Grade> getGrades(int id) {
-        HashSet<Grade> grades = new HashSet<>();
-        this.grades.findByStudent(id);
-        return grades;
+    public ProgressPresenter() {
+
     }
 
+    public ProgressFragment getView() {
+        return view;
+    }
+
+    public void setView(ProgressFragment view) {
+        this.view = view;
+    }
+
+
+
+
     //TODO
-    public double getAverage(int id)
+    public void getAverage(int id)
     {
+
         double sum =0;
         double counter = 0;
-        HashSet<Grade> grades = getGrades(id);
-        for (Grade g: grades)
+
+        for (Grade g: grades.findByStudent(id))
         {
             sum += g.getGrade();
             counter++;
         }
         if (counter != 0) {
-            return sum / counter;
+
+            view.showAverage(sum/counter);
         }
-        else return 0;
+        else view.showAverage(0);
+       // else return 0;
     }
 
     public HashMap<Integer, Double> getAGperSem(int id)
     {
         HashMap<Integer, ArrayList<Integer>> grades_per_sem = new HashMap<>();
-        for (Grade g: getGrades(id))
+        for (Grade g: grades.findByStudent(id))
         {
             if (!grades_per_sem.containsKey(g.getSemester()))
                 grades_per_sem.put(g.getSemester(), new ArrayList<Integer>());
@@ -76,11 +93,19 @@ public class ProgressPresenter {
     public int getNumOfSubs(int id)
     {
         int counter = 0;
-        for (Grade g: getGrades(id))
+        for (Grade g: grades.findByStudent(id))
         {
             counter++;
         }
         return counter;
     }
 
+
+    public GradeDAO getGrades() {
+        return grades;
+    }
+
+    public void setGradesDao(GradeDAO grades) {
+        this.grades = grades;
+    }
 }
