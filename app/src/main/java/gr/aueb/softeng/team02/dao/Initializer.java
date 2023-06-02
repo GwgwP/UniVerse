@@ -196,7 +196,6 @@ public abstract class Initializer {
         OfferedSubject o35 = new OfferedSubject(8, su35, y1);
         OfferedSubject o36 = new OfferedSubject(8, su36, y1);
 
-
         OfferedSubject k1 = new OfferedSubject(1, su1, y2);
         OfferedSubject k2 = new OfferedSubject(1, su2, y2);
         OfferedSubject k3 = new OfferedSubject(1, su3, y2);
@@ -244,10 +243,8 @@ public abstract class Initializer {
         Grade g1 = new Grade(s1, k24, 8);
         Grade g2 = new Grade(s1, k25, 9);
 
-
         getGradeDAO().save(g1);
         getGradeDAO().save(g2);
-
 
         getSubjectDAO().save(su1);
         getSubjectDAO().save(su2);

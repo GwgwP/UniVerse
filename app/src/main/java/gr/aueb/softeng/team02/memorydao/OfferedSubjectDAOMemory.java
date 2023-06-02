@@ -31,14 +31,23 @@ public class OfferedSubjectDAOMemory implements OfferedSubjectDAO {
     }
 
     @Override
-    public List<OfferedSubject> findByModulo(int mod) {
+    public List<OfferedSubject> findByModulo(int mod, String year) {
         ArrayList<OfferedSubject> subjects = new ArrayList<>();
         for (OfferedSubject subject : list) {
-            if (subject.getSemester() % 2 == mod) {
+            if (subject.getSemester() % 2 == mod && subject.getAcademicYearINString().equals(year)) {
                 subjects.add(subject);
             }
         }
         return subjects;
+    }
+
+    @Override
+    public OfferedSubject findByYearAndName(String year, String title) {
+        for (OfferedSubject subject : list) {
+            if (subject.getTitle().equals(title) && subject.getAcademicYearINString().equals(year))
+                return subject;
+        }
+        return null;
     }
 
     @Override

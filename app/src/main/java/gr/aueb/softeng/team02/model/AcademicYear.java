@@ -42,11 +42,8 @@ public class AcademicYear {
             throw new AcademicYearException("Invalid circumscription");
     }
 
-    public Circumscription getCircumscription(int semester) throws AcademicYearException {
-        if (this.circList.get(semester) == null)
-            throw new AcademicYearException("Circumscription of the: " + semester + " semester not found");
-        else
-            return this.circList.get(semester);
+    public Circumscription getCircumscription(int semester) {
+        return this.circList.get(semester);
     }
 
     public int getEctsPerSemester(int semester) throws AcademicYearException {

@@ -14,5 +14,7 @@ public interface SubmissionFragmentView {
      */
     void showErrorMessage(String title, String message);
 
-    void submitClicked();
+    void submit();
+
+    void showPassedMsg();
 }

@@ -3,7 +3,6 @@ package gr.aueb.softeng.team02.model;
 import java.util.*;
 
 public class Submission {
-
     private AcademicYear year;
     private Student student;
     private int semester;
@@ -12,6 +11,7 @@ public class Submission {
     public Submission() {
         this.chosenSubjects = new HashSet<>();
     }
+
     public Submission(AcademicYear year, int semester, Student student) {
         this.year = year;
         this.semester = semester;
@@ -39,9 +39,7 @@ public class Submission {
         return semester;
     }
 
-    public void setSemester(int semester) throws Exception {
-        if (semester > 8 || semester < 1)
-            throw new Exception("Invalid value of semester");
+    public void setSemester(int semester) {
         this.semester = semester;
     }
 

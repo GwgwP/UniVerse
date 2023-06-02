@@ -46,8 +46,7 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
     private View myView;
     private TableLayout tableLayout;
 
-    public void showErrorMessage(String title, String message)
-    {
+    public void showErrorMessage(String title, String message) {
         new AlertDialog.Builder(requireContext())
                 .setCancelable(true)
                 .setTitle(title)
@@ -98,6 +97,7 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 model.getPresenter().makeForm(position, yearList, student_id);
             }
+
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
                 spinner.setPrompt("Select Academic Year");
@@ -108,17 +108,18 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
         submitButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                submitClicked();
+                model.getPresenter().submitClicked();
             }
         });
-
     }
 
-    public void submitClicked() {
+    public void submit() {
         ArrayList<String> subjects = new ArrayList<>();
         int rowCount = tableLayout.getChildCount();
+
         for (int i = 1; i < rowCount; i++) {
             View rowView = tableLayout.getChildAt(i);
+
             if (rowView instanceof TableRow) {
                 TableRow row = (TableRow) rowView;
                 int columnCount = row.getChildCount();
@@ -135,7 +136,6 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
         }
         model.getPresenter().checkValidity(subjects, student_id);
     }
-
 
     @Override
     public void setForm(HashMap<String, Integer> subjects) {
@@ -194,5 +194,10 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
             // Add the row to the table
             tableLayout.addView(tableRow);
         }
+    }
+
+    @Override
+    public void showPassedMsg() {
+        Toast.makeText(requireContext(), "Succesfully stored", Toast.LENGTH_LONG).show();
     }
 }
