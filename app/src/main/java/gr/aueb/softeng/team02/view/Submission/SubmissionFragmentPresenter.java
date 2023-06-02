@@ -1,28 +1,40 @@
 package gr.aueb.softeng.team02.view.Submission;
 
+import android.util.Log;
+import android.widget.Toast;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 
 import gr.aueb.softeng.team02.dao.AcademicYearDAO;
+import gr.aueb.softeng.team02.dao.GradeDAO;
 import gr.aueb.softeng.team02.dao.OfferedSubjectDAO;
 import gr.aueb.softeng.team02.dao.StudentDAO;
+import gr.aueb.softeng.team02.dao.SubmissionDAO;
 import gr.aueb.softeng.team02.model.AcademicYear;
 import gr.aueb.softeng.team02.model.AcademicYearException;
 import gr.aueb.softeng.team02.model.Circumscription;
+import gr.aueb.softeng.team02.model.Grade;
 import gr.aueb.softeng.team02.model.OfferedSubject;
+import gr.aueb.softeng.team02.model.Submission;
 
 public class SubmissionFragmentPresenter {
     private SubmissionFragmentView view;
     private AcademicYearDAO years;
     private OfferedSubjectDAO subjects;
     private StudentDAO students;
+    private GradeDAO grades;
+    private SubmissionDAO submissions;
     private String year;
 
-    public SubmissionFragmentPresenter(AcademicYearDAO years, OfferedSubjectDAO subjects, StudentDAO students) {
+    public SubmissionFragmentPresenter(AcademicYearDAO years, OfferedSubjectDAO subjects, StudentDAO students, GradeDAO grades, SubmissionDAO submissions) {
         this.students = students;
         this.years = years;
         this.subjects = subjects;
+        this.grades = grades;
+        this.submissions = submissions;
     }
 
     public void setView(SubmissionFragmentView view) {
@@ -41,20 +53,20 @@ public class SubmissionFragmentPresenter {
         this.year = year;
     }
 
-    public HashMap<String, Integer> getOfferedSubjects(int student_id) {
+    public HashMap<String, Integer> getOfferedSubjects(int student_id, String year) {
         HashMap<String, Integer> list = new HashMap<>();
-
-        // TODO Must check the subjects with even or odd number and from these subjects,
 
         int semester = students.findSemesterOfStudent(student_id);
         List<OfferedSubject> offeredSubjects;
         if (semester % 2 == 0) {
-            offeredSubjects = subjects.findByModulo(0);
+            offeredSubjects = subjects.findByModulo(0, year);
+        } else {
+            offeredSubjects = subjects.findByModulo(1, year);
         }
-        else {
-            offeredSubjects = subjects.findByModulo(1);
+        for (Grade g : grades.findPassedSubjectsByStudent(student_id)) {
+            offeredSubjects.remove(g.getSubject());
         }
-        // TODO must subtract all the subjects that the student has already passed
+
         for (OfferedSubject sub : offeredSubjects) {
             list.put(sub.getTitle(), sub.getSemester());
         }
@@ -63,24 +75,37 @@ public class SubmissionFragmentPresenter {
 
     public void makeForm(int position, ArrayList<String> yearList, int student_id) {
         this.year = yearList.get(position);
-        view.setForm(getOfferedSubjects(student_id));
+        view.setForm(getOfferedSubjects(student_id, year));
+    }
+
+    public void submitClicked() {
+        view.submit();
     }
 
     public void checkValidity(ArrayList<String> subjects, int student_id) {
         AcademicYear academicYear = years.find(year);
         int semester = students.findSemesterOfStudent(student_id);
 
-        try {
-            Circumscription c = academicYear.getCircumscription(semester);
-            List<OfferedSubject> offeredSubjects = this.subjects.findByYear(this.year, semester);
-            int sum = 0;
-            for (OfferedSubject sub : offeredSubjects) {
-                sum += sub.getEcts();
+        Circumscription c = academicYear.getCircumscription(semester);
+        List<OfferedSubject> offeredSubjects = this.subjects.findByYear(this.year, semester);
+        Submission sub = new Submission();
+        sub.setSemester(students.findSemesterOfStudent(student_id));
+        sub.setAcademicYear(years.find(this.year));
+        sub.setStudent(students.findStudentById(student_id));
+
+        boolean flag = false;
+        for (String s : subjects) {
+            try {
+                sub.addChosenSub(this.subjects.findByYearAndName(this.year, s));
+            } catch (Exception e) {
+                flag = true;
             }
-            if (sum > c.getEcts()) {
-                view.showErrorMessage("Error", "Surpassed the limit of the ects");
-            }
-        } catch (AcademicYearException e) {
         }
+        if (!flag) {
+            submissions.save(sub);
+            view.showPassedMsg();
+        }
+        else
+            view.showErrorMessage("Error", "Surpassed the limit of ECTS for this semester");
     }
 }

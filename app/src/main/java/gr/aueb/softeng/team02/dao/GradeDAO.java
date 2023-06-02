@@ -9,6 +9,8 @@ public interface GradeDAO {
 
     public Grade findBySubject(String title, int studentId);
 
+    public Set<Grade> findPassedSubjectsByStudent(int studentId);
+
     public void save(Grade entity);
 
     public void delete(Grade entity);

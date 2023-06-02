@@ -36,6 +36,17 @@ public class GradeDAOMemory implements GradeDAO {
     }
 
     @Override
+    public Set<Grade> findPassedSubjectsByStudent(int studentId) {
+        HashSet<Grade> gradings = new HashSet<>();
+        for (Grade g : entities) {
+            if (g.getGrade() >= 5) {
+                gradings.add(g);
+            }
+        }
+        return gradings;
+    }
+
+    @Override
     public void save(Grade entity) {
         if (!entities.contains(entity))
             entities.add(entity);
