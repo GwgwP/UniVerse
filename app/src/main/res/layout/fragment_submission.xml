@@ -1,88 +1,50 @@
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<androidx.constraintlayout.widget.ConstraintLayout-->
-<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    tools:context=".view.Submission.SubmissionFragment">-->
-
-<!--    <TextView-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:textSize="25sp"-->
-<!--        android:textColor="#000"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        tools:ignore="MissingConstraints"></TextView>-->
-
-
-<!--    <Spinner-->
-<!--        android:id="@+id/spinner"-->
-<!--        android:layout_width="264dp"-->
-<!--        android:layout_height="34dp"-->
-<!--        android:layout_marginTop="28dp"-->
-<!--        -->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.496"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toBottomOf="@+id/textView4" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/textView4"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Select Year"-->
-<!--        app:layout_constraintBottom_toBottomOf="parent"-->
-<!--        app:layout_constraintEnd_toEndOf="parent"-->
-<!--        app:layout_constraintHorizontal_bias="0.498"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent"-->
-<!--        app:layout_constraintVertical_bias="0.096" />-->
-
-
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
-
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/lavender">
 
-    <!-- Dropdown Menu with Spinner -->
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/rounded_search_bar"
-        android:spinnerMode="dialog"
-        android:prompt="@string/arrayYear"
-        android:padding="8dp" />
+        <!-- Dropdown Menu with Spinner -->
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/rounded_search_bar"
+            android:spinnerMode="dialog"
+            android:prompt="@string/arrayYear"
+            android:padding="8dp" />
 
-    <!-- Gap -->
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="16dp" />
+        <!-- Gap -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="16dp" />
 
-    <!-- Checkbox Table -->
-    <TableLayout
-        android:id="@+id/tableLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:divider="@drawable/table_divider"
-        android:showDividers="middle"
-        android:padding="16dp"
-        android:visibility="gone"
-        android:stretchColumns="*">
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="200dp">
+                <!-- Checkbox Table -->
+                <TableLayout
+                    android:id="@+id/tableLayout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:divider="@drawable/table_divider"
+                    android:showDividers="middle"
+                    android:padding="16dp"
+                    android:visibility="gone"
+                    android:stretchColumns="*">
 
-    </TableLayout>
-    <Button
-        android:id="@+id/submitBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SUBMIT"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true"
-        android:layout_margin="16dp"
-        android:onClick="submitClicked" />
+                </TableLayout>
+        </ScrollView>
+        <Button
+            android:id="@+id/submitBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="SUBMIT"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_margin="16dp"
+            android:onClick="submitClicked" />
 
 </LinearLayout>

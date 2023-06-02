@@ -5,6 +5,8 @@ import java.util.List;
 
 import gr.aueb.softeng.team02.dao.AcademicYearDAO;
 import gr.aueb.softeng.team02.model.AcademicYear;
+import gr.aueb.softeng.team02.model.AcademicYearException;
+import gr.aueb.softeng.team02.model.Circumscription;
 
 public class AcademicYearDAOMemory implements AcademicYearDAO {
     protected static HashSet<AcademicYear> entities = new HashSet<AcademicYear>();
@@ -26,6 +28,16 @@ public class AcademicYearDAOMemory implements AcademicYearDAO {
         for (AcademicYear acYear : entities) {
             if (acYear.getAc_year().equals(year))
                 return acYear;
+        }
+        return null;
+    }
+
+    @Override
+    public Circumscription findCircumscriptionBySemesterAndYear(int semester, String year) throws AcademicYearException {
+        for (AcademicYear y : entities) {
+            if (y.getAc_year().equals(year)) {
+                return y.getCircumscription(semester);
+            }
         }
         return null;
     }

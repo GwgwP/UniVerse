@@ -9,5 +9,6 @@ public interface OfferedSubjectDAO {
     public void save(OfferedSubject entity);
     public void delete(OfferedSubject entity);
     public List<OfferedSubject> findAll();
+    public List<OfferedSubject> findByModulo(int mod);
     public List<OfferedSubject> findByYear(String year, int semester);
 }

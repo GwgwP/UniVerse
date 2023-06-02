@@ -42,12 +42,6 @@ public class Home extends AppCompatActivity {
         setTitle("Universe");
         setTitle(String.valueOf(studentId));
 
-        // Initialize the fragments
-//        homeFragment = new HomeFragment();
-//        progressFragment = new ProgressFragment();
-//        submissionFragment = new SubmissionFragment();
-//        searchFragment = new SearchFragment();
-
         // Set the initial fragment to be displayed
         replaceFragment(new HomeFragment());
 

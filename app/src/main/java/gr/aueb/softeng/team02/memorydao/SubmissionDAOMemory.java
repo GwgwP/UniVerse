@@ -8,7 +8,7 @@ import gr.aueb.softeng.team02.model.AcademicYear;
 import gr.aueb.softeng.team02.model.Submission;
 
 public class SubmissionDAOMemory implements SubmissionDAO {
-    ArrayList<Submission> submissions = new ArrayList<>();
+    private static ArrayList<Submission> submissions = new ArrayList<>();
 
     @Override
     public List<Submission> findAll() {

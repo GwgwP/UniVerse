@@ -84,10 +84,6 @@ public class OfferedSubject {
         * 1. Academic Year
         * 2. Subject (title)
         * !!! Not semester because we want an offered subject only once in the academic year !!!*/
-        if (this.year.getAc_year().equals(subject.getAcademicYearINString()) && this.sub.equals(subject.getSubject())) {
-            boolean b1 = this.sub.equals(subject.getSubject());
-            int x = 10;
-        }
         return (this.year.getAc_year().equals(subject.getAcademicYearINString()) && this.sub.equals(subject.getSubject()));
     }
 }

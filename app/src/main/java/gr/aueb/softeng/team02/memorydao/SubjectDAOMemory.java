@@ -5,7 +5,7 @@ import gr.aueb.softeng.team02.model.Subject;
 import java.util.*;
 
 public class SubjectDAOMemory implements SubjectDAO {
-    ArrayList<Subject> entities = new ArrayList<>();
+    private static ArrayList<Subject> entities = new ArrayList<>();
     @Override
     public List<Subject> findAll() {
         return new ArrayList<>(entities);
