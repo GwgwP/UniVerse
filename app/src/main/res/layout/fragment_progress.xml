@@ -178,25 +178,24 @@
         android:id="@+id/perasmena_mathimata"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginBottom="100dp"
         android:text="TextView"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView4"
-        app:layout_constraintVertical_bias="0.0"
-        tools:layout_editor_absoluteX="71dp" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="152dp"
         android:layout_height="28dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="8dp"
         android:text="Passed Subjects:"
         android:textSize="20sp"
         android:textStyle="normal|bold|italic"
         app:layout_constraintEnd_toStartOf="@+id/btn_show_subj_grades"
-        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/sem_4_4" />
 
