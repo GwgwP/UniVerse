@@ -60,4 +60,15 @@ public class OfferedSubjectDAOMemory implements OfferedSubjectDAO {
         }
         return subjects;
     }
+
+    @Override
+    public OfferedSubject findByTitle(String title) {
+        for (OfferedSubject sub : list) {
+            if (sub.getTitle().equals(title)){
+                return sub;
+            }
+        }
+
+        return null;
+    }
 }

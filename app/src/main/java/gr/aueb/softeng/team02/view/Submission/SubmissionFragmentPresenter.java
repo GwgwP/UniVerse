@@ -22,11 +22,11 @@ import gr.aueb.softeng.team02.model.Submission;
 
 public class SubmissionFragmentPresenter {
     private SubmissionFragmentView view;
-    private AcademicYearDAO years;
-    private OfferedSubjectDAO subjects;
-    private StudentDAO students;
-    private GradeDAO grades;
-    private SubmissionDAO submissions;
+    private final AcademicYearDAO years;
+    private final OfferedSubjectDAO subjects;
+    private final StudentDAO students;
+    private final GradeDAO grades;
+    private final SubmissionDAO submissions;
     private String year;
     private int studentId;
 
@@ -40,6 +40,10 @@ public class SubmissionFragmentPresenter {
 
     public void setStudentId(int id) {
         this.studentId = id;
+    }
+
+    public void startProcess() {
+        view.startSubmission();
     }
 
     public void setView(SubmissionFragmentView view) {

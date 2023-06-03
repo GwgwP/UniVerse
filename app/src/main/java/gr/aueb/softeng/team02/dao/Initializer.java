@@ -112,7 +112,12 @@ public abstract class Initializer {
         Subject su2 = new Subject(1, "Antonis Dimakis", 8,"Introduction on programming", "Python");
         Subject su3 = new Subject(2, "Iordanis Koutsopoulos", 8,"Introduction on Computer Science", "Computer Science");
         Subject su4 = new Subject(3, "Trufon Trufonas", 8,"Introduction on Micro & Macro", "Economics 1");
-        Subject su5 = new Subject(4, "Panagiotis Katerinis", 8,"Introduction on mathematics variables", "Discrete Mathematics");
+        Subject su5 = new Subject(4, "Panagiotis Katerinis", 8,"Σύνολα. Σχέσεις. Συναρτήσεις. Φυσικοί Αριθμοί. Αρχή της επαγωγής. Ισοδυναμία συνόλων. Αριθμήσιμα και υπεραριθμήσιμα σύνολα.\n" +
+                "Προτασιακός λογισμός. Πράξεις μεταξύ συνόλων και λογικοί σύνδεσμοι. Άλγεβρα Boole. Τι είναι απόδειξη και τεχνικές απόδειξης.\n" +
+                "Βασικές αρχές απαρίθμησης. Διατάξεις. Συνδυασμοί. Η αρχή του εγκλεισμού και αποκλεισμού. Γραφήματα. Ισομορφισμός\n" +
+                "γραφημάτων. Μονοπάτια, κύκλοι και συνεκτικότητα. Πίνακες γραφημάτων. Κατευθυνόμενα γραφήματα. Δέντρα. Το πρόβλημα του\n" +
+                "βέλτιστου επικαλυπτικού δέντρου. Δέντρα με ρίζες. Ίχνη του Euler και κύκλοι του Hamilton. Επίπεδα γραφήματα και χρωματισμός\n" +
+                "γραφημάτων. Γραμμικές αναδρομικές σχέσεις με σταθερούς συντελεστές.", "Discrete Mathematics");
         // 2nd semester
         Subject su6 = new Subject(5, "George Koutsikas", 8,"Introduction on object-oriented programming", "Java");
         Subject su7 = new Subject(6, "Despoina Sapouna", 8,"Introduction on Business Management", "Business Management");

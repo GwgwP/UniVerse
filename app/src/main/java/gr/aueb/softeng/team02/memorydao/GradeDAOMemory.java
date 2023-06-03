@@ -16,7 +16,6 @@ public class GradeDAOMemory implements GradeDAO {
     @Override
     public Set<Grade> findByStudent(int studentId) {
         HashSet<Grade> studentGrades = new HashSet<Grade>();
-        Log.e("DEBUGGER", String.valueOf(entities.size()));
         for (Grade grade : entities) {
             if (grade.getStudentId() == studentId) {
                 studentGrades.add(grade);
@@ -43,7 +42,7 @@ public class GradeDAOMemory implements GradeDAO {
 
     @Override
     public Grade findBySubject(String title, int studentId) {
-        for (Grade grade : this.entities) {
+        for (Grade grade : entities) {
             if (grade.getStudentId() == studentId && grade.getTitle().equals(title)) {
                 return grade;
             }
