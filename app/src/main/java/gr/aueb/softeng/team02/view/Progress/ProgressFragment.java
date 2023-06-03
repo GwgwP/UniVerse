@@ -107,7 +107,7 @@ public class ProgressFragment extends Fragment implements ProgressView {
     }
 
     public void showNumPassed(int num) {
-        txtAverageGrade.setText(String.valueOf(num));
+        txt_num_passed.setText(String.valueOf(num));
 
     }
 
