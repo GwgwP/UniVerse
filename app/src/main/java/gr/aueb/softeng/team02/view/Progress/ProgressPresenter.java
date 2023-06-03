@@ -51,11 +51,10 @@ public class ProgressPresenter {
             sum += g.getGrade();
             counter++;
         }
-        if (counter != 0) {
-
+        if (counter != 0)
             view.showAverage(sum / counter);
-        } else view.showAverage(0);
-        // else return 0;
+        else
+            view.showAverage(0);
     }
 
 
@@ -83,8 +82,7 @@ public class ProgressPresenter {
         view.showNumPassed(counter);
     }
 
-    void onSeeGrades()
-    {
+    void onSeeGrades() {
         view.showDetailedGrades();
     }
 

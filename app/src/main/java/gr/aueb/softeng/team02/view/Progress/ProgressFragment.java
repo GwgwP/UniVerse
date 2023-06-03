@@ -10,7 +10,6 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
 
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
@@ -18,27 +17,10 @@ import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 import gr.aueb.softeng.team02.view.Progress.DetailedGrades.DetailedGradesActivity;
-
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Paint;
-import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-
-import org.w3c.dom.Text;
-
-import java.util.ArrayList;
 import java.util.HashMap;
 
 
 public class ProgressFragment extends Fragment implements ProgressView {
-
 
     private View view;
 
@@ -63,7 +45,6 @@ public class ProgressFragment extends Fragment implements ProgressView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
 
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_progress, container, false);
@@ -134,8 +115,6 @@ public class ProgressFragment extends Fragment implements ProgressView {
         String sem8 = (sem_8_8.getText().toString());
 
 
-
-
         Intent intent = new Intent(getActivity(), DetailedGradesActivity.class);
         intent.putExtra("student_id", this.student_id);
         intent.putExtra("sem1", sem1);
@@ -179,4 +158,5 @@ public class ProgressFragment extends Fragment implements ProgressView {
     }
 
 }
+
 

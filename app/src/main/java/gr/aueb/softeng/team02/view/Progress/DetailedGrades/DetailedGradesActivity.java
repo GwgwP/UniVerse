@@ -2,8 +2,8 @@ package gr.aueb.softeng.team02.view.Progress.DetailedGrades;
 
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
-import gr.aueb.softeng.team02.model.Grade;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 
 import android.widget.ArrayAdapter;
@@ -39,8 +39,6 @@ public class DetailedGradesActivity extends AppCompatActivity implements Detaile
     private Initializer init;
     private LinearLayout subjectContainer;
 
-
-
     private List<String> subjectsAndGradesLists;
     private ListAdapter[] adapters;
     private ListView[] listViews;
@@ -70,7 +68,6 @@ public class DetailedGradesActivity extends AppCompatActivity implements Detaile
         adapters = new ListAdapter[8];
         listViews = new ListView[8];
 
-
         // Get references to the ListViews in the layout
         listViews[0] = findViewById(R.id.sem1_subj);
         listViews[1] = findViewById(R.id.sem2_subj);
@@ -86,7 +83,6 @@ public class DetailedGradesActivity extends AppCompatActivity implements Detaile
             listViews[i].setAdapter(adapters[i]);
         }
 
-
     }
 
     public void onStart() {
@@ -96,6 +92,7 @@ public class DetailedGradesActivity extends AppCompatActivity implements Detaile
     }
 
 
+    @SuppressLint("SetTextI18n")
     public void receiveAverages() {
         Bundle bundle = getIntent().getExtras();
 
@@ -140,6 +137,5 @@ public class DetailedGradesActivity extends AppCompatActivity implements Detaile
         }
 
     }
-
 
 }

@@ -17,20 +17,16 @@ import java.util.List;
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
-import gr.aueb.softeng.team02.memorydao.OfferedSubjectDAOMemory;
 import gr.aueb.softeng.team02.model.OfferedSubject;
 import gr.aueb.softeng.team02.view.Information.InformationSubject;
 
 
 public class SearchFragment extends Fragment implements SearchView{
-
-
         private Initializer init;
         private LinearLayout subjectContainer;
         private View myView;
 
         private int student_id;
-
 
         private SearchPresenter presenter;
 
@@ -48,7 +44,7 @@ public class SearchFragment extends Fragment implements SearchView{
 
         init = new MemoryInitializer();
 
-        presenter = new SearchPresenter(new OfferedSubjectDAOMemory());
+        presenter = new SearchPresenter(init.getOfferedSubjectDAO());
         presenter.setView(this);
         presenter.initSubView();
 
@@ -56,7 +52,7 @@ public class SearchFragment extends Fragment implements SearchView{
     }
 
     public void viewSub(List<OfferedSubject> sub){
-
+        // TODO : Not with offered subjects Lydia
         for( OfferedSubject k : sub){
             String title = k.getTitle();
             TextView subjectTextView = createSubjectTextView(title); // we make a new TextView that has the subject title
