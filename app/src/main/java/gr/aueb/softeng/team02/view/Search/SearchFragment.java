@@ -72,12 +72,6 @@ public class SearchFragment extends Fragment implements SearchView{
     }
 
     public TextView createSubjectTextView(String title){
-        // because of an error
-        LinearLayout subjectLayout = new LinearLayout(requireContext());
-        subjectLayout.setOrientation(LinearLayout.VERTICAL);
-        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-        layoutParams.setMargins(0, 0, 0, 16);
-        subjectLayout.setLayoutParams(layoutParams);
 
         TextView textView = new TextView(requireContext());
         textView.setText(title);
@@ -97,19 +91,13 @@ public class SearchFragment extends Fragment implements SearchView{
 
         View lineView = new View(requireContext());
         LinearLayout.LayoutParams lineLayoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
-        layoutParams.setMargins(16, 0, 16, 0);
-        lineView.setLayoutParams(layoutParams);
+        lineLayoutParams.setMargins(16, 0, 16, 0);
+        lineView.setLayoutParams(lineLayoutParams);
         lineView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.black));
 
-        subjectContainer.addView(textView);
-        subjectContainer.addView(lineView);
-        // an error between
-        ViewGroup parent = (ViewGroup) subjectLayout.getParent();
-        if (parent != null) {
-            parent.removeView(subjectLayout);
-        }
 
-        subjectContainer.addView(subjectLayout);
+        subjectContainer.addView(lineView);
+
 
         return textView;
     }
