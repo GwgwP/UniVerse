@@ -17,13 +17,29 @@ public class GradeDAOMemory implements GradeDAO {
     public Set<Grade> findByStudent(int studentId) {
         HashSet<Grade> studentGrades = new HashSet<Grade>();
         Log.e("DEBUGGER", String.valueOf(entities.size()));
-        for (Grade grade : this.entities) {
+        for (Grade grade : entities) {
             if (grade.getStudentId() == studentId) {
                 studentGrades.add(grade);
             }
         }
         return studentGrades;
     }
+
+    @Override
+    public Set<Grade> findBySemesterSubjects(int id, int semester)
+    {
+        HashSet<Grade> studentGradesBySem = new HashSet<Grade>();
+        for (Grade g:entities)
+        {
+            if(g.getStudentId() == id && g.getSemester() == semester)
+            {
+
+                studentGradesBySem.add(g);
+            }
+        }
+        return studentGradesBySem;
+    }
+
 
     @Override
     public Grade findBySubject(String title, int studentId) {

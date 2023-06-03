@@ -17,4 +17,6 @@ public interface GradeDAO {
 
     public Set<Grade> findAll();
 
+    public Set<Grade> findBySemesterSubjects(int id, int semester);
+
 }
