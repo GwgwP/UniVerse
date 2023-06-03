@@ -22,9 +22,6 @@
             android:name=".SubjectInfo"
             android:exported="false" />
         <activity
-            android:name=".view.Authentication.UserLoginActivity"
-            android:exported="true"></activity>
-        <activity
             android:name=".view.Home.Home"
             android:exported="false" />
         <activity
