@@ -23,5 +23,20 @@ public class DetailedGradesPresenter {
         this.student_id = student_id;
     }
 
+    public void initSubView() {
 
+        HashMap<Integer, HashMap<String, Integer>> gradings = new HashMap<>();
+        for (int i = 1; i <= 8; i++) {
+
+            HashMap<String, Integer> semesterSubjects = new HashMap<>();
+
+            for (Grade g : grades.findBySemesterSubjects(student_id, i)) {
+                semesterSubjects.put(g.getTitle(), g.getGrade());
+            }
+
+            gradings.put(i, semesterSubjects);
+        }
+        view.viewSub(gradings);
+
+    }
 }
