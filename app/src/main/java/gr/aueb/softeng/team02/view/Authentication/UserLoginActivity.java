@@ -18,10 +18,8 @@ import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 import gr.aueb.softeng.team02.model.AcademicYearException;
-import gr.aueb.softeng.team02.model.Secretary;
-import gr.aueb.softeng.team02.model.Student;
 import gr.aueb.softeng.team02.model.User;
-import gr.aueb.softeng.team02.view.Home;
+import gr.aueb.softeng.team02.view.Home.Home;
 
 public class UserLoginActivity extends AppCompatActivity implements UserLoginView {
 

@@ -28,6 +28,7 @@ public class SubmissionFragmentPresenter {
     private GradeDAO grades;
     private SubmissionDAO submissions;
     private String year;
+    private int studentId;
 
     public SubmissionFragmentPresenter(AcademicYearDAO years, OfferedSubjectDAO subjects, StudentDAO students, GradeDAO grades, SubmissionDAO submissions) {
         this.students = students;
@@ -35,6 +36,10 @@ public class SubmissionFragmentPresenter {
         this.subjects = subjects;
         this.grades = grades;
         this.submissions = submissions;
+    }
+
+    public void setStudentId(int id) {
+        this.studentId = id;
     }
 
     public void setView(SubmissionFragmentView view) {
@@ -47,10 +52,6 @@ public class SubmissionFragmentPresenter {
             ac_years.add(year.getAc_year());
         }
         return ac_years;
-    }
-
-    public void setYear(String year) {
-        this.year = year;
     }
 
     public HashMap<String, Integer> getOfferedSubjects(int student_id, String year) {
@@ -73,25 +74,25 @@ public class SubmissionFragmentPresenter {
         return list;
     }
 
-    public void makeForm(int position, ArrayList<String> yearList, int student_id) {
-        this.year = yearList.get(position);
-        view.setForm(getOfferedSubjects(student_id, year));
+    public void makeForm() {
+        this.year = view.getSelectedYear(getAcademicYears());
+        view.setForm(getOfferedSubjects(this.studentId, year));
     }
 
     public void submitClicked() {
         view.submit();
     }
 
-    public void checkValidity(ArrayList<String> subjects, int student_id) {
+    public void checkValidity(ArrayList<String> subjects) {
         AcademicYear academicYear = years.find(year);
-        int semester = students.findSemesterOfStudent(student_id);
+        int semester = students.findSemesterOfStudent(this.studentId);
 
         Circumscription c = academicYear.getCircumscription(semester);
         List<OfferedSubject> offeredSubjects = this.subjects.findByYear(this.year, semester);
         Submission sub = new Submission();
-        sub.setSemester(students.findSemesterOfStudent(student_id));
+        sub.setSemester(students.findSemesterOfStudent(this.studentId));
         sub.setAcademicYear(years.find(this.year));
-        sub.setStudent(students.findStudentById(student_id));
+        sub.setStudent(students.findStudentById(this.studentId));
 
         boolean flag = false;
         for (String s : subjects) {
@@ -101,11 +102,15 @@ public class SubmissionFragmentPresenter {
                 flag = true;
             }
         }
+
         if (!flag) {
             submissions.save(sub);
-            view.showPassedMsg();
+            view.showPassedMsg("Succesfully stored");
         }
         else
             view.showErrorMessage("Error", "Surpassed the limit of ECTS for this semester");
+    }
+    public void setYears() {
+        view.createYearList(getAcademicYears());
     }
 }

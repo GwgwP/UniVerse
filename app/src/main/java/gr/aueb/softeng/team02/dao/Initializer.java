@@ -253,7 +253,6 @@ public abstract class Initializer {
         Grade g10 = new Grade(s1, o10, 9);
 
 
-
         getGradeDAO().save(g1);
         getGradeDAO().save(g2);
         getGradeDAO().save(g3);

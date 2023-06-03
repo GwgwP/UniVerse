@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02.view;
+package gr.aueb.softeng.team02.view.Home;
 
 
 import android.annotation.SuppressLint;
@@ -18,7 +18,9 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
 
 import gr.aueb.softeng.team02.R;
+import gr.aueb.softeng.team02.view.HomeFragment;
 import gr.aueb.softeng.team02.view.Progress.ProgressFragment;
+import gr.aueb.softeng.team02.view.SearchFragment;
 import gr.aueb.softeng.team02.view.Submission.SubmissionFragment;
 
 public class Home extends AppCompatActivity {
