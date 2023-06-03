@@ -3,54 +3,26 @@ package gr.aueb.softeng.team02.view.Progress.DetailedGrades;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 import gr.aueb.softeng.team02.model.Grade;
-import gr.aueb.softeng.team02.model.OfferedSubject;
-import gr.aueb.softeng.team02.view.Progress.ProgressPresenter;
-import android.content.Intent;
+
 import android.os.Bundle;
 
-import androidx.core.content.ContextCompat;
-import androidx.fragment.app.Fragment;
-
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
-import android.widget.TableLayout;
+import android.widget.ListAdapter;
 import android.widget.TextView;
-import androidx.fragment.app.Fragment;
+
 import java.util.ArrayList;
 import java.util.List;
 
 import gr.aueb.softeng.team02.R;
 
-import gr.aueb.softeng.team02.dao.Initializer;
-import gr.aueb.softeng.team02.dao.OfferedSubjectDAO;
-import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
-import gr.aueb.softeng.team02.memorydao.OfferedSubjectDAOMemory;
-import gr.aueb.softeng.team02.model.OfferedSubject;
-import gr.aueb.softeng.team02.view.SubjectInfo;
-
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
-import android.content.Intent;
-import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.SearchView;
-import android.widget.TextView;
 
 import java.util.HashMap;
-import java.util.Set;
 
-import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.memorydao.GradeDAOMemory;
-import gr.aueb.softeng.team02.view.SubjectInfo;
 
 public class DetailedGradesActivity extends AppCompatActivity implements DetailedGradesView {
     DetailedGradesPresenter presenter;
@@ -66,6 +38,13 @@ public class DetailedGradesActivity extends AppCompatActivity implements Detaile
 
     private Initializer init;
     private LinearLayout subjectContainer;
+
+
+
+    private List<String> subjectsAndGradesLists;
+    private ListAdapter[] adapters;
+    private ListView[] listViews;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -85,6 +64,27 @@ public class DetailedGradesActivity extends AppCompatActivity implements Detaile
         sem_6_6 = findViewById(R.id.average_6);
         sem_7_7 = findViewById(R.id.average_7);
         sem_8_8 = findViewById(R.id.average_8);
+
+        // Initialize the lists, adapters, and listViews
+        subjectsAndGradesLists = new ArrayList<>();
+        adapters = new ListAdapter[8];
+        listViews = new ListView[8];
+
+
+        // Get references to the ListViews in the layout
+        listViews[0] = findViewById(R.id.sem1_subj);
+        listViews[1] = findViewById(R.id.sem2_subj);
+        listViews[2] = findViewById(R.id.sem3_subj);
+        listViews[3] = findViewById(R.id.sem4_subj);
+        listViews[4] = findViewById(R.id.sem5_subj);
+        listViews[5] = findViewById(R.id.sem6_subj);
+        listViews[6] = findViewById(R.id.sem7_subj);
+        listViews[7] = findViewById(R.id.sem8_subj);
+
+        for (int i = 0; i < 8; i++) {
+            adapters[i] = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1);
+            listViews[i].setAdapter(adapters[i]);
+        }
 
 
     }
@@ -115,6 +115,29 @@ public class DetailedGradesActivity extends AppCompatActivity implements Detaile
 
     @Override
     public void viewSub(HashMap<Integer, HashMap<String, Integer>> subjects) {
+
+        //adapters[1]
+        for (int i = 0; i < 8; i++) {
+            HashMap<String, Integer> subjectGradesMap = subjects.get(i + 1);
+            List<String> subjectGradesList = new ArrayList<>();
+
+            if (subjectGradesMap != null) {
+                for (String subject : subjectGradesMap.keySet()) {
+                    int grade = subjectGradesMap.get(subject);
+                    String subjectGrade = subject + " - " + grade;
+                    subjectGradesList.add(subjectGrade);
+                }
+            }
+
+            // Update the data source of the adapter for the corresponding ListView
+            ArrayAdapter<String> adapter = (ArrayAdapter<String>) adapters[i];
+            adapter.clear();
+            adapter.addAll(subjectGradesList);
+
+            // Notify the adapter of the data changes
+            adapter.notifyDataSetChanged();
+
+        }
 
     }
 
