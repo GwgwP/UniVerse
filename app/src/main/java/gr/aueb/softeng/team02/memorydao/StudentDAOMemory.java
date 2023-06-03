@@ -3,6 +3,7 @@ package gr.aueb.softeng.team02.memorydao;
 import android.util.Log;
 
 import java.util.HashSet;
+import java.util.Set;
 
 import gr.aueb.softeng.team02.dao.StudentDAO;
 import gr.aueb.softeng.team02.model.Student;
@@ -12,7 +13,7 @@ public class StudentDAOMemory implements StudentDAO {
     private static HashSet<Student> entities = new HashSet<>();
 
     @Override
-    public HashSet<Student> findAll() {
+    public Set<Student> findAll() {
         return new HashSet<>(entities);
     }
 

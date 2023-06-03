@@ -3,6 +3,7 @@ package gr.aueb.softeng.team02.memorydao;
 import android.util.Log;
 
 import java.util.HashSet;
+import java.util.Set;
 
 import gr.aueb.softeng.team02.dao.SecretaryDAO;
 import gr.aueb.softeng.team02.model.Secretary;
@@ -12,7 +13,7 @@ public class SecretaryDAOMemory implements SecretaryDAO {
     protected static HashSet<Secretary> entities = new HashSet<>();
 
     @Override
-    public HashSet<Secretary> findAll() {
+    public Set<Secretary> findAll() {
         return new HashSet<>(entities);
     }
 

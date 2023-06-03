@@ -5,6 +5,15 @@
     android:orientation="vertical"
     android:background="@color/lavender">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Choose year"
+            android:textAppearance="?android:textAppearanceMedium"
+            android:textColor="@android:color/black"
+            android:textStyle="bold"
+            android:padding="8dp" />
+
         <!-- Dropdown Menu with Spinner -->
         <Spinner
             android:id="@+id/spinner"
@@ -20,23 +29,23 @@
             android:layout_width="match_parent"
             android:layout_height="16dp" />
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="200dp">
-                <!-- Checkbox Table -->
-                <TableLayout
-                    android:id="@+id/tableLayout"
+                <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@color/white"
-                    android:divider="@drawable/table_divider"
-                    android:showDividers="middle"
-                    android:padding="16dp"
-                    android:visibility="gone"
-                    android:stretchColumns="*">
+                    android:layout_height="300dp">
+                        <!-- Checkbox Table -->
+                        <TableLayout
+                            android:id="@+id/tableLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="@color/white"
+                            android:divider="@drawable/table_divider"
+                            android:showDividers="middle"
+                            android:padding="16dp"
+                            android:visibility="gone"
+                            android:stretchColumns="*">
 
-                </TableLayout>
-        </ScrollView>
+                        </TableLayout>
+                </ScrollView>
         <Button
             android:id="@+id/submitBtn"
             android:layout_width="wrap_content"

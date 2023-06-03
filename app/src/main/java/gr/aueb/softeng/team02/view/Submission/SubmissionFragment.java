@@ -3,15 +3,8 @@ package gr.aueb.softeng.team02.view.Submission;
 import android.app.AlertDialog;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-
-import androidx.appcompat.app.ActionBar;
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
-import androidx.lifecycle.ViewModel;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,18 +23,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 import gr.aueb.softeng.team02.R;
-import gr.aueb.softeng.team02.dao.Initializer;
-import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
-import gr.aueb.softeng.team02.model.AcademicYear;
-import gr.aueb.softeng.team02.view.Home;
 
 public class SubmissionFragment extends Fragment implements SubmissionFragmentView {
     private ArrayList<String> yearList;
     private SubmissionFragmentViewModel model;
-    private SubmissionFragmentPresenter presenter;
     private Spinner spinner;
-    private Initializer init;
-    private int student_id;
     private Button submitButton;
     private View myView;
     private TableLayout tableLayout;
@@ -63,28 +49,14 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
         spinner = (Spinner) myView.findViewById(R.id.spinner);
 
         Bundle bundle = getArguments();
-        this.student_id = bundle.getInt("STUDENT_ID", 0);
-
-        // Log.e("DEBUGGER", String.valueOf(student_id));
-        init = new MemoryInitializer();
+        int student_id = bundle.getInt("STUDENT_ID", 0);
 
         submitButton = myView.findViewById(R.id.submitBtn);
 
         model = new SubmissionFragmentViewModel();
         model.getPresenter().setView(this);
-
-        // Create an ArrayList with the choices
-        this.yearList = model.getPresenter().getAcademicYears();
-
-        // Create an ArrayAdapter using the choices ArrayList
-        ArrayAdapter adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_dropdown_item, this.yearList);
-
-        // Specify the layout for the dropdown items
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // Set the ArrayAdapter on the Spinner
-        spinner.setAdapter(adapter);
-
+        model.getPresenter().setStudentId(student_id);
+        model.getPresenter().setYears();
         return myView;
     }
 
@@ -95,13 +67,11 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                model.getPresenter().makeForm(position, yearList, student_id);
+                model.getPresenter().makeForm(); // creation of table
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-                spinner.setPrompt("Select Academic Year");
-            }
+            public void onNothingSelected(AdapterView<?> parent) {}
         });
 
         // Set a click listener for the submit button
@@ -111,6 +81,21 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
                 model.getPresenter().submitClicked();
             }
         });
+    }
+
+    private void selectYear() {
+
+    }
+
+    public void createYearList(ArrayList<String> years) {
+        // Create an ArrayAdapter using the choices ArrayList
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_dropdown_item, years);
+
+        // Specify the layout for the dropdown items
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // Set the ArrayAdapter on the Spinner
+        spinner.setAdapter(adapter);
     }
 
     public void submit() {
@@ -134,14 +119,14 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
                 }
             }
         }
-        model.getPresenter().checkValidity(subjects, student_id);
+        model.getPresenter().checkValidity(subjects);
     }
 
     @Override
     public void setForm(HashMap<String, Integer> subjects) {
-        tableLayout.setVisibility(View.VISIBLE);
+        tableLayout.setVisibility(View.VISIBLE); // shows the table
 
-        tableLayout.removeAllViews();
+        tableLayout.removeAllViews(); // removes the old rows
 
         // Create the header row
         TableRow headerRow = new TableRow(requireContext());
@@ -197,7 +182,12 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
     }
 
     @Override
-    public void showPassedMsg() {
-        Toast.makeText(requireContext(), "Succesfully stored", Toast.LENGTH_LONG).show();
+    public void showPassedMsg(String txt) {
+        Toast.makeText(requireContext(), txt, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public String getSelectedYear(ArrayList<String> years) {
+        return years.get(((Spinner) myView.findViewById(R.id.spinner)).getSelectedItemPosition());
     }
 }
