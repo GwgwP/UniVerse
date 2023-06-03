@@ -9,23 +9,17 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
-import android.widget.Spinner;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
-import gr.aueb.softeng.team02.dao.OfferedSubjectDAO;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 import gr.aueb.softeng.team02.memorydao.OfferedSubjectDAOMemory;
 import gr.aueb.softeng.team02.model.OfferedSubject;
-import gr.aueb.softeng.team02.view.SubjectInfo;
+import gr.aueb.softeng.team02.view.Information.InformationSubject;
 
 
 public class SearchFragment extends Fragment implements SearchView{
@@ -83,7 +77,7 @@ public class SearchFragment extends Fragment implements SearchView{
             //TODO the presenter does that;
             public void onClick(View v) {
                 // Redirect to another activity based on the selected subject
-                Intent intent = new Intent(requireContext(), SubjectInfo.class);
+                Intent intent = new Intent(requireContext(), InformationSubject.class);
                 intent.putExtra("subject", title);
                 startActivity(intent);
             }
