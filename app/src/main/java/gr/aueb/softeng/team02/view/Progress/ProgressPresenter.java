@@ -83,6 +83,11 @@ public class ProgressPresenter {
         view.showNumPassed(counter);
     }
 
+    void onSeeGrades()
+    {
+        view.showDetailedGrades();
+    }
+
 
     public GradeDAO getGrades() {
         return grades;

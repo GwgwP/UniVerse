@@ -9,4 +9,6 @@ public interface ProgressView
     public void showAverage(double avg);
     public void showAveragePerSemester(HashMap<Integer, Double> av_grades);
     public void showNumPassed(int num);
+
+    public void showDetailedGrades();
 }

@@ -22,16 +22,15 @@
         android:layout_height="16dp" />
 
     <ScrollView
-        android:id = "@+id/scrollSubject"
+        android:id="@+id/scrollSubject"
         android:layout_width="match_parent"
-        android:layout_height="550dp">
+        android:layout_height="638dp">
         <!-- A space to show the Subjects Titles -->
         <LinearLayout
             android:id="@+id/subjectContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-        </LinearLayout>
+            android:orientation="vertical"></LinearLayout>
 
     </ScrollView>
 

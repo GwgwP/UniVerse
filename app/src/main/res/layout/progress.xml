@@ -25,15 +25,20 @@
         android:layout_height="623dp"
         android:overScrollMode="never"
         android:scrollbars="vertical"
-        tools:layout_editor_absoluteX="14dp"
-        tools:layout_editor_absoluteY="104dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
 
         <LinearLayout
-            android:layout_width="match_parent"
 
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingTop="4dp">
+
 
             <TextView
                 android:id="@+id/semester_one"
@@ -270,6 +275,7 @@
 
                 android:textSize="13sp"
                 tools:ignore="RtlSymmetry" />
+
             <ListView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
@@ -289,5 +295,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@tools:sample/avatars" />
+        android:src="@drawable/logouniverse" />
 </androidx.constraintlayout.widget.ConstraintLayout>
