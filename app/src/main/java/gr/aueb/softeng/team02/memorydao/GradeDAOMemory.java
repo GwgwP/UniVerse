@@ -25,6 +25,22 @@ public class GradeDAOMemory implements GradeDAO {
     }
 
     @Override
+    public Set<Grade> findBySemesterSubjects(int id, int semester)
+    {
+        HashSet<Grade> studentGradesBySem = new HashSet<Grade>();
+        for (Grade g:entities)
+        {
+            if(g.getStudentId() == id && g.getSemester() == semester)
+            {
+
+                studentGradesBySem.add(g);
+            }
+        }
+        return studentGradesBySem;
+    }
+
+
+    @Override
     public Grade findBySubject(String title, int studentId) {
         for (Grade grade : entities) {
             if (grade.getStudentId() == studentId && grade.getTitle().equals(title)) {
