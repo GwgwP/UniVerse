@@ -1,6 +1,10 @@
 package gr.aueb.softeng.team02.view.Progress;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
 
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
@@ -13,6 +17,7 @@ import android.widget.TextView;
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
+import gr.aueb.softeng.team02.view.Progress.DetailedGrades.DetailedGradesActivity;
 
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -58,9 +63,19 @@ public class ProgressFragment extends Fragment implements ProgressView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
+
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_progress, container, false);
         Bundle bundle = getArguments();
+
+        this.student_id = bundle.getInt("STUDENT_ID", 0);
+        this.init = new MemoryInitializer();
+
+
+        viewModel = new ProgressFragmentViewModel(); //ViewModelProvider(this).get(ProgressFragmentViewModel.class);
+        viewModel.getPresenter().setView(this);
+
 
         txt_num_passed = view.findViewById(R.id.perasmena_mathimata);
         txtAverageGrade = view.findViewById(R.id.ag);
@@ -73,16 +88,12 @@ public class ProgressFragment extends Fragment implements ProgressView {
         sem_7_7 = view.findViewById(R.id.sem_7_7);
         sem_8_8 = view.findViewById(R.id.sem_8_8);
 
-        this.student_id = bundle.getInt("STUDENT_ID", 0);
-        this.init = new MemoryInitializer();
+        view.findViewById(R.id.btn_show_subj_grades).setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                viewModel.getPresenter().onSeeGrades();
+            }
+        });
 
-
-        viewModel = new ProgressFragmentViewModel(); //ViewModelProvider(this).get(ProgressFragmentViewModel.class);
-        viewModel.getPresenter().setView(this);
-        //ProgressPresenter presenter = viewModel.getPresenter();
-        //presenter.setView(this);
-
-        //presenter = new ProgressPresenter(this, init.getGradeDAO());
         return view;
     }
 
@@ -94,7 +105,6 @@ public class ProgressFragment extends Fragment implements ProgressView {
         viewModel.getPresenter().getAGperSem(student_id);
         viewModel.getPresenter().getNumOfSubs(student_id);
     }
-
 
     @Override
     public void getGrade() {
@@ -108,6 +118,36 @@ public class ProgressFragment extends Fragment implements ProgressView {
 
     public void showNumPassed(int num) {
         txt_num_passed.setText(String.valueOf(num));
+
+    }
+
+    @Override
+    public void showDetailedGrades() {
+
+        String sem1 = (sem_1_1.getText().toString());
+        String sem2 = (sem_2_2.getText().toString());
+        String sem3 = (sem_3_3.getText().toString());
+        String sem4 = (sem_4_4.getText().toString());
+        String sem5 = (sem_5_5.getText().toString());
+        String sem6 = (sem_6_6.getText().toString());
+        String sem7 = (sem_7_7.getText().toString());
+        String sem8 = (sem_8_8.getText().toString());
+
+
+
+
+        Intent intent = new Intent(getActivity(), DetailedGradesActivity.class);
+        intent.putExtra("student_id", this.student_id);
+        intent.putExtra("sem1", sem1);
+        intent.putExtra("sem2", sem2);
+        intent.putExtra("sem3", sem3);
+        intent.putExtra("sem4", sem4);
+        intent.putExtra("sem5", sem5);
+        intent.putExtra("sem6", sem6);
+        intent.putExtra("sem7", sem7);
+        intent.putExtra("sem8", sem8);
+
+        startActivity(intent);
 
     }
 
