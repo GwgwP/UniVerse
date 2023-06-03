@@ -22,7 +22,7 @@
             android:name=".SubjectInfo"
             android:exported="false" />
         <activity
-            android:name=".view.Home.Home"
+            android:name=".view.Student.Home"
             android:exported="false" />
         <activity
             android:name=".view.Logo"

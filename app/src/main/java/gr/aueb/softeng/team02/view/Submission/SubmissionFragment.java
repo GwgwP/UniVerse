@@ -32,14 +32,6 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
     private View myView;
     private TableLayout tableLayout;
 
-    public void showErrorMessage(String title, String message) {
-        new AlertDialog.Builder(requireContext())
-                .setCancelable(true)
-                .setTitle(title)
-                .setMessage(message)
-                .setPositiveButton(R.string.ok, null).create().show();
-    }
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -63,6 +55,11 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
     @Override
     public void onStart() {
         super.onStart();
+        model.getPresenter().startProcess();
+    }
+
+    @Override
+    public void startSubmission() {
         tableLayout = myView.findViewById(R.id.tableLayout);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -71,7 +68,8 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
             }
 
             @Override
-            public void onNothingSelected(AdapterView<?> parent) {}
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
         });
 
         // Set a click listener for the submit button
@@ -81,10 +79,6 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
                 model.getPresenter().submitClicked();
             }
         });
-    }
-
-    private void selectYear() {
-
     }
 
     public void createYearList(ArrayList<String> years) {
@@ -190,4 +184,13 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
     public String getSelectedYear(ArrayList<String> years) {
         return years.get(((Spinner) myView.findViewById(R.id.spinner)).getSelectedItemPosition());
     }
+
+    public void showErrorMessage(String title, String message) {
+        new AlertDialog.Builder(requireContext())
+                .setCancelable(true)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(R.string.ok, null).create().show();
+    }
+
 }

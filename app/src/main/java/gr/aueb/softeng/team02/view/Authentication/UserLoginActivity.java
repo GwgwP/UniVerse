@@ -19,7 +19,7 @@ import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 import gr.aueb.softeng.team02.model.AcademicYearException;
 import gr.aueb.softeng.team02.model.User;
-import gr.aueb.softeng.team02.view.Home.Home;
+import gr.aueb.softeng.team02.view.Student.Home;
 
 public class UserLoginActivity extends AppCompatActivity implements UserLoginView {
 
@@ -74,19 +74,18 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
                 String username = getUsername();
                 String password = getPassword();
 
-                if(username.equals("")){
+                if(username.equals("")) {
                     firstX.setVisibility(View.VISIBLE);
                     Toast.makeText(getApplicationContext(), "Please write your username ", Toast.LENGTH_SHORT).show();
                 }
-                if(password.equals("")){
+
+                if(password.equals("")) {
                     secondX.setVisibility(View.VISIBLE);
                     Toast.makeText(getApplicationContext(), "Please write your password ", Toast.LENGTH_SHORT).show();
                 }
 
                if(!(password.equals("")||username.equals(""))){
-                   // Log.e("DEBUGGER","username : "+ username +" and password "+password);
                    Map.Entry<Integer, User> user = presenter.findUser(username, password);
-                   // Log.e("DEBUGGER", String.valueOf(user.getKey()));
 
                    switch (user.getKey()) {
                     case 1:
@@ -129,7 +128,10 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
     }
 
     public int getRole(){
-        return 0;
+        if (role.isChecked())
+            return 0;
+        else
+            return 1;
     }
 
 }
