@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:text="Progress Frag"
         android:textColorLink="#3F6AB4"
-        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteX="16dp"
         tools:layout_editor_absoluteY="0dp" />
 
     <TextView
@@ -57,11 +57,13 @@
         android:id="@+id/btn_show_subj_grades"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="100dp"
         android:text="Detailed Grades"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.933"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.874" />
 
     <TextView
         android:id="@+id/sem_1_1"
@@ -179,26 +181,28 @@
         android:id="@+id/perasmena_mathimata"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="72dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginStart="56dp"
         android:text="TextView"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.908" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="152dp"
         android:layout_height="28dp"
         android:layout_marginTop="76dp"
-        android:layout_marginEnd="8dp"
         android:text="Passed Subjects:"
         android:textSize="20sp"
         android:textStyle="normal|bold|italic"
-        app:layout_constraintEnd_toStartOf="@+id/btn_show_subj_grades"
-        app:layout_constraintHorizontal_bias="0.437"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.061"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sem_4_4" />
+        app:layout_constraintTop_toBottomOf="@+id/sem_4_4"
+        app:layout_constraintVertical_bias="0.267" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

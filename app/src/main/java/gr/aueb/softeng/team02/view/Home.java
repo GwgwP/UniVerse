@@ -4,7 +4,6 @@ package gr.aueb.softeng.team02.view;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.MenuItem;
 
 
@@ -19,6 +18,7 @@ import com.google.android.material.navigation.NavigationBarView;
 
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.view.Progress.ProgressFragment;
+import gr.aueb.softeng.team02.view.Search.SearchFragment;
 import gr.aueb.softeng.team02.view.Submission.SubmissionFragment;
 
 public class Home extends AppCompatActivity {

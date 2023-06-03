@@ -95,7 +95,7 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                model.getPresenter().makeForm(position, yearList, student_id);
+                model.getPresenter().makeForm(position, yearList, student_id); // creation of table
             }
 
             @Override
@@ -139,9 +139,9 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
 
     @Override
     public void setForm(HashMap<String, Integer> subjects) {
-        tableLayout.setVisibility(View.VISIBLE);
+        tableLayout.setVisibility(View.VISIBLE); // shows the table
 
-        tableLayout.removeAllViews();
+        tableLayout.removeAllViews(); // removes the old rows
 
         // Create the header row
         TableRow headerRow = new TableRow(requireContext());

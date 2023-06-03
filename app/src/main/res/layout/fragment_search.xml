@@ -1,35 +1,9 @@
-<!--<?xml version="1.0" encoding="utf-8"?>-->
-<!--<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    tools:context=".view.SearchFragment">-->
 
-<!--    &lt;!&ndash; TODO: Update blank fragment layout &ndash;&gt;-->
-<!--    <TextView-->
-<!--        android:id="@+id/search_frag"-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="match_parent"-->
-<!--        android:text="Fragment Search"-->
-<!--        tools:layout_editor_absoluteX="-185dp"-->
-<!--        tools:layout_editor_absoluteY="40dp" />-->
-
-<!--    <TextView-->
-<!--        android:id="@+id/textView3"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:text="Search"-->
-<!--        app:layout_constraintBottom_toBottomOf="@+id/search_frag"-->
-<!--        app:layout_constraintEnd_toEndOf="@+id/search_frag"-->
-<!--        app:layout_constraintStart_toStartOf="parent"-->
-<!--        app:layout_constraintTop_toTopOf="parent" />-->
-
-<!--</androidx.constraintlayout.widget.ConstraintLayout>-->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@color/lavender">
 
     <!-- Search Bar -->
     <EditText
@@ -38,17 +12,30 @@
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:background="@drawable/rounded_search_bar"
-        android:hint="Search"
+        android:hint="Type the Subject's Name"
         android:padding="8dp" />
 
-    <!-- Centered Text -->
-    <TextView
+
+    <!-- Gap -->
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:text="Centered Text"
-        android:textSize="24sp" />
+        android:layout_height="16dp" />
+
+    <ScrollView
+        android:id = "@+id/scrollSubject"
+        android:layout_width="match_parent"
+        android:layout_height="550dp">
+        <!-- A space to show the Subjects Titles -->
+        <LinearLayout
+            android:id="@+id/subjectContainer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+        </LinearLayout>
+
+    </ScrollView>
+
+
 
 </LinearLayout>
 

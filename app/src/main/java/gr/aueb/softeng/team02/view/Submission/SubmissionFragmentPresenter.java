@@ -73,6 +73,7 @@ public class SubmissionFragmentPresenter {
         return list;
     }
 
+    //show the offered students based on the selected year .
     public void makeForm(int position, ArrayList<String> yearList, int student_id) {
         this.year = yearList.get(position);
         view.setForm(getOfferedSubjects(student_id, year));
