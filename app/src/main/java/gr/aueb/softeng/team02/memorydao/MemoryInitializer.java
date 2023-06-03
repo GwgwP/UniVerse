@@ -1,6 +1,7 @@
 package gr.aueb.softeng.team02.memorydao;
 
 import java.util.HashSet;
+import java.util.Set;
 
 import gr.aueb.softeng.team02.dao.AcademicYearDAO;
 import gr.aueb.softeng.team02.dao.DAOFactory;
@@ -21,11 +22,11 @@ public class MemoryInitializer extends Initializer {
 
     @Override
     protected void eraseData() {
-        HashSet<Student> allStudents = getStudentDAO().findAll();
+        Set<Student> allStudents = getStudentDAO().findAll();
         for (Student student : allStudents)
             getStudentDAO().delete(student);
 
-        HashSet<Secretary> allSecretaries = getSecretaryDAO().findAll();
+        Set<Secretary> allSecretaries = getSecretaryDAO().findAll();
         for (Secretary secretary : allSecretaries)
             getSecretaryDAO().delete(secretary);
     }
