@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/homeFragment"
+        android:title="Home"
+        android:icon="@drawable/home_logo"/>
+
+    <item
+        android:id="@+id/academicYearFragment"
+        android:title="Academic Year"
+        android:icon="@drawable/academic_year"/>
+
+    <item
+        android:id="@+id/subjectFragment"
+        android:title="Subjects"
+        android:icon="@drawable/subject"/>
+
+    <item
+        android:id="@+id/offeredSubjectFragment"
+        android:title="Offered Subjects"
+        android:icon="@drawable/offered_subject" />
+</menu>

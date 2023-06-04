@@ -1,6 +1,6 @@
 package gr.aueb.softeng.team02.view.Progress;
 
-import java.util.ArrayList;
+
 import java.util.HashMap;
 
 public interface ProgressView
@@ -11,4 +11,5 @@ public interface ProgressView
     public void showNumPassed(int num);
 
     public void showDetailedGrades();
+    public void showECTS(int num);
 }

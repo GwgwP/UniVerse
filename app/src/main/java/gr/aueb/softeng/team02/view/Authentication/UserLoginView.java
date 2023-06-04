@@ -5,6 +5,7 @@ import gr.aueb.softeng.team02.model.Student;
 
 public interface UserLoginView {
 
+    public void showAlertMessage(String title, String txt);
     /*
      * Takes the input (username)
      * @return username in String

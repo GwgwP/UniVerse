@@ -14,7 +14,8 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="Theme.UniVerse" parent="android:Theme.Material.Light.NoActionBar" />
+    <style name="Theme.UniVerse" parent="android:Theme.Material.Light.NoActionBar" >
+    </style>
 
     <style name="Theme.Team02" parent="android:Theme.Material.Light.NoActionBar" />
 </resources>

@@ -18,7 +18,7 @@ import com.google.android.material.navigation.NavigationBarView;
 
 import gr.aueb.softeng.team02.R;
 
-public class Home extends AppCompatActivity implements HomeView {
+public class HomeStudentActivity extends AppCompatActivity implements HomeStudentView {
     public static final String STUDENT_ID = "student_id";
     private int studentId;
 
@@ -35,7 +35,7 @@ public class Home extends AppCompatActivity implements HomeView {
         setTitle("Universe");
         setTitle(String.valueOf(studentId));
 
-        HomePresenter presenter = new HomePresenter(this);
+        HomeStudentPresenter presenter = new HomeStudentPresenter(this);
 
         // Set the initial fragment to be displayed
         presenter.changeFragment(R.id.homeFragment);

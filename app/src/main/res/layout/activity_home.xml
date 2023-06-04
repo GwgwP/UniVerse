@@ -1,9 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.Secretary.Home">
+    android:background="@color/teal_700"
+    android:theme="@style/AppTheme.NewTheme"
+    tools:context=".view.Secretary.HomeSecretaryActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/frame_layout"/>
+
+    <com.google.android.material.bottomappbar.BottomAppBar
+        android:id="@+id/bottomAppBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="@color/white"
+        app:fabCradleMargin="10dp"
+        app:fabCradleRoundedCornerRadius="10dp">
+
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/bottomNavigationView"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:layout_marginRight="16dp"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintStart_toStartOf="parent"
+            android:background="@drawable/background_transparent"
+            app:menu="@menu/bottom_menu_sec"/>
+    </com.google.android.material.bottomappbar.BottomAppBar>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/baseline_add_24"
+        app:layout_anchor="@id/bottomAppBar"
+        app:maxImageSize="60dp"
+        app:tint ="@color/teal_700">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

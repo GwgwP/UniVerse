@@ -3,21 +3,21 @@
 
     <item
         android:id="@+id/homeFragment"
-        android:title="Home"
-        android:icon="@drawable/home_logo"/>
+        android:icon="@drawable/home_logo"
+        android:title="Home" />
 
     <item
         android:id="@+id/progressFragment"
-        android:title="Progress"
-        android:icon="@drawable/progress_logo"/>
+        android:icon="@drawable/progress_logo"
+        android:title="Progress" />
 
     <item
         android:id="@+id/submissionFragment"
-        android:title="Submit"
-        android:icon="@drawable/submission_icon"/>
+        android:icon="@drawable/submission_icon"
+        android:title="Submit" />
 
     <item
         android:id="@+id/searchFragment"
-        android:title="Search"
-        android:icon="@drawable/search_logo" />
+        android:icon="@drawable/search_logo"
+        android:title="Search" />
 </menu>
