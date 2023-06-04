@@ -29,8 +29,8 @@ public class HomeSecretaryActivity extends AppCompatActivity implements HomeSecr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        studentId = intent.getIntExtra(SECRETARY_ID, 12);
-        setContentView(R.layout.activity_home);
+        secretaryId = intent.getIntExtra(SECRETARY_ID, 12);
+        setContentView(R.layout.secretary_home);
 
         plus = (FloatingActionButton)findViewById(R.id.plusButton);
 
