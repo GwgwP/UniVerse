@@ -41,20 +41,20 @@ public class SubjectFragment extends Fragment implements SubjectView {
         super.onCreateView(inflater,container,savedInstanceState);
         myView= inflater.inflate(R.layout.fragment_subject, container, false);
 
-        subjectList = myView.findViewById(R.id.subjectFragment);
+        subjectList = myView.findViewById(R.id.subjectContainerSec);
 
-        addButton = myView.findViewWithTag(R.id.addSubjectButton);
+        //addButton = myView.findViewWithTag(R.id.addSubjectButton);
         init = new MemoryInitializer();
         presenter = new SubjectPresenter(init.getSubjectDAO());
         presenter.setView(this);
         presenter.showSub();
 
-        addButton.setOnClickListener(new View.OnClickListener() {
+       /* addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 presenter.addForm();
             }
-        });
+        });*/
 
 
 
@@ -63,11 +63,13 @@ public class SubjectFragment extends Fragment implements SubjectView {
     }
 
     public void viewSubs(List<Subject> sub){
-        for( Subject k : sub){
-            String title = k.getTitle();
-            TextView subjectTextView = createSubjectTextView(title); // we make a new TextView that has the subject title
-            subjectList.addView(subjectTextView);
+        if(!sub.isEmpty()){
+            for( Subject k : sub){
+                String title = k.getTitle();
+                TextView subjectTextView = createSubjectTextView(title); // we make a new TextView that has the subject title
+                subjectList.addView(subjectTextView);
 
+            }
         }
     }
     public TextView createSubjectTextView(String title){
@@ -76,17 +78,6 @@ public class SubjectFragment extends Fragment implements SubjectView {
         textView.setText(title);
         textView.setTextSize(20);
         textView.setPadding(16, 16, 16, 16);
-        textView.setOnClickListener(new View.OnClickListener() {
-            @Override
-
-            //TODO the presenter does that;
-            public void onClick(View v) {
-                // Redirect to another activity based on the selected subject
-                Intent intent = new Intent(requireContext(), InformationSubject.class);
-                intent.putExtra("subject", title);
-                startActivity(intent);
-            }
-        });
 
         View lineView = new View(requireContext());
         LinearLayout.LayoutParams lineLayoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
@@ -95,7 +86,7 @@ public class SubjectFragment extends Fragment implements SubjectView {
         lineView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.black));
 
 
-        subjectList.addView(lineView);
+        //subjectList.addView(lineView);
 
 
         return textView;
