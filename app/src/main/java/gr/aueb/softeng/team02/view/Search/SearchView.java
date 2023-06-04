@@ -12,4 +12,10 @@ public interface SearchView {
     public void viewSub(List<OfferedSubject> sub);
 
     public TextView createSubjectTextView(String title);
+
+    public String getSubTitle();
+
+    public void showInfo(String title);
+
+    public void errorTitle();
 }

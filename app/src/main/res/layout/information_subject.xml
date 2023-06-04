@@ -5,14 +5,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/lavender"
-    tools:context=".view.Information.InformationSubject"
+    tools:context=".view.Search.Information.InformationSubject"
     android:orientation="vertical">
 
     <TextView
         android:id="@+id/subjectTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
         android:textAlignment="center"
         android:textSize="40sp"
         android:textStyle="bold"
@@ -39,18 +38,53 @@
             android:id="@+id/idTitle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text=" Subject's id : "
+            android:text="@string/id"
             android:textSize="20sp"
-            android:textStyle="italic" />
+            android:textStyle="italic"
+            android:padding="10dp"/>
 
         <TextView
             android:id="@+id/idTxt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="TextView"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
+            android:textAlignment="textStart"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/EctsContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="start"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.24000001">
+
+        <TextView
+            android:id="@+id/ectsTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:text="@string/ects"
+            android:textSize="20sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/ectsTxt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
             android:textSize="20sp" />
 
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/professorContainer"
         android:layout_width="match_parent"
@@ -61,13 +95,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.26">
+        app:layout_constraintVertical_bias="0.32">
 
         <TextView
             android:id="@+id/proffesorTextView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:text="Professor : "
+            android:padding="10dp"
+            android:text="@string/professor"
             android:textSize="20sp"
             android:textStyle="italic" />
 
@@ -75,39 +110,13 @@
             android:id="@+id/profNameTxt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="TextView"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
             android:textSize="20sp" />
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/EctsContainer"
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:gravity="start"
-        android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.35000002">
 
-        <TextView
-            android:id="@+id/ectsTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:text="ECTS :"
-            android:textSize="20sp"
-            android:textStyle="italic" />
-
-        <TextView
-            android:id="@+id/ectsTxt"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:text="TextView"
-            android:textSize="20sp" />
-
-    </LinearLayout>
     <LinearLayout
         android:id="@+id/DescContainer"
         android:layout_width="match_parent"
@@ -125,7 +134,6 @@
             android:id="@+id/descTxt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="TextView"
             android:textSize="18sp"
             tools:layout_editor_absoluteX="91dp"
             tools:layout_editor_absoluteY="378dp" />
@@ -135,14 +143,15 @@
         android:id="@+id/descTitle"
         android:layout_width="400dp"
         android:layout_height="40dp"
-        android:text="Description "
+        android:text="@string/description"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.454"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.45" />
+        app:layout_constraintVertical_bias="0.441" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

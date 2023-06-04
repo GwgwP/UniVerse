@@ -13,6 +13,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -21,7 +22,7 @@ import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 import gr.aueb.softeng.team02.memorydao.OfferedSubjectDAOMemory;
 import gr.aueb.softeng.team02.model.OfferedSubject;
-import gr.aueb.softeng.team02.view.Information.InformationSubject;
+import gr.aueb.softeng.team02.view.Search.Information.InformationSubject;
 
 
 public class SearchFragment extends Fragment implements SearchView{
@@ -55,6 +56,13 @@ public class SearchFragment extends Fragment implements SearchView{
         presenter.setView(this);
         presenter.initSubView();
 
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String title = presenter.getTitle();
+                presenter.decide(title);
+
+            }
+        });
         return myView;
     }
 
@@ -99,8 +107,23 @@ public class SearchFragment extends Fragment implements SearchView{
         return textView;
     }
 
+    public String getSubTitle(){
+
+        return searchText.getText().toString().trim();
+    }
+
+    @Override
+    public void showInfo(String title) {
+        Intent intent = new Intent(requireContext(), InformationSubject.class);
+        intent.putExtra("subject", title);
+        startActivity(intent);
+    }
+
+    public void errorTitle(){
+        searchText.setText(" ");
+        Toast.makeText(getActivity(), " Subject not found! ", Toast.LENGTH_SHORT).show();
 
 
 
-
+    }
 }
