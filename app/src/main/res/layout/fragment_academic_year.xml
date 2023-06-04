@@ -13,29 +13,83 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" />
+            android:orientation="vertical" >
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Academic Year Management"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:paddingTop="30dp"
+                android:id="@+id/textView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Academic year:"
+                android:textSize="24sp"
+                android:textStyle="italic" />
+
+            <Spinner
+                android:id="@+id/spinner2"
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:background="@drawable/rounded_search_bar"
+                android:padding="8dp"
+                android:prompt="@string/arrayYear"
+                android:spinnerMode="dialog" />
+
+            <TextView
+                android:paddingTop="30dp"
+                android:id="@+id/textView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select Semester:"
+                android:textSize="24sp"
+                android:textStyle="italic" />
+            <Spinner
+                android:id="@+id/spinnerSemester"
+                android:layout_width="match_parent"
+                android:layout_height="69dp"
+                android:background="@drawable/rounded_search_bar"
+                android:padding="8dp"
+                android:prompt="@string/arrayYear"
+                android:spinnerMode="dialog" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <TextView
+                android:paddingTop="30dp"
+                android:id="@+id/textView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Insert maximimus ECTS: "
+                android:textSize="24sp"
+                android:textStyle="italic" />
+
+            <EditText
+                android:id="@+id/editTextText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:paddingLeft="10dp"
+                android:inputType="text"
+                android:hint="enter ects here"
+                />
+        </LinearLayout>
+
+            <Button
+                android:layout_marginTop="100dp"
+                android:id="@+id/submitBtnSecretary"
+                android:layout_width="279dp"
+                android:layout_height="62dp"
+                android:text="Submit" />
+
+        </LinearLayout>
     </ScrollView>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <Spinner
-            android:id="@+id/spinner2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/rounded_search_bar"
-            android:padding="8dp"
-            android:prompt="@string/arrayYear"
-            android:spinnerMode="dialog" />
-
-        <Button
-            android:id="@+id/submitBtnSecretary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
-
-
-    </LinearLayout>
 </FrameLayout>
