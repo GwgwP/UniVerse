@@ -33,16 +33,12 @@ public class SearchFragment extends Fragment implements SearchView{
 
     private SearchPresenter presenter;
 
-//    private Initializer init;
-//    private LinearLayout subjectContainer;
-//    private View myView;
-//    private int student_id;
     EditText searchText;
     Button searchButton;
 
     //private SearchPresenter presenter;
 
-//TODO presenter does the switch to another Activity
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

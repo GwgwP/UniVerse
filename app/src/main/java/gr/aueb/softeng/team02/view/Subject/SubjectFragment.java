@@ -1,66 +1,104 @@
 package gr.aueb.softeng.team02.view.Subject;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+
+import java.util.List;
 
 import gr.aueb.softeng.team02.R;
+import gr.aueb.softeng.team02.dao.Initializer;
+import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
+import gr.aueb.softeng.team02.model.OfferedSubject;
+import gr.aueb.softeng.team02.model.Subject;
+import gr.aueb.softeng.team02.view.Search.Information.InformationSubject;
+import gr.aueb.softeng.team02.view.Search.SearchPresenter;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SubjectFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class SubjectFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+public class SubjectFragment extends Fragment implements SubjectView {
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private Initializer init;
+    private LinearLayout subjectList;
+    private View myView;
 
-    public SubjectFragment() {
-        // Required empty public constructor
-    }
+    private Button addButton;
+    private SubjectPresenter presenter;
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SubjectFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SubjectFragment newInstance(String param1, String param2) {
-        SubjectFragment fragment = new SubjectFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
 
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_subject, container, false);
+        super.onCreateView(inflater,container,savedInstanceState);
+        myView= inflater.inflate(R.layout.fragment_subject, container, false);
+
+        subjectList = myView.findViewById(R.id.subjectFragment);
+
+        addButton = myView.findViewWithTag(R.id.addSubjectButton);
+        init = new MemoryInitializer();
+        presenter = new SubjectPresenter(init.getSubjectDAO());
+        presenter.setView(this);
+        presenter.showSub();
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                presenter.addForm();
+            }
+        });
+
+
+
+
+        return myView;
     }
+
+    public void viewSubs(List<Subject> sub){
+        for( Subject k : sub){
+            String title = k.getTitle();
+            TextView subjectTextView = createSubjectTextView(title); // we make a new TextView that has the subject title
+            subjectList.addView(subjectTextView);
+
+        }
+    }
+    public TextView createSubjectTextView(String title){
+
+        TextView textView = new TextView(requireContext());
+        textView.setText(title);
+        textView.setTextSize(20);
+        textView.setPadding(16, 16, 16, 16);
+        textView.setOnClickListener(new View.OnClickListener() {
+            @Override
+
+            //TODO the presenter does that;
+            public void onClick(View v) {
+                // Redirect to another activity based on the selected subject
+                Intent intent = new Intent(requireContext(), InformationSubject.class);
+                intent.putExtra("subject", title);
+                startActivity(intent);
+            }
+        });
+
+        View lineView = new View(requireContext());
+        LinearLayout.LayoutParams lineLayoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
+        lineLayoutParams.setMargins(16, 0, 16, 0);
+        lineView.setLayoutParams(lineLayoutParams);
+        lineView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.black));
+
+
+        subjectList.addView(lineView);
+
+
+        return textView;
+    }
+
 }
