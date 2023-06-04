@@ -1,10 +1,7 @@
 package gr.aueb.softeng.team02.view.Progress;
 
 import android.util.Log;
-
 import androidx.lifecycle.ViewModel;
-
-import gr.aueb.softeng.team02.dao.GradeDAO;
 import gr.aueb.softeng.team02.memorydao.GradeDAOMemory;
 
 public class ProgressFragmentViewModel extends ViewModel {
