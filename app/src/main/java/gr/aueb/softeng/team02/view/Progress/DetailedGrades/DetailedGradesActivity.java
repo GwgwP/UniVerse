@@ -5,23 +5,16 @@ import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
-
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
 import android.widget.ListAdapter;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import gr.aueb.softeng.team02.R;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.widget.ListView;
-
 import java.util.HashMap;
-
 import gr.aueb.softeng.team02.memorydao.GradeDAOMemory;
 
 public class DetailedGradesActivity extends AppCompatActivity implements DetailedGradesView {
@@ -113,7 +106,6 @@ public class DetailedGradesActivity extends AppCompatActivity implements Detaile
     @Override
     public void viewSub(HashMap<Integer, HashMap<String, Integer>> subjects) {
 
-        //adapters[1]
         for (int i = 0; i < 8; i++) {
             HashMap<String, Integer> subjectGradesMap = subjects.get(i + 1);
             List<String> subjectGradesList = new ArrayList<>();

@@ -44,8 +44,8 @@
 
     <EditText
         android:id="@+id/passwordEditText"
-        android:layout_width="213dp"
-        android:layout_height="37dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:autofillHints=""
         android:ems="10"
         android:hint="Type your password"
@@ -72,25 +72,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
-    <Switch
-        android:id="@+id/roleSwitch"
-        android:layout_width="93dp"
-        android:layout_height="49dp"
-        android:layout_marginEnd="166dp"
-        android:layout_marginBottom="69dp"
-        android:checked="false"
-        android:gravity="center"
-        android:text="Role"
-        android:textAlignment="center"
-        android:textOff="Student"
-        android:textOn="Secretary"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.828" />
+
 
     <ImageView
         android:id="@+id/exfirImage"
@@ -116,32 +98,46 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.629" />
 
-    <TextView
-        android:id="@+id/studentText"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="55dp"
-        android:text="Student"
-        android:textSize="20sp"
+        android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.175"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.71" />
+        app:layout_constraintTop_toTopOf="@+id/imageView"
+        app:layout_constraintVertical_bias="0.79">
 
-    <TextView
-        android:id="@+id/secretarytText"
-        android:layout_width="89dp"
-        android:layout_height="26dp"
-        android:text="Secretary"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.829"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.733" />
+        <TextView
+            android:id="@+id/studentText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Student"
+            android:padding="20dp"
+            android:textSize="20sp"
+            android:layout_marginStart="10dp"
+             />
+        <Switch
+            android:id="@+id/roleSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:gravity="center"
+            android:text="Role"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:padding="30dp"
+            />
+
+        <TextView
+            android:id="@+id/secretarytText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Secretary"
+            android:textSize="20sp"
+            android:padding="20dp"/>
 
 
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

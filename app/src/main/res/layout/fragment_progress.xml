@@ -8,43 +8,46 @@
 
 
     <TextView
-        android:id="@+id/progress_frag"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Progress Frag"
-        android:textColorLink="#3F6AB4"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="0dp" />
+        android:id="@+id/Total_Ects"
+        android:layout_width="126dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="64dp"
+        android:text="Total Ects:"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/average_grade_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Total Aerage Grade:"
+        android:layout_marginTop="164dp"
+        android:text="Total Average Grade:"
         android:textColor="#3F6AB5"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="200dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="36dp"
+        android:layout_width="128dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="28dp"
+        android:src="@drawable/logouniverse"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.159"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:src="@drawable/logouniverse"/>
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/ag"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="20dp"
         android:text="TextView"
         android:textColor="#9C27B0"
         android:textSize="20sp"
@@ -53,24 +56,68 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/average_grade_text" />
 
-    <Button
-        android:id="@+id/btn_show_subj_grades"
+    <TextView
+        android:id="@+id/sem_5_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Detailed Grades"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="276dp"
+        android:layout_marginEnd="92dp"
+        android:text="Sem 5:"
+        android:textColorHighlight="@color/lavender"
+        android:textColorLink="#406BB4"
+        android:textSize="20sp"
+        android:textStyle="italic"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.933"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.874" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sem_8_8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="448dp"
+        android:layout_marginEnd="92dp"
+        android:text="Sem 8:"
+        android:textColorHighlight="@color/lavender"
+        android:textColorLink="#406BB4"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sem_7_7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="392dp"
+        android:layout_marginEnd="92dp"
+        android:text="Sem 7:"
+        android:textColorHighlight="@color/lavender"
+        android:textColorLink="#406BB4"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sem_6_6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="332dp"
+        android:layout_marginEnd="92dp"
+        android:text="Sem 6:"
+        android:textColorHighlight="@color/lavender"
+        android:textColorLink="#406BB4"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/sem_1_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="292dp"
+        android:layout_marginTop="276dp"
         android:text="Sem 1:"
         android:textColorHighlight="@color/lavender"
         android:textColorLink="#406BB4"
@@ -84,7 +131,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:text="Sem 2:"
         android:textColorHighlight="@color/lavender"
         android:textColorLink="#406BB4"
@@ -98,7 +145,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="36dp"
         android:text="Sem 3:"
         android:textColorHighlight="@color/lavender"
         android:textColorLink="#406BB4"
@@ -108,67 +155,11 @@
         app:layout_constraintTop_toBottomOf="@+id/sem_2_2" />
 
     <TextView
-        android:id="@+id/sem_5_5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="292dp"
-        android:layout_marginEnd="76dp"
-        android:text="Sem 5:"
-        android:textColorHighlight="@color/lavender"
-        android:textColorLink="#406BB4"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/sem_6_6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="76dp"
-        android:text="Sem 6:"
-        android:textColorHighlight="@color/lavender"
-        android:textColorLink="#406BB4"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="@+id/progress_frag"
-        app:layout_constraintTop_toBottomOf="@+id/sem_5_5" />
-
-    <TextView
-        android:id="@+id/sem_7_7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="76dp"
-        android:text="Sem 7:"
-        android:textColorHighlight="@color/lavender"
-        android:textColorLink="#406BB4"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sem_6_6" />
-
-    <TextView
-        android:id="@+id/sem_8_8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="76dp"
-        android:text="Sem 8:"
-        android:textColorHighlight="@color/lavender"
-        android:textColorLink="#406BB4"
-        android:textSize="20sp"
-        android:textStyle="italic"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sem_7_7" />
-
-    <TextView
         android:id="@+id/sem_4_4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="56dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="28dp"
         android:text="Sem 4:"
         android:textColorHighlight="@color/lavender"
         android:textColorLink="#406BB4"
@@ -181,28 +172,37 @@
         android:id="@+id/perasmena_mathimata"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="76dp"
         android:text="TextView"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.908" />
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="0.098" />
 
     <TextView
         android:id="@+id/textView4"
         android:layout_width="152dp"
         android:layout_height="28dp"
-        android:layout_marginTop="76dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginBottom="164dp"
         android:text="Passed Subjects:"
         android:textSize="20sp"
         android:textStyle="normal|bold|italic"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btn_show_subj_grades"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Detailed Grades"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintHorizontal_bias="0.933"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sem_4_4"
-        app:layout_constraintVertical_bias="0.267" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.83" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

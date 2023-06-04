@@ -1,10 +1,6 @@
 package gr.aueb.softeng.team02.view.Search;
 
-import java.util.ArrayList;
-
 import gr.aueb.softeng.team02.dao.OfferedSubjectDAO;
-import gr.aueb.softeng.team02.model.AcademicYear;
-import gr.aueb.softeng.team02.view.Submission.SubmissionFragmentView;
 
 public class SearchPresenter {
 
@@ -28,6 +24,20 @@ public class SearchPresenter {
     public void initSubView(){
         view.viewSub(subjects.findAll());
 
+    }
+
+    public void decide(String title){
+       if(subjects.findByTitle(title)!=null){
+           view.showInfo(title);
+       }
+       else{
+            view.errorTitle();
+       }
+    }
+
+    public String getTitle(){
+
+        return view.getSubTitle();
     }
 
 }

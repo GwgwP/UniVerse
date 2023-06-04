@@ -9,8 +9,11 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -18,17 +21,26 @@ import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 import gr.aueb.softeng.team02.model.OfferedSubject;
-import gr.aueb.softeng.team02.view.Information.InformationSubject;
+import gr.aueb.softeng.team02.view.Search.Information.InformationSubject;
 
 
 public class SearchFragment extends Fragment implements SearchView{
-        private Initializer init;
-        private LinearLayout subjectContainer;
-        private View myView;
+    private Initializer init;
+    private LinearLayout subjectContainer;
+    private View myView;
 
-        private int student_id;
+    private int student_id;
 
-        private SearchPresenter presenter;
+    private SearchPresenter presenter;
+
+    private Initializer init;
+    private LinearLayout subjectContainer;
+    private View myView;
+    private int student_id;
+    EditText searchText;
+    Button searchButton;
+
+    private SearchPresenter presenter;
 
 //TODO presenter does the switch to another Activity
     @Override
@@ -38,6 +50,8 @@ public class SearchFragment extends Fragment implements SearchView{
         myView = inflater.inflate(R.layout.fragment_search, container, false);
 
         subjectContainer = myView.findViewById(R.id.subjectContainer);
+        searchText = (EditText) myView.findViewById(R.id.searchBar);
+        searchButton = (Button) myView.findViewById(R.id.searchButton);
 
         //Bundle bundle = getArguments();
         //this.student_id = bundle.getInt("STUDENT_ID", 0);
@@ -48,6 +62,13 @@ public class SearchFragment extends Fragment implements SearchView{
         presenter.setView(this);
         presenter.initSubView();
 
+        searchButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String title = presenter.getTitle();
+                presenter.decide(title);
+
+            }
+        });
         return myView;
     }
 
@@ -92,8 +113,23 @@ public class SearchFragment extends Fragment implements SearchView{
         return textView;
     }
 
+    public String getSubTitle(){
+
+        return searchText.getText().toString().trim();
+    }
+
+    @Override
+    public void showInfo(String title) {
+        Intent intent = new Intent(requireContext(), InformationSubject.class);
+        intent.putExtra("subject", title);
+        startActivity(intent);
+    }
+
+    public void errorTitle(){
+        searchText.setText(" ");
+        Toast.makeText(getActivity(), " Subject not found! ", Toast.LENGTH_SHORT).show();
 
 
 
-
+    }
 }
