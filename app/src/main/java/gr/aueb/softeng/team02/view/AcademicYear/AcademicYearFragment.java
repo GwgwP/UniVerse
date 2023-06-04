@@ -7,60 +7,95 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TableLayout;
+
+import java.util.ArrayList;
+import java.util.HashMap;
 
 import gr.aueb.softeng.team02.R;
+import gr.aueb.softeng.team02.dao.AcademicYearDAO;
+import gr.aueb.softeng.team02.dao.GradeDAO;
+import gr.aueb.softeng.team02.dao.OfferedSubjectDAO;
+import gr.aueb.softeng.team02.dao.StudentDAO;
+import gr.aueb.softeng.team02.dao.SubmissionDAO;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link AcademicYearFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
-public class AcademicYearFragment extends Fragment {
+public class AcademicYearFragment extends Fragment implements AcademicYearFragmentView{
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private ArrayList<String> yearList;
+    private AcademicYearFragmentViewModel model;
+    private Spinner spinner;
+    private Button submitButton;
+    private View myView;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
-    public AcademicYearFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment AcademicYearFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static AcademicYearFragment newInstance(String param1, String param2) {
-        AcademicYearFragment fragment = new AcademicYearFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        super.onCreateView(inflater, container, savedInstanceState);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_academic_year, container, false);
+        myView = inflater.inflate(R.layout.fragment_academic_year, container, false);
+        spinner = (Spinner) myView.findViewById(R.id.spinner);
+
+        Bundle bundle = getArguments();
+        // int student_id = bundle.getInt("STUDENT_ID", 0);
+
+        model = new AcademicYearFragmentViewModel();
+        model.getPresenter().setView(this);
+        model.getPresenter().set_years();
+
+        submitButton = myView.findViewById(R.id.submitBtnSecretary);
+
+
+
+        return myView;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        model.getPresenter().startProcess();
+    }
+
+
+
+
+    @Override
+    public void setForm(HashMap<String, Integer> subjects) {
+
+    }
+
+    @Override
+    public void submit() {
+
+    }
+
+    @Override
+    public void showPassedMsg(String txt) {
+
+    }
+
+    @Override
+    public void startSubmission() {
+
+    }
+
+    public void createYearList(ArrayList<String> years) {
+        // Create an ArrayAdapter using the choices ArrayList
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_dropdown_item, years);
+
+        // Specify the layout for the dropdown items
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        // Set the ArrayAdapter on the Spinner
+        spinner.setAdapter(adapter);
+    }
+    @Override
+    public String getSelectedYear(ArrayList<String> years) {
+        return years.get(((Spinner) myView.findViewById(R.id.spinner)).getSelectedItemPosition());
     }
 }
