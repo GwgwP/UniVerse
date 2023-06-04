@@ -31,12 +31,16 @@ public class UserLoginPresenter {
         Student student = students.findStudentByUsernameAndPassword(username, password);
         Secretary secretary = secretaries.findSecretary(username, password);
 
-        if (student != null)
-            return new AbstractMap.SimpleEntry<Integer, User>(1, student);
-            //return student;
-        if (secretary != null)
-            return new AbstractMap.SimpleEntry<Integer, User>(1, secretary);
-        // return secretary;
+        if (student != null) {
+            if (view.getRole() == 0) {
+                return new AbstractMap.SimpleEntry<Integer, User>(1, student);
+            }
+        } else if (secretary != null) {
+            if (view.getRole() == 1) {
+                return new AbstractMap.SimpleEntry<Integer, User>(2, secretary);
+            }
+        }
+        // TODO Error message --> wrong user login
         return new AbstractMap.SimpleEntry<Integer, User>(-1, null);
 
     }
@@ -47,5 +51,9 @@ public class UserLoginPresenter {
 
     public void studentLogin(int id) {
         view.studentLogin(id);
+    }
+
+    public void showErrorMsg() {
+        view.showAlertMessage("Error", "Invalid User");
     }
 }
