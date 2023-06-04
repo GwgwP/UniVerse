@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -14,6 +15,7 @@ import gr.aueb.softeng.team02.model.OfferedSubject;
 public class InformationSubject extends AppCompatActivity implements InformationView {
 
     private InformationPresenter presenter;
+
     TextView titleT;
     TextView id;
     TextView ects;
@@ -39,6 +41,7 @@ public class InformationSubject extends AppCompatActivity implements Information
         ects = (TextView) findViewById(R.id.ectsTxt);
         desc = (TextView) findViewById(R.id.descTxt);
         prof = (TextView) findViewById(R.id.proffesorTextView);
+
 
         presenter.setInfo(title);
 

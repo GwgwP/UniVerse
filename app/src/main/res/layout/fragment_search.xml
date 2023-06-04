@@ -5,18 +5,39 @@
     android:orientation="vertical"
     android:background="@color/lavender">
 
-    <!-- Search Bar -->
-    <EditText
-        android:id="@+id/searchBar"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@drawable/rounded_search_bar"
-        android:hint="Type the Subject's Name"
-        android:padding="8dp" />
+        android:orientation="horizontal">
+    <!-- Search Bar -->
 
 
-    <!-- Gap -->
+        <!-- Gap -->
+        <EditText
+            android:id="@+id/searchBar"
+            android:layout_width="350dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/rounded_search_bar"
+            android:hint="Type the Subject's Name"
+            android:padding="8dp" />
+
+        <Button
+            android:id="@+id/searchButton"
+            android:layout_width="40dp"
+            android:layout_height="wrap_content"
+            android:drawableLeft="@drawable/search_icon"
+            android:padding="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="5dp" />
+
+    </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="16dp" />
@@ -24,7 +45,7 @@
     <ScrollView
         android:id="@+id/scrollSubject"
         android:layout_width="match_parent"
-        android:layout_height="638dp">
+        android:layout_height="646dp">
         <!-- A space to show the Subjects Titles -->
         <LinearLayout
             android:id="@+id/subjectContainer"
@@ -35,7 +56,6 @@
         </LinearLayout>
 
     </ScrollView>
-
 
 
 </LinearLayout>

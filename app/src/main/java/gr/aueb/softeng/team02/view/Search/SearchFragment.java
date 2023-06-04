@@ -9,6 +9,8 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -24,15 +26,14 @@ import gr.aueb.softeng.team02.view.Information.InformationSubject;
 
 public class SearchFragment extends Fragment implements SearchView{
 
+    private Initializer init;
+    private LinearLayout subjectContainer;
+    private View myView;
+    private int student_id;
+    EditText searchText;
+    Button searchButton;
 
-        private Initializer init;
-        private LinearLayout subjectContainer;
-        private View myView;
-
-        private int student_id;
-
-
-        private SearchPresenter presenter;
+    private SearchPresenter presenter;
 
 //TODO presenter does the switch to another Activity
     @Override
@@ -42,6 +43,8 @@ public class SearchFragment extends Fragment implements SearchView{
         myView = inflater.inflate(R.layout.fragment_search, container, false);
 
         subjectContainer = myView.findViewById(R.id.subjectContainer);
+        searchText = (EditText) myView.findViewById(R.id.searchBar);
+        searchButton = (Button) myView.findViewById(R.id.searchButton);
 
         //Bundle bundle = getArguments();
         //this.student_id = bundle.getInt("STUDENT_ID", 0);
