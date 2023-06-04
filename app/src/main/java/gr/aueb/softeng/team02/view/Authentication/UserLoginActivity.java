@@ -1,7 +1,6 @@
 package gr.aueb.softeng.team02.view.Authentication;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,14 +11,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
-
-import java.util.Map;
-
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 import gr.aueb.softeng.team02.model.AcademicYearException;
-import gr.aueb.softeng.team02.model.User;
 import gr.aueb.softeng.team02.view.Secretary.HomeSecretaryActivity;
 import gr.aueb.softeng.team02.view.Student.HomeStudentActivity;
 
@@ -51,7 +46,7 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
 
         firstX.setVisibility(View.GONE);
         secondX.setVisibility(View.GONE);
-//
+
         // Define initializer & prepareData & presenter
         init = new MemoryInitializer();
         try {
@@ -67,40 +62,10 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
     protected void onStart() {
         super.onStart();
         login.setOnClickListener(new View.OnClickListener() {
-            //Todo: if the user has not written in all the text boxes error symbols
             public void onClick(View view) { ///the button login was pressed and we take the two(later three) inputs
-                //Todo : take the input for the role (student or secretaty)
                 firstX.setVisibility(View.GONE);
                 secondX.setVisibility(View.GONE);
-
-                String username = getUsername();
-                String password = getPassword();
-
-                if (username.equals("")) {
-                    firstX.setVisibility(View.VISIBLE);
-                    Toast.makeText(getApplicationContext(), "Please write your username ", Toast.LENGTH_SHORT).show();
-                }
-
-                if (password.equals("")) {
-                    secondX.setVisibility(View.VISIBLE);
-                    Toast.makeText(getApplicationContext(), "Please write your password ", Toast.LENGTH_SHORT).show();
-                }
-
-                if (!(password.equals("") || username.equals(""))) {
-                    Map.Entry<Integer, User> user = presenter.findUser(username, password);
-
-                    switch (user.getKey()) {
-                        case 1:
-                            presenter.studentLogin(user.getValue().getId());
-                            break;
-                        case 2:
-                            presenter.secretaryLogin(user.getValue().getId());
-                            break;
-                        case -1:
-                            presenter.showErrorMsg();
-                            break;
-                    }
-                }
+                presenter.startProcess();
             }
         });
     }
@@ -149,6 +114,18 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
             return 0;
         else
             return 1;
+    }
+
+    @Override
+    public void initUsernameX(String txt) {
+        firstX.setVisibility(View.VISIBLE);
+        Toast.makeText(getApplicationContext(), txt, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void initPasswordX(String txt) {
+        secondX.setVisibility(View.VISIBLE);
+        Toast.makeText(getApplicationContext(), txt, Toast.LENGTH_SHORT).show();
     }
 
 }

@@ -27,7 +27,36 @@ public class UserLoginPresenter {
         this.secretaries = secretaries;
     }
 
-    public Map.Entry<Integer, User> findUser(String username, String password) {
+    public void startProcess() {
+        String username = view.getUsername();
+        String password = view.getPassword();
+
+        if (username.equals("")) {
+            view.initUsernameX("Please write your username");
+        }
+
+        if (password.equals("")) {
+            view.initPasswordX("Please write your password");
+        }
+
+        if (!(password.equals("") || username.equals(""))) {
+            Map.Entry<Integer, User> user = findUser(username, password);
+
+            switch (user.getKey()) {
+                case 1:
+                    view.studentLogin(user.getValue().getId());
+                    break;
+                case 2:
+                    view.secretaryLogin(user.getValue().getId());
+                    break;
+                case -1:
+                    view.showAlertMessage("Error", "Invalid User");
+                    break;
+            }
+        }
+    }
+
+    private Map.Entry<Integer, User> findUser(String username, String password) {
         Student student = students.findStudentByUsernameAndPassword(username, password);
         Secretary secretary = secretaries.findSecretary(username, password);
 
@@ -40,20 +69,7 @@ public class UserLoginPresenter {
                 return new AbstractMap.SimpleEntry<Integer, User>(2, secretary);
             }
         }
-        // TODO Error message --> wrong user login
         return new AbstractMap.SimpleEntry<Integer, User>(-1, null);
-
-    }
-
-    public void secretaryLogin(int id) {
-        view.secretaryLogin(id);
-    }
-
-    public void studentLogin(int id) {
-        view.studentLogin(id);
-    }
-
-    public void showErrorMsg() {
-        view.showAlertMessage("Error", "Invalid User");
     }
 }
+

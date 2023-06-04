@@ -6,6 +6,7 @@ import gr.aueb.softeng.team02.model.Student;
 public interface UserLoginView {
 
     public void showAlertMessage(String title, String txt);
+
     /*
      * Takes the input (username)
      * @return username in String
@@ -21,8 +22,13 @@ public interface UserLoginView {
     public void showErrorMessage(String title, String message);
 
     public void studentLogin(int id);
+
     public void secretaryLogin(int id);
 
     public int getRole();
+
+    public void initUsernameX(String txt);
+
+    public void initPasswordX(String txt);
 
 }
