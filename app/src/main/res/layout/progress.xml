@@ -90,7 +90,7 @@
 
         </LinearLayout>
 
-            <gr.aueb.softeng.team02.view.DynamicListView
+            <gr.aueb.softeng.team02.util.DynamicListView
                 android:id="@+id/sem1_subj"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -128,7 +128,7 @@
                 android:textSize="13sp"
                 tools:ignore="RtlSymmetry" />
         </LinearLayout>
-            <gr.aueb.softeng.team02.view.DynamicListView
+            <gr.aueb.softeng.team02.util.DynamicListView
                 android:id="@+id/sem2_subj"
                 android:layout_width="match_parent"
                 android:layout_height="178dp" />
@@ -165,7 +165,7 @@
                 tools:ignore="RtlSymmetry" />
             </LinearLayout>
 
-            <gr.aueb.softeng.team02.view.DynamicListView
+            <gr.aueb.softeng.team02.util.DynamicListView
                 android:id="@+id/sem3_subj"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
@@ -201,7 +201,7 @@
                 android:textSize="13sp"
                 tools:ignore="RtlSymmetry" />
         </LinearLayout>
-            <gr.aueb.softeng.team02.view.DynamicListView
+            <gr.aueb.softeng.team02.util.DynamicListView
                 android:id="@+id/sem4_subj"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
@@ -238,7 +238,7 @@
                 tools:ignore="RtlSymmetry" />
         </LinearLayout>
 
-            <gr.aueb.softeng.team02.view.DynamicListView
+            <gr.aueb.softeng.team02.util.DynamicListView
                 android:id="@+id/sem5_subj"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
@@ -276,7 +276,7 @@
                 tools:ignore="RtlSymmetry" />
         </LinearLayout>
 
-            <gr.aueb.softeng.team02.view.DynamicListView
+            <gr.aueb.softeng.team02.util.DynamicListView
                 android:id="@+id/sem6_subj"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
@@ -313,7 +313,7 @@
                 tools:ignore="RtlSymmetry" />
 
         </LinearLayout>
-            <gr.aueb.softeng.team02.view.DynamicListView
+            <gr.aueb.softeng.team02.util.DynamicListView
                 android:id="@+id/sem7_subj"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
@@ -351,7 +351,7 @@
                 tools:ignore="RtlSymmetry" />
         </LinearLayout>
 
-            <gr.aueb.softeng.team02.view.DynamicListView
+            <gr.aueb.softeng.team02.util.DynamicListView
                 android:id="@+id/sem8_subj"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />

@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02.view;
+package gr.aueb.softeng.team02.util;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.view.View;

@@ -20,8 +20,8 @@ import gr.aueb.softeng.team02.view.Student.HomeStudentPresenter;
 
 public class HomeSecretaryActivity extends AppCompatActivity implements HomeSecretaryView {
 
-    public static final String SECRETARY_ID = "student_id";
-    private int studentId;
+    public static final String SECRETARY_ID = "secretary_id";
+    private int secretaryId;
 
     FloatingActionButton plus;
 
@@ -58,7 +58,7 @@ public class HomeSecretaryActivity extends AppCompatActivity implements HomeSecr
         FragmentTransaction transaction = manager.beginTransaction();
 
         Bundle bundle = new Bundle();
-        bundle.putInt("STUDENT_ID", studentId);
+        bundle.putInt("STUDENT_ID", secretaryId);
         fragment.setArguments(bundle);
 
         transaction.replace(R.id.frame_layout, fragment);
