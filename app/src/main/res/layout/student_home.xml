@@ -23,7 +23,7 @@
         app:fabCradleRoundedCornerRadius="10dp">
 
         <com.google.android.material.bottomnavigation.BottomNavigationView
-            android:id="@+id/bottomNavigationView"
+            android:id="@+id/bottomNavigationViewStudent"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:layout_marginRight="16dp"

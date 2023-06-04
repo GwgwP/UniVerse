@@ -41,7 +41,7 @@ public class HomeStudentActivity extends AppCompatActivity implements HomeStuden
         presenter.changeFragment(R.id.homeFragment);
 
         // Set up the bottom navigation view
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
+        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationViewStudent);
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @SuppressLint("NonConstantResourceId")

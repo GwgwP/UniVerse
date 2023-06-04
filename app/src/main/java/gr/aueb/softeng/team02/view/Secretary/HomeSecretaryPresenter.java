@@ -15,7 +15,7 @@ public class HomeSecretaryPresenter {
 
     public void changeFragment(int id) {
         switch (id) {
-            case R.id.homeFragment:
+            case R.id.secretaryHome:
                 view.replaceFragment(new SecretaryHome());
                 break;
             case R.id.academicYearFragment:
