@@ -12,14 +12,14 @@ import gr.aueb.softeng.team02.R;
 
 public class HomeSecretaryActivity extends AppCompatActivity implements HomeSecretaryView {
 
-    public static final String STUDENT_ID = "student_id";
+    public static final String SECRETARY_ID = "student_id";
     private int studentId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        studentId = intent.getIntExtra(STUDENT_ID, 12);
+        studentId = intent.getIntExtra(SECRETARY_ID, 12);
         setContentView(R.layout.activity_home);
     }
 
