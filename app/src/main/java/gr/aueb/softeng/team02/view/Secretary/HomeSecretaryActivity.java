@@ -12,15 +12,15 @@ import gr.aueb.softeng.team02.R;
 
 public class HomeSecretaryActivity extends AppCompatActivity implements HomeSecretaryView {
 
-    public static final String SECRETARY_ID = "student_id";
-    private int studentId;
+    public static final String SECRETARY_ID = "secretary_id";
+    private int secretaryId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         Intent intent = getIntent();
-        studentId = intent.getIntExtra(SECRETARY_ID, 12);
-        setContentView(R.layout.activity_home);
+        secretaryId = intent.getIntExtra(SECRETARY_ID, 12);
+        setContentView(R.layout.secretary_home);
     }
 
     @Override
@@ -29,7 +29,7 @@ public class HomeSecretaryActivity extends AppCompatActivity implements HomeSecr
         FragmentTransaction transaction = manager.beginTransaction();
 
         Bundle bundle = new Bundle();
-        bundle.putInt("STUDENT_ID", studentId);
+        bundle.putInt("STUDENT_ID", secretaryId);
         fragment.setArguments(bundle);
 
         transaction.replace(R.id.frame_layout, fragment);
