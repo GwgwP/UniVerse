@@ -39,7 +39,7 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
         super.onCreateView(inflater, container, savedInstanceState);
         // Inflate the layout for this fragment
         myView = inflater.inflate(R.layout.fragment_academic_year, container, false);
-        spinner = (Spinner) myView.findViewById(R.id.spinner);
+        spinner = (Spinner) myView.findViewById(R.id.spinner2);
 
         Bundle bundle = getArguments();
         // int student_id = bundle.getInt("STUDENT_ID", 0);

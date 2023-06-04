@@ -1,14 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".view.Subject.SubjectFragment">
+    tools:context=".view.Secretary.HomeSecretaryActivity"
+    android:background="@color/teal_700"
+    android:orientation="vertical"
+    >
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Subject Fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <!-- Search Bar -->
 
-</FrameLayout>
+        <Button
+            android:id="@+id/addSubjectButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginEnd="5dp"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/rounded_search_bar"
+            android:padding="8dp"
+            android:text ="Add New Subject"
+            android:drawableRight="@drawable/baseline_add_24"
+            />
+    </LinearLayout>
+
+
+    <View
+    android:layout_width="match_parent"
+    android:layout_height="16dp" />
+
+    <ScrollView
+    android:id="@+id/scrollSubject"
+    android:layout_width="match_parent"
+    android:layout_height="646dp">
+    <!-- A space to show the Subjects Titles -->
+    <LinearLayout
+    android:id="@+id/subjectContainerSec"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    </LinearLayout>
+
+</ScrollView>
+</LinearLayout>
