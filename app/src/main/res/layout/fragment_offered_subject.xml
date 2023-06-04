@@ -1,14 +1,45 @@
-<?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".view.OfferedSubject.OfferedSubjectFragment">
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="fragment offered " />
+        android:layout_height="wrap_content"
+        android:text="Choose year"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:padding="8dp" />
 
-</FrameLayout>
+    <!-- Dropdown Menu with Spinner -->
+    <Spinner
+        android:id="@+id/spinner_year"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_search_bar"
+        android:spinnerMode="dialog"
+        android:prompt="@string/arrayYear"
+        android:padding="8dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Choose semester"
+        android:textAppearance="?android:textAppearanceMedium"
+        android:textColor="@android:color/black"
+        android:textStyle="bold"
+        android:padding="8dp" />
+
+    <!-- Dropdown Menu with Spinner -->
+    <Spinner
+        android:id="@+id/spinner_semester"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_search_bar"
+        android:spinnerMode="dialog"
+        android:prompt="@string/arraySemester"
+        android:padding="8dp" />
+
+</LinearLayout>
