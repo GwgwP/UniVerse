@@ -57,12 +57,40 @@
         app:layout_constraintTop_toBottomOf="@+id/average_grade_text" />
 
     <TextView
+        android:id="@+id/sem_5_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="276dp"
+        android:layout_marginEnd="124dp"
+        android:text="Sem 5:"
+        android:textColorHighlight="@color/lavender"
+        android:textColorLink="#406BB4"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
         android:id="@+id/sem_5_5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="276dp"
-        android:layout_marginEnd="92dp"
+        android:layout_marginEnd="48dp"
         android:text="Sem 5:"
+        android:textColorHighlight="@color/lavender"
+        android:textColorLink="#406BB4"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sem_8_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="448dp"
+        android:layout_marginEnd="124dp"
+        android:text="Sem 8:"
         android:textColorHighlight="@color/lavender"
         android:textColorLink="#406BB4"
         android:textSize="20sp"
@@ -75,8 +103,23 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="448dp"
-        android:layout_marginEnd="92dp"
+        android:layout_marginEnd="48dp"
         android:text="Sem 8:"
+        android:textColorHighlight="@color/lavender"
+        android:textColorLink="#406BB4"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+    <TextView
+        android:id="@+id/sem_7_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="392dp"
+        android:layout_marginEnd="124dp"
+        android:text="Sem 7:"
         android:textColorHighlight="@color/lavender"
         android:textColorLink="#406BB4"
         android:textSize="20sp"
@@ -89,8 +132,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="392dp"
-        android:layout_marginEnd="92dp"
+        android:layout_marginEnd="48dp"
         android:text="Sem 7:"
+        android:textColorHighlight="@color/lavender"
+        android:textColorLink="#406BB4"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sem_6_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="332dp"
+        android:layout_marginEnd="124dp"
+        android:text="Sem 6:"
         android:textColorHighlight="@color/lavender"
         android:textColorLink="#406BB4"
         android:textSize="20sp"
@@ -103,7 +160,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="332dp"
-        android:layout_marginEnd="92dp"
+        android:layout_marginEnd="48dp"
         android:text="Sem 6:"
         android:textColorHighlight="@color/lavender"
         android:textColorLink="#406BB4"
@@ -116,9 +173,37 @@
         android:id="@+id/sem_1_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
+        android:layout_marginStart="120dp"
         android:layout_marginTop="276dp"
         android:text="Sem 1:"
+        android:textColorHighlight="@color/lavender"
+        android:textColorLink="#406BB4"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sem_1_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="276dp"
+        android:text="Sem 1:"
+        android:textColorHighlight="@color/lavender"
+        android:textColorLink="#406BB4"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sem_2_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="332dp"
+        android:text="Sem 2:"
         android:textColorHighlight="@color/lavender"
         android:textColorLink="#406BB4"
         android:textSize="20sp"
@@ -130,43 +215,71 @@
         android:id="@+id/sem_2_2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="332dp"
         android:text="Sem 2:"
         android:textColorHighlight="@color/lavender"
         android:textColorLink="#406BB4"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sem_1_1" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/sem_3_3"
+        android:id="@+id/sem_3_"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="392dp"
         android:text="Sem 3:"
         android:textColorHighlight="@color/lavender"
         android:textColorLink="#406BB4"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sem_2_2" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/sem_4_4"
+        android:id="@+id/sem_3_3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="392dp"
+        android:text="Sem 3:"
+        android:textColorHighlight="@color/lavender"
+        android:textColorLink="#406BB4"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sem_4_"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="448dp"
         android:text="Sem 4:"
         android:textColorHighlight="@color/lavender"
         android:textColorLink="#406BB4"
         android:textSize="20sp"
         android:textStyle="italic"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sem_3_3" />
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/sem_4_4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="448dp"
+        android:text="Sem 4:"
+        android:textColorHighlight="@color/lavender"
+        android:textColorLink="#406BB4"
+        android:textSize="20sp"
+        android:textStyle="italic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/perasmena_mathimata"
@@ -184,8 +297,8 @@
         android:id="@+id/textView4"
         android:layout_width="152dp"
         android:layout_height="28dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginBottom="164dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginBottom="156dp"
         android:text="Passed Subjects:"
         android:textSize="20sp"
         android:textStyle="normal|bold|italic"
@@ -202,7 +315,7 @@
         app:layout_constraintHorizontal_bias="0.933"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.83" />
+        app:layout_constraintVertical_bias="0.8" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
