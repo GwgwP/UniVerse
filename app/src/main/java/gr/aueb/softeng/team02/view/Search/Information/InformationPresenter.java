@@ -1,8 +1,6 @@
-package gr.aueb.softeng.team02.view.Information;
+package gr.aueb.softeng.team02.view.Search.Information;
 
 import gr.aueb.softeng.team02.dao.OfferedSubjectDAO;
-import gr.aueb.softeng.team02.model.OfferedSubject;
-import gr.aueb.softeng.team02.view.Search.SearchView;
 
 public class InformationPresenter {
 
