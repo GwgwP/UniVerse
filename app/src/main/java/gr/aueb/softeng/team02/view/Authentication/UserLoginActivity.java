@@ -98,6 +98,7 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
                             break;
                         case -1:
                             presenter.showErrorMsg();
+                            break;
                     }
                 }
             }
@@ -106,7 +107,7 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
 
     @Override
     public void showAlertMessage(String title, String txt) {
-        new AlertDialog.Builder(getApplicationContext())
+        new AlertDialog.Builder(UserLoginActivity.this)
                 .setCancelable(true)
                 .setTitle(title)
                 .setMessage(txt)
@@ -138,7 +139,7 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
     @Override
     public void secretaryLogin(int id) {
         Intent userActivityScreen = new Intent(getApplicationContext(), HomeSecretaryActivity.class);
-        userActivityScreen.putExtra(HomeSecretaryActivity.STUDENT_ID, id);
+        userActivityScreen.putExtra(HomeSecretaryActivity.SECRETARY_ID, id);
         startActivity(userActivityScreen);
     }
 
