@@ -41,7 +41,8 @@ public class ProgressPresenter {
                 .orElse(0);
 
         view.showAverage(average);
-
+    }
+}
         /*double sum = 0;
         double counter = 0;
 
@@ -51,11 +52,10 @@ public class ProgressPresenter {
                 counter++;
             }
         }
-        if (counter != 0) {
-
+        if (counter != 0)
             view.showAverage(sum / counter);
-        } else view.showAverage(0);*/
-
+        else
+            view.showAverage(0);
     }
 
 
@@ -107,5 +107,6 @@ public class ProgressPresenter {
     public void setGradesDao(GradeDAO grades) {
         this.grades = grades;
     }
+}
 
 }

@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02.view;
+package gr.aueb.softeng.team02.view.Student;
 
 import android.os.Bundle;
 
@@ -10,9 +10,9 @@ import android.view.ViewGroup;
 
 import gr.aueb.softeng.team02.R;
 
-public class HomeFragment extends Fragment {
+public class StudentHome extends Fragment {
 
-//    public HomeFragment() {
+//    public StudentHome() {
 //        super(R.layout.fragment_home);
 //    }
 
@@ -21,6 +21,5 @@ public class HomeFragment extends Fragment {
 
         return inflater.inflate(R.layout.fragment_home, container, false);
     }
-
 
 }

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="gr.aueb.softeng.team02.view.HomeFragment"
+        android:name="gr.aueb.softeng.team02.view.Student.StudentHome"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" />
     <fragment
@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_submission" />
     <fragment
         android:id="@+id/progressFragment"
-        android:name="gr.aueb.softeng.team02.view.ProgressFragment"
+        android:name="gr.aueb.softeng.team02.view.Progress.ProgressFragment"
         android:label="fragment_progress"
         tools:layout="@layout/fragment_progress" />
 </navigation>

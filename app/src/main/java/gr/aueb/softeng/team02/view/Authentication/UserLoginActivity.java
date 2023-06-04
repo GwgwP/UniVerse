@@ -2,6 +2,7 @@ package gr.aueb.softeng.team02.view.Authentication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -19,14 +20,15 @@ import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 import gr.aueb.softeng.team02.model.AcademicYearException;
 import gr.aueb.softeng.team02.model.User;
-import gr.aueb.softeng.team02.view.Student.Home;
+import gr.aueb.softeng.team02.view.Secretary.HomeSecretaryActivity;
+import gr.aueb.softeng.team02.view.Student.HomeStudentActivity;
 
 public class UserLoginActivity extends AppCompatActivity implements UserLoginView {
 
     Button login;
     EditText name;
     EditText pass;
-    Switch role ;
+    Switch role;
     ImageView firstX;
     ImageView secondX;
 
@@ -74,30 +76,41 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
                 String username = getUsername();
                 String password = getPassword();
 
-                if(username.equals("")) {
+                if (username.equals("")) {
                     firstX.setVisibility(View.VISIBLE);
                     Toast.makeText(getApplicationContext(), "Please write your username ", Toast.LENGTH_SHORT).show();
                 }
 
-                if(password.equals("")) {
+                if (password.equals("")) {
                     secondX.setVisibility(View.VISIBLE);
                     Toast.makeText(getApplicationContext(), "Please write your password ", Toast.LENGTH_SHORT).show();
                 }
 
-               if(!(password.equals("")||username.equals(""))){
-                   Map.Entry<Integer, User> user = presenter.findUser(username, password);
+                if (!(password.equals("") || username.equals(""))) {
+                    Map.Entry<Integer, User> user = presenter.findUser(username, password);
 
-                   switch (user.getKey()) {
-                    case 1:
-                        presenter.studentLogin(user.getValue().getId());
-                        break;
-                    case 2:
-                        presenter.secretaryLogin(user.getValue().getId());
-                        break;
+                    switch (user.getKey()) {
+                        case 1:
+                            presenter.studentLogin(user.getValue().getId());
+                            break;
+                        case 2:
+                            presenter.secretaryLogin(user.getValue().getId());
+                            break;
+                        case -1:
+                            presenter.showErrorMsg();
                     }
-               }
+                }
             }
         });
+    }
+
+    @Override
+    public void showAlertMessage(String title, String txt) {
+        new AlertDialog.Builder(getApplicationContext())
+                .setCancelable(true)
+                .setTitle(title)
+                .setMessage(txt)
+                .setPositiveButton(R.string.ok, null).create().show();
     }
 
     @Override
@@ -117,18 +130,21 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
 
     @Override
     public void studentLogin(int id) {
-        Intent userActivityScreen = new Intent(getApplicationContext(), Home.class);
-        userActivityScreen.putExtra(Home.STUDENT_ID, id);
+        Intent userActivityScreen = new Intent(getApplicationContext(), HomeStudentActivity.class);
+        userActivityScreen.putExtra(HomeStudentActivity.STUDENT_ID, id);
         startActivity(userActivityScreen);
     }
 
     @Override
     public void secretaryLogin(int id) {
-
+        Intent userActivityScreen = new Intent(getApplicationContext(), HomeSecretaryActivity.class);
+        userActivityScreen.putExtra(HomeSecretaryActivity.STUDENT_ID, id);
+        startActivity(userActivityScreen);
     }
 
-    public int getRole(){
-        if (role.isChecked())
+    @Override
+    public int getRole() {
+        if (!role.isChecked())
             return 0;
         else
             return 1;

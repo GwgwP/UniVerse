@@ -16,7 +16,6 @@ import java.util.HashMap;
 
 public class ProgressFragment extends Fragment implements ProgressView {
 
-
     private View view;
 
     private TextView txtAverageGrade;
@@ -41,7 +40,6 @@ public class ProgressFragment extends Fragment implements ProgressView {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
 
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_progress, container, false);
@@ -116,8 +114,6 @@ public class ProgressFragment extends Fragment implements ProgressView {
         String sem8 = (sem_8_8.getText().toString());
 
 
-
-
         Intent intent = new Intent(getActivity(), DetailedGradesActivity.class);
         intent.putExtra("student_id", this.student_id);
         intent.putExtra("sem1", sem1);
@@ -166,4 +162,5 @@ public class ProgressFragment extends Fragment implements ProgressView {
     }
 
 }
+
 
