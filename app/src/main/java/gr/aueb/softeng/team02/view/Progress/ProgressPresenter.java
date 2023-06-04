@@ -41,8 +41,8 @@ public class ProgressPresenter {
                 .orElse(0);
 
         view.showAverage(average);
-    }
-}
+
+
         /*double sum = 0;
         double counter = 0;
 
@@ -55,9 +55,8 @@ public class ProgressPresenter {
         if (counter != 0)
             view.showAverage(sum / counter);
         else
-            view.showAverage(0);
+            view.showAverage(0);*/
     }
-
 
     public void getAGperSem(int id) {
         HashMap<Integer, ArrayList<Integer>> grades_per_sem = new HashMap<>();
@@ -99,14 +98,9 @@ public class ProgressPresenter {
         view.showDetailedGrades();
     }
 
-//
-//    public GradeDAO getGrades() {
-//        return grades;
-//    }
+
 
     public void setGradesDao(GradeDAO grades) {
         this.grades = grades;
     }
-}
-
 }
