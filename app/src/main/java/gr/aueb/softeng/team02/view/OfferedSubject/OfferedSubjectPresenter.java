@@ -53,16 +53,17 @@ public class OfferedSubjectPresenter {
 
         List<OfferedSubject> subjects = offeredSubjects.findAllSubjectsByYearAndBySemester(year, Integer.valueOf(semester));
 
-        boolean answer = true;
+        boolean answer = false;
         if (subjects.size() != 0)
             answer = view.confirmBox("Notification", "You have already registered offered subjects for this year.Do you want to keep them ?")[0];
 
-        if (answer) {
+        if (!answer) {
             // TODO : delete the old elements
             for (OfferedSubject sub : subjects) {
                 offeredSubjects.delete(sub);
             }
             view.popNotification("Deletion completed");
+            view.createSubList();
         }
     }
 }

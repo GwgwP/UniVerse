@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
+import android.widget.TableLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -26,27 +27,32 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
     Spinner spinnerYear;
     Spinner spinnerSemester;
     Button check;
+    TableLayout tableLayout;
     View view;
     OfferedSubjectPresenter presenter;
     Initializer init;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_offered_subject, container, false);
         spinnerYear = (Spinner) view.findViewById(R.id.spinner_year);
         spinnerSemester = (Spinner) view.findViewById(R.id.spinner_semester);
+        tableLayout = (TableLayout) view.findViewById(R.id.subjectTable);
+        tableLayout.setVisibility(View.GONE);
         init = new MemoryInitializer();
         presenter = new OfferedSubjectPresenter(this, init.getSubjectDAO(), init.getOfferedSubjectDAO(), init.getAcademicYearDAO());
         presenter.initLists();
-        check = view.findViewById(R.id.button_check);
+        check = (Button) view.findViewById(R.id.button_check);
         return view;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        check.setOnClickListener(v-> presenter.checkSelected());
+        check.setOnClickListener(v -> presenter.checkSelected());
     }
+
     @Override
     public void createYearList(ArrayList<String> years) {
         // Create an ArrayAdapter using the choices ArrayList
@@ -92,6 +98,11 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
     @Override
     public void popNotification(String msg) {
         Toast.makeText(requireContext(), msg, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
+    public void createSubList() {
+
     }
 
     @Override

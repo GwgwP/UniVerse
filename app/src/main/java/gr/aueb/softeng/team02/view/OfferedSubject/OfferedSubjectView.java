@@ -12,4 +12,6 @@ public interface OfferedSubjectView {
     public boolean[] confirmBox(String title, String txt);
 
     public void popNotification(String msg);
+
+    public void createSubList();
 }
