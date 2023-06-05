@@ -28,6 +28,7 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
     private ArrayList<String> yearList;
     private AcademicYearFragmentViewModel model;
     private Spinner spinner;
+    private Spinner semester_spinner;
     private Button submitButton;
     private View myView;
 
@@ -40,13 +41,13 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
         // Inflate the layout for this fragment
         myView = inflater.inflate(R.layout.fragment_academic_year, container, false);
         spinner = (Spinner) myView.findViewById(R.id.spinner2);
-
+        semester_spinner = (Spinner) myView.findViewById(R.id.spinnerSemester);
         Bundle bundle = getArguments();
         // int student_id = bundle.getInt("STUDENT_ID", 0);
 
         model = new AcademicYearFragmentViewModel();
         model.getPresenter().setView(this);
-        model.getPresenter().set_years();
+        model.getPresenter().initLists();
 
         submitButton = myView.findViewById(R.id.submitBtnSecretary);
 
@@ -93,6 +94,17 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
 
         // Set the ArrayAdapter on the Spinner
         spinner.setAdapter(adapter);
+    }
+
+    public void createSemesterList(ArrayList<String> semesters)
+    {
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_dropdown_item, semesters);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        semester_spinner.setAdapter(adapter);
+    }
+    public String getSelectedSemester(ArrayList<String> semesters)
+    {
+        return semesters.get(((Spinner) myView.findViewById(R.id.spinnerSemester)).getSelectedItemPosition());
     }
     @Override
     public String getSelectedYear(ArrayList<String> years) {

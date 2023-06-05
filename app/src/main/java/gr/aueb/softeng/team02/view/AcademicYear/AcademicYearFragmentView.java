@@ -14,6 +14,8 @@ public interface AcademicYearFragmentView {
 
     public String getSelectedYear(ArrayList<String> years);
     public void createYearList(ArrayList<String> years);
+    public void createSemesterList(ArrayList<String> semesters);
+    public String getSelectedSemester(ArrayList<String> semesters);
 
     public void startSubmission();
 }

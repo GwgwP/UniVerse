@@ -16,12 +16,13 @@ public class AcademicYearFragmentPresenter {
     private AcademicYearDAO years;
     private String year;
 
-    public AcademicYearFragmentPresenter(AcademicYearDAO years)
-    {
+    public AcademicYearFragmentPresenter(AcademicYearDAO years) {
         this.years = years;
     }
 
-    public void setView(AcademicYearFragmentView view){this.view = view;}
+    public void setView(AcademicYearFragmentView view) {
+        this.view = view;
+    }
 
     public ArrayList<String> get_academic_years() {
         ArrayList<String> ac_years = new ArrayList<>();
@@ -31,11 +32,22 @@ public class AcademicYearFragmentPresenter {
         return ac_years;
     }
 
+    public ArrayList<String> get_semesters() {
+        ArrayList<String> semesters = new ArrayList<>();
+        for (int i = 1; i <= 8; i++) {
+            semesters.add(String.valueOf(i));
+        }
+        return semesters;
+    }
+
+
     public void startProcess() {
         view.startSubmission();
     }
-    public void set_years() {
+
+    public void initLists() {
         view.createYearList(get_academic_years());
+        view.createSemesterList(get_semesters());
     }
 
 }
