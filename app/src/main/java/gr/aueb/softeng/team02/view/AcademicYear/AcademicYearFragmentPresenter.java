@@ -42,8 +42,19 @@ public class AcademicYearFragmentPresenter {
 
 
     public void startProcess() {
+
+
+
         view.startSubmission();
+        String ects = view.getECTS();
+        if (ects.equals(""))
+        {
+            view.initECTSX("Please enter ects number");
+        }
+
+        //TODO view.showAlertMessage()
     }
+
 
     public void initLists() {
         view.createYearList(get_academic_years());
