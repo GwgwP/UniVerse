@@ -29,6 +29,7 @@
     <string name="a_g_8">A.G 8:</string>
     <string name="arrayYear">Select Academic Year </string>
     <string name="arraySemester">Select semester</string>
+    <string name="CheckButton">Check</string>
     <string name="ok">OK</string>
     <string name="description">Description</string>
     <string name="professor">Professor :</string>

@@ -12,5 +12,7 @@ public interface OfferedSubjectDAO {
     public List<OfferedSubject> findByModulo(int mod,String year);
     public List<OfferedSubject> findByYear(String year, int semester);
     public OfferedSubject findByYearAndName(String year, String title);
+
+    public List<OfferedSubject> findAllSubjectsByYearAndBySemester(String year, int semester);
     public OfferedSubject findByTitle(String title);
 }

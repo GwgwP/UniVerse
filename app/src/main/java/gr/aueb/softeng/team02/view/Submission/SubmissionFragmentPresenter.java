@@ -80,7 +80,7 @@ public class SubmissionFragmentPresenter {
 
     //show the offered students based on the selected year .
     public void makeForm() {
-        this.year = view.getSelectedYear(getAcademicYears());
+        this.year = view.getSelectedYear();
         view.setForm(getOfferedSubjects(this.studentId, year));
     }
 

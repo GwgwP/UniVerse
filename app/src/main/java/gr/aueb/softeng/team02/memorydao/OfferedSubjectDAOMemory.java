@@ -51,6 +51,17 @@ public class OfferedSubjectDAOMemory implements OfferedSubjectDAO {
     }
 
     @Override
+    public List<OfferedSubject> findAllSubjectsByYearAndBySemester(String year, int semester) {
+        List<OfferedSubject> subjects = new ArrayList<>();
+        for (OfferedSubject sub : list) {
+            if (sub.getAcademicYearINString().equals(year) && sub.getSemester() == semester) {
+                subjects.add(sub);
+            }
+        }
+        return subjects;
+    }
+
+    @Override
     public List<OfferedSubject> findByYear(String year, int semester) {
         ArrayList<OfferedSubject> subjects = new ArrayList<>();
 

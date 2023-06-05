@@ -19,7 +19,7 @@ public interface SubmissionFragmentView {
 
     public void showPassedMsg(String txt);
 
-    public String getSelectedYear(ArrayList<String> years);
+    public String getSelectedYear();
     public void createYearList(ArrayList<String> years);
 
     public void startSubmission();
