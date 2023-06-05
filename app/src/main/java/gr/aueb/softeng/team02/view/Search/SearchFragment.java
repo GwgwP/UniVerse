@@ -82,7 +82,7 @@ public class SearchFragment extends Fragment implements SearchView{
 
         TextView textView = new TextView(requireContext());
         textView.setText(title);
-        textView.setTextSize(20);
+        textView.setTextSize(30);
         textView.setPadding(16, 16, 16, 16);
         textView.setOnClickListener(new View.OnClickListener() {
             @Override

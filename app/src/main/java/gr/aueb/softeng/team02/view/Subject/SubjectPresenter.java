@@ -1,8 +1,13 @@
 package gr.aueb.softeng.team02.view.Subject;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
+import android.content.Intent;
 import android.view.View;
 
 import gr.aueb.softeng.team02.dao.SubjectDAO;
+import gr.aueb.softeng.team02.view.Search.Information.InformationSubject;
+import gr.aueb.softeng.team02.view.Secretary.HomeSecretaryActivity;
 
 public class SubjectPresenter {
 
@@ -22,6 +27,7 @@ public class SubjectPresenter {
     }
 
     public void addForm(){
+        view.showForm();
 
     }
 

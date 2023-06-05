@@ -34,4 +34,10 @@
     <string name="professor">Professor :</string>
     <string name="ects">ECTS :</string>
     <string name="id">Id :</string>
+    <string name="subject_s_id">Subject\'s Id :</string>
+    <string name="subjects_name">Subjects Name :</string>
+    <string name="subject_s_ects">Subject\'s ECTS :</string>
+    <string name="subject_s_prof">Subject\'s Prof:</string>
+    <string name="subject_s_description">Subject\'s Description:</string>
+    <string name="save">SAVE</string>
 </resources>

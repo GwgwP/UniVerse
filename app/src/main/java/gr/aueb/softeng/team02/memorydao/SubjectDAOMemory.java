@@ -34,4 +34,13 @@ public class SubjectDAOMemory implements SubjectDAO {
     public int nextId() {
         return (entities.size() > 0 ? entities.get(entities.size()-1).getId()+1 : 1);
     }
+
+    public boolean exists(String title){
+        for(Subject k : this.entities){
+            if(title.equalsIgnoreCase(k.getTitle())){
+                return true;
+            }
+        }
+        return false;
+    }
 }

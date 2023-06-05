@@ -9,4 +9,6 @@ public interface SubjectDAO {
     public void save(Subject subject);
     public void delete(Subject subject);
     public int nextId();
+    public boolean exists(String title);
+
 }

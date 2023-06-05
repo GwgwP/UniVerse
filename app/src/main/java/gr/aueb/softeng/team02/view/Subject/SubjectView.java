@@ -7,5 +7,7 @@ import gr.aueb.softeng.team02.model.Subject;
 public interface SubjectView {
     public void viewSubs(List<Subject> sub);
 
-    //public void s
+    public void showForm();
+
+
 }

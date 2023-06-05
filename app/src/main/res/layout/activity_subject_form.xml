@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/teal_700"
+    tools:context=".view.Subject.SubjectAdd.SubjectForm">
+
+
+    <!-- TITLE -->
+    <TextView
+        android:id="@+id/titleForm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:text="CREATE A NEW SUBJECT"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.056">
+
+    </TextView>
+
+    <LinearLayout
+        android:id="@+id/containerForm"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/rounded_search_bar"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.326"
+        tools:layout_editor_absoluteX="0dp">
+        <!--SUBJECTS NAME-->
+        <LinearLayout
+            android:id="@+id/linearLayoutName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="19dp"
+
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.229"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/subjects_name"
+                android:textSize="17sp">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/subjectTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:hint="Subject's Name "
+                android:padding="10dp"
+                tools:layout_editor_absoluteX="73dp"
+                tools:layout_editor_absoluteY="394dp">
+
+            </EditText>
+            <ImageView
+                android:id="@+id/exTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_delete"
+                android:layout_marginStart="42dp"
+                />
+
+        </LinearLayout>
+        <!--SUBJECTS ID -->
+        <LinearLayout
+            android:id="@+id/linearLayoutId"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="19dp"
+
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.353"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/subject_s_id"
+                android:textSize="17sp">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/subjectId"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="50dp"
+                android:hint="Subject's Id "
+                android:padding="10dp"
+                tools:layout_editor_absoluteX="73dp"
+                tools:layout_editor_absoluteY="394dp">
+
+            </EditText>
+
+            <ImageView
+                android:id="@+id/exId"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_delete"
+                android:layout_marginStart="85dp"
+                />
+
+        </LinearLayout>
+        <!--SUBJECTS ECTS-->
+        <LinearLayout
+            android:id="@+id/linearLayoutEcts"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="19dp"
+
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.483"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/subject_s_ects"
+                android:textSize="17sp">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/subjectEcts"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:hint="Subject's ECTS "
+                android:padding="10dp"
+                tools:layout_editor_absoluteX="73dp"
+                tools:layout_editor_absoluteY="394dp">
+
+            </EditText>
+
+            <ImageView
+                android:id="@+id/exEcts"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_delete"
+                android:layout_marginStart="50dp"
+                />
+
+        </LinearLayout>
+        <!--SUBJECTS PROFESSOR-->
+        <LinearLayout
+            android:id="@+id/linearLayoutProffesor"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="19dp"
+
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.621"
+            tools:layout_editor_absoluteX="0dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/subject_s_prof"
+                android:textSize="17sp">
+
+            </TextView>
+
+            <EditText
+                android:id="@+id/subjectpProfessor"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:hint="Subject's Professor "
+                android:padding="10dp"
+                tools:layout_editor_absoluteX="73dp"
+                tools:layout_editor_absoluteY="394dp">
+
+            </EditText>
+
+            <ImageView
+                android:id="@+id/exProf"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_delete"
+                android:layout_marginStart="27dp"
+                />
+
+        </LinearLayout>
+        <!--SUBJECTS DESCRIPTION-->
+        <LinearLayout
+            android:id="@+id/linearLayoutDescription"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="19dp"
+
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.757"
+            tools:layout_editor_absoluteX="0dp">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation = "horizontal">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:text="@string/subject_s_description"
+                android:textSize="17sp" />
+
+            <ImageView
+                android:id="@+id/exDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@android:drawable/ic_delete"
+                android:layout_marginStart="180dp"/>
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/subjectDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="50dp"
+                android:layout_marginStart="30dp"
+                android:hint="Subject's Description "
+                android:padding="10dp"
+                tools:layout_editor_absoluteX="73dp"
+                tools:layout_editor_absoluteY="394dp">
+
+            </EditText>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/saveSubjectBut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/save"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.885"
+        tools:layout_editor_absoluteX="0dp" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
