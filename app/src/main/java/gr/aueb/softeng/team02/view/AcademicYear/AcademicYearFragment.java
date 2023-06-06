@@ -1,27 +1,22 @@
 package gr.aueb.softeng.team02.view.AcademicYear;
 
+import android.app.AlertDialog;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.Toast;
+import gr.aueb.softeng.team02.R;
+import gr.aueb.softeng.team02.view.Authentication.UserLoginActivity;
 
 import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TableLayout;
-
 import java.util.ArrayList;
 import java.util.HashMap;
-
-import gr.aueb.softeng.team02.R;
-import gr.aueb.softeng.team02.dao.AcademicYearDAO;
-import gr.aueb.softeng.team02.dao.GradeDAO;
-import gr.aueb.softeng.team02.dao.OfferedSubjectDAO;
-import gr.aueb.softeng.team02.dao.StudentDAO;
-import gr.aueb.softeng.team02.dao.SubmissionDAO;
 
 public class AcademicYearFragment extends Fragment implements AcademicYearFragmentView{
 
@@ -31,6 +26,10 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
     private Spinner semester_spinner;
     private Button submitButton;
     private View myView;
+
+    ImageView ectsX;
+
+    EditText ects;
 
 
 
@@ -42,6 +41,9 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
         myView = inflater.inflate(R.layout.fragment_academic_year, container, false);
         spinner = (Spinner) myView.findViewById(R.id.spinner2);
         semester_spinner = (Spinner) myView.findViewById(R.id.spinnerSemester);
+        ects = myView.findViewById(R.id.ectsTxt);
+        ectsX = myView.findViewById(R.id.ectsx);
+
         Bundle bundle = getArguments();
         // int student_id = bundle.getInt("STUDENT_ID", 0);
 
@@ -64,6 +66,13 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
 
 
 
+    public String getECTS(){return ects.getText().toString().trim();}
+
+    @Override
+    public void initECTSX(String txt) {
+        ectsX.setVisibility(View.VISIBLE);
+        Toast.makeText(getContext(), txt, Toast.LENGTH_SHORT).show();
+    }
 
     @Override
     public void setForm(HashMap<String, Integer> subjects) {
@@ -109,5 +118,13 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
     @Override
     public String getSelectedYear(ArrayList<String> years) {
         return years.get(((Spinner) myView.findViewById(R.id.spinner)).getSelectedItemPosition());
+    }
+
+    public void showAlertMessage(String title, String txt) {
+        new AlertDialog.Builder(requireContext())
+                .setCancelable(true)
+                .setTitle(title)
+                .setMessage(txt)
+                .setPositiveButton(R.string.ok, null).create().show();
     }
 }

@@ -18,4 +18,6 @@ public interface AcademicYearFragmentView {
     public String getSelectedSemester(ArrayList<String> semesters);
 
     public void startSubmission();
+    public String getECTS();
+    public void initECTSX(String txt);
 }
