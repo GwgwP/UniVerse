@@ -6,7 +6,7 @@
     android:padding="16dp"
     android:background="@color/teal_700"
     tools:context=".view.OfferedSubject.OfferedSubjectRegistration.OfferedSubjectRegistrationActivity">
-    >
+
 
     <TextView
         android:id="@+id/titleTextView"
@@ -16,33 +16,48 @@
         android:text="@string/chooseOfferedSubjects"
         android:textSize="20sp"
         android:textStyle="bold" />
-
-    <TableLayout
+    <View
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TableRow
+        android:layout_height="16dp" />
+    <ScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="400dp">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Select"
-                android:textStyle="bold" />
+            <TableLayout
+                android:id="@+id/subjectsTable"
+                android:background="@color/white"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Subject"
-                android:textStyle="bold" />
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
 
-        </TableRow>
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Select"
+                        android:textStyle="bold" />
 
-        <!-- Add dynamic rows here programmatically based on data -->
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Subject"
+                        android:textStyle="bold" />
 
-    </TableLayout>
+                </TableRow>
+
+                <!-- Add dynamic rows here programmatically based on data -->
+
+            </TableLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/submitButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/Submit" />
 
 </LinearLayout>

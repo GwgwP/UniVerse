@@ -54,18 +54,16 @@ public class SubjectFragment extends Fragment implements SubjectView {
                 presenter.addForm();
             }
         });*/
-
-
         return myView;
     }
 
     public void viewSubs(List<Subject> sub) {
+        // TODO Not subjects on fragments, pass an arrayList of strings
         if (!sub.isEmpty()) {
             for (Subject k : sub) {
                 String title = k.getTitle();
                 TextView subjectTextView = createSubjectTextView(title); // we make a new TextView that has the subject title
                 subjectList.addView(subjectTextView);
-
             }
         }
     }
@@ -83,10 +81,7 @@ public class SubjectFragment extends Fragment implements SubjectView {
         lineView.setLayoutParams(lineLayoutParams);
         lineView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.black));
 
-
         //subjectList.addView(lineView);
-
-
         return textView;
     }
 

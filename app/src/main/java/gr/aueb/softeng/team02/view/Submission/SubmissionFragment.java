@@ -92,7 +92,7 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
         spinner.setAdapter(adapter);
     }
 
-    public void submit() {
+    public ArrayList<String> submit() {
         ArrayList<String> subjects = new ArrayList<>();
         int rowCount = tableLayout.getChildCount();
 
@@ -113,7 +113,7 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
                 }
             }
         }
-        model.getPresenter().checkValidity(subjects);
+        return subjects;
     }
 
     @Override

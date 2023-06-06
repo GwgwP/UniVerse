@@ -85,10 +85,7 @@ public class SubmissionFragmentPresenter {
     }
 
     public void submitClicked() {
-        view.submit();
-    }
-
-    public void checkValidity(ArrayList<String> subjects) {
+        ArrayList<String> titles = view.submit();
         AcademicYear academicYear = years.find(year);
         int semester = students.findSemesterOfStudent(this.studentId);
 
@@ -100,7 +97,7 @@ public class SubmissionFragmentPresenter {
         sub.setStudent(students.findStudentById(this.studentId));
 
         boolean flag = false;
-        for (String s : subjects) {
+        for (String s : titles) {
             try {
                 sub.addChosenSub(this.subjects.findByYearAndName(this.year, s));
             } catch (Exception e) {
@@ -111,10 +108,10 @@ public class SubmissionFragmentPresenter {
         if (!flag) {
             submissions.save(sub);
             view.showPassedMsg("Succesfully stored");
-        }
-        else
+        } else
             view.showErrorMessage("Error", "Surpassed the limit of ECTS for this semester");
     }
+
     public void setYears() {
         view.createYearList(getAcademicYears());
     }

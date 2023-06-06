@@ -15,7 +15,7 @@ public interface SubmissionFragmentView {
      */
     public void showErrorMessage(String title, String message);
 
-    public void submit();
+    public ArrayList<String> submit();
 
     public void showPassedMsg(String txt);
 

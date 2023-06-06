@@ -18,7 +18,6 @@ public class SubjectPresenter {
 
     public void showSub(){
         view.viewSubs(subs.findAll());
-
     }
 
     public void addForm(){

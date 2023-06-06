@@ -52,29 +52,4 @@
         android:layout_marginEnd="8dp"
         android:padding="8dp"/>
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/SelectSubjects"
-        android:textAppearance="?android:textAppearanceMedium"
-        android:textColor="@android:color/black"
-        android:textStyle="bold"
-        android:padding="8dp"/>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TableLayout
-            android:id="@+id/subjectTable"
-            android:layout_width="match_parent"
-            android:layout_height="250dp">
-
-            <!-- Table rows will be added dynamically -->
-
-        </TableLayout>
-
-    </ScrollView>
-
-
 </LinearLayout>

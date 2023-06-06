@@ -29,7 +29,6 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
     Spinner spinnerYear;
     Spinner spinnerSemester;
     Button check;
-    TableLayout tableLayout;
     View view;
     AlertDialog.Builder builder;
     OfferedSubjectPresenter presenter;
@@ -41,9 +40,7 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
         view = inflater.inflate(R.layout.fragment_offered_subject, container, false);
         spinnerYear = (Spinner) view.findViewById(R.id.spinner_year);
         spinnerSemester = (Spinner) view.findViewById(R.id.spinner_semester);
-        tableLayout = (TableLayout) view.findViewById(R.id.subjectTable);
         builder = new AlertDialog.Builder(requireContext());
-        tableLayout.setVisibility(View.GONE);
         init = new MemoryInitializer();
         presenter = new OfferedSubjectPresenter(this, init.getSubjectDAO(), init.getOfferedSubjectDAO(), init.getAcademicYearDAO());
         presenter.initLists();
@@ -82,7 +79,6 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
 
     @Override
     public void confirmBox(String title, String txt) {
-        builder = new AlertDialog.Builder(requireContext());
         builder.setTitle(title).setMessage(txt)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {presenter.onRegistration(true);}

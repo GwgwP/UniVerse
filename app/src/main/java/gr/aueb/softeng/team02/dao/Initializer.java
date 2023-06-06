@@ -106,74 +106,73 @@ public abstract class Initializer {
         getAcademicYearDAO().save(y2);
 
 
-
         // 1st semester
-        Subject su1 = new Subject(0, "Stauros Toumpis", 8,"", "Algebra 1");
+        Subject su1 = new Subject(0, "Stauros Toumpis", 8, "", "Algebra 1");
 
-        Subject su2 = new Subject(1, "Antonis Dimakis", 8,"Η έννοια του προγράμματος. Μεταβλητές, τύποι μεταβλητών, εκφράσεις και αριθμητικοί υπολογισμοί. Δομές ελέγχου και δομές" +
+        Subject su2 = new Subject(1, "Antonis Dimakis", 8, "Η έννοια του προγράμματος. Μεταβλητές, τύποι μεταβλητών, εκφράσεις και αριθμητικοί υπολογισμοί. Δομές ελέγχου και δομές" +
                 "επανάληψης της γλώσσας Python. Είσοδος/έξοδος δεδομένων. Εντοπισμός και άρση σφαλμάτων. Συναρτήσεις και μέθοδοι. Η έννοια" +
                 "του αλγορίθμου. Σχεδίαση αλγορίθμων και αρχές δομημένου προγραμματισμού. Δομημένοι τύποι, αλφαριθμητικά, λίστες, πίνακες." +
                 "Αλγόριθμοι αναζήτησης, αλγόριθμοι ταξινόμησης, μαθηματικά προβλήματα. Αρχεία δεδομένων. Η έννοια της αναδρομής," +
                 "αναδρομικές συναρτήσεις, σχέση μεταξύ επανάληψης και αναδρομής. Βασικές έννοιες συναρτησιακού και αντικειμενοστρεφούς" +
                 "προγραμματισμού στην γλώσσα Python", "Python");
-        Subject su3 = new Subject(2, "Iordanis Koutsopoulos", 8,"Αλγόριθμοι και αρχές προγραμματισμού υπολογιστών (βασική λογική, στοιχειοποίηση, ακολουθία, επανάληψη, αναδρομή,\" +\n" +
-                "                \"αποδοτικότητα αλγορίθμων). Δομές δεδομένων (πίνακες, λίστες, στοίβες, δέντρα). Θεωρία υπολογισμού (υπολογισιμότητα και "+
+        Subject su3 = new Subject(2, "Iordanis Koutsopoulos", 8, "Αλγόριθμοι και αρχές προγραμματισμού υπολογιστών (βασική λογική, στοιχειοποίηση, ακολουθία, επανάληψη, αναδρομή,\" +\n" +
+                "                \"αποδοτικότητα αλγορίθμων). Δομές δεδομένων (πίνακες, λίστες, στοίβες, δέντρα). Θεωρία υπολογισμού (υπολογισιμότητα και " +
                 "                \"πολυπλοκότητα, κλάσεις P και NP). Αρχιτεκτονική υπολογιστών (λογικές πύλες, εκτέλεση εντολών, μνήμη, αρχιτεκτονική μηχανής," +
                 "                \"γλώσσα μηχανής, μεταβίβαση παραμέτρων, μονάδες εισόδου/εξόδου). Γλώσσες προγραμματισμού (γραμματικές, συντακτική\" +\n" +
                 "                \"ανάλυση, μεταγλωττιστές). Λειτουργικά συστήματα (διεργασίες, χρονοπρογραμματισμός). Συστήματα αρχείων και βάσεων\" +\n" +
                 "                \"δεδομένων. Δίκτυα υπολογιστών και Διαδίκτυο (βασικά πρωτόκολλα διαδικτύου, HTML, TCP, WiFi).", "Computer Science");
 
-        Subject su4 = new Subject(3, "Trufon Trufonas", 8,"Εισαγωγή στο περιεχόμενο και τη μεθοδολογία της οικονομικής επιστήμης. Μηχανισμοί λειτουργίας της αγοράς. Συμπεριφορά του" +
+        Subject su4 = new Subject(3, "Trufon Trufonas", 8, "Εισαγωγή στο περιεχόμενο και τη μεθοδολογία της οικονομικής επιστήμης. Μηχανισμοί λειτουργίας της αγοράς. Συμπεριφορά του" +
                 "καταναλωτή και θεωρία ζήτησης και προσφοράς των αγαθών. Οργάνωση και συμπεριφορά της επιχείρησης. Θεωρία παραγωγής και" +
                 "κόστους. Ανάλυση των μορφών αγοράς (ανταγωνισμός, μονοπώλιο, ολιγοπώλιο). Εισαγωγή στη μακροοικονομική ανάλυση." +
                 "Παρουσίαση και μέτρηση των μακροοικονομικών μεγεθών. Βασικά χαρακτηριστικά της οικονομικής ανάπτυξης και των οικονομικών" +
                 "κύκλων. Παρουσίαση και ανάλυση των μακροοικονομικών στοιχείων της Ελλάδας και άλλων χωρών της Ευρωπαϊκής Ένωσης με" +
                 "έμφαση στα δημοσιονομικά μεγέθη, καθώς και τα θέματα παραγωγικότητας και ανταγωνιστικότητας ελληνικής οικονομίας.", "Economics 1");
 
-        Subject su5 = new Subject(4, "Panagiotis Katerinis", 8,"Σύνολα. Σχέσεις. Συναρτήσεις. Φυσικοί Αριθμοί. Αρχή της επαγωγής. Ισοδυναμία συνόλων. " +
+        Subject su5 = new Subject(4, "Panagiotis Katerinis", 8, "Σύνολα. Σχέσεις. Συναρτήσεις. Φυσικοί Αριθμοί. Αρχή της επαγωγής. Ισοδυναμία συνόλων. " +
                 "Αριθμήσιμα και υπεραριθμήσιμα σύνολα.Προτασιακός λογισμός. Πράξεις μεταξύ συνόλων και λογικοί σύνδεσμοι. Άλγεβρα Boole. " +
                 "Τι είναι απόδειξη και τεχνικές απόδειξης. Βασικές αρχές απαρίθμησης. Διατάξεις. Συνδυασμοί. Η αρχή του εγκλεισμού και αποκλεισμού" +
                 ". Γραφήματα. Ισομορφισμός γραφημάτων. Μονοπάτια, κύκλοι και συνεκτικότητα. Πίνακες γραφημάτων. Κατευθυνόμενα γραφήματα. " +
                 "Δέντρα. Το πρόβλημα του βέλτιστου επικαλυπτικού δέντρου. Δέντρα με ρίζες. Ίχνη του Euler και κύκλοι του Hamilton. " +
                 "Επίπεδα γραφήματα και χρωματισμός γραφημάτων. Γραμμικές αναδρομικές σχέσεις με σταθερούς συντελεστές", "Discrete Mathematics");
         // 2nd semester
-        Subject su6 = new Subject(5, "George Koutsikas", 8,"Introduction on object-oriented programming", "Java");
-        Subject su7 = new Subject(6, "Despoina Sapouna", 8,"Introduction on Business Management", "Business Management");
-        Subject su8 = new Subject(7, "Stauros Toumpis", 8,"Introduction on Possibilities", "Possibilities");
-        Subject su9 = new Subject(8, "Trufon Trufonas", 8,"Introduction on linear algebra", "Linear Algebra");
-        Subject su10 = new Subject(9, "George Poluzos", 8,"Introduction on Design and analysis of digital systems", "Design and analysis of digital systems");
+        Subject su6 = new Subject(5, "George Koutsikas", 8, "Introduction on object-oriented programming", "Java");
+        Subject su7 = new Subject(6, "Despoina Sapouna", 8, "Introduction on Business Management", "Business Management");
+        Subject su8 = new Subject(7, "Stauros Toumpis", 8, "Introduction on Possibilities", "Possibilities");
+        Subject su9 = new Subject(8, "Trufon Trufonas", 8, "Introduction on linear algebra", "Linear Algebra");
+        Subject su10 = new Subject(9, "George Poluzos", 8, "Introduction on Design and analysis of digital systems", "Design and analysis of digital systems");
         // 3rd semester
-        Subject su11 = new Subject(10, "George Papaioanou", 8,"Introduction on object-oriented and memory management programming", "C++");
-        Subject su12 = new Subject(11, "John Voulgaris", 8,"Introduction on computer systems organization", "Computer systems organization");
-        Subject su13 = new Subject(12, "Paris Bassalos", 8,"Introduction on computational mathematics", "Computational mathematics");
-        Subject su14 = new Subject(13, "John Markakis", 8,"Introduction on data structures", "Data structures");
+        Subject su11 = new Subject(10, "George Papaioanou", 8, "Introduction on object-oriented and memory management programming", "C++");
+        Subject su12 = new Subject(11, "John Voulgaris", 8, "Introduction on computer systems organization", "Computer systems organization");
+        Subject su13 = new Subject(12, "Paris Bassalos", 8, "Introduction on computational mathematics", "Computational mathematics");
+        Subject su14 = new Subject(13, "John Markakis", 8, "Introduction on data structures", "Data structures");
         // 4th semester
-        Subject su15 = new Subject(14, "Bill Bassalos", 8,"Introduction on data bases", "Data Bases");
-        Subject su16 = new Subject(15, "George Xulomenos", 8,"Introduction on operating systems", "Operating Systems");
-        Subject su17 = new Subject(16, "Katia Papakontantinopoulou", 8,"Introduction on algorithms", "Algorithms");
-        Subject su18 = new Subject(17, "Eugene Foustoukou", 8,"Introduction on automata systems", "Automata Systems");
+        Subject su15 = new Subject(14, "Bill Bassalos", 8, "Introduction on data bases", "Data Bases");
+        Subject su16 = new Subject(15, "George Xulomenos", 8, "Introduction on operating systems", "Operating Systems");
+        Subject su17 = new Subject(16, "Katia Papakontantinopoulou", 8, "Introduction on algorithms", "Algorithms");
+        Subject su18 = new Subject(17, "Eugene Foustoukou", 8, "Introduction on automata systems", "Automata Systems");
         // 5th semester
-        Subject su19 = new Subject(18, "Eugene Foustoukou", 8,"Introduction on logic", "Logic");
-        Subject su20 = new Subject(19, "Ion Androutsopoulos", 8,"Introduction on Artificial Intelligence", "Artificial Intelligence");
-        Subject su21 = new Subject(20, "Antonis Dimakis", 8,"Introduction on statistics", "Statistics");
-        Subject su22 = new Subject(21, "Anna Kefala", 8,"Introduction on networking", "Networking Systems");
-        Subject su23 = new Subject(22, "John Kapeths", 8,"Introduction on software developing techniques", "ASPS");
+        Subject su19 = new Subject(18, "Eugene Foustoukou", 8, "Introduction on logic", "Logic");
+        Subject su20 = new Subject(19, "Ion Androutsopoulos", 8, "Introduction on Artificial Intelligence", "Artificial Intelligence");
+        Subject su21 = new Subject(20, "Antonis Dimakis", 8, "Introduction on statistics", "Statistics");
+        Subject su22 = new Subject(21, "Anna Kefala", 8, "Introduction on networking", "Networking Systems");
+        Subject su23 = new Subject(22, "John Kapeths", 8, "Introduction on software developing techniques", "ASPS");
         // 6th semester
-        Subject su24 = new Subject(23, "Software development", 8,"Introduction on application development", "Software Development");
-        Subject su25 = new Subject(24, "John Kotidis", 8,"Introduction on management and database systems", "SDAD");
-        Subject su26 = new Subject(25, "Antonis Dimakis", 8,"Introduction on optimization theory", "Optimization Theory");
-        Subject su27 = new Subject(26, "Vana Kalogeraki", 8,"Introduction on networking", "Distributed Systems");
-        Subject su28 = new Subject(27, "John Maleuris", 8,"Introduction on software verification and validation", "Software Verification and Validation");
+        Subject su24 = new Subject(23, "Software development", 8, "Introduction on application development", "Software Development");
+        Subject su25 = new Subject(24, "John Kotidis", 8, "Introduction on management and database systems", "SDAD");
+        Subject su26 = new Subject(25, "Antonis Dimakis", 8, "Introduction on optimization theory", "Optimization Theory");
+        Subject su27 = new Subject(26, "Vana Kalogeraki", 8, "Introduction on networking", "Distributed Systems");
+        Subject su28 = new Subject(27, "John Maleuris", 8, "Introduction on software verification and validation", "Software Verification and Validation");
         // 7th semester
-        Subject su29 = new Subject(28, "Bill Zafeirhs", 8,"Introduction on Web technologies and programming", " Web Development");
-        Subject su30 = new Subject(29, "Ion Androutsopoulos", 8,"Introduction on machine learning", "Machine Learning");
-        Subject su31 = new Subject(30, "George Xulomenos", 8,"Introduction on multimedia technology", "Multimedia technology");
-        Subject su32 = new Subject(31, "John Markakis", 8,"Introduction on special topics in algorithms", "Special topics in algorithms");
+        Subject su29 = new Subject(28, "Bill Zafeirhs", 8, "Introduction on Web technologies and programming", " Web Development");
+        Subject su30 = new Subject(29, "Ion Androutsopoulos", 8, "Introduction on machine learning", "Machine Learning");
+        Subject su31 = new Subject(30, "George Xulomenos", 8, "Introduction on multimedia technology", "Multimedia technology");
+        Subject su32 = new Subject(31, "John Markakis", 8, "Introduction on special topics in algorithms", "Special topics in algorithms");
         // 8th semester
-        Subject su33 = new Subject(32, "John Kotidis", 8,"Introduction on development of information systems", "Development of information systems");
-        Subject su34 = new Subject(33, "Ion Androutsopoulos", 8,"Introduction on interaction of human with computer", "Interaction of human with computer");
-        Subject su35 = new Subject(34, "Eugene Foustoukou", 8,"Introduction on theory of computability and complexity", "Theory of computability and complexity");
-        Subject su36 = new Subject(35, "Euagellia Vagena", 8,"Introduction on Elements of law and information", "Elements of law and information");
+        Subject su33 = new Subject(32, "John Kotidis", 8, "Introduction on development of information systems", "Development of information systems");
+        Subject su34 = new Subject(33, "Ion Androutsopoulos", 8, "Introduction on interaction of human with computer", "Interaction of human with computer");
+        Subject su35 = new Subject(34, "Eugene Foustoukou", 8, "Introduction on theory of computability and complexity", "Theory of computability and complexity");
+        Subject su36 = new Subject(35, "Euagellia Vagena", 8, "Introduction on Elements of law and information", "Elements of law and information");
 
         OfferedSubject o1 = new OfferedSubject(1, su1, y1);
         OfferedSubject o2 = new OfferedSubject(1, su2, y1);
@@ -199,7 +198,7 @@ public abstract class Initializer {
 
         OfferedSubject o19 = new OfferedSubject(5, su19, y1);
         OfferedSubject o20 = new OfferedSubject(5, su20, y1);
-        OfferedSubject o21= new OfferedSubject(5, su21, y1);
+        OfferedSubject o21 = new OfferedSubject(5, su21, y1);
         OfferedSubject o22 = new OfferedSubject(5, su22, y1);
         OfferedSubject o23 = new OfferedSubject(5, su23, y1);
 
@@ -274,7 +273,6 @@ public abstract class Initializer {
         Grade g8 = new Grade(s1, o8, 9);
         Grade g9 = new Grade(s1, o9, 9);
         Grade g10 = new Grade(s1, o10, 9);
-
 
         getGradeDAO().save(g1);
         getGradeDAO().save(g2);
