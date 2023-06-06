@@ -51,11 +51,21 @@ public class OfferedSubjectPresenter {
         String year = view.getYear();
         String semester = view.getSemester();
 
-        List<OfferedSubject> subjects = offeredSubjects.findAllSubjectsByYearAndBySemester(year, Integer.valueOf(semester));
+        List<OfferedSubject> subjects = offeredSubjects.findAllSubjectsByYearAndBySemester(year, Integer.parseInt(semester));
 
         boolean answer = false;
         if (subjects.size() != 0)
-            answer = view.confirmBox("Notification", "You have already registered offered subjects for this year.Do you want to keep them ?")[0];
+            view.confirmBox("Notification", "You have already registered offered subjects for this year.Do you want to keep them ?");
+        else
+            view.goToRegistration(year, semester);
+
+    }
+
+    public void onRegistration(boolean answer) {
+        String year = view.getYear();
+        String semester = view.getSemester();
+
+        List<OfferedSubject> subjects = offeredSubjects.findAllSubjectsByYearAndBySemester(year, Integer.parseInt(semester));
 
         if (!answer) {
             // TODO : delete the old elements
@@ -63,7 +73,7 @@ public class OfferedSubjectPresenter {
                 offeredSubjects.delete(sub);
             }
             view.popNotification("Deletion completed");
-            view.createSubList();
+            view.goToRegistration(year, semester);
         }
     }
 }

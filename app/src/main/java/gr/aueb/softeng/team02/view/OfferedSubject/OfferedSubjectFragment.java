@@ -2,6 +2,7 @@ package gr.aueb.softeng.team02.view.OfferedSubject;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -22,6 +23,7 @@ import java.util.ArrayList;
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
+import gr.aueb.softeng.team02.view.OfferedSubject.OfferedSubjectRegistration.OfferedSubjectRegistrationActivity;
 
 public class OfferedSubjectFragment extends Fragment implements OfferedSubjectView {
     Spinner spinnerYear;
@@ -29,6 +31,7 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
     Button check;
     TableLayout tableLayout;
     View view;
+    AlertDialog.Builder builder;
     OfferedSubjectPresenter presenter;
     Initializer init;
 
@@ -39,6 +42,7 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
         spinnerYear = (Spinner) view.findViewById(R.id.spinner_year);
         spinnerSemester = (Spinner) view.findViewById(R.id.spinner_semester);
         tableLayout = (TableLayout) view.findViewById(R.id.subjectTable);
+        builder = new AlertDialog.Builder(requireContext());
         tableLayout.setVisibility(View.GONE);
         init = new MemoryInitializer();
         presenter = new OfferedSubjectPresenter(this, init.getSubjectDAO(), init.getOfferedSubjectDAO(), init.getAcademicYearDAO());
@@ -77,23 +81,18 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
     }
 
     @Override
-    public boolean[] confirmBox(String title, String txt) {
-        final boolean[] answer = new boolean[1];
-        AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
+    public void confirmBox(String title, String txt) {
+        builder = new AlertDialog.Builder(requireContext());
         builder.setTitle(title).setMessage(txt)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        answer[0] = true;
-                    }
+                    public void onClick(DialogInterface dialog, int which) {presenter.onRegistration(true);}
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {
-                        answer[0] = false;
-                    }
+                    public void onClick(DialogInterface dialog, int which) {presenter.onRegistration(false);}
                 })
                 .show();
-        return answer;
     }
+
 
     @Override
     public void popNotification(String msg) {
@@ -101,8 +100,11 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
     }
 
     @Override
-    public void createSubList() {
-
+    public void goToRegistration(String year, String semester) {
+        Intent intent = new Intent(getActivity(), OfferedSubjectRegistrationActivity.class);
+        intent.putExtra("year", year);
+        intent.putExtra("semester", semester);
+        startActivity(intent);
     }
 
     @Override

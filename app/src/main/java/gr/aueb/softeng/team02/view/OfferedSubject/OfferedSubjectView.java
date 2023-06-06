@@ -9,9 +9,9 @@ public interface OfferedSubjectView {
 
     public void createSemesterList(ArrayList<String> semesters);
 
-    public boolean[] confirmBox(String title, String txt);
+    public void confirmBox(String title, String txt);
 
     public void popNotification(String msg);
 
-    public void createSubList();
+    public void goToRegistration(String year, String semester);
 }
