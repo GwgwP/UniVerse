@@ -3,6 +3,7 @@ package gr.aueb.softeng.team02.view.Submission;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -19,6 +20,8 @@ import gr.aueb.softeng.team02.model.Circumscription;
 import gr.aueb.softeng.team02.model.Grade;
 import gr.aueb.softeng.team02.model.OfferedSubject;
 import gr.aueb.softeng.team02.model.Submission;
+import gr.aueb.softeng.team02.util.SimpleCalendar;
+import gr.aueb.softeng.team02.util.SystemDate;
 
 public class SubmissionFragmentPresenter {
     private SubmissionFragmentView view;
@@ -96,20 +99,27 @@ public class SubmissionFragmentPresenter {
         sub.setAcademicYear(years.find(this.year));
         sub.setStudent(students.findStudentById(this.studentId));
 
-        boolean flag = false;
         for (String s : titles) {
             try {
                 sub.addChosenSub(this.subjects.findByYearAndName(this.year, s));
             } catch (Exception e) {
-                flag = true;
+                view.showErrorMessage("Error", "Surpassed the limit of ECTS for this semester");
+                return;
             }
         }
 
-        if (!flag) {
-            submissions.save(sub);
-            view.showPassedMsg("Succesfully stored");
-        } else
-            view.showErrorMessage("Error", "Surpassed the limit of ECTS for this semester");
+        if (c.getStart().isAfter(SystemDate.now())) {
+            view.showErrorMessage("Error", "The process of submission registration has not started yet !");
+            return;
+        }
+        if (c.getEnd().isBefore(SystemDate.now())) {
+            view.showErrorMessage("Error", "The process of submission registration has already come to an end !");
+            return;
+        }
+
+        submissions.save(sub);
+        view.showPassedMsg("Succesfully stored");
+
     }
 
     public void setYears() {

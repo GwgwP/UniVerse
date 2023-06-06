@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02.modelTest;
+package gr.aueb.softeng.team02.model.model;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
@@ -7,18 +7,20 @@ import static org.junit.Assert.assertTrue;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.time.LocalDate;
 import java.util.Date;
 
 import gr.aueb.softeng.team02.model.Circumscription;
 
 public class CircumscriptionTest {
     Circumscription c;
-    Date start;
-    Date end;
+    LocalDate start;
+    LocalDate end;
     @Before
     public void setUp() {
-        this.start = new Date(2023, 2, 16);
-        this.end = new Date(2023, 3, 25);
+        this.start = LocalDate.of(2023, 2, 16);
+        this.end = LocalDate.of(2023, 3, 25);
         this.c = new Circumscription(6, 60, start, end);
     }
 
@@ -37,8 +39,8 @@ public class CircumscriptionTest {
     public void checkSetters() throws Exception {
         this.c.setSemester(1);
         this.c.setEcts(40);
-        this.c.setEnd(new Date(2024, 9, 18));
-        this.c.setStart(new Date(2025, 1, 23));
+        this.c.setEnd(LocalDate.of(2024, 9, 18));
+        this.c.setStart(LocalDate.of(2025, 1, 23));
 
         Assert.assertNotSame(this.c.getStart(), start);
         Assert.assertNotSame(this.c.getEnd(), end);

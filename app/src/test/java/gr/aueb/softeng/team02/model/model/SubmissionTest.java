@@ -1,9 +1,10 @@
-package gr.aueb.softeng.team02.modelTest;
+package gr.aueb.softeng.team02.model.model;
 
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import gr.aueb.softeng.team02.model.AcademicYear;
@@ -18,16 +19,16 @@ public class SubmissionTest {
     private AcademicYear year;
     private Student student;
     Circumscription c;
-    Date start;
-    Date end;
+    LocalDate start;
+    LocalDate end;
 
     @Before
     public void setUp() {
         this.student = new Student();
         this.year = new AcademicYear("2022-2023");
         this.submission = new Submission();
-        this.start = new Date(2023, 2, 16);
-        this.end = new Date(2023, 3, 25);
+        this.start = LocalDate.of(2023, 2, 16);
+        this.end = LocalDate.of(2023, 3, 25);
         this.c = new Circumscription(8, 31, start, end);
     }
 

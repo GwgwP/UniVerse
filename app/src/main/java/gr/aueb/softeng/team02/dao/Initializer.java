@@ -3,6 +3,7 @@ package gr.aueb.softeng.team02.dao;
 import android.util.Log;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import gr.aueb.softeng.team02.memorydao.SecretaryDAOMemory;
 import gr.aueb.softeng.team02.memorydao.StudentDAOMemory;
@@ -53,17 +54,17 @@ public abstract class Initializer {
         AcademicYear y2 = new AcademicYear("2022-2023");
         AcademicYear y1 = new AcademicYear("2021-2022");
 
-        Date start1 = new Date(2022, 10, 15);
-        Date end1 = new Date(2022, 11, 15);
+        LocalDate start1 = LocalDate.of(2022, 10, 15);
+        LocalDate end1 = LocalDate.of(2022, 11, 15);
 
-        Date start2 = new Date(2023, 3, 15);
-        Date end2 = new Date(2023, 4, 15);
+        LocalDate start2 = LocalDate.of(2023, 3, 15);
+        LocalDate end2 = LocalDate.of(2023, 4, 15);
 
-        Date start = new Date(2021, 10, 15);
-        Date end = new Date(2021, 11, 15);
+        LocalDate start = LocalDate.of(2021, 10, 15);
+        LocalDate end = LocalDate.of(2021, 11, 15);
 
-        Date start0 = new Date(2022, 3, 15);
-        Date end0 = new Date(2022, 4, 15);
+        LocalDate start0 = LocalDate.of(2022, 3, 15);
+        LocalDate end0 = LocalDate.of(2022, 4, 15);
 
         Circumscription c1 = new Circumscription(1, 30, start, end);
         Circumscription c2 = new Circumscription(2, 30, start0, end0);
