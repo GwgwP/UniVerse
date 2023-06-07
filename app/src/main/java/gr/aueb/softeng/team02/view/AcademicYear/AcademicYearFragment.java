@@ -30,7 +30,7 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
     private ArrayAdapter<String> adapter;
     Initializer init;
     private AcademicYearFragmentViewModel model;
-    private Spinner spinner;
+    private Spinner year_spinner;
     private Spinner semester_spinner;
     private Button submitButton;
     private View myView;
@@ -38,59 +38,23 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
 
     EditText ects;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         super.onCreateView(inflater, container, savedInstanceState);
         // Inflate the layout for this fragment
         myView = inflater.inflate(R.layout.fragment_academic_year, container, false);
-        spinner = (Spinner) myView.findViewById(R.id.spinner2);
+        year_spinner = (Spinner) myView.findViewById(R.id.spinner2);
         semester_spinner = (Spinner) myView.findViewById(R.id.spinnerSemester);
         Bundle bundle = getArguments();
         // int student_id = bundle.getInt("STUDENT_ID", 0);
         init = new MemoryInitializer();
         ects = myView.findViewById(R.id.ectsTxt);
-
-
         model = new AcademicYearFragmentViewModel();
         model.getPresenter().setView(this);
         model.getPresenter().initLists();
 
-        addYearButton = requireView().findViewById(R.id.add_year_button);
-        addYearButton.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // Open a dialog or input field to get the new year from the user
-                // For example, using an AlertDialog
-                AlertDialog.Builder builder = new AlertDialog.Builder(requireContext());
-                builder.setTitle("Add Year");
-
-                final EditText input = new EditText(requireContext());
-                builder.setView(input);
-
-                builder.setPositiveButton("Add", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        String newYear = input.getText().toString();
-                        model.getPresenter().addAcademicYear(newYear);
-                        //years.add(newYear);
-                        //adapter.notifyDataSetChanged();
-                    }
-                });
-
-                builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.cancel();
-                    }
-                });
-
-                builder.show();
-
-                //model.getPresenter().onSeeAcademicYear();
-            }
-        });
-
+        addYearButton = myView.findViewById(R.id.add_year_button);
 
         submitButton = myView.findViewById(R.id.submitBtnSecretary);
 
@@ -109,7 +73,6 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
     }
 
 
-
     @Override
     public void setForm(HashMap<String, Integer> subjects) {
 
@@ -120,23 +83,15 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
 
     }
 
-
-
     @Override
     public void startSubmission() {
-        int flag =0 ;
-        if (getSelectedYear() != null && getSelectedSemester()!=null && getECTS()!= null & Integer.parseInt(getECTS()) >= 30 && Integer.parseInt(getECTS())<=80)
-        {
-            flag =model.getPresenter().submitNewAcademicYear(getSelectedYear(), Integer.parseInt(getSelectedSemester()), Integer.parseInt(getECTS()));
-
-
+        int flag = 0;
+        if (getSelectedYear() != null && getSelectedSemester() != null && getECTS() != null & Integer.parseInt(getECTS()) >= 30 && Integer.parseInt(getECTS()) <= 80) {
+            flag = model.getPresenter().submitNewAcademicYear(getSelectedYear(), Integer.parseInt(getSelectedSemester()), Integer.parseInt(getECTS()));
         }
-        if (flag == -1)
-        {
-            //TODO error in submision
+        if (flag == -1) {
+            // TODO error in submission
         }
-
-
     }
 
     public void createYearList(ArrayList<String> years) {
@@ -147,7 +102,7 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         // Set the ArrayAdapter on the Spinner
-        spinner.setAdapter(adapter);
+        year_spinner.setAdapter(adapter);
 
     }
 
@@ -158,17 +113,12 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
     }
 
     @Override
-    public String getSelectedSemester(){//ArrayList<String> semesters) {
-        int i = semester_spinner.getSelectedItemPosition();
-        return model.getPresenter().get_semesters().get(i);
-        //return semesters.get(((Spinner) myView.findViewById(R.id.spinnerSemester)).getSelectedItemPosition());
+    public String getSelectedSemester() {
+        return semester_spinner.getSelectedItem().toString();
     }
 
     @Override
-    public String getSelectedYear(){ //ArrayList<String> years) {
-        int i = spinner.getSelectedItemPosition();
-        return model.getPresenter().get_semesters().get(i);
-        //return years.get(((Spinner) myView.findViewById(R.id.spinner)).getSelectedItemPosition());
+    public String getSelectedYear() { //ArrayList<String> years) {
+        return year_spinner.getSelectedItem().toString();
     }
-
 }
