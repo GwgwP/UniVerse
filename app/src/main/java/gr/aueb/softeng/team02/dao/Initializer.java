@@ -51,8 +51,14 @@ public abstract class Initializer {
 
         getSecretaryDAO().save(r1);
 
-        AcademicYear y2 = new AcademicYear("2022-2023");
-        AcademicYear y1 = new AcademicYear("2021-2022");
+        LocalDate dateOdd2023 = LocalDate.of(2023, 2, 28);
+        LocalDate dateEven2023 = LocalDate.of(2023, 6, 1);
+
+        LocalDate dateOdd2022 = LocalDate.of(2022, 2, 28);
+        LocalDate dateEven2022 = LocalDate.of(2022, 8, 1);
+
+        AcademicYear y2 = new AcademicYear("2022-2023", dateEven2023, dateOdd2023);
+        AcademicYear y1 = new AcademicYear("2021-2022", dateEven2022, dateOdd2022);
         getAcademicYearDAO().setCurrentAcadYear(y2);
 
         LocalDate start1 = LocalDate.of(2022, 10, 15);

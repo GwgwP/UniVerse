@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02.view.Secretary;
+package gr.aueb.softeng.team02.view.SecretaryHomeFragment;
 
 import android.os.Bundle;
 

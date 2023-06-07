@@ -10,19 +10,23 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 
 import gr.aueb.softeng.team02.R;
+import gr.aueb.softeng.team02.dao.Initializer;
+import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 import gr.aueb.softeng.team02.view.Student.HomeStudentPresenter;
 
 public class HomeSecretaryActivity extends AppCompatActivity implements HomeSecretaryView {
 
     public static final String SECRETARY_ID = "secretary_id";
     private int secretaryId;
-
+    private Initializer init;
     FloatingActionButton plus;
 
     @Override
@@ -32,9 +36,9 @@ public class HomeSecretaryActivity extends AppCompatActivity implements HomeSecr
         secretaryId = intent.getIntExtra(SECRETARY_ID, 12);
         setContentView(R.layout.secretary_home);
 
-        plus = (FloatingActionButton)findViewById(R.id.plusButton);
-
-        HomeSecretaryPresenter presenter = new HomeSecretaryPresenter(this);
+        plus = (FloatingActionButton) findViewById(R.id.plusButton);
+        init = new MemoryInitializer();
+        HomeSecretaryPresenter presenter = new HomeSecretaryPresenter(this, init.getAcademicYearDAO());
 
         // Set the initial fragment to be displayed
         presenter.changeFragment(R.id.secretaryHome);
@@ -48,6 +52,13 @@ public class HomeSecretaryActivity extends AppCompatActivity implements HomeSecr
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 presenter.changeFragment(item.getItemId());
                 return true;
+            }
+        });
+
+        plus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                presenter.updateGrades();
             }
         });
     }
@@ -64,6 +75,8 @@ public class HomeSecretaryActivity extends AppCompatActivity implements HomeSecr
         transaction.replace(R.id.frame_layout, fragment);
         transaction.commit();
     }
-
-
+    @Override
+    public void showMessage(String txt) {
+        Toast.makeText(this, txt, Toast.LENGTH_LONG).show();
+    }
 }

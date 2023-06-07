@@ -10,7 +10,8 @@ public interface SubmissionFragmentView {
     /**
      * Το μήνυμα που εμφανίζεται σε
      * περίπτωση error.
-     * @param title O τίτλος του μηνύματος
+     *
+     * @param title   O τίτλος του μηνύματος
      * @param message Το περιεχόμενο του μηνύματος
      */
     public void showErrorMessage(String title, String message);
@@ -19,9 +20,6 @@ public interface SubmissionFragmentView {
 
     public void showPassedMsg(String txt);
 
-    public String getSelectedYear();
-    public void createYearList(ArrayList<String> years);
-    public void startSubmission();
 
     public void changeToHomeScreen();
 }
