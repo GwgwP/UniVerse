@@ -53,6 +53,7 @@ public abstract class Initializer {
 
         AcademicYear y2 = new AcademicYear("2022-2023");
         AcademicYear y1 = new AcademicYear("2021-2022");
+        getAcademicYearDAO().setCurrentAcadYear(y2);
 
         LocalDate start1 = LocalDate.of(2022, 10, 15);
         LocalDate end1 = LocalDate.of(2022, 11, 15);
@@ -417,6 +418,8 @@ public abstract class Initializer {
         getOfferedSubjectDAO().save(k34);
         getOfferedSubjectDAO().save(k35);
         getOfferedSubjectDAO().save(k36);
+
+
 
     }
 }

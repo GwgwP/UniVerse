@@ -1,19 +1,27 @@
 package gr.aueb.softeng.team02.view.Search.SearchFragment;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import gr.aueb.softeng.team02.dao.AcademicYearDAO;
 import gr.aueb.softeng.team02.dao.OfferedSubjectDAO;
+import gr.aueb.softeng.team02.model.OfferedSubject;
 
 public class SearchPresenter {
 
 
     private OfferedSubjectDAO subjects;
 
+    private AcademicYearDAO years;
 
 
     private SearchView view;
 
 
-    public SearchPresenter(OfferedSubjectDAO subs){
-        this.subjects=subs;
+    public SearchPresenter(OfferedSubjectDAO subs, AcademicYearDAO years) {
+
+        this.subjects = subs;
+        this.years = years;
     }
 
     public void setView(SearchView view) {
@@ -21,22 +29,25 @@ public class SearchPresenter {
     }
 
 
-    public void initSubView(){
-        view.viewSub(subjects.findAll());
-
+    public void initSubView() {
+        ArrayList<String> titles = new ArrayList<>();
+        List<OfferedSubject> offeredSubjects = subjects.findByYear(years.getCurrentAcadYear().getAc_year());
+        for (OfferedSubject k : offeredSubjects) {
+            titles.add(k.getTitle());
+        }
+        view.viewSub(titles);
     }
 
-    public void decide(String title){
+    public void decide(String title) {
 
-        if(subjects.findByTitle(title)!=null){
-           view.showInfo(title);
-       }
-       else{
+        if (subjects.findByTitle(title) != null) {
+            view.showInfo(title);
+        } else {
             view.errorTitle();
-       }
+        }
     }
 
-    public String getTitle(){
+    public String getTitle() {
 
         return view.getSubTitle();
     }

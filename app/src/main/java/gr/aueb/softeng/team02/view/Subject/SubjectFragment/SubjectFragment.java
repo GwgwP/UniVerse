@@ -3,6 +3,7 @@ package gr.aueb.softeng.team02.view.Subject.SubjectFragment;
 import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.compose.material3.Strings;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
@@ -18,7 +19,6 @@ import java.util.List;
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
-import gr.aueb.softeng.team02.model.Subject;
 import gr.aueb.softeng.team02.view.Subject.SubjectAdd.SubjectForm;
 
 
@@ -30,8 +30,6 @@ public class SubjectFragment extends Fragment implements SubjectView {
 
     private Button addButton;
     private SubjectPresenter presenter;
-
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -47,33 +45,28 @@ public class SubjectFragment extends Fragment implements SubjectView {
         presenter.setView(this);
         presenter.showSub();
 
-       addButton.setOnClickListener(new View.OnClickListener() {
+        addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 presenter.addForm();
             }
         });
-
-
-
-
         return myView;
     }
 
-    public void showForm(){
+    @Override
+    public void showForm() {
         Intent intent = new Intent(requireContext(), SubjectForm.class);
         startActivity(intent);
 
 
     }
 
-    public void viewSubs(List<Subject> sub){
-        if(!sub.isEmpty()){
-            for( Subject k : sub){
-                String title = k.getTitle();
-                TextView subjectTextView = createSubjectTextView(title); // we make a new TextView that has the subject title
-                subjectList.addView(subjectTextView);
-            }
+    @Override
+    public void viewSubs(List<String> sub) {
+        for (String k : sub) {
+            TextView subjectTextView = createSubjectTextView(k); // we make a new TextView that has the subject title
+            subjectList.addView(subjectTextView);
         }
     }
 

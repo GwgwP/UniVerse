@@ -17,4 +17,6 @@ public interface AcademicYearDAO {
     public Circumscription findCircumscriptionBySemesterAndYear(int semester, String year) throws AcademicYearException;
 
     public HashSet<AcademicYear> findAll();
+    public void setCurrentAcadYear(AcademicYear ac);
+    public AcademicYear getCurrentAcadYear();
 }

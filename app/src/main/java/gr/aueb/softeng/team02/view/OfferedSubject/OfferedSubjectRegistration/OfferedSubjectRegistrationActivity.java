@@ -91,6 +91,7 @@ public class OfferedSubjectRegistrationActivity extends AppCompatActivity implem
 
             // Creating a TextView for the second column
             TextView subjectTextView = new TextView(this);
+            subjectTextView.setTextSize(20);
             subjectTextView.setText(title);
             newRow.addView(subjectTextView); // Add the TextView to the row
 

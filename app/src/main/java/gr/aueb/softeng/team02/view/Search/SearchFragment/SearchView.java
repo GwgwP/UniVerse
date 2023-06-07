@@ -9,7 +9,7 @@ import gr.aueb.softeng.team02.model.OfferedSubject;
 
 public interface SearchView {
 
-    public void viewSub(List<OfferedSubject> sub);
+    public void viewSub(List<String> sub);
 
     public TextView createSubjectTextView(String title);
 

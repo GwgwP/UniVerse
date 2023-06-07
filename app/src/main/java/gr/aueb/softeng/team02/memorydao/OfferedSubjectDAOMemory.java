@@ -12,6 +12,7 @@ import gr.aueb.softeng.team02.model.OfferedSubject;
 public class OfferedSubjectDAOMemory implements OfferedSubjectDAO {
     private static ArrayList<OfferedSubject> list = new ArrayList<>();
 
+
     @Override
     public void save(OfferedSubject entity) {
         if (!list.contains(entity)) {
@@ -62,11 +63,11 @@ public class OfferedSubjectDAOMemory implements OfferedSubjectDAO {
     }
 
     @Override
-    public List<OfferedSubject> findByYear(String year, int semester) {
+    public List<OfferedSubject> findByYear(String year) {
         ArrayList<OfferedSubject> subjects = new ArrayList<>();
 
         for (OfferedSubject sub : list) {
-            if (sub.getAcademicYearINString().equals(year) && sub.getSemester() == semester)
+            if (sub.getAcademicYearINString().equals(year))
                 subjects.add(sub);
         }
         return subjects;
@@ -82,4 +83,5 @@ public class OfferedSubjectDAOMemory implements OfferedSubjectDAO {
 
         return null;
     }
+
 }

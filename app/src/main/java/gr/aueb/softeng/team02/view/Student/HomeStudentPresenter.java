@@ -2,7 +2,7 @@ package gr.aueb.softeng.team02.view.Student;
 
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.view.Progress.ProgressForm.ProgressFragment;
-import gr.aueb.softeng.team02.view.Search.SearchFragment;
+import gr.aueb.softeng.team02.view.Search.SearchFragment.SearchFragment;
 import gr.aueb.softeng.team02.view.Submission.SubmissionFragment;
 
 public class HomeStudentPresenter {

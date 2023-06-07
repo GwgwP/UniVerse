@@ -28,7 +28,7 @@ public class InformationSubject extends AppCompatActivity implements Information
 
         // Retrieve the selected subject from the intent
         String title = getIntent().getStringExtra("subject");
-        Log.e("DEBUG", title );
+        Log.e("DEBUG", title);
 
 
         presenter = new InformationPresenter(new OfferedSubjectDAOMemory());
@@ -47,18 +47,17 @@ public class InformationSubject extends AppCompatActivity implements Information
     }
 
 
-public void showInfo(OfferedSubject sub){
-        //TODO : separate methods
-    titleT.setText(sub.getTitle());
-   id.setText(String.valueOf(sub.getSubject().getId()));
-   ects.setText(String.valueOf(sub.getEcts()));
-   TextView d = new TextView(this);
-   d.setText(sub.getDesc());
-   d.setTextSize(20);
-   desc.addView(d);
-   prof.setText(sub.getProf());
+    public void showInfo(String title, String professor, int ects, int id, String descrip) {
+        titleT.setText(title);
+        this.id.setText(String.valueOf(id));
+        this.ects.setText(String.valueOf(ects));
+        TextView d = new TextView(this);
+        d.setText(descrip);
+        d.setTextSize(20);
+        desc.addView(d);
+        prof.setText(professor);
 
+    }
 
-}
 
 }
