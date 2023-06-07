@@ -27,7 +27,7 @@ public class SubjectDAOMemory implements SubjectDAO {
     @Override
     public void delete(Subject subject) {
         if (this.entities.contains(subject))
-            this.entities.add(subject);
+            this.entities.remove(subject);
     }
 
     @Override

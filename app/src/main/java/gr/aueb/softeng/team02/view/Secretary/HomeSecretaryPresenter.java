@@ -21,9 +21,7 @@ public class HomeSecretaryPresenter {
                 view.replaceFragment(new SecretaryHome());
                 break;
             case R.id.academicYearFragment:
-                Log.e("DEBBUG", "AcademicYearFragment");
                 view.replaceFragment(new AcademicYearFragment());
-
                 break;
             case R.id.subjectFragment:
                 view.replaceFragment(new SubjectFragment());

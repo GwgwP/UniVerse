@@ -50,9 +50,6 @@ public class AcademicYearFragmentPresenter {
 
 
     public void startProcess() {
-
-
-
         view.startSubmission();
 //        String ects = view.getECTS();
 //        if (ects.equals(""))
@@ -76,8 +73,6 @@ public class AcademicYearFragmentPresenter {
         }
 
         Circumscription circumscription = new Circumscription(sem, ects,date1, date2);
-
-
 
         return 0;
     }
