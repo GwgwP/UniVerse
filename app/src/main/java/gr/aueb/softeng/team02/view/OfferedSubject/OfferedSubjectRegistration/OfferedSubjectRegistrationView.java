@@ -9,7 +9,11 @@ public interface OfferedSubjectRegistrationView {
 
     public void alertBox(String title, String msg);
 
+    public void errorBox(String title, String msg);
+
     public void moveReminder(String txt);
 
     public ArrayList<String> submitClicked();
+
+    public void changeToHomeScreen();
 }

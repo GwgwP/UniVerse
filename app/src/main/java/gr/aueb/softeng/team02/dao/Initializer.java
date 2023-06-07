@@ -57,8 +57,8 @@ public abstract class Initializer {
         LocalDate start1 = LocalDate.of(2022, 10, 15);
         LocalDate end1 = LocalDate.of(2022, 11, 15);
 
-        LocalDate start2 = LocalDate.of(2023, 3, 15);
-        LocalDate end2 = LocalDate.of(2023, 4, 15);
+        LocalDate start2 = LocalDate.of(2023, 5, 15);
+        LocalDate end2 = LocalDate.of(2023, 7, 15);
 
         LocalDate start = LocalDate.of(2021, 10, 15);
         LocalDate end = LocalDate.of(2021, 11, 15);

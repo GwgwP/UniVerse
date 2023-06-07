@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02.view.Progress;
+package gr.aueb.softeng.team02.view.Progress.ProgressForm;
 
 import android.content.Intent;
 import android.os.Bundle;

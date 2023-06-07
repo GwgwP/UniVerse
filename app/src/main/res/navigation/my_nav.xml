@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_submission" />
     <fragment
         android:id="@+id/progressFragment"
-        android:name="gr.aueb.softeng.team02.view.Progress.ProgressFragment"
+        android:name="gr.aueb.softeng.team02.view.Progress.ProgressForm.ProgressFragment"
         android:label="fragment_progress"
         tools:layout="@layout/fragment_progress" />
 </navigation>

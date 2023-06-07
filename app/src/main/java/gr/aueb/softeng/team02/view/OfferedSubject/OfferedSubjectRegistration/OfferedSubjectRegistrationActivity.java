@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,8 +21,10 @@ import java.util.ArrayList;
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
+import gr.aueb.softeng.team02.view.Secretary.HomeSecretaryActivity;
+import gr.aueb.softeng.team02.view.Student.HomeStudentActivity;
 
-public class OfferedSubjectRegistrationActivity extends AppCompatActivity implements OfferedSubjectRegistrationView{
+public class OfferedSubjectRegistrationActivity extends AppCompatActivity implements OfferedSubjectRegistrationView {
     String semester;
     AlertDialog.Builder builder;
     Button submit;
@@ -30,6 +33,7 @@ public class OfferedSubjectRegistrationActivity extends AppCompatActivity implem
     CheckBox checker;
     OfferedSubjectRegistrationPresenter presenter;
     Initializer init;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -110,16 +114,26 @@ public class OfferedSubjectRegistrationActivity extends AppCompatActivity implem
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        presenter.moveSubject(true);
+                        presenter.moveSubject();
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        presenter.moveSubject(false);
+                        presenter.remainSubject();
                     }
                 })
                 .show();
+    }
+
+    @Override
+    public void errorBox(String title, String msg) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title)
+                .setCancelable(true)
+                .setTitle(title)
+                .setMessage(msg)
+                .setPositiveButton(R.string.ok, null).create().show();
     }
 
     public void moveReminder(String txt) {
@@ -149,5 +163,11 @@ public class OfferedSubjectRegistrationActivity extends AppCompatActivity implem
             }
         }
         return titles;
+    }
+
+    @Override
+    public void changeToHomeScreen() {
+        Intent intent = new Intent(this, HomeSecretaryActivity.class);
+        startActivity(intent);
     }
 }

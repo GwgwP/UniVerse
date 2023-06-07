@@ -99,6 +99,11 @@ public class SubmissionFragmentPresenter {
         sub.setAcademicYear(years.find(this.year));
         sub.setStudent(students.findStudentById(this.studentId));
 
+        if (titles.size() == 0) {
+            view.showErrorMessage("Error", "Select at least one subject");
+            return;
+        }
+
         for (String s : titles) {
             try {
                 sub.addChosenSub(this.subjects.findByYearAndName(this.year, s));
@@ -119,7 +124,7 @@ public class SubmissionFragmentPresenter {
 
         submissions.save(sub);
         view.showPassedMsg("Succesfully stored");
-
+        view.changeToHomeScreen();
     }
 
     public void setYears() {

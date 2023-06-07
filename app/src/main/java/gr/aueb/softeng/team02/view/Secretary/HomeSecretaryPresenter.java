@@ -1,10 +1,8 @@
 package gr.aueb.softeng.team02.view.Secretary;
 
-import android.util.Log;
-
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.view.AcademicYear.AcademicYearFragment;
-import gr.aueb.softeng.team02.view.OfferedSubject.OfferedSubjectFragment;
+import gr.aueb.softeng.team02.view.OfferedSubject.OfferedSubjectForm.OfferedSubjectFragment;
 import gr.aueb.softeng.team02.view.Subject.SubjectFragment;
 
 

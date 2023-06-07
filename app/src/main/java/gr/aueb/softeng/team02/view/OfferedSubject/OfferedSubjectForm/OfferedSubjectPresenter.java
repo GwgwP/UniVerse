@@ -1,6 +1,4 @@
-package gr.aueb.softeng.team02.view.OfferedSubject;
-
-import android.util.Log;
+package gr.aueb.softeng.team02.view.OfferedSubject.OfferedSubjectForm;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,7 +65,6 @@ public class OfferedSubjectPresenter {
 
         List<OfferedSubject> subjects = offeredSubjects.findAllSubjectsByYearAndBySemester(year, Integer.parseInt(semester));
 
-
         // TODO : delete the old elements
         for (OfferedSubject sub : subjects) {
             offeredSubjects.delete(sub);
@@ -75,5 +72,9 @@ public class OfferedSubjectPresenter {
         view.popNotification("Deletion completed");
         view.goToRegistration(year, semester);
 
+    }
+
+    public void changeLayout() {
+        view.changeToHomeScreen();
     }
 }

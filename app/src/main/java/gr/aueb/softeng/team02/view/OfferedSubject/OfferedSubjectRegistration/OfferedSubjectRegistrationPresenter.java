@@ -47,31 +47,39 @@ public class OfferedSubjectRegistrationPresenter {
         }
     }
 
-    public void moveSubject(boolean flag) {
-        if (flag) {
-            this.offeredSubjects.delete(this.selectedSubject);
-            view.setCheckBox(true);
-            try {
-                this.selectedSubject.setSemester(Integer.parseInt(semester));
+    public void moveSubject() {
+        this.offeredSubjects.delete(this.selectedSubject);
+        view.setCheckBox(true);
+        try {
+            this.selectedSubject.setSemester(Integer.parseInt(semester));
 
-                this.offeredSubjects.save(this.selectedSubject);
-                view.moveReminder("The subject" + "\'" + this.selectedSubject.getTitle() + "\'" + " has it's semester moved");
-            } catch (Exception e) {
-                System.err.println("Wrong semester");
-            }
-        } else {
-            view.moveReminder("No change");
-            view.setCheckBox(false);
+            this.offeredSubjects.save(this.selectedSubject);
+            view.moveReminder("The subject " + "\'" + this.selectedSubject.getTitle() + "\'" + " has it's semester moved");
+        } catch (Exception e) {
+            System.err.println("Wrong semester");
         }
+    }
+
+    public void remainSubject() {
+        view.moveReminder("No change");
+        view.setCheckBox(false);
     }
 
     public void register() {
         ArrayList<String> titles = view.submitClicked();
+
+        if (titles.size() == 0) {
+            view.errorBox("Error", "Select at least one subject");
+            return;
+        }
+
         for (String title : titles) {
             Subject subject = subjects.findSubject(title);
             AcademicYear year = years.find(this.year);
             offeredSubjects.save(new OfferedSubject(Integer.parseInt(semester), subject, year));
         }
+
         view.moveReminder("Your registration was a success !");
+        view.changeToHomeScreen();
     }
 }

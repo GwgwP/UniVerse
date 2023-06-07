@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02.view.OfferedSubject;
+package gr.aueb.softeng.team02.view.OfferedSubject.OfferedSubjectForm;
 
 import java.util.ArrayList;
 
@@ -14,4 +14,6 @@ public interface OfferedSubjectView {
     public void popNotification(String msg);
 
     public void goToRegistration(String year, String semester);
+
+    public void changeToHomeScreen();
 }

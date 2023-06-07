@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02.view.Progress;
+package gr.aueb.softeng.team02.view.Progress.ProgressForm;
 
 import java.util.ArrayList;
 import java.util.HashMap;

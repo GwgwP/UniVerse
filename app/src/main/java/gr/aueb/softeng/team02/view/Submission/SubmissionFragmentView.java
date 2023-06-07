@@ -21,6 +21,7 @@ public interface SubmissionFragmentView {
 
     public String getSelectedYear();
     public void createYearList(ArrayList<String> years);
-
     public void startSubmission();
+
+    public void changeToHomeScreen();
 }

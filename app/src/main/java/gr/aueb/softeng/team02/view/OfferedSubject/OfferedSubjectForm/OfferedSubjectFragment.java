@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02.view.OfferedSubject;
+package gr.aueb.softeng.team02.view.OfferedSubject.OfferedSubjectForm;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
@@ -7,15 +7,12 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.TableLayout;
 import android.widget.Toast;
 
 import java.util.ArrayList;
@@ -24,6 +21,7 @@ import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 import gr.aueb.softeng.team02.view.OfferedSubject.OfferedSubjectRegistration.OfferedSubjectRegistrationActivity;
+import gr.aueb.softeng.team02.view.Secretary.HomeSecretaryActivity;
 
 public class OfferedSubjectFragment extends Fragment implements OfferedSubjectView {
     Spinner spinnerYear;
@@ -88,6 +86,7 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
         builder.setTitle(title).setMessage(txt)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
+                        presenter.changeLayout();
                     }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
@@ -119,5 +118,10 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
     @Override
     public String getSemester() {
         return spinnerSemester.getSelectedItem().toString();
+    }
+
+    public void changeToHomeScreen() {
+        Intent intent = new Intent(getActivity(), HomeSecretaryActivity.class);
+        startActivity(intent);
     }
 }

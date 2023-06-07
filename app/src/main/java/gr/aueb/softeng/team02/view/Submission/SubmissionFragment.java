@@ -1,9 +1,12 @@
 package gr.aueb.softeng.team02.view.Submission;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -23,6 +26,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import gr.aueb.softeng.team02.R;
+import gr.aueb.softeng.team02.view.Student.HomeStudentActivity;
+import gr.aueb.softeng.team02.view.Student.StudentHome;
 
 public class SubmissionFragment extends Fragment implements SubmissionFragmentView {
     private ArrayList<String> yearList;
@@ -193,4 +198,9 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
                 .setPositiveButton(R.string.ok, null).create().show();
     }
 
+    @Override
+    public void changeToHomeScreen() {
+        Intent intent = new Intent(getActivity(), HomeStudentActivity.class);
+        startActivity(intent);
+    }
 }
