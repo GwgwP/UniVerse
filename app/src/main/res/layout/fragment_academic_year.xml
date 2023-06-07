@@ -40,6 +40,11 @@
                 android:padding="8dp"
                 android:prompt="@string/arrayYear"
                 android:spinnerMode="dialog" />
+            <Button
+                android:id="@+id/add_year_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Add Year" />
 
             <TextView
                 android:paddingTop="30dp"
