@@ -1,9 +1,9 @@
 package gr.aueb.softeng.team02.view.Subject.SubjectAdd;
 
-import static androidx.core.content.ContentProviderCompat.requireContext;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -25,13 +25,13 @@ public class SubjectForm extends Activity implements SubjectFormView{
     private EditText title;
     private EditText ects;
     private EditText prof;
-    private EditText id;
+
     private EditText desc;
     private Button send;
 
     private ImageView xTitle;
     private ImageView xProf;
-    private ImageView xId;
+
     private ImageView xEcts;
     private ImageView xDesc;
 
@@ -52,14 +52,13 @@ public class SubjectForm extends Activity implements SubjectFormView{
         title=(EditText) findViewById(R.id.subjectTitle);
         ects=(EditText) findViewById(R.id.subjectEcts);
         prof=(EditText) findViewById(R.id.subjectpProfessor);
-        id=(EditText) findViewById(R.id.subjectId);
         desc= (EditText) findViewById(R.id.subjectDesc);
         send= (Button) findViewById(R.id.saveSubjectBut);
         init = new MemoryInitializer();
 
         xTitle = (ImageView) findViewById(R.id.exTitle);
         xProf = (ImageView) findViewById(R.id.exProf);
-        xId = (ImageView) findViewById(R.id.exId);
+
         xEcts = (ImageView) findViewById(R.id.exEcts);
         xDesc = (ImageView) findViewById(R.id.exDesc);
 
@@ -77,7 +76,6 @@ public class SubjectForm extends Activity implements SubjectFormView{
         super.onStart();
         xTitle.setVisibility(View.GONE);
         xProf.setVisibility(View.GONE);
-        xId.setVisibility(View.GONE);
         xEcts.setVisibility(View.GONE);
         xDesc.setVisibility(View.GONE);
 
@@ -102,16 +100,14 @@ public class SubjectForm extends Activity implements SubjectFormView{
     public String getEcts(){
         return ects.getText().toString().trim();
     }
-    public String getId(){
-        return id.getText().toString().trim();
-    }
+
     public String getDesc(){
         return desc.getText().toString().trim();
     }
 
     public void setexTitle(){ xTitle.setVisibility(View.VISIBLE);}
     public void setexProf(){ xProf.setVisibility(View.VISIBLE);}
-    public void setexId(){ xId.setVisibility(View.VISIBLE);}
+
     public void setexEcts(){ xEcts.setVisibility(View.VISIBLE);}
     public void setexDesc(){ xDesc.setVisibility(View.VISIBLE);}
 
@@ -127,9 +123,7 @@ public class SubjectForm extends Activity implements SubjectFormView{
     public void invEcts(){
         xEcts.setVisibility(View.GONE);
     }
-    public void invId(){
-        xId.setVisibility(View.GONE);
-    }
+
 
     public void printEr1(){
         Toast.makeText(getApplicationContext(),"Please write all the subject's attributes ",Toast.LENGTH_SHORT).show();
@@ -163,6 +157,10 @@ public class SubjectForm extends Activity implements SubjectFormView{
     public void getBack(){
         Intent intent = new Intent(SubjectForm.this , HomeSecretaryActivity.class);
         startActivity(intent);
+    }
+
+    public void invalidInput(){
+        Toast.makeText(getApplicationContext(),"Inavlid input in the ects box .Please write only numbers",Toast.LENGTH_SHORT).show();
     }
 
 

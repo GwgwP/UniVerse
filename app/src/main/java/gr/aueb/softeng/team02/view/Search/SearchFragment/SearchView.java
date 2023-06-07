@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02.view.Search;
+package gr.aueb.softeng.team02.view.Search.SearchFragment;
 
 import android.widget.TextView;
 

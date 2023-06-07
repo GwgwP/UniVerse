@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02.view.Subject;
+package gr.aueb.softeng.team02.view.Subject.SubjectFragment;
 
 import java.util.List;
 

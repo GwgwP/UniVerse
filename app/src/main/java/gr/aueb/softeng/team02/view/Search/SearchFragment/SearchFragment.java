@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02.view.Search;
+package gr.aueb.softeng.team02.view.Search.SearchFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -24,7 +24,7 @@ import gr.aueb.softeng.team02.model.OfferedSubject;
 import gr.aueb.softeng.team02.view.Search.Information.InformationSubject;
 
 
-public class SearchFragment extends Fragment implements SearchView{
+public class SearchFragment extends Fragment implements SearchView {
     private Initializer init;
     private LinearLayout subjectContainer;
     private View myView;

@@ -1,5 +1,6 @@
 package gr.aueb.softeng.team02.view.Subject.SubjectAdd;
 
+import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
@@ -25,20 +26,29 @@ public class SubjectFormPresenter {
 
         String title = view.getSubTitle();
         if(allWritten()) { // we first check if all the attributes are written
-            if (this.sub.exists(title)) { // second we check if we have another Subject with the same name
-                errorExist();
+            if ((isNumber(view.getEcts()))) { // IF THE USER DID WROTE NUMBERS
+                if (this.sub.exists(title)) { // second we check if we have another Subject with the same name
+                    errorExist();
 
-            } else {
-                int id = Integer.parseInt(view.getId());
-                int ects = Integer.parseInt(view.getEcts());
-                Subject a = new Subject(id, view.getProf(), ects, view.getDesc(), title);
-                this.sub.save(a);
-                view.messageSave();
-                goBack();
+                } else {
+                    int ects = Integer.parseInt(view.getEcts());
+                    Subject a = new Subject(view.getProf(), ects, view.getDesc(), title);
+                    this.sub.save(a);
+                    view.messageSave();
+                    goBack();
+                }
+            } else { // if the ects box was written with letters;
+                view.invEcts();
+                view.invTitle();
+                view.invDesc();
+                view.invProf();
+
+                view.setexEcts();
+                view.invalidInput();
+
             }
-
         }
-        else{
+        else {
             errorNotWritten();
         }
 
@@ -51,13 +61,13 @@ public class SubjectFormPresenter {
         view.invDesc();
         view.invProf();
         view.invEcts();
-        view.invEcts();
+
 
         String title = view.getSubTitle();
         String prof = view.getProf();
         String desc = view.getDesc();
         String ects = view.getEcts();
-        String id = view.getId();
+
 
         if(title.equals("")){
             view.setexTitle();
@@ -71,10 +81,6 @@ public class SubjectFormPresenter {
         if(ects.equals("")){
             view.setexEcts();
         }
-        if(id.equals("")){
-            view.setexId();
-        }
-
         view.printEr1();
 
     }
@@ -89,9 +95,9 @@ public class SubjectFormPresenter {
         String prof = view.getProf();
         String desc = view.getDesc();
         String ects = view.getEcts();
-        String id = view.getId();
 
-        if( title.equals("") || prof.equals("")|| desc.equals("")|| ects.equals("")|| id.equals("")){
+
+        if( title.equals("") || prof.equals("")|| desc.equals("")|| ects.equals("")){
             return false;
         }
         return true;
@@ -100,14 +106,11 @@ public class SubjectFormPresenter {
     public void createSubject(){
         String title = view.getSubTitle();
         Subject k = this.sub.findSubject(title);
-        this.sub.delete(k);
 
-        String prof = view.getProf();
-        String desc = view.getDesc();
-        int id = Integer.parseInt(view.getId());
-        int ects = Integer.parseInt(view.getEcts());
-        Subject a = new Subject(id, view.getProf(), ects, view.getDesc(), title);
-        this.sub.save(a);
+        k.setProfessor(view.getProf());
+        k.setDesc( view.getDesc());
+
+        k.setECTS( Integer.parseInt(view.getEcts()));
         view.messageSave();
 
     }
@@ -116,4 +119,12 @@ public class SubjectFormPresenter {
         view.getBack();
     }
 
+    public boolean isNumber(String k){
+        return k.matches("\\d+");
+
+    }
+
+    public void letterEcts(){
+
+    }
 }

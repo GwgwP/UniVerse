@@ -3,7 +3,7 @@ package gr.aueb.softeng.team02.view.Secretary;
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.view.AcademicYear.AcademicYearFragment;
 import gr.aueb.softeng.team02.view.OfferedSubject.OfferedSubjectForm.OfferedSubjectFragment;
-import gr.aueb.softeng.team02.view.Subject.SubjectFragment;
+import gr.aueb.softeng.team02.view.Subject.SubjectFragment.SubjectFragment;
 
 
 public class HomeSecretaryPresenter {
