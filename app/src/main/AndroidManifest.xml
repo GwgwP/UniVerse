@@ -12,7 +12,10 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".view.Subject.SubjectAdd.SubjectForm"
+            android:name=".view.OfferedSubject.OfferedSubjectRegistration.OfferedSubjectRegistrationActivity"
+            android:exported="false" />
+        <activity
+        android:name=".view.Subject.SubjectAdd.SubjectForm"
             android:exported="false" />
         <activity
             android:name=".view.Secretary.HomeSecretaryActivity"
@@ -30,7 +33,7 @@
             android:name=".view.Student.HomeStudentActivity"
             android:exported="false" />
         <activity
-            android:name=".view.Logo"
+            android:name=".view.Logo.LogoActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

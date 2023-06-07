@@ -32,12 +32,11 @@ public class SubjectFragment extends Fragment implements SubjectView {
     private SubjectPresenter presenter;
 
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        super.onCreateView(inflater,container,savedInstanceState);
-        myView= inflater.inflate(R.layout.fragment_subject, container, false);
+        super.onCreateView(inflater, container, savedInstanceState);
+        myView = inflater.inflate(R.layout.fragment_subject, container, false);
 
         subjectList = myView.findViewById(R.id.subjectContainerSec);
 
@@ -73,11 +72,11 @@ public class SubjectFragment extends Fragment implements SubjectView {
                 String title = k.getTitle();
                 TextView subjectTextView = createSubjectTextView(title); // we make a new TextView that has the subject title
                 subjectList.addView(subjectTextView);
-
             }
         }
     }
-    public TextView createSubjectTextView(String title){
+
+    public TextView createSubjectTextView(String title) {
 
         TextView textView = new TextView(requireContext());
         textView.setText(title);
@@ -90,10 +89,7 @@ public class SubjectFragment extends Fragment implements SubjectView {
         lineView.setLayoutParams(lineLayoutParams);
         lineView.setBackgroundColor(ContextCompat.getColor(requireContext(), R.color.black));
 
-
         //subjectList.addView(lineView);
-
-
         return textView;
     }
 

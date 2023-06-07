@@ -42,4 +42,14 @@
         android:prompt="@string/arraySemester"
         android:padding="8dp" />
 
+    <Button
+        android:id="@+id/button_check"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/CheckButton"
+        android:layout_marginTop="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginEnd="8dp"
+        android:padding="8dp"/>
+
 </LinearLayout>

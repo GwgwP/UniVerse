@@ -15,11 +15,11 @@ public interface SubmissionFragmentView {
      */
     public void showErrorMessage(String title, String message);
 
-    public void submit();
+    public ArrayList<String> submit();
 
     public void showPassedMsg(String txt);
 
-    public String getSelectedYear(ArrayList<String> years);
+    public String getSelectedYear();
     public void createYearList(ArrayList<String> years);
 
     public void startSubmission();

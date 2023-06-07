@@ -92,7 +92,7 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
         spinner.setAdapter(adapter);
     }
 
-    public void submit() {
+    public ArrayList<String> submit() {
         ArrayList<String> subjects = new ArrayList<>();
         int rowCount = tableLayout.getChildCount();
 
@@ -113,7 +113,7 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
                 }
             }
         }
-        model.getPresenter().checkValidity(subjects);
+        return subjects;
     }
 
     @Override
@@ -181,8 +181,8 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
     }
 
     @Override
-    public String getSelectedYear(ArrayList<String> years) {
-        return years.get(((Spinner) myView.findViewById(R.id.spinner)).getSelectedItemPosition());
+    public String getSelectedYear() {
+        return spinner.getSelectedItem().toString();
     }
 
     public void showErrorMessage(String title, String message) {

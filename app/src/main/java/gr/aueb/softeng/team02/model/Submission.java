@@ -30,6 +30,7 @@ public class Submission {
     public int getStudentId() {
         return this.student.getId();
     }
+    public Student getStudent(){return this.student;}
 
     public void setStudent(Student student) {
         this.student = student;

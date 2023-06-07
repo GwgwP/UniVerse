@@ -1,14 +1,15 @@
 package gr.aueb.softeng.team02.model;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 public class Circumscription {
     private int ects;
     private int semester;
-    private Date start;
-    private Date end;
+    private LocalDate start;
+    private LocalDate end;
 
-    public Circumscription(int semester, int ects, Date start, Date end) {
+    public Circumscription(int semester, int ects, LocalDate start, LocalDate end) {
         this.ects = ects;
         this.semester = semester;
         this.start = start;
@@ -31,19 +32,19 @@ public class Circumscription {
         return this.semester;
     }
 
-    public Date getStart() {
+    public LocalDate getStart() {
         return start;
     }
 
-    public void setStart(Date start) {
+    public void setStart(LocalDate start) {
         this.start = start;
     }
 
-    public Date getEnd() {
+    public LocalDate getEnd() {
         return end;
     }
 
-    public void setEnd(Date end) {
+    public void setEnd(LocalDate end) {
         this.end = end;
     }
 

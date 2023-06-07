@@ -3,6 +3,7 @@ package gr.aueb.softeng.team02.view.Submission;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -19,6 +20,8 @@ import gr.aueb.softeng.team02.model.Circumscription;
 import gr.aueb.softeng.team02.model.Grade;
 import gr.aueb.softeng.team02.model.OfferedSubject;
 import gr.aueb.softeng.team02.model.Submission;
+import gr.aueb.softeng.team02.util.SimpleCalendar;
+import gr.aueb.softeng.team02.util.SystemDate;
 
 public class SubmissionFragmentPresenter {
     private SubmissionFragmentView view;
@@ -80,15 +83,12 @@ public class SubmissionFragmentPresenter {
 
     //show the offered students based on the selected year .
     public void makeForm() {
-        this.year = view.getSelectedYear(getAcademicYears());
+        this.year = view.getSelectedYear();
         view.setForm(getOfferedSubjects(this.studentId, year));
     }
 
     public void submitClicked() {
-        view.submit();
-    }
-
-    public void checkValidity(ArrayList<String> subjects) {
+        ArrayList<String> titles = view.submit();
         AcademicYear academicYear = years.find(year);
         int semester = students.findSemesterOfStudent(this.studentId);
 
@@ -99,22 +99,29 @@ public class SubmissionFragmentPresenter {
         sub.setAcademicYear(years.find(this.year));
         sub.setStudent(students.findStudentById(this.studentId));
 
-        boolean flag = false;
-        for (String s : subjects) {
+        for (String s : titles) {
             try {
                 sub.addChosenSub(this.subjects.findByYearAndName(this.year, s));
             } catch (Exception e) {
-                flag = true;
+                view.showErrorMessage("Error", "Surpassed the limit of ECTS for this semester");
+                return;
             }
         }
 
-        if (!flag) {
-            submissions.save(sub);
-            view.showPassedMsg("Succesfully stored");
+        if (c.getStart().isAfter(SystemDate.now())) {
+            view.showErrorMessage("Error", "The process of submission registration has not started yet !");
+            return;
         }
-        else
-            view.showErrorMessage("Error", "Surpassed the limit of ECTS for this semester");
+        if (c.getEnd().isBefore(SystemDate.now())) {
+            view.showErrorMessage("Error", "The process of submission registration has already come to an end !");
+            return;
+        }
+
+        submissions.save(sub);
+        view.showPassedMsg("Succesfully stored");
+
     }
+
     public void setYears() {
         view.createYearList(getAcademicYears());
     }

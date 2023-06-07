@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02.modelTest;
+package gr.aueb.softeng.team02.model.model;
 
 import org.junit.Assert;
 import org.junit.Before;

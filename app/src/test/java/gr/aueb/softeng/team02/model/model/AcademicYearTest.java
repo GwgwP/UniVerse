@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02.modelTest;
+package gr.aueb.softeng.team02.model.model;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Assertions;
 
 import static org.junit.Assert.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 import gr.aueb.softeng.team02.model.AcademicYear;
@@ -14,14 +15,14 @@ import gr.aueb.softeng.team02.model.Circumscription;
 
 public class AcademicYearTest {
     private AcademicYear year;
-    Date start;
-    Date end;
+    LocalDate start;
+    LocalDate end;
 
     @Before
     public void setUp() {
         this.year = new AcademicYear("2022-2023");
-        this.start = new Date(2023, 2, 16);
-        this.end = new Date(2023, 3, 25);
+        this.start = LocalDate.of(2023, 2, 16);
+        this.end = LocalDate.of(2023, 3, 25);
     }
 
     @Test
