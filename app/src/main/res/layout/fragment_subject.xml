@@ -36,17 +36,17 @@
     android:layout_height="16dp" />
 
     <ScrollView
-    android:id="@+id/scrollSubject"
-    android:layout_width="match_parent"
-    android:layout_height="646dp">
-    <!-- A space to show the Subjects Titles -->
-    <LinearLayout
-    android:id="@+id/subjectContainerSec"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:orientation="vertical">
+        android:id="@+id/scrollSubject"
+        android:layout_width="match_parent"
+        android:layout_height="604dp">
+        <!-- A space to show the Subjects Titles -->
+        <LinearLayout
+            android:id="@+id/subjectContainerSec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    </LinearLayout>
+        </LinearLayout>
 
-</ScrollView>
+    </ScrollView>
 </LinearLayout>

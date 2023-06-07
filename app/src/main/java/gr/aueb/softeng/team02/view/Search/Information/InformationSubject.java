@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import gr.aueb.softeng.team02.R;
@@ -17,7 +18,7 @@ public class InformationSubject extends AppCompatActivity implements Information
     TextView titleT;
     TextView id;
     TextView ects;
-    TextView desc;
+    private LinearLayout desc;
     TextView prof;
 
     @Override
@@ -37,7 +38,7 @@ public class InformationSubject extends AppCompatActivity implements Information
         titleT = (TextView) findViewById(R.id.subjectTitleTextView);
         id = (TextView) findViewById(R.id.idTxt);
         ects = (TextView) findViewById(R.id.ectsTxt);
-        desc = (TextView) findViewById(R.id.descTxt);
+        desc = (LinearLayout) findViewById(R.id.descCon);
         prof = (TextView) findViewById(R.id.profNameTxt);
 
 
@@ -51,7 +52,10 @@ public void showInfo(OfferedSubject sub){
     titleT.setText(sub.getTitle());
    id.setText(String.valueOf(sub.getSubject().getId()));
    ects.setText(String.valueOf(sub.getEcts()));
-   desc.setText(sub.getDesc());
+   TextView d = new TextView(this);
+   d.setText(sub.getDesc());
+   d.setTextSize(20);
+   desc.addView(d);
    prof.setText(sub.getProf());
 
 

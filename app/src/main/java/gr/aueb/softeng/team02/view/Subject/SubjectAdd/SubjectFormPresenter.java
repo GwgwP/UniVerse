@@ -1,5 +1,6 @@
 package gr.aueb.softeng.team02.view.Subject.SubjectAdd;
 
+import android.content.Intent;
 import android.widget.Toast;
 
 import java.util.List;
@@ -24,14 +25,16 @@ public class SubjectFormPresenter {
 
         String title = view.getSubTitle();
         if(allWritten()) { // we first check if all the attributes are written
-            if (sub.exists(title)) { // second we check if we have another Subject with the same name
+            if (this.sub.exists(title)) { // second we check if we have another Subject with the same name
                 errorExist();
 
             } else {
                 int id = Integer.parseInt(view.getId());
                 int ects = Integer.parseInt(view.getEcts());
                 Subject a = new Subject(id, view.getProf(), ects, view.getDesc(), title);
-                sub.save(a);
+                this.sub.save(a);
+                view.messageSave();
+                goBack();
             }
 
         }
@@ -95,21 +98,22 @@ public class SubjectFormPresenter {
     }
 
     public void createSubject(){
-        //Delete previous one
-
         String title = view.getSubTitle();
+        Subject k = this.sub.findSubject(title);
+        this.sub.delete(k);
+
         String prof = view.getProf();
         String desc = view.getDesc();
         int id = Integer.parseInt(view.getId());
         int ects = Integer.parseInt(view.getEcts());
         Subject a = new Subject(id, view.getProf(), ects, view.getDesc(), title);
-        sub.save(a);
-
+        this.sub.save(a);
+        view.messageSave();
 
     }
 
     public void goBack(){
-
-
+        view.getBack();
     }
+
 }

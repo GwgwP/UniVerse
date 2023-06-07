@@ -29,7 +29,6 @@ public class SearchFragment extends Fragment implements SearchView{
     private LinearLayout subjectContainer;
     private View myView;
 
-    private int student_id;
 
     private SearchPresenter presenter;
 
@@ -73,6 +72,7 @@ public class SearchFragment extends Fragment implements SearchView{
         for( OfferedSubject k : sub){
             String title = k.getTitle();
             TextView subjectTextView = createSubjectTextView(title); // we make a new TextView that has the subject title
+            subjectTextView.setTextSize(20);
             subjectContainer.addView(subjectTextView);
 
         }

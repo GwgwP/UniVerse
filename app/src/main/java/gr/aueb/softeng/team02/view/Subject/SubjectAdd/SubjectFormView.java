@@ -19,4 +19,7 @@ public interface SubjectFormView {
     public void invId();
     public void sameSubject();
 
+    public void messageSave();
+    public void getBack();
+
 }

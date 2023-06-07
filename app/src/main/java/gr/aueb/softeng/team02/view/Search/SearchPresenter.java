@@ -27,7 +27,8 @@ public class SearchPresenter {
     }
 
     public void decide(String title){
-       if(subjects.findByTitle(title)!=null){
+
+        if(subjects.findByTitle(title)!=null){
            view.showInfo(title);
        }
        else{

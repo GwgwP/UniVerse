@@ -75,7 +75,7 @@ public class OfferedSubjectDAOMemory implements OfferedSubjectDAO {
     @Override
     public OfferedSubject findByTitle(String title) {
         for (OfferedSubject sub : list) {
-            if (sub.getTitle().equals(title)){
+            if (sub.getTitle().equalsIgnoreCase(title)){
                 return sub;
             }
         }

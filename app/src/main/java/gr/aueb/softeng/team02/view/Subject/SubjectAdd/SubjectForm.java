@@ -5,6 +5,7 @@ import static androidx.core.content.ContentProviderCompat.requireContext;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -14,7 +15,10 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import gr.aueb.softeng.team02.R;
+import gr.aueb.softeng.team02.dao.Initializer;
+import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 import gr.aueb.softeng.team02.memorydao.SubjectDAOMemory;
+import gr.aueb.softeng.team02.view.Secretary.HomeSecretaryActivity;
 
 public class SubjectForm extends Activity implements SubjectFormView{
 
@@ -33,7 +37,7 @@ public class SubjectForm extends Activity implements SubjectFormView{
 
     AlertDialog.Builder builder;
 
-
+    Initializer init;
 
 
     private SubjectFormPresenter presenter;
@@ -51,6 +55,7 @@ public class SubjectForm extends Activity implements SubjectFormView{
         id=(EditText) findViewById(R.id.subjectId);
         desc= (EditText) findViewById(R.id.subjectDesc);
         send= (Button) findViewById(R.id.saveSubjectBut);
+        init = new MemoryInitializer();
 
         xTitle = (ImageView) findViewById(R.id.exTitle);
         xProf = (ImageView) findViewById(R.id.exProf);
@@ -59,7 +64,7 @@ public class SubjectForm extends Activity implements SubjectFormView{
         xDesc = (ImageView) findViewById(R.id.exDesc);
 
         builder = new AlertDialog.Builder(this);
-        presenter = new SubjectFormPresenter(new SubjectDAOMemory());
+        presenter = new SubjectFormPresenter(init.getSubjectDAO());
 
         presenter.setView(this);
 
@@ -135,18 +140,32 @@ public class SubjectForm extends Activity implements SubjectFormView{
                 "You want to keep the previous version? ")
                  .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                  public void onClick(DialogInterface dialog, int which) {
-                        presenter.goBack();
+                     Toast.makeText(getApplicationContext(),"The previous version was saved ",Toast.LENGTH_SHORT).show();
+                     presenter.goBack();
+
                 }
         })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                       presenter.createSubject();
+                        presenter.goBack();
                     }
                 })
                 .show();
 
 
     }
+
+    public void messageSave(){
+        Toast.makeText(getApplicationContext(),"The subject was saved successfully",Toast.LENGTH_SHORT).show();
+    }
+
+    public void getBack(){
+        Intent intent = new Intent(SubjectForm.this , HomeSecretaryActivity.class);
+        startActivity(intent);
+    }
+
+
 
 
 }
