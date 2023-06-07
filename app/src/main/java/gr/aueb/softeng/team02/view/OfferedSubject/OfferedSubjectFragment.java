@@ -66,6 +66,7 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
         spinnerYear.setAdapter(adapter);
     }
 
+    @Override
     public void createSemesterList(ArrayList<String> semesters) {
         // Create an ArrayAdapter using the choices ArrayList
         ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_dropdown_item, semesters);
@@ -77,18 +78,25 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
         spinnerSemester.setAdapter(adapter);
     }
 
+    /**
+     *
+     * @param title
+     * @param txt
+     */
     @Override
     public void confirmBox(String title, String txt) {
         builder.setTitle(title).setMessage(txt)
                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {presenter.onRegistration(true);}
+                    public void onClick(DialogInterface dialog, int which) {
+                    }
                 })
                 .setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog, int which) {presenter.onRegistration(false);}
+                    public void onClick(DialogInterface dialog, int which) {
+                        presenter.onRegistration();
+                    }
                 })
                 .show();
     }
-
 
     @Override
     public void popNotification(String msg) {

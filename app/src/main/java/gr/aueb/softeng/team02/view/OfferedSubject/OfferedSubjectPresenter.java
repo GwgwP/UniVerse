@@ -61,19 +61,19 @@ public class OfferedSubjectPresenter {
 
     }
 
-    public void onRegistration(boolean answer) {
+    public void onRegistration() {
         String year = view.getYear();
         String semester = view.getSemester();
 
         List<OfferedSubject> subjects = offeredSubjects.findAllSubjectsByYearAndBySemester(year, Integer.parseInt(semester));
 
-        if (!answer) {
-            // TODO : delete the old elements
-            for (OfferedSubject sub : subjects) {
-                offeredSubjects.delete(sub);
-            }
-            view.popNotification("Deletion completed");
-            view.goToRegistration(year, semester);
+
+        // TODO : delete the old elements
+        for (OfferedSubject sub : subjects) {
+            offeredSubjects.delete(sub);
         }
+        view.popNotification("Deletion completed");
+        view.goToRegistration(year, semester);
+
     }
 }

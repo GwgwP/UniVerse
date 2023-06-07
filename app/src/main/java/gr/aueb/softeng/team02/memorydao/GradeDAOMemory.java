@@ -54,7 +54,7 @@ public class GradeDAOMemory implements GradeDAO {
     public Set<Grade> findPassedSubjectsByStudent(int studentId) {
         HashSet<Grade> gradings = new HashSet<>();
         for (Grade g : entities) {
-            if (g.getGrade() >= 5) {
+            if (g.getGrade() >= 5 && g.getStudentId() == studentId) {
                 gradings.add(g);
             }
         }

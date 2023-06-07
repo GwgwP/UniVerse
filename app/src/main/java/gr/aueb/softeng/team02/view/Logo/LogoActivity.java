@@ -33,7 +33,6 @@ public class LogoActivity extends Activity implements LogoActivityView {
         });
     }
 
-
     @Override
     public void gotToHomeScreen() {
         Intent myIntent = new Intent(LogoActivity.this, UserLoginActivity.class);
