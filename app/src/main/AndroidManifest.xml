@@ -30,7 +30,7 @@
             android:name=".view.Student.HomeStudentActivity"
             android:exported="false" />
         <activity
-            android:name=".view.Logo.Logo"
+            android:name=".view.Logo.LogoActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

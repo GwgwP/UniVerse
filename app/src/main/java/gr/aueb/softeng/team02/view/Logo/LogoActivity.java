@@ -10,14 +10,16 @@ import android.widget.ImageView;
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.view.Authentication.UserLoginActivity;
 
-public class Logo extends Activity {
+public class LogoActivity extends Activity implements LogoActivityView {
     ImageView pic;
+    LogoActivityPresenter presenter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_logo);
         pic = (ImageView) findViewById(R.id.imageLogo);
+        presenter = new LogoActivityPresenter(this);
     }
 
     @Override
@@ -26,13 +28,15 @@ public class Logo extends Activity {
 
         pic.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                Log.e("DEBUGGPXAPP","before clicking");
-                Intent myIntent = new Intent(Logo.this, UserLoginActivity.class);
-                startActivityForResult(myIntent, 0);
+                presenter.moveScreen();
             }
         });
-
     }
 
 
+    @Override
+    public void gotToHomeScreen() {
+        Intent myIntent = new Intent(LogoActivity.this, UserLoginActivity.class);
+        startActivityForResult(myIntent, 0);
+    }
 }
