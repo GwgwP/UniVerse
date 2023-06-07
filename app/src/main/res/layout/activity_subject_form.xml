@@ -79,49 +79,7 @@
                 />
 
         </LinearLayout>
-        <!--SUBJECTS ID -->
-        <LinearLayout
-            android:id="@+id/linearLayoutId"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="19dp"
 
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.353"
-            tools:layout_editor_absoluteX="0dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="@string/subject_s_id"
-                android:textSize="17sp">
-
-            </TextView>
-
-            <EditText
-                android:id="@+id/subjectId"
-                android:layout_width="wrap_content"
-                android:layout_height="50dp"
-                android:layout_marginStart="50dp"
-                android:hint="Subject's Id "
-                android:padding="10dp"
-                tools:layout_editor_absoluteX="73dp"
-                tools:layout_editor_absoluteY="394dp">
-
-            </EditText>
-
-            <ImageView
-                android:id="@+id/exId"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_delete"
-                android:layout_marginStart="85dp"
-                />
-
-        </LinearLayout>
         <!--SUBJECTS ECTS-->
         <LinearLayout
             android:id="@+id/linearLayoutEcts"
@@ -262,7 +220,7 @@
         android:text="@string/save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.885"
+        app:layout_constraintVertical_bias="0.909"
         tools:layout_editor_absoluteX="0dp" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

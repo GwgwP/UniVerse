@@ -1,6 +1,5 @@
-package gr.aueb.softeng.team02.view.Subject;
+package gr.aueb.softeng.team02.view.Subject.SubjectFragment;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 

@@ -5,6 +5,8 @@ import gr.aueb.softeng.team02.model.Subject;
 import java.util.*;
 
 public class SubjectDAOMemory implements SubjectDAO {
+
+    static int id =0;
     private static List<Subject> entities = new ArrayList<>();
     @Override
     public List<Subject> findAll() { return new ArrayList<>(entities);}
@@ -21,6 +23,7 @@ public class SubjectDAOMemory implements SubjectDAO {
     @Override
     public void save(Subject subject) {
         if (!this.entities.contains(subject))
+            subject.setId(getNewId());
             this.entities.add(subject);
     }
 
@@ -42,5 +45,10 @@ public class SubjectDAOMemory implements SubjectDAO {
             }
         }
         return false;
+    }
+
+    @Override
+    public int getNewId() {
+        return id++;
     }
 }

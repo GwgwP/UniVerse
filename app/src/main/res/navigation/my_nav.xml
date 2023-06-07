@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_home_student" />
     <fragment
         android:id="@+id/searchFragment"
-        android:name="gr.aueb.softeng.team02.view.Search.SearchFragment"
+        android:name="gr.aueb.softeng.team02.view.Search.SearchFragment.SearchFragment"
         android:label="fragment_search"
         tools:layout="@layout/fragment_search" />
     <fragment
