@@ -1,5 +1,6 @@
 package gr.aueb.softeng.team02.view.Subject;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -30,6 +31,7 @@ public class SubjectFragment extends Fragment implements SubjectView {
 
     private Button addButton;
     private SubjectPresenter presenter;
+
 
 
     @Override

@@ -17,5 +17,6 @@ public interface SubjectFormView {
     public void invProf();
     public void invEcts();
     public void invId();
+    public void sameSubject();
 
 }

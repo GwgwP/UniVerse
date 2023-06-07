@@ -1,6 +1,10 @@
 package gr.aueb.softeng.team02.view.Subject.SubjectAdd;
 
+import static androidx.core.content.ContentProviderCompat.requireContext;
+
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -27,6 +31,8 @@ public class SubjectForm extends Activity implements SubjectFormView{
     private ImageView xEcts;
     private ImageView xDesc;
 
+    AlertDialog.Builder builder;
+
 
 
 
@@ -52,7 +58,7 @@ public class SubjectForm extends Activity implements SubjectFormView{
         xEcts = (ImageView) findViewById(R.id.exEcts);
         xDesc = (ImageView) findViewById(R.id.exDesc);
 
-
+        builder = new AlertDialog.Builder(this);
         presenter = new SubjectFormPresenter(new SubjectDAOMemory());
 
         presenter.setView(this);
@@ -122,6 +128,24 @@ public class SubjectForm extends Activity implements SubjectFormView{
 
     public void printEr1(){
         Toast.makeText(getApplicationContext(),"Please write all the subject's attributes ",Toast.LENGTH_SHORT).show();
+    }
+
+    public void sameSubject(){
+        builder.setTitle("Conflict").setMessage("The Subject you want to create already exists. " +
+                "You want to keep the previous version? ")
+                 .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                 public void onClick(DialogInterface dialog, int which) {
+                        presenter.goBack();
+                }
+        })
+                .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                      presenter.createSubject();
+                    }
+                })
+                .show();
+
+
     }
 
 

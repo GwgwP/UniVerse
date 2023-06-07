@@ -23,8 +23,8 @@ public class SubjectFormPresenter {
     public void valid(){
 
         String title = view.getSubTitle();
-        if(allWritten()) {
-            if (sub.exists(title)) {
+        if(allWritten()) { // we first check if all the attributes are written
+            if (sub.exists(title)) { // second we check if we have another Subject with the same name
                 errorExist();
 
             } else {
@@ -77,8 +77,8 @@ public class SubjectFormPresenter {
     }
 
     public void errorExist(){
+        view.sameSubject();
 
-//TODO;
     }
 
     public boolean allWritten(){
@@ -92,5 +92,24 @@ public class SubjectFormPresenter {
             return false;
         }
         return true;
+    }
+
+    public void createSubject(){
+        //Delete previous one
+
+        String title = view.getSubTitle();
+        String prof = view.getProf();
+        String desc = view.getDesc();
+        int id = Integer.parseInt(view.getId());
+        int ects = Integer.parseInt(view.getEcts());
+        Subject a = new Subject(id, view.getProf(), ects, view.getDesc(), title);
+        sub.save(a);
+
+
+    }
+
+    public void goBack(){
+
+
     }
 }
