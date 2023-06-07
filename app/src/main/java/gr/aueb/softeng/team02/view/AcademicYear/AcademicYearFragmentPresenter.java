@@ -1,5 +1,6 @@
 package gr.aueb.softeng.team02.view.AcademicYear;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 import gr.aueb.softeng.team02.dao.AcademicYearDAO;
@@ -8,6 +9,7 @@ import gr.aueb.softeng.team02.dao.OfferedSubjectDAO;
 import gr.aueb.softeng.team02.dao.StudentDAO;
 import gr.aueb.softeng.team02.dao.SubmissionDAO;
 import gr.aueb.softeng.team02.model.AcademicYear;
+import gr.aueb.softeng.team02.model.Circumscription;
 import gr.aueb.softeng.team02.view.Submission.SubmissionFragmentView;
 
 public class AcademicYearFragmentPresenter {
@@ -31,6 +33,12 @@ public class AcademicYearFragmentPresenter {
         }
         return ac_years;
     }
+    public void addAcademicYear(String newYear){
+        AcademicYear year = new AcademicYear(newYear);
+        years.save(year);
+
+    }
+
 
     public ArrayList<String> get_semesters() {
         ArrayList<String> semesters = new ArrayList<>();
@@ -46,13 +54,32 @@ public class AcademicYearFragmentPresenter {
 
 
         view.startSubmission();
-        String ects = view.getECTS();
-        if (ects.equals(""))
-        {
-            view.initECTSX("Please enter ects number");
-        }
+//        String ects = view.getECTS();
+//        if (ects.equals(""))
+//        {
+//            view.initECTSX("Please enter ects number");
+//        }
 
         //TODO view.showAlertMessage()
+    }
+    public int submitNewAcademicYear(String year, int sem, int ects)
+    {
+        //TODO INPUT FROM USER
+        LocalDate date1 = null;
+        LocalDate date2 = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+             date1 = LocalDate.of(2023, 4, 3);
+        }
+
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            date2 = LocalDate.of(2023, 5, 3);
+        }
+
+        Circumscription circumscription = new Circumscription(sem, ects,date1, date2);
+
+
+
+        return 0;
     }
 
 

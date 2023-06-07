@@ -10,14 +10,15 @@ public interface AcademicYearFragmentView {
 
     public void submit();
 
-    public void showPassedMsg(String txt);
+    //public void showPassedMsg(String txt);
 
-    public String getSelectedYear(ArrayList<String> years);
+    //public String getSelectedYear(ArrayList<String> years);
+    public String getSelectedYear();
     public void createYearList(ArrayList<String> years);
     public void createSemesterList(ArrayList<String> semesters);
-    public String getSelectedSemester(ArrayList<String> semesters);
-
+   // public String getSelectedSemester(ArrayList<String> semesters);
+   public String getSelectedSemester();
     public void startSubmission();
     public String getECTS();
-    public void initECTSX(String txt);
+
 }
