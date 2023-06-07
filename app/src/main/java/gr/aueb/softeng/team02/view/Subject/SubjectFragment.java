@@ -18,10 +18,8 @@ import java.util.List;
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
-import gr.aueb.softeng.team02.model.OfferedSubject;
 import gr.aueb.softeng.team02.model.Subject;
-import gr.aueb.softeng.team02.view.Search.Information.InformationSubject;
-import gr.aueb.softeng.team02.view.Search.SearchPresenter;
+import gr.aueb.softeng.team02.view.Subject.SubjectAdd.SubjectForm;
 
 
 public class SubjectFragment extends Fragment implements SubjectView {
@@ -42,25 +40,35 @@ public class SubjectFragment extends Fragment implements SubjectView {
 
         subjectList = myView.findViewById(R.id.subjectContainerSec);
 
-        //addButton = myView.findViewWithTag(R.id.addSubjectButton);
+        addButton = myView.findViewById(R.id.addSubjectButton);
         init = new MemoryInitializer();
         presenter = new SubjectPresenter(init.getSubjectDAO());
         presenter.setView(this);
         presenter.showSub();
 
-       /* addButton.setOnClickListener(new View.OnClickListener() {
+       addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 presenter.addForm();
             }
-        });*/
+        });
+
+
+
+
         return myView;
     }
 
-    public void viewSubs(List<Subject> sub) {
-        // TODO Not subjects on fragments, pass an arrayList of strings
-        if (!sub.isEmpty()) {
-            for (Subject k : sub) {
+    public void showForm(){
+        Intent intent = new Intent(requireContext(), SubjectForm.class);
+        startActivity(intent);
+
+
+    }
+
+    public void viewSubs(List<Subject> sub){
+        if(!sub.isEmpty()){
+            for( Subject k : sub){
                 String title = k.getTitle();
                 TextView subjectTextView = createSubjectTextView(title); // we make a new TextView that has the subject title
                 subjectList.addView(subjectTextView);

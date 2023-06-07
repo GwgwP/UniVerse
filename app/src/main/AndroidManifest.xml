@@ -15,6 +15,9 @@
             android:name=".view.OfferedSubject.OfferedSubjectRegistration.OfferedSubjectRegistrationActivity"
             android:exported="false" />
         <activity
+        android:name=".view.Subject.SubjectAdd.SubjectForm"
+            android:exported="false" />
+        <activity
             android:name=".view.Secretary.HomeSecretaryActivity"
             android:exported="false" />
         <activity
