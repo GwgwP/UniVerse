@@ -19,39 +19,42 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="16dp" />
-    <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="400dp">
 
-            <TableLayout
-                android:id="@+id/subjectsTable"
-                android:background="@color/white"
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="571dp">
+
+        <TableLayout
+            android:id="@+id/subjectsTable"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <TableRow
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
-                <TableRow
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Select"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Select"
-                        android:textStyle="bold" />
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Subject"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
 
-                    <TextView
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:text="Subject"
-                        android:textStyle="bold" />
+            </TableRow>
 
-                </TableRow>
+            <!-- Add dynamic rows here programmatically based on data -->
 
-                <!-- Add dynamic rows here programmatically based on data -->
-
-            </TableLayout>
+        </TableLayout>
     </ScrollView>
 
     <Button

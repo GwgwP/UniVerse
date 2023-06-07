@@ -10,6 +10,8 @@ import gr.aueb.softeng.team02.model.Circumscription;
 
 public class AcademicYearDAOMemory implements AcademicYearDAO {
     protected static HashSet<AcademicYear> entities = new HashSet<AcademicYear>();
+    protected static AcademicYear currentAcadYear;
+
 
     @Override
     public void save(AcademicYear entity) {
@@ -45,5 +47,11 @@ public class AcademicYearDAOMemory implements AcademicYearDAO {
     @Override
     public HashSet<AcademicYear> findAll() {
         return new HashSet<>(entities);
+    }
+    @Override
+    public void setCurrentAcadYear(AcademicYear ac){ currentAcadYear = ac;}
+    @Override
+    public AcademicYear getCurrentAcadYear(){
+        return currentAcadYear;
     }
 }

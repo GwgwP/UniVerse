@@ -4,5 +4,5 @@ import gr.aueb.softeng.team02.model.OfferedSubject;
 
 public interface InformationView {
 
-    public void showInfo(OfferedSubject sub);
+    public void showInfo(String title ,String proffesor ,int ects , int id , String descrip );
 }

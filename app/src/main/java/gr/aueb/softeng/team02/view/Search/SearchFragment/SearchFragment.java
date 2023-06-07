@@ -53,7 +53,7 @@ public class SearchFragment extends Fragment implements SearchView {
 
         init = new MemoryInitializer();
 
-        presenter = new SearchPresenter(init.getOfferedSubjectDAO());
+        presenter = new SearchPresenter(init.getOfferedSubjectDAO(), init.getAcademicYearDAO());
         presenter.setView(this);
         presenter.initSubView();
 
@@ -67,18 +67,17 @@ public class SearchFragment extends Fragment implements SearchView {
         return myView;
     }
 
-    public void viewSub(List<OfferedSubject> sub){
-        // TODO : Not with offered subjects Lydia
-        for( OfferedSubject k : sub){
-            String title = k.getTitle();
-            TextView subjectTextView = createSubjectTextView(title); // we make a new TextView that has the subject title
+    public void viewSub(List<String> sub) {
+
+        for (String k : sub) {
+            TextView subjectTextView = createSubjectTextView(k); // we make a new TextView that has the subject title
             subjectTextView.setTextSize(20);
             subjectContainer.addView(subjectTextView);
 
         }
     }
 
-    public TextView createSubjectTextView(String title){
+    public TextView createSubjectTextView(String title) {
 
         TextView textView = new TextView(requireContext());
         textView.setText(title);
@@ -109,7 +108,7 @@ public class SearchFragment extends Fragment implements SearchView {
         return textView;
     }
 
-    public String getSubTitle(){
+    public String getSubTitle() {
 
         return searchText.getText().toString().trim();
     }
@@ -121,10 +120,9 @@ public class SearchFragment extends Fragment implements SearchView {
         startActivity(intent);
     }
 
-    public void errorTitle(){
+    public void errorTitle() {
         searchText.setText(" ");
         Toast.makeText(getActivity(), " Subject not found! ", Toast.LENGTH_SHORT).show();
-
 
 
     }

@@ -168,11 +168,13 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
             // Create the TextView for the second column
             TextView messageTextView = new TextView(requireContext());
             messageTextView.setText(String.valueOf(sub.getValue()));
+            messageTextView.setTextSize(15);
             tableRow.addView(messageTextView);
 
             // Create the TextView for the third column
             TextView thirdColumnTextView = new TextView(requireContext());
             thirdColumnTextView.setText(sub.getKey());
+            thirdColumnTextView.setTextSize(20);
             tableRow.addView(thirdColumnTextView);
 
             // Add the row to the table

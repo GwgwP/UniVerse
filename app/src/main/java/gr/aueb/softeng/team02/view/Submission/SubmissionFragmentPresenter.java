@@ -93,7 +93,7 @@ public class SubmissionFragmentPresenter {
         int semester = students.findSemesterOfStudent(this.studentId);
 
         Circumscription c = academicYear.getCircumscription(semester);
-        List<OfferedSubject> offeredSubjects = this.subjects.findByYear(this.year, semester);
+
         Submission sub = new Submission();
         sub.setSemester(students.findSemesterOfStudent(this.studentId));
         sub.setAcademicYear(years.find(this.year));
