@@ -1,12 +1,7 @@
 package gr.aueb.softeng.team02.view.Submission;
 
-import android.util.Log;
-import android.widget.Toast;
-
-import java.sql.Date;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -23,7 +18,6 @@ import gr.aueb.softeng.team02.model.Grade;
 import gr.aueb.softeng.team02.model.OfferedSubject;
 import gr.aueb.softeng.team02.model.Subject;
 import gr.aueb.softeng.team02.model.Submission;
-import gr.aueb.softeng.team02.util.SimpleCalendar;
 import gr.aueb.softeng.team02.util.SystemDate;
 
 public class SubmissionFragmentPresenter {
@@ -87,10 +81,16 @@ public class SubmissionFragmentPresenter {
         } else {
             offeredSubs = offeredSubjects.findByModulo(1, year);
         }
-        for (Grade g : grades.findPassedSubjectsByStudent(student_id)) {
-            offeredSubs.remove(g.getSubject());
+        ArrayList<OfferedSubject> substractList = new ArrayList<>();
+        for (OfferedSubject sub : offeredSubs) {
+            for (Grade g : grades.findPassedSubjectsByStudent(student_id)) {
+                if (sub.getSubject().equals(g.getSubject().getSubject())) {
+                    substractList.add(sub);
+                    break;
+                }
+            }
         }
-
+        offeredSubs.removeAll(substractList);
         for (OfferedSubject sub : offeredSubs) {
             list.put(sub.getTitle(), sub.getSemester());
         }
@@ -161,9 +161,13 @@ public class SubmissionFragmentPresenter {
      * Searching if it exists at least one prerequisite subject
      * @param title the selected subject title
      */
-    public void checkPrerequisities(String title) {
+    public void checkPrerequisites(String title) {
         Set<Subject> prerequisities = subjects.findSubject(title).getPrerequisities();
 
+        if (prerequisities.size() == 0) {
+            // No prerequisites, then can be selected freely
+            return;
+        }
         Set<Grade> gradings = grades.findByStudent(studentId);
 
         for (Subject sub : prerequisities) {

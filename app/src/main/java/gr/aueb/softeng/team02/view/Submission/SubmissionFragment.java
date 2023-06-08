@@ -32,15 +32,13 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
     private CheckBox checker;
 
     /**
-     *
-     * @param inflater The LayoutInflater object that can be used to inflate
-     * any views in the fragment,
-     * @param container If non-null, this is the parent view that the fragment's
-     * UI should be attached to.  The fragment should not add the view itself,
-     * but this can be used to generate the LayoutParams of the view.
+     * @param inflater           The LayoutInflater object that can be used to inflate
+     *                           any views in the fragment,
+     * @param container          If non-null, this is the parent view that the fragment's
+     *                           UI should be attached to.  The fragment should not add the view itself,
+     *                           but this can be used to generate the LayoutParams of the view.
      * @param savedInstanceState If non-null, this fragment is being re-constructed
-     * from a previous saved state as given here.
-     *
+     *                           from a previous saved state as given here.
      * @return
      */
     @Override
@@ -83,6 +81,7 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
 
     /**
      * Call presenter on submit button clicked
+     *
      * @return a array list of string objects with the selected titles
      */
     @Override
@@ -109,9 +108,11 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
         }
         return subjects;
     }
+
     /**
      * Create the list of subjects
-     * @param subjects
+     *
+     * @param subjects a hash map with key the title and value the semester of the subject
      */
     @Override
     public void setForm(HashMap<String, Integer> subjects) {
@@ -159,8 +160,8 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
                 @Override
                 public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                     if (isChecked) {
-                        model.getPresenter().checkPrerequisities(sub.getKey());
                         checker = checkBox;
+                        model.getPresenter().checkPrerequisites(sub.getKey());
                     }
                 }
             });
@@ -182,14 +183,17 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
             tableLayout.addView(tableRow);
         }
     }
+
     /**
      * Show message in case of successful store
+     *
      * @param txt
      */
     @Override
     public void showPassedMsg(String txt) {
         Toast.makeText(requireContext(), txt, Toast.LENGTH_LONG).show();
     }
+
     /**
      * Το μήνυμα που εμφανίζεται σε
      * περίπτωση error.
@@ -204,6 +208,7 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
                 .setMessage(message)
                 .setPositiveButton(R.string.ok, null).create().show();
     }
+
     /**
      * Changes the layout from the Submission Fragment -> HomeStudentActivity
      */
@@ -212,8 +217,10 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
         Intent intent = new Intent(getActivity(), HomeStudentActivity.class);
         startActivity(intent);
     }
+
     /**
      * Set the check box 'Checked' or 'Unchecked'
+     *
      * @param flag true or false depending if the subject can be selected from the user
      */
     @Override
