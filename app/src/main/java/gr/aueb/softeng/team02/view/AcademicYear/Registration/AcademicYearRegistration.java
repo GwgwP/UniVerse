@@ -14,8 +14,6 @@ import gr.aueb.softeng.team02.memorydao.AcademicYearDAOMemory;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 
 public class AcademicYearRegistration extends AppCompatActivity implements AcademicYearRegView {
-
-
     private EditText newYear;
     private Initializer init;
     private EditText start_date;

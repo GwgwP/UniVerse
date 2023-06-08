@@ -25,8 +25,8 @@ public class AcademicYearFragmentPresenter {
     public void setView(AcademicYearFragmentView view) {
         this.view = view;
     }
-    public void onSeeAcademicYear()
-    {
+
+    public void onSeeAcademicYear() {
         view.showAcYearsRegistration();
     }
 
@@ -37,6 +37,7 @@ public class AcademicYearFragmentPresenter {
         }
         return ac_years;
     }
+
     public ArrayList<String> get_semesters() {
         ArrayList<String> semesters = new ArrayList<>();
         for (int i = 1; i <= 8; i++) {
@@ -45,14 +46,10 @@ public class AcademicYearFragmentPresenter {
         return semesters;
     }
 
-    public void creaateAcademicYear()
-    {
-        LocalDate date1 = LocalDate.of(1,1,1);
-        LocalDate date2 = LocalDate.of(2,2,2);
-
+    public void creaateAcademicYear() {
+        LocalDate date1 = LocalDate.of(1, 1, 1);
+        LocalDate date2 = LocalDate.of(2, 2, 2);
     }
-
-
 
     public void initLists() {
         view.createYearList(get_academic_years());

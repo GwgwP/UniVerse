@@ -5,7 +5,6 @@ public class OfferedSubject {
     private int semester;
     private AcademicYear year;
 
-    public OfferedSubject(){}
     public OfferedSubject(int semester, Subject subject, AcademicYear year) {
         this.semester = semester;
         this.sub = subject;

@@ -89,7 +89,6 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
     @Override
     public void onStart() {
         super.onStart();
-
     }
 
 
@@ -108,7 +107,6 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
 
         // Set the ArrayAdapter on the Spinner
         year_spinner.setAdapter(adapter);
-
     }
 
     public void createSemesterList(ArrayList<String> semesters) {
