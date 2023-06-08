@@ -9,16 +9,28 @@ public class DetailedGradesPresenter {
     private GradeDAO grades;
     private int student_id;
 
+    /**
+     * Constructor
+     * @param view view instance
+     * @param grades grades instance
+     */
     public DetailedGradesPresenter(DetailedGradesActivity view, GradeDAO grades) {
         this.view = view;
         this.grades = grades;
-
     }
 
+    /**
+     * sets the student id
+     * @param student_id id of the student
+     */
     public void setStudentId(int student_id) {
         this.student_id = student_id;
     }
 
+    /**
+     * initializes a Hash Map  by retrieving grading information for a student
+     * and passing it to the view for display.
+     */
     public void initSubView() {
 
         HashMap<Integer, HashMap<String, Integer>> gradings = new HashMap<>();
