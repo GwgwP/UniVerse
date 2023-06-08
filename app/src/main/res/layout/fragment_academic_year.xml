@@ -19,7 +19,7 @@
                 android:id="@+id/textView3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Academic Year Management"
+                android:text="@string/academic_year_management"
                 android:textSize="28sp"
                 android:textStyle="bold" />
 
@@ -28,9 +28,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="30dp"
-                android:text="Select Academic year:"
+                android:text="@string/select_academic_year"
                 android:textSize="24sp"
-                android:textStyle="italic" />
+                android:textStyle="bold|italic"  />
 
             <Spinner
                 android:id="@+id/spinner2"
@@ -45,16 +45,16 @@
                 android:id="@+id/add_year_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Add Year" />
+                android:text="@string/add_year" />
 
             <TextView
                 android:id="@+id/textView4"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="30dp"
-                android:text="Select Semester:"
+                android:text="@string/select_semester"
                 android:textSize="24sp"
-                android:textStyle="italic" />
+                android:textStyle="bold|italic" />
 
             <Spinner
                 android:id="@+id/spinnerSemester"
@@ -76,23 +76,24 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingTop="30dp"
-                    android:text="Insert  ECTS: "
-                    android:textSize="24sp"
-                    android:textStyle="italic" />
+                    android:text="@string/insert_ects"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic" />
 
 
                 <EditText
 
                     android:id="@+id/editTextText"
-                    android:layout_width="180dp"
+                    android:layout_width="145dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="enter ects here"
+                    android:hint="@string/enter_ects_here"
                     android:inputType="text"
                     android:paddingLeft="10dp"
-                    android:textSize="24sp" />
+                    android:textSize="20sp" />
 
                 <ImageView
+                    android:layout_marginTop="10dp"
                     android:id="@+id/ectsx_ac_year"
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
@@ -108,17 +109,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="30dp"
-                android:text="Insert  start date: "
+                android:text="@string/insert_start_date"
                 android:textSize="24sp"
-                android:textStyle="italic" />
+                android:textStyle="bold|italic" />
             <EditText
                 android:id="@+id/date_txt_start"
-                android:layout_width="wrap_content"
+                android:layout_width="140dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="202X-XX-XX"
+                android:hint="@string/_202x_xx_xx"
                 android:inputType="date" />
             <ImageView
+                android:layout_marginTop="10dp"
                 android:id="@+id/ac_year_date1X"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -134,17 +136,18 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="30dp"
-                android:text="Insert  end date: "
+                android:text="@string/insert_end_date"
                 android:textSize="24sp"
-                android:textStyle="italic" />
+                android:textStyle="bold|italic" />
             <EditText
                 android:id="@+id/date_txt_end"
-                android:layout_width="wrap_content"
+                android:layout_width="130dp"
                 android:layout_height="wrap_content"
                 android:ems="10"
-                android:hint="202X-XX-XX"
+                android:hint="@string/_202x_xx_xx__"
                 android:inputType="date" />
             <ImageView
+                android:layout_marginTop="20dp"
                 android:id="@+id/ac_year_date2X"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
@@ -161,7 +164,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="CHECK" />
+                android:text="@string/check" />
 
 
             <Button
@@ -170,7 +173,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:text="Submit" />
+                android:text="@string/submit" />
         </LinearLayout>
 
         </LinearLayout>

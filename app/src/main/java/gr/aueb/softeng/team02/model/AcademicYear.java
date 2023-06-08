@@ -6,7 +6,7 @@ import java.util.regex.Pattern;
 
 public class AcademicYear {
     private String ac_year;
-    private Map<Integer, Circumscription> circList;
+    private final Map<Integer, Circumscription> circList;
 
     private LocalDate gradeDateEven;
     private LocalDate gradeDateOdd;
@@ -16,7 +16,7 @@ public class AcademicYear {
     }
     public AcademicYear(String ac_year, LocalDate gradeDateEven, LocalDate gradeDateOdd) {
         this.ac_year = ac_year;
-        this.circList = new HashMap<Integer, Circumscription>();
+        this.circList = new HashMap<>();//Integer, Circumscription>();
         this.gradeDateEven = gradeDateEven;
         this.gradeDateOdd = gradeDateOdd;
     }
