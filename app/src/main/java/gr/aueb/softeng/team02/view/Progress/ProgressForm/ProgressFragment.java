@@ -3,14 +3,18 @@ package gr.aueb.softeng.team02.view.Progress.ProgressForm;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+
 import androidx.fragment.app.Fragment;
+
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
 import android.widget.TextView;
+
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 import gr.aueb.softeng.team02.view.Progress.DetailedGrades.DetailedGradesActivity;
+
 import java.util.HashMap;
 
 
@@ -37,6 +41,16 @@ public class ProgressFragment extends Fragment implements ProgressView {
     private ProgressPresenter presenter;
 
 
+    /**
+     * @param inflater           The LayoutInflater object that can be used to inflate
+     *                           any views in the fragment,
+     * @param container          If non-null, this is the parent view that the fragment's
+     *                           UI should be attached to.  The fragment should not add the view itself,
+     *                           but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     *                           from a previous saved state as given here.
+     * @return returns the view
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -66,16 +80,17 @@ public class ProgressFragment extends Fragment implements ProgressView {
 
         total_ects = view.findViewById(R.id.Total_Ects);
 
-        view.findViewById(R.id.btn_show_subj_grades).setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                viewModel.getPresenter().onSeeGrades();
-            }
-        });
+        view.findViewById(R.id.btn_show_subj_grades).setOnClickListener(v -> viewModel.getPresenter().onSeeGrades());
 
         return view;
     }
 
 
+    /**
+     * every time the fragment starts it
+     * requests various student-related data from the presenter(average,
+     * average per semester, number of passed subjects, ects).
+     */
     @Override
     public void onStart() {
         super.onStart();
@@ -85,22 +100,32 @@ public class ProgressFragment extends Fragment implements ProgressView {
         viewModel.getPresenter().getECTS(student_id);
     }
 
-    @Override
-    public void getGrade() {
 
-    }
-
-
+    /**
+     * shows the average passed
+     *
+     * @param avg the average to be shown
+     */
     public void showAverage(double avg) {
         txtAverageGrade.setText(String.valueOf(avg));
 
     }
 
+    /**
+     * shows the number of passed subjects
+     *
+     * @param num the number of passed subjects
+     */
     public void showNumPassed(int num) {
         txt_num_passed.setText(String.valueOf(num));
 
     }
 
+    /**
+     * redirects the user to the detailed grades page.
+     * Passes all the necessary arguments using bundle
+     * to the detailed grades activity
+     */
     @Override
     public void showDetailedGrades() {
 
@@ -129,11 +154,21 @@ public class ProgressFragment extends Fragment implements ProgressView {
 
     }
 
+    /**
+     * shows the ects
+     *
+     * @param num the number of ects to be shown
+     */
     @Override
     public void showECTS(int num) {
-        total_ects.setText(total_ects.getText() +" "+ String.valueOf(num));
+        total_ects.setText(total_ects.getText() + " " + String.valueOf(num));
     }
 
+    /**
+     * it shows th averages per semester.
+     *
+     * @param av_grades a hashmap containing semesters and average grades
+     */
     public void showAveragePerSemester(HashMap<Integer, Double> av_grades) {
         if (!av_grades.containsKey(1))
             sem_1_1.setText("-");

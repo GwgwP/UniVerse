@@ -1,34 +1,61 @@
 package gr.aueb.softeng.team02.view.Authentication;
 
-import gr.aueb.softeng.team02.model.Secretary;
-import gr.aueb.softeng.team02.model.Student;
-
 public interface UserLoginView {
+    /**
+     * Shows a pop up window with a customized message
+     *
+     * @param title: the title of the window
+     * @param txt    : the text of the window
+     **/
+    void showAlertMessage(String title, String txt);
 
-    public void showAlertMessage(String title, String txt);
+    /**
+     * Gets the username and
+     *
+     * @return it
+     **/
+    String getUsername();
 
-    /*
-     * Takes the input (username)
-     * @return username in String
-     */
-    public String getUsername();
+    /**
+     * Gets the password and
+     *
+     * @return it
+     **/
+    String getPassword();
 
-    /*
-     * Takes the input (password)
-     * @return username in String
-     */
-    public String getPassword();
+    /**
+     * If the user who is trying to login is a student then we go to the Student Home
+     *
+     * @param id : the students id
+     **/
+    void studentLogin(int id);
 
-    public void showErrorMessage(String title, String message);
+    /**
+     * If the user who is trying to login is a secretary then we go to the Secretary Home
+     *
+     * @param id : the secretary id
+     **/
+    void secretaryLogin(int id);
 
-    public void studentLogin(int id);
+    /**
+     * Gets the role of the user (0 = student , 1 = secretary)
+     *
+     * @return 0 or 1
+     **/
+    int getRole();
 
-    public void secretaryLogin(int id);
+    /**
+     * Makes the X image (for the username ) visible and prints a notification
+     *
+     * @param txt : the message we want to be displayed
+     **/
+    void initUsernameX(String txt);
 
-    public int getRole();
-
-    public void initUsernameX(String txt);
-
-    public void initPasswordX(String txt);
+    /**
+     * Makes the X image (for the password ) visible and prints a notification
+     *
+     * @param txt : the message we want to be displayed
+     **/
+    void initPasswordX(String txt);
 
 }

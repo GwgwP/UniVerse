@@ -3,7 +3,6 @@ package gr.aueb.softeng.team02.view.Progress.DetailedGrades;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.LinearLayout;
@@ -37,6 +36,13 @@ public class DetailedGradesActivity extends AppCompatActivity implements Detaile
     private ListView[] listViews;
 
 
+    /**
+     *
+     * @param savedInstanceState If the activity is being re-initialized after
+     *     previously being shut down then this Bundle contains the data it most
+     *     recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     *
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,6 +84,10 @@ public class DetailedGradesActivity extends AppCompatActivity implements Detaile
 
     }
 
+    /**
+     * receives the grades from the progress
+     * initializes the subjects
+     */
     public void onStart() {
         super.onStart();
         receiveAverages();
@@ -85,7 +95,9 @@ public class DetailedGradesActivity extends AppCompatActivity implements Detaile
     }
 
 
-    @SuppressLint("SetTextI18n")
+    /**
+     * receives the average grades per semester
+     */
     public void receiveAverages() {
         Bundle bundle = getIntent().getExtras();
 
@@ -103,6 +115,15 @@ public class DetailedGradesActivity extends AppCompatActivity implements Detaile
 
     }
 
+
+    /**
+     * creates a List with the subjects of the student
+     * per semester and their corresponding grade
+     *
+     * @param subjects HashMap containing
+     *                 the semesters and a corresponding hashMap
+     *                 contain subjects and grades
+     */
     @Override
     public void viewSub(HashMap<Integer, HashMap<String, Integer>> subjects) {
 

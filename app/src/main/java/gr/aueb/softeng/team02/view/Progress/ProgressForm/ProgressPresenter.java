@@ -12,25 +12,34 @@ public class ProgressPresenter {
     private ProgressFragment view;
     private GradeDAO grades;
 
-    public ProgressPresenter(ProgressFragment view, GradeDAO grades) {
-        this.view = view;
-        this.grades = grades;
 
+
+    /**
+     * constructor
+     */
+    public ProgressPresenter() {}
+
+    /**
+     * setter for the view
+     * @param v Progress Fragment view
+     */
+    public void setView(ProgressFragment v)
+    {
+        this.view = v;
     }
 
-    public ProgressPresenter() {
-
+    /**
+     * getter for the view instance
+     * @return returns the view
+     */
+    public ProgressFragment getView()
+    {
+        return this.view;
     }
-
-    public ProgressFragment getView() {
-        return view;
-    }
-
-    public void setView(ProgressFragment view) {
-        this.view = view;
-    }
-
-
+    /**
+     * shows the average of a student
+     * @param id the id of the student
+     */
     public void getAverage(int id) {
 
         Set<Grade> studentGrades = grades.findByStudent(id);
@@ -44,6 +53,11 @@ public class ProgressPresenter {
 
     }
 
+    /**
+     * shows the average per semester
+     * of a student
+     * @param id the id of the student
+     */
     public void getAGperSem(int id) {
         HashMap<Integer, ArrayList<Integer>> grades_per_sem = new HashMap<>();
         for (Grade g : grades.findByStudent(id)) {
@@ -60,6 +74,10 @@ public class ProgressPresenter {
         view.showAveragePerSemester(map);
     }
 
+    /**
+     * triggers the presentation of the total ects of the student
+     * @param student_id the id of the student
+     */
     public void getECTS(int student_id)
     {
         int sum = 0;
@@ -70,6 +88,11 @@ public class ProgressPresenter {
         view.showECTS(sum);
     }
 
+    /**
+     * triggers the presentation of the total number
+     * of passed subjects for a student
+     * @param id the id of the student
+     */
     public void getNumOfSubs(int id) {
         int counter = 0;
         for (Grade g : grades.findByStudent(id)) {
@@ -80,12 +103,17 @@ public class ProgressPresenter {
         view.showNumPassed(counter);
     }
 
+    /**
+     * triggers the transition to detailed grades activity
+     */
     void onSeeGrades() {
         view.showDetailedGrades();
     }
 
-
-
+    /**
+     * sets the grades
+     * @param grades the GradeDAO instance
+     */
     public void setGradesDao(GradeDAO grades) {
         this.grades = grades;
     }
