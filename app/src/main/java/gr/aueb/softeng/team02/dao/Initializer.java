@@ -18,24 +18,65 @@ import gr.aueb.softeng.team02.model.Student;
 import gr.aueb.softeng.team02.model.Subject;
 
 public abstract class Initializer {
-
-    //διαγράφουμε όλα τα δεδομένα στη βάση δεδομένων
+    /**
+     * Erases all the data from the database
+     */
     protected abstract void eraseData();
 
+    /**
+     * Get the secretary dao that contains all the secretaries
+     *
+     * @return the static secretary dao
+     */
     public abstract SecretaryDAO getSecretaryDAO();
 
+    /**
+     * Get the student dao that contains all the students
+     *
+     * @return the static student dao
+     */
     public abstract StudentDAO getStudentDAO();
 
+    /**
+     * Get the academic year dao that contains all the years
+     *
+     * @return the static academic year dao
+     */
     public abstract AcademicYearDAO getAcademicYearDAO();
 
+    /**
+     * Get the offered subject dao that contains all the offered subjects
+     *
+     * @return the static offered subject dao
+     */
     public abstract OfferedSubjectDAO getOfferedSubjectDAO();
 
+    /**
+     * Get the subject dao that contains all the subjects
+     *
+     * @return the static subject dao
+     */
     public abstract SubjectDAO getSubjectDAO();
 
-    public abstract SubmissionDAO getSubmissionSAO();
+    /**
+     * Get the submission dao that contains all the submissions
+     *
+     * @return the static submission dao
+     */
+    public abstract SubmissionDAO getSubmissionDAO();
 
+    /**
+     * get the grade dao that contains all the grades
+     *
+     * @return the gstatic grade dao
+     */
     public abstract GradeDAO getGradeDAO();
 
+    /**
+     * Initializes all objects in the daos as soon as the application starts
+     *
+     * @throws AcademicYearException
+     */
     public void prepareData() throws AcademicYearException {
         Student s1 = new Student(3200125, "p3200125", "Irma", "Lydia-Christina", "Wallace", 6);
         Student s2 = new Student(3200155, "p3200155", "Well", "Georgia", "Petsa", 6);

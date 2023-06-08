@@ -10,28 +10,32 @@ import gr.aueb.softeng.team02.model.Submission;
 public class SubmissionDAOMemory implements SubmissionDAO {
     private static ArrayList<Submission> submissions = new ArrayList<>();
 
+    /**
+     * Get the list of all submission from the dao
+     *
+     * @return a list of submission objects
+     */
     @Override
     public List<Submission> findAll() {
         return new ArrayList<>(submissions);
     }
 
-    @Override
-    public List<Submission> findOfferedSubjectsInSubmissionPerYearAndStudent(int studentId, AcademicYear year, int semester) {
-        ArrayList<Submission> stud_sem_submissions = new ArrayList<>();
-        for (Submission submission : submissions) {
-            if (submission.getStudentId() == studentId && submission.getAcademicYear().equals(year) && submission.getSemester() == semester) {
-                stud_sem_submissions.add(submission);
-            }
-        }
-        return stud_sem_submissions;
-    }
-
+    /**
+     * Saves the submission if it doesn't exist on the dao
+     *
+     * @param entity the submission object
+     */
     @Override
     public void save(Submission entity) {
         if (!submissions.contains(entity))
             submissions.add(entity);
     }
 
+    /**
+     * Deletes the submission if it does exist on the dao
+     *
+     * @param entity the submission object
+     */
     @Override
     public void delete(Submission entity) {
         if (submissions.contains(entity))

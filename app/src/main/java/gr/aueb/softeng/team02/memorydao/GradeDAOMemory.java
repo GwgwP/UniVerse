@@ -13,6 +13,12 @@ public class GradeDAOMemory implements GradeDAO {
 
     protected static HashSet<Grade> entities = new HashSet<Grade>();
 
+    /**
+     * Get a set of grades based on the id of a student
+     *
+     * @param studentId student id integer, a unique key for Student objects
+     * @return set of grades
+     */
     @Override
     public Set<Grade> findByStudent(int studentId) {
         HashSet<Grade> studentGrades = new HashSet<Grade>();
@@ -24,14 +30,18 @@ public class GradeDAOMemory implements GradeDAO {
         return studentGrades;
     }
 
+    /**
+     * Get a set of grades based on the id of a student and the semester of the offered subject
+     *
+     * @param id       student id as an integer
+     * @param semester the semester of the offered subject as an integer
+     * @return a set of grades
+     */
     @Override
-    public Set<Grade> findBySemesterSubjects(int id, int semester)
-    {
+    public Set<Grade> findBySemesterSubjects(int id, int semester) {
         HashSet<Grade> studentGradesBySem = new HashSet<Grade>();
-        for (Grade g:entities)
-        {
-            if(g.getStudentId() == id && g.getSemester() == semester)
-            {
+        for (Grade g : entities) {
+            if (g.getStudentId() == id && g.getSemester() == semester) {
 
                 studentGradesBySem.add(g);
             }
@@ -39,7 +49,13 @@ public class GradeDAOMemory implements GradeDAO {
         return studentGradesBySem;
     }
 
-
+    /**
+     * Get grade based on the title of the subject and the student id
+     *
+     * @param title     the title of the subject as a string
+     * @param studentId the student id as an integer
+     * @return
+     */
     @Override
     public Grade findBySubject(String title, int studentId) {
         for (Grade grade : entities) {
@@ -50,6 +66,12 @@ public class GradeDAOMemory implements GradeDAO {
         return null;
     }
 
+    /**
+     * Get a set of grades based on the id of a student
+     *
+     * @param studentId the id of a student as an integer
+     * @return a set of grades
+     */
     @Override
     public Set<Grade> findPassedSubjectsByStudent(int studentId) {
         HashSet<Grade> gradings = new HashSet<>();
@@ -61,18 +83,33 @@ public class GradeDAOMemory implements GradeDAO {
         return gradings;
     }
 
+    /**
+     * Delete a specific Grade if it already exists
+     *
+     * @param entity the grade that may be deleted
+     */
     @Override
     public void save(Grade entity) {
         if (!entities.contains(entity))
             entities.add(entity);
     }
 
+    /**
+     * Delete a specific Grade if it already exists
+     *
+     * @param entity the grade that may be deleted
+     */
     @Override
     public void delete(Grade entity) {
         if (entities.contains(entity))
             entities.add(entity);
     }
 
+    /**
+     * Get all grades
+     *
+     * @return a set of grades
+     */
     @Override
     public Set<Grade> findAll() {
         return new HashSet<>(entities);
