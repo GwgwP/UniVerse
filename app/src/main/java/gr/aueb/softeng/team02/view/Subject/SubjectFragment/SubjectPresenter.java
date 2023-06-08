@@ -19,6 +19,9 @@ public class SubjectPresenter {
         this.view = view;
     }
 
+    /**
+     * Gets from the database all the saved subjects and shows them to the user
+     **/
     public void showSub() {
         List<String> subjects = new ArrayList<>();
 
@@ -28,6 +31,9 @@ public class SubjectPresenter {
         view.viewSubs(subjects);
     }
 
+    /**
+     * Navigates to the next Activity
+     **/
     public void addForm() {
         view.showForm();
 

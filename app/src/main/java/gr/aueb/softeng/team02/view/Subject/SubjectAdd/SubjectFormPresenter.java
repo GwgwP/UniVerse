@@ -14,20 +14,24 @@ public class SubjectFormPresenter {
     private SubjectFormView view;
     private SubjectDAO sub;
 
-    public SubjectFormPresenter(SubjectDAO sub ) {
-        this.sub=sub;
+    public SubjectFormPresenter(SubjectDAO sub) {
+        this.sub = sub;
     }
 
-    public void setView(SubjectFormView view){
-        this.view=view;
+    public void setView(SubjectFormView view) {
+        this.view = view;
     }
 
-    public void valid(){
+    /**
+     * checks to see if the form is valid. All the boxes are written , if there are numbers in the ects box , and it also checks if
+     * there already is the same subject in the database
+     **/
+    public void valid() {
 
         String title = view.getSubTitle();
-        if(allWritten()) { // we first check if all the attributes are written
-            if ((isNumber(view.getEcts()))) { // IF THE USER DID WROTE NUMBERS
-                if (this.sub.exists(title)) { // second we check if we have another Subject with the same name
+        if (allWritten()) { // we first check if all the attributes are written
+            if ((isNumber(view.getEcts()))) { // IF THE USER  WROTE NUMBERS
+                if (this.sub.exists(title)) { // we check if we have another Subject with the same name
                     errorExist();
 
                 } else {
@@ -47,13 +51,15 @@ public class SubjectFormPresenter {
                 view.invalidInput();
 
             }
-        }
-        else {
+        } else { // not all the boxes where written
             errorNotWritten();
         }
 
     }
 
+    /**
+     * Shows an error when not all the boxes are written
+     **/
     private void errorNotWritten() {
 
         // We make them invisible in the case they were some visible
@@ -69,62 +75,79 @@ public class SubjectFormPresenter {
         String ects = view.getEcts();
 
 
-        if(title.equals("")){
+        if (title.equals("")) {
             view.setexTitle();
         }
-        if(prof.equals("")){
+        if (prof.equals("")) {
             view.setexProf();
         }
-        if(desc.equals("")){
+        if (desc.equals("")) {
             view.setexDesc();
         }
-        if(ects.equals("")){
+        if (ects.equals("")) {
             view.setexEcts();
         }
         view.printEr1();
 
     }
 
-    public void errorExist(){
+    /**
+     * Shows a message when there is  already another subject with the same name
+     **/
+    public void errorExist() {
         view.sameSubject();
 
     }
 
-    public boolean allWritten(){
+    /**
+     * Checks to see if all the boxes are written
+     *
+     * @return true or false
+     **/
+    public boolean allWritten() {
         String title = view.getSubTitle();
         String prof = view.getProf();
         String desc = view.getDesc();
         String ects = view.getEcts();
 
 
-        if( title.equals("") || prof.equals("")|| desc.equals("")|| ects.equals("")){
+        if (title.equals("") || prof.equals("") || desc.equals("") || ects.equals("")) {
             return false;
         }
         return true;
     }
 
-    public void createSubject(){
+    /**
+     * we save the newest version of the subjects information
+     **/
+    public void createSubject() {
         String title = view.getSubTitle();
         Subject k = this.sub.findSubject(title);
 
         k.setProfessor(view.getProf());
-        k.setDesc( view.getDesc());
+        k.setDesc(view.getDesc());
 
-        k.setECTS( Integer.parseInt(view.getEcts()));
+        k.setECTS(Integer.parseInt(view.getEcts()));
         view.messageSave();
 
     }
 
-    public void goBack(){
+    /**
+     * Navigates to the home screen
+     **/
+    public void goBack() {
         view.getBack();
     }
 
-    public boolean isNumber(String k){
+    /**
+     * Checks to see if the input is a number
+     *
+     * @param k : the input
+     * @return true or false
+     **/
+    public boolean isNumber(String k) {
         return k.matches("\\d+");
 
     }
 
-    public void letterEcts(){
-
-    }
 }
