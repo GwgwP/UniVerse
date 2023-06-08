@@ -4,4 +4,5 @@ import androidx.fragment.app.Fragment;
 
 public interface HomeSecretaryView {
     public void replaceFragment(Fragment fragment);
+    public void showMessage(String txt);
 }

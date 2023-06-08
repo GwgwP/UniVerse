@@ -1,5 +1,6 @@
 package gr.aueb.softeng.team02.model;
 
+import java.time.LocalDate;
 import java.util.*;
 import java.util.regex.Pattern;
 
@@ -7,12 +8,17 @@ public class AcademicYear {
     private String ac_year;
     private Map<Integer, Circumscription> circList;
 
+    private LocalDate gradeDateEven;
+    private LocalDate gradeDateOdd;
+
     public AcademicYear() {
         this.circList = new HashMap<>();
     }
-    public AcademicYear(String ac_year) {
+    public AcademicYear(String ac_year, LocalDate gradeDateEven, LocalDate gradeDateOdd) {
         this.ac_year = ac_year;
         this.circList = new HashMap<Integer, Circumscription>();
+        this.gradeDateEven = gradeDateEven;
+        this.gradeDateOdd = gradeDateOdd;
     }
 
     public void setAc_year(String ac_year) throws AcademicYearException {
@@ -67,5 +73,13 @@ public class AcademicYear {
     @Override
     public int hashCode() {
         return this.ac_year.hashCode();
+    }
+
+    public LocalDate getGradeDateEven() {
+        return gradeDateEven;
+    }
+
+    public LocalDate getGradeDateOdd() {
+        return gradeDateOdd;
     }
 }

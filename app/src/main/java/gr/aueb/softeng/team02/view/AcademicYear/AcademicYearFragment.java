@@ -2,6 +2,24 @@ package gr.aueb.softeng.team02.view.AcademicYear;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+
+import androidx.fragment.app.Fragment;
+
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import android.widget.TextView;
+
+import gr.aueb.softeng.team02.R;
+import gr.aueb.softeng.team02.dao.Initializer;
+import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
+import gr.aueb.softeng.team02.view.Progress.DetailedGrades.DetailedGradesActivity;
+
+import java.util.HashMap;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,6 +30,7 @@ import android.widget.Toast;
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
+import gr.aueb.softeng.team02.view.AcademicYear.Registration.AcademicYearRegistration;
 import gr.aueb.softeng.team02.view.Authentication.UserLoginActivity;
 
 import androidx.fragment.app.Fragment;
@@ -55,6 +74,12 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
         model.getPresenter().initLists();
 
         addYearButton = myView.findViewById(R.id.add_year_button);
+        addYearButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                model.getPresenter().onSeeAcademicYear();
+            }
+        });
 
         submitButton = myView.findViewById(R.id.submitBtnSecretary);
 
@@ -64,35 +89,15 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
     @Override
     public void onStart() {
         super.onStart();
-        model.getPresenter().startProcess();
-    }
-
-
-    public String getECTS() {
-        return ects.getText().toString().trim();
-    }
-
-
-    @Override
-    public void setForm(HashMap<String, Integer> subjects) {
 
     }
 
-    @Override
-    public void submit() {
 
+    public void showAcYearsRegistration() {
+        Intent intent = new Intent(requireContext(), AcademicYearRegistration.class);
+        startActivity(intent);
     }
 
-    @Override
-    public void startSubmission() {
-        int flag = 0;
-        if (getSelectedYear() != null && getSelectedSemester() != null && getECTS() != null & Integer.parseInt(getECTS()) >= 30 && Integer.parseInt(getECTS()) <= 80) {
-            flag = model.getPresenter().submitNewAcademicYear(getSelectedYear(), Integer.parseInt(getSelectedSemester()), Integer.parseInt(getECTS()));
-        }
-        if (flag == -1) {
-            // TODO error in submission
-        }
-    }
 
     public void createYearList(ArrayList<String> years) {
         // Create an ArrayAdapter using the choices ArrayList
@@ -121,4 +126,13 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
     public String getSelectedYear() { //ArrayList<String> years) {
         return year_spinner.getSelectedItem().toString();
     }
+
+    public String getECTS() {
+        return ects.getText().toString().trim();
+    }
+
+    public void messageSave() {
+        Toast.makeText(requireContext(), "The academic year was saved successfully", Toast.LENGTH_SHORT).show();
+    }
+
 }

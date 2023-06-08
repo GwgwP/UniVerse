@@ -42,20 +42,6 @@ public class ProgressPresenter {
 
         view.showAverage(average);
 
-
-        /*double sum = 0;
-        double counter = 0;
-
-        for (Grade g : grades.findByStudent(id)) {
-            if (g.getGrade() >= 5) {
-                sum += g.getGrade();
-                counter++;
-            }
-        }
-        if (counter != 0)
-            view.showAverage(sum / counter);
-        else
-            view.showAverage(0);*/
     }
 
     public void getAGperSem(int id) {

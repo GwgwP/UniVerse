@@ -5,17 +5,12 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.Spinner;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -27,12 +22,10 @@ import java.util.Map;
 
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.view.Student.HomeStudentActivity;
-import gr.aueb.softeng.team02.view.Student.StudentHome;
 
 public class SubmissionFragment extends Fragment implements SubmissionFragmentView {
     private ArrayList<String> yearList;
     private SubmissionFragmentViewModel model;
-    private Spinner spinner;
     private Button submitButton;
     private View myView;
     private TableLayout tableLayout;
@@ -43,7 +36,6 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
         super.onCreateView(inflater, container, savedInstanceState);
 
         myView = inflater.inflate(R.layout.fragment_submission, container, false);
-        spinner = (Spinner) myView.findViewById(R.id.spinner);
 
         Bundle bundle = getArguments();
         int student_id = bundle.getInt("STUDENT_ID", 0);
@@ -53,29 +45,15 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
         model = new SubmissionFragmentViewModel();
         model.getPresenter().setView(this);
         model.getPresenter().setStudentId(student_id);
-        model.getPresenter().setYears();
         return myView;
     }
 
     @Override
     public void onStart() {
         super.onStart();
-        model.getPresenter().startProcess();
-    }
-
-    @Override
-    public void startSubmission() {
         tableLayout = myView.findViewById(R.id.tableLayout);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                model.getPresenter().makeForm(); // creation of table
-            }
 
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-            }
-        });
+        model.getPresenter().makeForm();
 
         // Set a click listener for the submit button
         submitButton.setOnClickListener(new View.OnClickListener() {
@@ -84,17 +62,6 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
                 model.getPresenter().submitClicked();
             }
         });
-    }
-
-    public void createYearList(ArrayList<String> years) {
-        // Create an ArrayAdapter using the choices ArrayList
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_dropdown_item, years);
-
-        // Specify the layout for the dropdown items
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        // Set the ArrayAdapter on the Spinner
-        spinner.setAdapter(adapter);
     }
 
     public ArrayList<String> submit() {
@@ -185,11 +152,6 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
     @Override
     public void showPassedMsg(String txt) {
         Toast.makeText(requireContext(), txt, Toast.LENGTH_LONG).show();
-    }
-
-    @Override
-    public String getSelectedYear() {
-        return spinner.getSelectedItem().toString();
     }
 
     public void showErrorMessage(String title, String message) {

@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02.view.Student;
+package gr.aueb.softeng.team02.view.HomeStudentFragment;
 
 import android.os.Bundle;
 

@@ -45,10 +45,6 @@ public class SubmissionFragmentPresenter {
         this.studentId = id;
     }
 
-    public void startProcess() {
-        view.startSubmission();
-    }
-
     public void setView(SubmissionFragmentView view) {
         this.view = view;
     }
@@ -83,7 +79,7 @@ public class SubmissionFragmentPresenter {
 
     //show the offered students based on the selected year .
     public void makeForm() {
-        this.year = view.getSelectedYear();
+        this.year = years.getCurrentAcadYear().getAc_year();
         view.setForm(getOfferedSubjects(this.studentId, year));
     }
 
@@ -125,9 +121,5 @@ public class SubmissionFragmentPresenter {
         submissions.save(sub);
         view.showPassedMsg("Succesfully stored");
         view.changeToHomeScreen();
-    }
-
-    public void setYears() {
-        view.createYearList(getAcademicYears());
     }
 }
