@@ -34,6 +34,11 @@ public class OfferedSubjectRegistrationActivity extends AppCompatActivity implem
     OfferedSubjectRegistrationPresenter presenter;
     Initializer init;
 
+    /**
+     * @param savedInstanceState If the activity is being re-initialized after
+     *                           previously being shut down then this Bundle contains the data it most
+     *                           recently supplied in {@link #onSaveInstanceState}.  <b><i>Note: Otherwise it is null.</i></b>
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,6 +54,10 @@ public class OfferedSubjectRegistrationActivity extends AppCompatActivity implem
         presenter = new OfferedSubjectRegistrationPresenter(this, init.getOfferedSubjectDAO(), init.getSubjectDAO(), init.getAcademicYearDAO());
     }
 
+    /**
+     * Calls the presenter to initialize the tables.
+     * When the submit button is clicked, call the presenter to register the selected subjects
+     */
     @Override
     protected void onStart() {
         super.onStart();
@@ -61,6 +70,11 @@ public class OfferedSubjectRegistrationActivity extends AppCompatActivity implem
         });
     }
 
+    /**
+     * Creates the table of the offered subject titles
+     *
+     * @param subjects an array list of title of the offered subjects
+     */
     @Override
     public void createTable(ArrayList<String> subjects) {
         for (String title : subjects) {
@@ -100,6 +114,12 @@ public class OfferedSubjectRegistrationActivity extends AppCompatActivity implem
         }
     }
 
+    /**
+     * Sets the checkbox 'checked' or 'unchecked', depending if the secretary
+     * wants to move the selected offered subject to another semester
+     *
+     * @param flag tru or false
+     */
     @Override
     public void setCheckBox(boolean flag) {
         if (flag) {
@@ -109,6 +129,12 @@ public class OfferedSubjectRegistrationActivity extends AppCompatActivity implem
         }
     }
 
+    /**
+     * Prints an alert dialog box with selection buttons 'Yes' or 'No'
+     *
+     * @param title a title of the message as a string
+     * @param msg   a message of the dialog box as a string
+     */
     @Override
     public void alertBox(String title, String msg) {
         builder.setTitle(title).setMessage(msg)
@@ -127,6 +153,12 @@ public class OfferedSubjectRegistrationActivity extends AppCompatActivity implem
                 .show();
     }
 
+    /**
+     * An error box in case there is no selected subject
+     *
+     * @param title a title of the error box as a string
+     * @param msg   the content of the error
+     */
     @Override
     public void errorBox(String title, String msg) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -137,10 +169,21 @@ public class OfferedSubjectRegistrationActivity extends AppCompatActivity implem
                 .setPositiveButton(R.string.ok, null).create().show();
     }
 
+    /**
+     * A mini floating text that reminds the transportation
+     * of the selected subject to the selected semester
+     *
+     * @param txt a notification message as a string
+     */
     public void moveReminder(String txt) {
         Toast.makeText(this, txt, Toast.LENGTH_LONG).show();
     }
 
+    /**
+     * Called when the submit button is clicked
+     *
+     * @return An array list of the selected titles
+     */
     @Override
     public ArrayList<String> submitClicked() {
         ArrayList<String> titles = new ArrayList<>();
@@ -166,6 +209,9 @@ public class OfferedSubjectRegistrationActivity extends AppCompatActivity implem
         return titles;
     }
 
+    /**
+     * Changes layout to Home Secretary Activity
+     */
     @Override
     public void changeToHomeScreen() {
         Intent intent = new Intent(this, HomeSecretaryActivity.class);

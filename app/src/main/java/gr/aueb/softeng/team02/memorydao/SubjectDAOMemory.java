@@ -13,7 +13,7 @@ public class SubjectDAOMemory implements SubjectDAO {
 
     @Override
     public Subject findSubject(String title) {
-        for (Subject subject : this.entities) {
+        for (Subject subject : entities) {
             if (subject.getTitle().equals(title))
                 return subject;
         }
@@ -30,8 +30,8 @@ public class SubjectDAOMemory implements SubjectDAO {
 
     @Override
     public void delete(Subject subject) {
-        if (this.entities.contains(subject))
-            this.entities.remove(subject);
+        if (entities.contains(subject))
+            entities.remove(subject);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class SubjectDAOMemory implements SubjectDAO {
     }
 
     public boolean exists(String title){
-        for(Subject k : this.entities){
+        for(Subject k : entities){
             if(title.equalsIgnoreCase(k.getTitle())){
                 return true;
             }

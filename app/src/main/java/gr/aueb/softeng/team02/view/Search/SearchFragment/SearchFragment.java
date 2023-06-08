@@ -35,11 +35,7 @@ public class SearchFragment extends Fragment implements SearchView {
     EditText searchText;
     Button searchButton;
 
-    //private SearchPresenter presenter;
-
-
-
-
+   /** Initializer**/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -50,8 +46,6 @@ public class SearchFragment extends Fragment implements SearchView {
         searchText = (EditText) myView.findViewById(R.id.searchBar);
         searchButton = (Button) myView.findViewById(R.id.searchButton);
 
-        //Bundle bundle = getArguments();
-        //this.student_id = bundle.getInt("STUDENT_ID", 0);
 
         init = new MemoryInitializer();
 

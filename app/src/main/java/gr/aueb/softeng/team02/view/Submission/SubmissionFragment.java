@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -24,12 +25,24 @@ import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.view.Student.HomeStudentActivity;
 
 public class SubmissionFragment extends Fragment implements SubmissionFragmentView {
-    private ArrayList<String> yearList;
     private SubmissionFragmentViewModel model;
     private Button submitButton;
     private View myView;
     private TableLayout tableLayout;
+    private CheckBox checker;
 
+    /**
+     *
+     * @param inflater The LayoutInflater object that can be used to inflate
+     * any views in the fragment,
+     * @param container If non-null, this is the parent view that the fragment's
+     * UI should be attached to.  The fragment should not add the view itself,
+     * but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     * from a previous saved state as given here.
+     *
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -48,6 +61,10 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
         return myView;
     }
 
+    /**
+     * Call presenter to make the form.
+     * In case of submit button clicked, call presenter to check the submission
+     */
     @Override
     public void onStart() {
         super.onStart();
@@ -64,6 +81,11 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
         });
     }
 
+    /**
+     * Call presenter on submit button clicked
+     * @return a array list of string objects with the selected titles
+     */
+    @Override
     public ArrayList<String> submit() {
         ArrayList<String> subjects = new ArrayList<>();
         int rowCount = tableLayout.getChildCount();
@@ -87,7 +109,10 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
         }
         return subjects;
     }
-
+    /**
+     * Create the list of subjects
+     * @param subjects
+     */
     @Override
     public void setForm(HashMap<String, Integer> subjects) {
         tableLayout.setVisibility(View.VISIBLE); // shows the table
@@ -130,6 +155,15 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
 
             // Create the checkbox for the first column
             CheckBox checkBox = new CheckBox(requireContext());
+            checkBox.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                    if (isChecked) {
+                        model.getPresenter().checkPrerequisities(sub.getKey());
+                        checker = checkBox;
+                    }
+                }
+            });
             tableRow.addView(checkBox);
 
             // Create the TextView for the second column
@@ -148,12 +182,21 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
             tableLayout.addView(tableRow);
         }
     }
-
+    /**
+     * Show message in case of successful store
+     * @param txt
+     */
     @Override
     public void showPassedMsg(String txt) {
         Toast.makeText(requireContext(), txt, Toast.LENGTH_LONG).show();
     }
-
+    /**
+     * Το μήνυμα που εμφανίζεται σε
+     * περίπτωση error.
+     *
+     * @param title   O τίτλος του μηνύματος
+     * @param message Το περιεχόμενο του μηνύματος
+     */
     public void showErrorMessage(String title, String message) {
         new AlertDialog.Builder(requireContext())
                 .setCancelable(true)
@@ -161,10 +204,20 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
                 .setMessage(message)
                 .setPositiveButton(R.string.ok, null).create().show();
     }
-
+    /**
+     * Changes the layout from the Submission Fragment -> HomeStudentActivity
+     */
     @Override
     public void changeToHomeScreen() {
         Intent intent = new Intent(getActivity(), HomeStudentActivity.class);
         startActivity(intent);
+    }
+    /**
+     * Set the check box 'Checked' or 'Unchecked'
+     * @param flag true or false depending if the subject can be selected from the user
+     */
+    @Override
+    public void setCheckBox(boolean flag) {
+        this.checker.setChecked(flag);
     }
 }

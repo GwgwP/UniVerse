@@ -96,8 +96,18 @@ public interface SubjectFormView {
      **/
     void invalidInput();
 
+    /**
+     * Gets from the table the checked Subjects
+     *
+     * @return the list of the checked Subjects
+     **/
     ArrayList<String> getPrereq();
 
+    /**
+     * Creates the table that shows the available Subjects
+     *
+     * @param titles : the list that has the names of the subjects
+     **/
     void setForm(ArrayList<String> titles);
 
 }

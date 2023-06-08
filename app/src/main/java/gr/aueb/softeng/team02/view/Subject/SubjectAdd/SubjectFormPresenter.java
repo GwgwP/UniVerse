@@ -15,10 +15,20 @@ public class SubjectFormPresenter {
     private SubjectFormView view;
     private SubjectDAO sub;
 
+    /**
+     * Constructor that initializes the dao
+     *
+     * @param sub : SubjectDAO
+     **/
     public SubjectFormPresenter(SubjectDAO sub) {
         this.sub = sub;
     }
 
+    /**
+     * Initializes the View
+     *
+     * @param view : SubjectView
+     **/
     public void setView(SubjectFormView view) {
         this.view = view;
     }
@@ -38,11 +48,11 @@ public class SubjectFormPresenter {
                 } else {
                     int ects = Integer.parseInt(view.getEcts());
                     Subject a = new Subject(view.getProf(), ects, view.getDesc(), title);
-                    for(String k : titles){ // we save every prerequisite
-                        Subject ad= sub.findSubject(k.trim());
+                    for (String k : titles) { // we save every prerequisite
+                        Subject ad = sub.findSubject(k.trim());
                         try {
                             a.addPrerequisities(ad);
-                        }  catch (Exception e){
+                        } catch (Exception e) {
                             return;
                         }
                     }
@@ -121,7 +131,7 @@ public class SubjectFormPresenter {
         String ects = view.getEcts();
         ArrayList<String> titles = view.getPrereq();
 
-        if (title.equals("") || prof.equals("") || desc.equals("") || ects.equals("")|| (titles.size()==0)) {
+        if (title.equals("") || prof.equals("") || desc.equals("") || ects.equals("") || (titles.size() == 0)) {
             return false;
         }
         return true;
@@ -160,10 +170,15 @@ public class SubjectFormPresenter {
 
     }
 
-    public ArrayList<String> getSubjects(){
+    /**
+     * Creates a list with all the names of the subjects and
+     *
+     * @return it
+     **/
+    public ArrayList<String> getSubjects() {
         ArrayList<String> subs = new ArrayList<>();
 
-        for(Subject k : sub.findAll()){
+        for (Subject k : sub.findAll()) {
             subs.add(k.getTitle());
         }
 
@@ -171,7 +186,10 @@ public class SubjectFormPresenter {
 
     }
 
-    public void makeForm(){
+    /**
+     * Makes the form that show the available subjects
+     **/
+    public void makeForm() {
         view.setForm(getSubjects());
     }
 

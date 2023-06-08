@@ -14,9 +14,15 @@ public class OfferedSubjectPresenter {
     SubjectDAO subjects;
     AcademicYearDAO years;
     OfferedSubjectView view;
-    String semester;
-    String year;
 
+    /**
+     * Contructor that initializes all the daos
+     *
+     * @param view            OfferedSubjectView view
+     * @param subjects        SubjectDAO
+     * @param offeredSubjects OfferedSubjectDAO
+     * @param years           AcademicYearDAO
+     */
     public OfferedSubjectPresenter(OfferedSubjectView view, SubjectDAO subjects, OfferedSubjectDAO offeredSubjects, AcademicYearDAO years) {
         this.subjects = subjects;
         this.offeredSubjects = offeredSubjects;
@@ -24,6 +30,11 @@ public class OfferedSubjectPresenter {
         this.view = view;
     }
 
+    /**
+     * All registered academic year in a String list
+     *
+     * @return a list of years of the academic year dao
+     */
     public ArrayList<String> getAcademicYears() {
         ArrayList<String> ac_years = new ArrayList<>();
         for (AcademicYear year : this.years.findAll()) {
@@ -32,6 +43,11 @@ public class OfferedSubjectPresenter {
         return ac_years;
     }
 
+    /**
+     * All semesters in a String list
+     *
+     * @return a list of years of all semesters
+     */
     public ArrayList<String> getSemesters() {
         ArrayList<String> semesters = new ArrayList<>();
         for (int i = 1; i <= 8; i++) {
@@ -40,11 +56,17 @@ public class OfferedSubjectPresenter {
         return semesters;
     }
 
+    /**
+     * Initializes the year and semester list
+     */
     public void initLists() {
         view.createYearList(getAcademicYears());
         view.createSemesterList(getSemesters());
     }
 
+    /**
+     *
+     */
     public void checkSelected() {
         String year = view.getYear();
         String semester = view.getSemester();
@@ -59,21 +81,26 @@ public class OfferedSubjectPresenter {
 
     }
 
+    /**
+     * Called when the secretary erases all the previous offered subjects.
+     * Gives the command to transfer the user to the Offered Subject Registration Activity
+     */
     public void onRegistration() {
         String year = view.getYear();
         String semester = view.getSemester();
 
         List<OfferedSubject> subjects = offeredSubjects.findAllSubjectsByYearAndBySemester(year, Integer.parseInt(semester));
 
-        // TODO : delete the old elements
         for (OfferedSubject sub : subjects) {
             offeredSubjects.delete(sub);
         }
         view.popNotification("Deletion completed");
         view.goToRegistration(year, semester);
-
     }
 
+    /**
+     * Transfers the secretary to the home screen
+     */
     public void changeLayout() {
         view.changeToHomeScreen();
     }

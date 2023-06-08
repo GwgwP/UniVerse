@@ -24,6 +24,9 @@ public class HomeStudentActivity extends AppCompatActivity implements HomeStuden
 
     BottomNavigationView bottomNavigationView;
 
+    /**
+     * Changes the view according on  which button was pressed on the navigation button
+     **/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +44,7 @@ public class HomeStudentActivity extends AppCompatActivity implements HomeStuden
         presenter.changeFragment(R.id.homeFragment);
 
         // Set up the bottom navigation view
-        BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationViewStudent);
+        bottomNavigationView = findViewById(R.id.bottomNavigationViewStudent);
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @SuppressLint("NonConstantResourceId")
@@ -52,6 +55,12 @@ public class HomeStudentActivity extends AppCompatActivity implements HomeStuden
             }
         });
     }
+
+    /**
+     * Responsible for the transition from one fragment to another
+     *
+     * @param fragment : the destination fragment
+     **/
 
     @Override
     public void replaceFragment(Fragment fragment) {

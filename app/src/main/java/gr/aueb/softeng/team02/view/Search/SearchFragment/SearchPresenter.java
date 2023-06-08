@@ -17,13 +17,16 @@ public class SearchPresenter {
 
     private SearchView view;
 
-
+    /**Constructor that initializer the daos
+     * @param subs : OfferedSubjectDAO
+     * @param years : AcademicYearDAO**/
     public SearchPresenter(OfferedSubjectDAO subs, AcademicYearDAO years) {
 
         this.subjects = subs;
         this.years = years;
     }
-
+    /**Initializes then view
+     * @param view : a SearchView**/
     public void setView(SearchView view) {
         this.view = view;
     }

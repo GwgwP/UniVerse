@@ -31,7 +31,7 @@ public class InformationSubject extends AppCompatActivity implements Information
 
     TextView prep;
 
-
+/** Initializer **/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
