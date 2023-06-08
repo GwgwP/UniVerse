@@ -32,6 +32,16 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
     OfferedSubjectPresenter presenter;
     Initializer init;
 
+    /**
+     * @param inflater           The LayoutInflater object that can be used to inflate
+     *                           any views in the fragment,
+     * @param container          If non-null, this is the parent view that the fragment's
+     *                           UI should be attached to.  The fragment should not add the view itself,
+     *                           but this can be used to generate the LayoutParams of the view.
+     * @param savedInstanceState If non-null, this fragment is being re-constructed
+     *                           from a previous saved state as given here.
+     * @return
+     */
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // Inflate the layout for this fragment
@@ -46,12 +56,20 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
         return view;
     }
 
+    /**
+     * When the check button is pressed, call the presenter
+     */
     @Override
     public void onStart() {
         super.onStart();
         check.setOnClickListener(v -> presenter.checkSelected());
     }
 
+    /**
+     * Creates the form of the available subjects
+     *
+     * @param years an arraylist with titles of subjects
+     */
     @Override
     public void createYearList(ArrayList<String> years) {
         // Create an ArrayAdapter using the choices ArrayList
@@ -64,6 +82,11 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
         spinnerYear.setAdapter(adapter);
     }
 
+    /**
+     * Creates the form of all semesters
+     *
+     * @param semesters all the semester from 1 to 8
+     */
     @Override
     public void createSemesterList(ArrayList<String> semesters) {
         // Create an ArrayAdapter using the choices ArrayList
@@ -77,9 +100,12 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
     }
 
     /**
+     * Shows the confirmation box in case the secretary wants
+     * to keep the previous selected offered subjects for
+     * the selected academic year and semester
      *
-     * @param title
-     * @param txt
+     * @param title a suitable title in the dialog message
+     * @param txt   the content of the dialog message
      */
     @Override
     public void confirmBox(String title, String txt) {
@@ -97,6 +123,11 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
                 .show();
     }
 
+    /**
+     * A floating mini message
+     *
+     * @param msg a mini message to the user as a small notification
+     */
     @Override
     public void popNotification(String msg) {
         Toast.makeText(requireContext(), msg, Toast.LENGTH_LONG).show();
@@ -110,16 +141,30 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
         startActivity(intent);
     }
 
+    /**
+     * Get selected year from the spinner
+     *
+     * @return a string that represents the selected year
+     */
     @Override
     public String getYear() {
         return spinnerYear.getSelectedItem().toString();
     }
 
+    /**
+     * Get the selected semester from the spinner
+     *
+     * @return a string that represents the selected semester
+     */
     @Override
     public String getSemester() {
         return spinnerSemester.getSelectedItem().toString();
     }
 
+    /**
+     * Changes the layout from the offered subject fragment
+     * to home secretary activity
+     */
     public void changeToHomeScreen() {
         Intent intent = new Intent(getActivity(), HomeSecretaryActivity.class);
         startActivity(intent);

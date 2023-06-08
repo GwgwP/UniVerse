@@ -20,6 +20,15 @@ public class OfferedSubjectRegistrationPresenter {
     OfferedSubject selectedSubject;
     AcademicYearDAO years;
     SubjectDAO subjects;
+
+    /**
+     * Constructor that initializes the view and the daos
+     *
+     * @param view            OfferedSubjectRegistrationView
+     * @param offeredSubjects OfferedSubjectDAO
+     * @param subjects        SubjectDAO
+     * @param years           AcademicYearDAO
+     */
     public OfferedSubjectRegistrationPresenter(OfferedSubjectRegistrationView view, OfferedSubjectDAO offeredSubjects, SubjectDAO subjects, AcademicYearDAO years) {
         this.view = view;
         this.offeredSubjects = offeredSubjects;
@@ -27,6 +36,13 @@ public class OfferedSubjectRegistrationPresenter {
         this.years = years;
     }
 
+    /**
+     * Initialized the table of the offered subjects shown in
+     * the secretary
+     *
+     * @param year     selected year
+     * @param semester selected semester
+     */
     public void init(String year, String semester) {
         this.semester = semester;
         this.year = year;
@@ -38,6 +54,11 @@ public class OfferedSubjectRegistrationPresenter {
         view.createTable(subs);
     }
 
+    /**
+     * Called when the secretary selects a subject
+     *
+     * @param title
+     */
     public void checkSubject(String title) {
         OfferedSubject sub = offeredSubjects.findByYearAndName(year, title);
 
@@ -47,6 +68,10 @@ public class OfferedSubjectRegistrationPresenter {
         }
     }
 
+    /**
+     * It is called when the secretary wants to change the semester of
+     * pre-selected offered subject in another semester
+     */
     public void moveSubject() {
         this.offeredSubjects.delete(this.selectedSubject);
         view.setCheckBox(true);
@@ -60,11 +85,19 @@ public class OfferedSubjectRegistrationPresenter {
         }
     }
 
+    /**
+     * It is called when the secretary doesn't want to change the semester of
+     * pre-selected offered subject in another semester
+     */
     public void remainSubject() {
         view.moveReminder("No change");
         view.setCheckBox(false);
     }
 
+    /**
+     * After the submit button is clicked, creates offered subject objects and save them
+     * in the dao
+     */
     public void register() {
         ArrayList<String> titles = view.submitClicked();
 
