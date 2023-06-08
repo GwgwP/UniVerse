@@ -88,7 +88,13 @@ public class SubmissionFragmentPresenter {
         AcademicYear academicYear = years.find(year);
         int semester = students.findSemesterOfStudent(this.studentId);
 
-        Circumscription c = academicYear.getCircumscription(semester);
+        Circumscription c;
+
+        try {
+            c = academicYear.getCircumscription(semester);
+        } catch (AcademicYearException e) {
+            return;
+        }
 
         Submission sub = new Submission();
         sub.setSemester(students.findSemesterOfStudent(this.studentId));

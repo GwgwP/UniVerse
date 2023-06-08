@@ -10,7 +10,7 @@ public class Subject {
     private String title;
     private Set<Subject> prerequisities;
 
-    public Subject( String professor, int ects, String desc, String title) {
+    public Subject(String professor, int ects, String desc, String title) {
         this.id = 0;
         this.professor = professor;
         this.ects = ects;
@@ -70,7 +70,7 @@ public class Subject {
 
     public boolean checkFields() {
         // Eg : if ects >= 30 & ects < = limit
-        return this.title != null && this.desc != null && this.ects > 0 && this.professor != null && this.id > 0;
+        return this.title != null && this.desc != null && this.ects > 0 && this.professor != null;
     }
 
     @Override

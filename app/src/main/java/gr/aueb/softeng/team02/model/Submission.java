@@ -81,6 +81,6 @@ public class Submission {
             return false;
 
         Submission sub = (Submission) other;
-        return (this.year.equals(((Submission) other).getAcademicYear()) && this.student.getId() == ((Submission) other).getStudentId() && this.semester == sub.semester);
+        return (this.year.equals(sub.getAcademicYear()) && this.student.getId() == sub.getStudentId() && this.semester == sub.semester);
     }
 }

@@ -32,25 +32,57 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17000002">
+        app:layout_constraintVertical_bias="0.39">
 
         <TextView
             android:id="@+id/idTitle"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:padding="10dp"
             android:text="@string/id"
             android:textSize="20sp"
-            android:textStyle="italic"
-            android:padding="10dp"/>
+            android:textStyle="italic" />
 
         <TextView
             android:id="@+id/idTxt"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:textSize="20sp"
             android:layout_marginStart="10dp"
             android:padding="10dp"
-            android:textAlignment="textStart"/>
+            android:textAlignment="textStart"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+<!-- Prerequisites -->
+    <LinearLayout
+        android:id="@+id/prereContainer"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:gravity="start"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.47000003">
+
+        <TextView
+            android:id="@+id/prereTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:padding="10dp"
+            android:text="Prerequisites"
+            android:textSize="20sp"
+            android:textStyle="italic" />
+
+        <TextView
+            android:id="@+id/prereTxt"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:padding="10dp"
+            android:textAlignment="textStart"
+            android:textSize="20sp" />
 
     </LinearLayout>
 
@@ -129,19 +161,6 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.83">
 
-        <ScrollView
-            android:id="@+id/scrollDesc"
-            android:layout_width="match_parent"
-            android:layout_height="309dp">
-            <!-- A space to show the Subjects Titles -->
-            <LinearLayout
-                android:id="@+id/descCon"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-            </LinearLayout>
-        </ScrollView>
     </LinearLayout>
 
     <TextView
@@ -153,10 +172,30 @@
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.441" />
+        app:layout_constraintVertical_bias="0.615" />
+
+    <ScrollView
+        android:id="@+id/scrollDesc"
+        android:layout_width="409dp"
+        android:layout_height="185dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/descTitle"
+        app:layout_constraintVertical_bias="0.223">
+        <!-- A space to show the Subjects Titles -->
+        <LinearLayout
+            android:id="@+id/descCon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

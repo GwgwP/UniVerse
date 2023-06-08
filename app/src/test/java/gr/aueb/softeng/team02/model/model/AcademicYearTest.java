@@ -18,16 +18,23 @@ public class AcademicYearTest {
     LocalDate start;
     LocalDate end;
 
+    LocalDate grade0dd;
+    LocalDate gradeEven;
+
     @Before
     public void setUp() {
-        this.year = new AcademicYear("2022-2023");
+        LocalDate dateOdd2023 = LocalDate.of(2023, 2, 28);
+        LocalDate dateEven2023 = LocalDate.of(2023, 6, 1);
+        this.year = new AcademicYear("2022-2023", dateEven2023, dateOdd2023);
         this.start = LocalDate.of(2023, 2, 16);
         this.end = LocalDate.of(2023, 3, 25);
     }
 
     @Test
     public void checkEquals_HashCode() throws AcademicYearException {
-        AcademicYear year2 = new AcademicYear("2021-2022");
+        LocalDate dateOdd2022 = LocalDate.of(2022, 2, 28);
+        LocalDate dateEven2022 = LocalDate.of(2022, 8, 1);
+        AcademicYear year2 = new AcademicYear("2021-2022", dateEven2022, dateOdd2022);
         assertNotEquals(this.year, year2);
         assertNotEquals(this.year.hashCode(), year2.hashCode());
 
@@ -58,7 +65,7 @@ public class AcademicYearTest {
     }
 
     @Test(expected = AcademicYearException.class)
-    public void checkgetEctstPerSemester() throws AcademicYearException{
+    public void checkgetEctstPerSemester() throws AcademicYearException {
         Circumscription c1 = new Circumscription(1, 90, start, end);
         this.year.addCircumscription(c1);
         assertEquals(90, this.year.getEctsPerSemester(1));
@@ -86,7 +93,6 @@ public class AcademicYearTest {
         this.year.addCircumscription(c3);
     }
 
-
     @Test(expected = AcademicYearException.class)
     public void checkSetYear() throws AcademicYearException {
         this.year = new AcademicYear();
@@ -95,6 +101,14 @@ public class AcademicYearTest {
         });
         this.year.setAc_year("2023-2024");
         this.year.setAc_year("2020--2021");
+    }
+
+    @Test
+    public void checkGetDates() {
+        LocalDate dateOdd2023 = LocalDate.of(2023, 2, 28);
+        LocalDate dateEven2023 = LocalDate.of(2023, 6, 1);
+        assertEquals(dateEven2023, this.year.getGradeDateEven());
+        assertEquals(dateOdd2023, this.year.getGradeDateOdd());
     }
 
     @Test
