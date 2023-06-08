@@ -12,10 +12,19 @@ public class InformationPresenter {
     private OfferedSubjectDAO subjects;
     private InformationView view;
 
+    /**
+     * Constructor that initializer the DAO
+     *
+     * @param subs = OfferedSubjectDAO
+     **/
     public InformationPresenter(OfferedSubjectDAO subs) {
         this.subjects = subs;
     }
 
+    /**
+     * Initializer the view
+     * @param view : InformationView
+     **/
     public void setView(InformationView view) {
         this.view = view;
     }
@@ -30,12 +39,12 @@ public class InformationPresenter {
         OfferedSubject sub = subjects.findByTitle(title);
         Set<Subject> getprer = sub.getSubject().getPrerequisities();
 
-        for(Subject name : getprer){
+        for (Subject name : getprer) {
             prerequisites.add(name.getTitle());
 
         }
 
-        view.showInfo(sub.getTitle(), sub.getProf(), sub.getEcts(), sub.getSubject().getId(), sub.getDesc(),prerequisites);
+        view.showInfo(sub.getTitle(), sub.getProf(), sub.getEcts(), sub.getSubject().getId(), sub.getDesc(), prerequisites);
 
 
     }

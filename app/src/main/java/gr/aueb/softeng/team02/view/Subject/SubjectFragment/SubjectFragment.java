@@ -29,6 +29,7 @@ public class SubjectFragment extends Fragment implements SubjectView {
     private Button addButton;
     private SubjectPresenter presenter;
 
+    /** Initializer and waits for the addButton to be pushed**/
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

@@ -29,6 +29,9 @@ public class HomeSecretaryActivity extends AppCompatActivity implements HomeSecr
     private Initializer init;
     FloatingActionButton plus;
 
+    /**
+     * Changes the view according on  which button was pressed on the navigation button and if the plus button is pressed it upgrades the grades
+     **/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,6 +66,11 @@ public class HomeSecretaryActivity extends AppCompatActivity implements HomeSecr
         });
     }
 
+    /**
+     * Responsible for the transition from one fragment to another
+     *
+     * @param fragment : the destination fragment
+     **/
     @Override
     public void replaceFragment(Fragment fragment) {
         FragmentManager manager = getSupportFragmentManager();
@@ -75,6 +83,12 @@ public class HomeSecretaryActivity extends AppCompatActivity implements HomeSecr
         transaction.replace(R.id.frame_layout, fragment);
         transaction.commit();
     }
+
+    /**
+     * Shows the desired message
+     *
+     * @param txt : the message we want to show
+     **/
     @Override
     public void showMessage(String txt) {
         Toast.makeText(this, txt, Toast.LENGTH_LONG).show();

@@ -11,10 +11,20 @@ public class SubjectPresenter {
     private SubjectDAO subs;
     private SubjectView view;
 
+    /**
+     * Constructor that initializes the dao
+     *
+     * @param sub : SubjectDAO
+     **/
     public SubjectPresenter(SubjectDAO sub) {
         this.subs = sub;
     }
 
+    /**
+     * Initializes the view
+     *
+     * @param view : SubjectView
+     **/
     public void setView(SubjectView view) {
         this.view = view;
     }
