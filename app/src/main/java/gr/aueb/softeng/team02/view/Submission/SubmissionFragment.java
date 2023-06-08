@@ -187,7 +187,7 @@ public class SubmissionFragment extends Fragment implements SubmissionFragmentVi
     /**
      * Show message in case of successful store
      *
-     * @param txt
+     * @param txt the content of the message in a string
      */
     @Override
     public void showPassedMsg(String txt) {

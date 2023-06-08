@@ -6,7 +6,7 @@ import java.util.HashMap;
 public interface SubmissionFragmentView {
     /**
      * Create the list of subjects
-     * @param subjects
+     * @param subjects a hash map with key the title and value the semester of the subject
      */
     public void setForm(HashMap<String, Integer> subjects);
 
@@ -27,7 +27,7 @@ public interface SubmissionFragmentView {
 
     /**
      * Show message in case of successful store
-     * @param txt
+     * @param txt the content of the message in a string
      */
     public void showPassedMsg(String txt);
 
