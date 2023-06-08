@@ -28,7 +28,9 @@ public class SearchPresenter {
         this.view = view;
     }
 
-
+    /**
+     * Finds the offerend subjects of the current academic year and fills  the list that we show
+     **/
     public void initSubView() {
         ArrayList<String> titles = new ArrayList<>();
         List<OfferedSubject> offeredSubjects = subjects.findByYear(years.getCurrentAcadYear().getAc_year());
@@ -38,6 +40,11 @@ public class SearchPresenter {
         view.viewSub(titles);
     }
 
+    /**
+     * Finds if the subject title that the user has written exists in our database . If it exists we go show the information , if not we show ana error message
+     *
+     * @param title the users input
+     **/
     public void decide(String title) {
 
         if (subjects.findByTitle(title) != null) {
@@ -47,6 +54,11 @@ public class SearchPresenter {
         }
     }
 
+    /**
+     * Gets from the UI the users input and
+     *
+     * @return it
+     **/
     public String getTitle() {
 
         return view.getSubTitle();

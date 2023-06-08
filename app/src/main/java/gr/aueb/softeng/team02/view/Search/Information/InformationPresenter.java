@@ -16,6 +16,11 @@ public class InformationPresenter {
         this.view = view;
     }
 
+    /**
+     * Gets the information os a specific offered subject from the database and show them
+     *
+     * @param title : the selected offered subject
+     **/
     public void setInfo(String title) {
 
         OfferedSubject sub = subjects.findByTitle(title);
