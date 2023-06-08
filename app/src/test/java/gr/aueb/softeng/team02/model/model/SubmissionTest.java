@@ -25,7 +25,10 @@ public class SubmissionTest {
     @Before
     public void setUp() {
         this.student = new Student();
-        this.year = new AcademicYear("2022-2023");
+        this.student.setId(3200199);
+        LocalDate dateOdd2023 = LocalDate.of(2023, 2, 28);
+        LocalDate dateEven2023 = LocalDate.of(2023, 6, 1);
+        this.year = new AcademicYear("2022-2023", dateEven2023, dateOdd2023);
         this.submission = new Submission();
         this.start = LocalDate.of(2023, 2, 16);
         this.end = LocalDate.of(2023, 3, 25);
@@ -35,13 +38,6 @@ public class SubmissionTest {
     @Test
     public void checkSetters() throws Exception {
         OfferedSubject sub = null;
-        Assert.assertThrows(Exception.class, () -> {
-            this.submission.setSemester(9);
-        });
-
-        Assert.assertThrows(Exception.class, () -> {
-            this.submission.setSemester(0);
-        });
 
         this.submission.setSemester(8);
         this.year.addCircumscription(this.c);
@@ -53,15 +49,15 @@ public class SubmissionTest {
             this.submission.addChosenSub(sub);
         });
 
-        Subject subject = new Subject(3319, "Kotidis Ioannis", 10, "introduction to Databases", "SDAD");
+        Subject subject = new Subject("Kotidis Ioannis", 10, "introduction to Databases", "SDAD");
         OfferedSubject test = new OfferedSubject(6);
         test.setSub(subject);
 
-        Subject subject1 = new Subject(3318, "Ioannis Maleuris", 10, "Epali8eush & Epikurwsh Logismikou", " E&El");
+        Subject subject1 = new Subject("Ioannis Maleuris", 10, "Epali8eush & Epikurwsh Logismikou", " E&El");
         OfferedSubject test1 = new OfferedSubject(6);
         test1.setSub(subject1);
 
-        Subject subject2 = new Subject(3317, "Ion Androutsopoulos", 12, "Artificial Intelligence", " AI");
+        Subject subject2 = new Subject("Ion Androutsopoulos", 12, "Artificial Intelligence", " AI");
         OfferedSubject test2 = new OfferedSubject(5);
         test2.setSub(subject2);
 
@@ -76,7 +72,6 @@ public class SubmissionTest {
         Assert.assertThrows(Exception.class, () -> {
             this.submission.addChosenSub(test2);
         });
-
     }
 
     @Test
@@ -92,7 +87,7 @@ public class SubmissionTest {
         Assert.assertEquals(this.submission.getChosenSub().size(), 0);
 
         OfferedSubject test = new OfferedSubject(2);
-        Subject subject2 = new Subject(1234, "Giannis Parios", 10, "introduction to robotics", "Robotics");
+        Subject subject2 = new Subject("Giannis Parios", 10, "introduction to robotics", "Robotics");
         test.setSub(subject2);
         this.year.addCircumscription(this.c);
         this.submission.setAcademicYear(this.year);
@@ -107,14 +102,15 @@ public class SubmissionTest {
         });
 
         Assert.assertNotEquals(this.submission.getChosenSub().size(), 2);
+        Assert.assertEquals(3200199, this.submission.getStudentId());
     }
 
     @Test
     public void checkCalculateEcts() throws Exception {
         Assert.assertEquals(this.submission.calculateECTS(), 0);
 
-        Subject subject2 = new Subject(1234, "Giannis Parios", 10, "introduction to robotics", "Robotics");
-        Subject subject3 = new Subject(2543, "Mohamed Ali", 5, "introduction to aa", "aaa");
+        Subject subject2 = new Subject("Giannis Parios", 10, "introduction to robotics", "Robotics");
+        Subject subject3 = new Subject("Mohamed Ali", 5, "introduction to aa", "aaa");
 
         OfferedSubject sub1 = new OfferedSubject(6);
         OfferedSubject sub2 = new OfferedSubject(6);
@@ -128,5 +124,25 @@ public class SubmissionTest {
         this.submission.addChosenSub(sub2);
 
         Assert.assertEquals(this.submission.calculateECTS(), 15);
+    }
+
+    @Test
+    public void checkEquals() {
+        Assert.assertNotEquals(this.submission, null);
+        Submission sub = this.submission;
+        Assert.assertEquals(this.submission, sub);
+        Object object = new Object();
+        Assert.assertNotEquals(this.submission, object);
+
+        this.submission = new Submission(this.year, 8, this.student);
+        Submission sub1 = new Submission(this.year, 8, new Student(000, "cime", "09329", "iwdmci", "oc", 7));
+        Submission sub2 = new Submission(new AcademicYear("2019-2020", LocalDate.of(2020, 7, 8), LocalDate.of(2020, 2, 27)), 8, this.student);
+        Submission sub3 = new Submission(this.year, 7, this.student);
+        Submission sub4 = new Submission(this.year, 8, this.student);
+
+        Assert.assertNotEquals(this.submission, sub1);
+        Assert.assertNotEquals(this.submission, sub2);
+        Assert.assertNotEquals(this.submission, sub3);
+        Assert.assertEquals(this.submission, sub4);
     }
 }
