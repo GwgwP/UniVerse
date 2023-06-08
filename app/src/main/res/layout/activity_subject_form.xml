@@ -9,6 +9,7 @@
 
 
     <!-- TITLE -->
+
     <TextView
         android:id="@+id/titleForm"
         android:layout_width="wrap_content"
@@ -20,23 +21,25 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.056">
+        app:layout_constraintVertical_bias="0.023">
 
     </TextView>
 
     <LinearLayout
         android:id="@+id/containerForm"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_width="420dp"
+        android:layout_height="555dp"
         android:background="@drawable/rounded_search_bar"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/saveSubjectBut"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.326"
-        tools:layout_editor_absoluteX="0dp">
+        app:layout_constraintVertical_bias="0.742">
         <!--SUBJECTS NAME-->
         <LinearLayout
             android:id="@+id/linearLayoutName"
@@ -70,13 +73,13 @@
                 tools:layout_editor_absoluteY="394dp">
 
             </EditText>
+
             <ImageView
                 android:id="@+id/exTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_delete"
                 android:layout_marginStart="42dp"
-                />
+                android:src="@android:drawable/ic_delete" />
 
         </LinearLayout>
 
@@ -118,9 +121,8 @@
                 android:id="@+id/exEcts"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_delete"
                 android:layout_marginStart="50dp"
-                />
+                android:src="@android:drawable/ic_delete" />
 
         </LinearLayout>
         <!--SUBJECTS PROFESSOR-->
@@ -161,9 +163,8 @@
                 android:id="@+id/exProf"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_delete"
                 android:layout_marginStart="27dp"
-                />
+                android:src="@android:drawable/ic_delete" />
 
         </LinearLayout>
         <!--SUBJECTS DESCRIPTION-->
@@ -178,23 +179,25 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.757"
             tools:layout_editor_absoluteX="0dp">
+
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation = "horizontal">
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="20dp"
-                android:text="@string/subject_s_description"
-                android:textSize="17sp" />
+                android:orientation="horizontal">
 
-            <ImageView
-                android:id="@+id/exDesc"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@android:drawable/ic_delete"
-                android:layout_marginStart="180dp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="20dp"
+                    android:text="@string/subject_s_description"
+                    android:textSize="17sp" />
+
+                <ImageView
+                    android:id="@+id/exDesc"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="180dp"
+                    android:src="@android:drawable/ic_delete" />
             </LinearLayout>
 
             <EditText
@@ -211,6 +214,36 @@
 
         </LinearLayout>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/prereTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="Prerequisites"
+                android:textSize="20sp"
+                android:textStyle="italic" />
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="582dp">
+                <!-- Checkbox Table -->
+                <TableLayout
+                    android:id="@+id/SubjectTable"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:divider="@drawable/table_divider"
+                    android:padding="16dp"
+                    android:showDividers="middle"
+                    android:stretchColumns="*"
+                    android:visibility="gone"></TableLayout>
+            </ScrollView>
+        </LinearLayout>
     </LinearLayout>
 
     <Button
