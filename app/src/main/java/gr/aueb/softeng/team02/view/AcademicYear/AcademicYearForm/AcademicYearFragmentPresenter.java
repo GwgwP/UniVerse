@@ -134,16 +134,15 @@ public class AcademicYearFragmentPresenter {
         //int y = years.find(view.getSelectedYear()).getCircumscription(Integer.parseInt(view.getSelectedSemester())).getEcts();
 
         //Log.e("DEBBUGER",String.valueOf(y));
-
-        years.find(view.getSelectedYear()).getCircumscription(Integer.parseInt(view.getSelectedSemester())).setEcts(Integer.parseInt(view.getECTS()));
-        years.find(view.getSelectedYear()).getCircumscription(Integer.parseInt(view.getSelectedSemester())).setStart(date1);
-        years.find(view.getSelectedYear()).getCircumscription(Integer.parseInt(view.getSelectedSemester())).setEnd(date2);
-        view.messageOverride();
-
-     //   int x = years.find(view.getSelectedYear()).getCircumscription(Integer.parseInt(view.getSelectedSemester())).getEcts();
-       // Log.e("DEBBUGER",String.valueOf(x));
-
-
+        try {
+            years.find(view.getSelectedYear()).getCircumscription(Integer.parseInt(view.getSelectedSemester())).setEcts(Integer.parseInt(view.getECTS()));
+            years.find(view.getSelectedYear()).getCircumscription(Integer.parseInt(view.getSelectedSemester())).setStart(date1);
+            years.find(view.getSelectedYear()).getCircumscription(Integer.parseInt(view.getSelectedSemester())).setEnd(date2);
+            view.messageOverride();
+        } catch (AcademicYearException e) {
+            // We already know the circumscription exists so we do not care in this case
+            return;
+        }
     }
 
     public void initLists() {
