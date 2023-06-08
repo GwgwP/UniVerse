@@ -17,16 +17,23 @@ public class UserLoginPresenter {
     private StudentDAO students;
     private SecretaryDAO secretaries;
 
-    /*
-        @params view
-        @params students
-     */
+    /**
+     * Constructor that initializes the daos and the view
+     *
+     * @param secretaries : SecretaryDAO
+     * @param students    : StudentDAO
+     * @param view        : our desired view
+     **/
+
     public UserLoginPresenter(UserLoginView view, StudentDAO students, SecretaryDAO secretaries) {
         this.view = view;
         this.students = students;
         this.secretaries = secretaries;
     }
 
+    /**
+     * Checks if the combination username-password-role is correct and them navigates the app in the suitable home screen
+     **/
     public void startProcess() {
         String username = view.getUsername();
         String password = view.getPassword();
@@ -56,6 +63,13 @@ public class UserLoginPresenter {
         }
     }
 
+    /**
+     * Finds if the user exists
+     *
+     * @param password : the password the user inputs
+     * @param username : the username the user inputs
+     * @return a Map with the role number and the suitable User
+     **/
     private Map.Entry<Integer, User> findUser(String username, String password) {
         Student student = students.findStudentByUsernameAndPassword(username, password);
         Secretary secretary = secretaries.findSecretary(username, password);

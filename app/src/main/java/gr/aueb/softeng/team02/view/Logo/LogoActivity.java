@@ -14,6 +14,9 @@ public class LogoActivity extends Activity implements LogoActivityView {
     ImageView pic;
     LogoActivityPresenter presenter;
 
+    /**
+     * Initializes the classes attributes
+     **/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +25,9 @@ public class LogoActivity extends Activity implements LogoActivityView {
         presenter = new LogoActivityPresenter(this);
     }
 
+    /**
+     * Waits for the screen to be clicked
+     **/
     @Override
     protected void onStart() {
         super.onStart();
@@ -33,6 +39,9 @@ public class LogoActivity extends Activity implements LogoActivityView {
         });
     }
 
+    /**
+     * Navigates the app to the Authentication Page
+     **/
     @Override
     public void gotToHomeScreen() {
         Intent myIntent = new Intent(LogoActivity.this, UserLoginActivity.class);
