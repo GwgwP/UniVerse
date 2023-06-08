@@ -5,10 +5,8 @@ import java.time.Month;
 
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.AcademicYearDAO;
-import gr.aueb.softeng.team02.dao.Initializer;
-import gr.aueb.softeng.team02.model.Circumscription;
 import gr.aueb.softeng.team02.util.SystemDate;
-import gr.aueb.softeng.team02.view.AcademicYear.AcademicYearFragment;
+import gr.aueb.softeng.team02.view.AcademicYear.AcademicYearForm.AcademicYearFragment;
 import gr.aueb.softeng.team02.view.OfferedSubject.OfferedSubjectForm.OfferedSubjectFragment;
 import gr.aueb.softeng.team02.view.SecretaryHomeFragment.SecretaryHome;
 import gr.aueb.softeng.team02.view.Subject.SubjectFragment.SubjectFragment;

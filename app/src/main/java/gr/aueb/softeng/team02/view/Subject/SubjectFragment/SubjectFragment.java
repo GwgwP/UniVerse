@@ -2,8 +2,6 @@ package gr.aueb.softeng.team02.view.Subject.SubjectFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.compose.material3.Strings;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
@@ -53,7 +51,7 @@ public class SubjectFragment extends Fragment implements SubjectView {
         });
         return myView;
     }
-
+    /** Navigates to the next activity that shows the form to create a new Subject **/
     @Override
     public void showForm() {
         Intent intent = new Intent(requireContext(), SubjectForm.class);
@@ -61,7 +59,10 @@ public class SubjectFragment extends Fragment implements SubjectView {
 
 
     }
-
+    /**
+     * Shows a list with all the subjects that exist
+     * @param sub : the subject list
+    * **/
     @Override
     public void viewSubs(List<String> sub) {
         for (String k : sub) {
@@ -69,7 +70,9 @@ public class SubjectFragment extends Fragment implements SubjectView {
             subjectList.addView(subjectTextView);
         }
     }
-
+    /**Creates for a TextView that shows the title of the subject
+     * @param title the subject's' title
+     * @return the finished TextView **/
     public TextView createSubjectTextView(String title) {
 
         TextView textView = new TextView(requireContext());

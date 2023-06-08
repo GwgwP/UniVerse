@@ -29,27 +29,49 @@ public class AcademicYearRegPresenter {
     }
 
     public void valid() {
-        if(allWritten())
-        {
-            if (hasFormatOfAcademicYear(view.getAcademicYear()) && hasFormatOfDate(view.getStartDate()) && hasFormatOfDate(view.getEndDate()))
-            {
+        if (allWritten()) {
+            if (hasFormatOfAcademicYear(view.getAcademicYear()) && hasFormatOfDate(view.getStartDate()) && hasFormatOfDate(view.getEndDate())) {
+
                 DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
                 LocalDate start_date = LocalDate.parse(view.getStartDate(), formatter);
                 LocalDate end_date = LocalDate.parse(view.getEndDate(), formatter);
-                AcademicYear ac = new AcademicYear(view.getAcademicYear(), start_date, end_date);
-                this.ac_years.save(ac);
-                view.messageSave();
+
+                //if there is already a year inside th datastore
+                if(ac_years.find(view.getAcademicYear())!=null)
+                {
+                    view.messageDIDNTSave();
+                    return;
+                }
+                if (!isODD(start_date.getMonthValue()) && isODD(end_date.getMonthValue())) {
+                    AcademicYear ac = new AcademicYear(view.getAcademicYear(), start_date, end_date);
+                    this.ac_years.save(ac);
+                    view.messageSave();
+                }
+                else
+                {
+                    if(!isODD(start_date.getMonthValue()))
+                        view.setVisibleSecondX();
+                    else
+                        view.setVisibleThirdX();
+                }
 
             }
 
-        }
-        else{
-            //TODO HERE GOES THE "X"s
+        } else {
+            if (view.getAcademicYear().equals("") || !hasFormatOfDate(view.getStartDate()))
+                view.setVisibleFirstX();
+            if (view.getStartDate().equals("") || !hasFormatOfDate(view.getEndDate()))
+                view.setVisibleSecondX();
+            if (view.getEndDate().equals("") || !hasFormatOfAcademicYear(view.getAcademicYear()))
+                view.setVisibleThirdX();
         }
     }
 
-    private boolean hasFormatOfDate(String date_string)
-    {
+    private boolean isODD(int month) {
+        return month % 2 != 0;
+    }
+
+    private boolean hasFormatOfDate(String date_string) {
         DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
 
         try {
@@ -60,11 +82,12 @@ public class AcademicYearRegPresenter {
             return false; // Parsing failed, string does not have the expected format
         }
     }
-    private boolean hasFormatOfAcademicYear(String ac)
-    {
+
+    private boolean hasFormatOfAcademicYear(String ac) {
         //TODO IMPLEMENT CHECKER
         return true;
     }
+
     public boolean allWritten() {
         String acyear = view.getAcademicYear();
         String sd = view.getStartDate();
@@ -72,8 +95,7 @@ public class AcademicYearRegPresenter {
         return !acyear.equals("") && !sd.equals("") && !ed.equals("");
     }
 
-    public void createAcademicYear()
-    {
+    public void createAcademicYear() {
 
     }
 

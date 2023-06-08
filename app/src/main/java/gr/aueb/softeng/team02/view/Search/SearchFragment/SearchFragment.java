@@ -38,6 +38,8 @@ public class SearchFragment extends Fragment implements SearchView {
     //private SearchPresenter presenter;
 
 
+
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -67,6 +69,11 @@ public class SearchFragment extends Fragment implements SearchView {
         return myView;
     }
 
+    /**
+     * We show all the offered subjects
+     * @param sub :  the filtered list of offered subjects
+      **/
+    @Override
     public void viewSub(List<String> sub) {
 
         for (String k : sub) {
@@ -76,6 +83,12 @@ public class SearchFragment extends Fragment implements SearchView {
 
         }
     }
+
+    /**
+     * Creates for very offered subject a TextView
+     * @param title : the offered subject's title
+     *  returns the finished TextView
+     * **/
 
     public TextView createSubjectTextView(String title) {
 
@@ -95,6 +108,7 @@ public class SearchFragment extends Fragment implements SearchView {
             }
         });
 
+        // we put a line between the subjects
         View lineView = new View(requireContext());
         LinearLayout.LayoutParams lineLayoutParams = new LinearLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, 1);
         lineLayoutParams.setMargins(16, 0, 16, 0);
@@ -108,11 +122,18 @@ public class SearchFragment extends Fragment implements SearchView {
         return textView;
     }
 
+    /**
+     * Gets the selected offered subject's tittle and
+     * @return it **/
+    @Override
     public String getSubTitle() {
 
         return searchText.getText().toString().trim();
     }
 
+    /**
+     * Directs the fragment to the next Activity that shows the subject's information
+     * @param title : the selected subject title **/
     @Override
     public void showInfo(String title) {
         Intent intent = new Intent(requireContext(), InformationSubject.class);
@@ -120,6 +141,10 @@ public class SearchFragment extends Fragment implements SearchView {
         startActivity(intent);
     }
 
+    /**
+     * Shows an error when the subject title that the user typed , was not found
+     **/
+    @Override
     public void errorTitle() {
         searchText.setText(" ");
         Toast.makeText(getActivity(), " Subject not found! ", Toast.LENGTH_SHORT).show();

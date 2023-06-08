@@ -9,13 +9,29 @@ import gr.aueb.softeng.team02.model.OfferedSubject;
 
 public interface SearchView {
 
-    public void viewSub(List<String> sub);
+    /**
+     * We show all the offered subjects
+     *
+     * @param sub :  the filtered list of offered subjects
+     **/
+    void viewSub(List<String> sub);
 
-    public TextView createSubjectTextView(String title);
+    /**
+     * Gets the selected offered subject's tittle and
+     *
+     * @return it
+     **/
+    String getSubTitle();
 
-    public String getSubTitle();
+    /**
+     * Directs the fragment to the next Activity that shows the subject's information
+     *
+     * @param title : the selected subject title
+     **/
+    void showInfo(String title);
 
-    public void showInfo(String title);
-
-    public void errorTitle();
+    /**
+     * Shows an error when the subject title that the user typed , was not found
+     **/
+    void errorTitle();
 }
