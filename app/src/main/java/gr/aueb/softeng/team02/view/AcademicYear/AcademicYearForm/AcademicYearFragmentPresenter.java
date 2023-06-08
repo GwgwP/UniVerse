@@ -205,10 +205,16 @@ public class AcademicYearFragmentPresenter {
         LocalDate date1 = LocalDate.parse(view.getDateStart(), formatter);
         LocalDate date2 = LocalDate.parse(view.getDateEnd(), formatter);
 
-        years.find(view.getSelectedYear()).getCircumscription(Integer.parseInt(view.getSelectedSemester())).setEcts(Integer.parseInt(view.getECTS()));
-        years.find(view.getSelectedYear()).getCircumscription(Integer.parseInt(view.getSelectedSemester())).setStart(date1);
-        years.find(view.getSelectedYear()).getCircumscription(Integer.parseInt(view.getSelectedSemester())).setEnd(date2);
-        view.messageOverride();
+        try {
+            years.find(view.getSelectedYear()).getCircumscription(Integer.parseInt(view.getSelectedSemester())).setEcts(Integer.parseInt(view.getECTS()));
+            years.find(view.getSelectedYear()).getCircumscription(Integer.parseInt(view.getSelectedSemester())).setStart(date1);
+            years.find(view.getSelectedYear()).getCircumscription(Integer.parseInt(view.getSelectedSemester())).setEnd(date2);
+            view.messageOverride();
+        } catch (AcademicYearException e) {
+            // We already know the circumscription exists so we do not care in this case
+            return;
+        }
+
     }
 
     /**
