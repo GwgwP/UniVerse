@@ -4,8 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.CheckBox;
 import android.widget.LinearLayout;
+import android.widget.Spinner;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
+
+import java.util.ArrayList;
 
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.memorydao.OfferedSubjectDAOMemory;
@@ -21,6 +29,9 @@ public class InformationSubject extends AppCompatActivity implements Information
     private LinearLayout desc;
     TextView prof;
 
+    TextView prep;
+
+/** Initializer **/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,7 +51,7 @@ public class InformationSubject extends AppCompatActivity implements Information
         ects = (TextView) findViewById(R.id.ectsTxt);
         desc = (LinearLayout) findViewById(R.id.descCon);
         prof = (TextView) findViewById(R.id.profNameTxt);
-
+        prep =(TextView) findViewById(R.id.prereTxt);
 
         presenter.setInfo(title);
 
@@ -57,7 +68,7 @@ public class InformationSubject extends AppCompatActivity implements Information
      * @param title     : the title of the offered subject
      **/
     @Override
-    public void showInfo(String title, String professor, int ects, int id, String descrip) {
+    public void showInfo(String title, String professor, int ects, int id, String descrip,ArrayList<String> prerequisites) {
         titleT.setText(title);
         this.id.setText(String.valueOf(id));
         this.ects.setText(String.valueOf(ects));
@@ -66,6 +77,14 @@ public class InformationSubject extends AppCompatActivity implements Information
         d.setTextSize(20);
         desc.addView(d);
         prof.setText(professor);
+
+        String show="" ;
+        for(String name : prerequisites){
+            show+= name + " ,";
+
+        }
+        prep.setText(show);
+
 
     }
 

@@ -1,5 +1,7 @@
 package gr.aueb.softeng.team02.view.Subject.SubjectAdd;
 
+import java.util.ArrayList;
+
 public interface SubjectFormView {
     /**
      * Gets from the user the title he/she has written and
@@ -93,5 +95,19 @@ public interface SubjectFormView {
      * Show a message that the the user wrote at least one letter in the ects attribute
      **/
     void invalidInput();
+
+    /**
+     * Gets from the table the checked Subjects
+     *
+     * @return the list of the checked Subjects
+     **/
+    ArrayList<String> getPrereq();
+
+    /**
+     * Creates the table that shows the available Subjects
+     *
+     * @param titles : the list that has the names of the subjects
+     **/
+    void setForm(ArrayList<String> titles);
 
 }

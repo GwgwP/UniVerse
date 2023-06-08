@@ -15,11 +15,23 @@ import gr.aueb.softeng.team02.view.Subject.SubjectFragment.SubjectFragment;
 public class HomeSecretaryPresenter {
     private HomeSecretaryView view;
     private AcademicYearDAO years;
+
+    /**
+     * Constructor that initializes the dao and the view
+     *
+     * @param view  : the desired HomeSecretaryView
+     * @param years : AcademicYearDAO
+     **/
     public HomeSecretaryPresenter(HomeSecretaryView view, AcademicYearDAO years) {
         this.view = view;
         this.years = years;
     }
 
+    /**
+     * Changes the view to the desired fragment
+     *
+     * @param id : represents which fragment to go to (first,second...)
+     **/
     public void changeFragment(int id) {
         switch (id) {
             case R.id.secretaryHome:
@@ -37,12 +49,14 @@ public class HomeSecretaryPresenter {
         }
     }
 
+    /**
+     * Checks if we can upload the grades and if yes , it uploads them , else it just shows a message
+     **/
     public void updateGrades() {
         LocalDate gradeDay;
         if (SystemDate.now().getMonth().compareTo(Month.SEPTEMBER) >= 0 && SystemDate.now().getMonth().compareTo(Month.FEBRUARY) <= 0) {
             gradeDay = years.getCurrentAcadYear().getGradeDateOdd();
-        }
-        else {
+        } else {
             gradeDay = years.getCurrentAcadYear().getGradeDateEven();
         }
 

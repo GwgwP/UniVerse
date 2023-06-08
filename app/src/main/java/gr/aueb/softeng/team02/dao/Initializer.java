@@ -115,7 +115,11 @@ public abstract class Initializer {
 
 
         // 1st semester
-        Subject su1 = new Subject( "Stauros Toumpis", 8, "", "Algebra 1");
+        Subject su1 = new Subject( "Stauros Toumpis", 8, "Advanced Mathematics", "Algebra 1");
+
+
+
+
 
         Subject su2 = new Subject( "Antonis Dimakis", 8, "Η έννοια του προγράμματος. Μεταβλητές, τύποι μεταβλητών, εκφράσεις και αριθμητικοί υπολογισμοί. Δομές ελέγχου και δομές" +
                 "επανάληψης της γλώσσας Python. Είσοδος/έξοδος δεδομένων. Εντοπισμός και άρση σφαλμάτων. Συναρτήσεις και μέθοδοι. Η έννοια" +
@@ -143,6 +147,8 @@ public abstract class Initializer {
                 ". Γραφήματα. Ισομορφισμός γραφημάτων. Μονοπάτια, κύκλοι και συνεκτικότητα. Πίνακες γραφημάτων. Κατευθυνόμενα γραφήματα. " +
                 "Δέντρα. Το πρόβλημα του βέλτιστου επικαλυπτικού δέντρου. Δέντρα με ρίζες. Ίχνη του Euler και κύκλοι του Hamilton. " +
                 "Επίπεδα γραφήματα και χρωματισμός γραφημάτων. Γραμμικές αναδρομικές σχέσεις με σταθερούς συντελεστές", "Discrete Mathematics");
+
+
         // 2nd semester
         Subject su6 = new Subject( "George Koutsikas", 8, "Introduction on object-oriented programming", "Java");
         Subject su7 = new Subject( "Despoina Sapouna", 8, "Introduction on Business Management", "Business Management");
@@ -181,6 +187,36 @@ public abstract class Initializer {
         Subject su34 = new Subject( "Ion Androutsopoulos", 8, "Introduction on interaction of human with computer", "Interaction of human with computer");
         Subject su35 = new Subject( "Eugene Foustoukou", 8, "Introduction on theory of computability and complexity", "Theory of computability and complexity");
         Subject su36 = new Subject( "Euagellia Vagena", 8, "Introduction on Elements of law and information", "Elements of law and information");
+
+
+        try {
+            su10.addPrerequisities(su1);
+            su11.addPrerequisities(su2);
+            su12.addPrerequisities(su7);
+            su12.addPrerequisities(su3);
+            su13.addPrerequisities(su8);
+            su14.addPrerequisities(su3);
+            su15.addPrerequisities(su10);
+            su15.addPrerequisities(su9);
+            su15.addPrerequisities(su6);
+            su34.addPrerequisities(su27);
+            su26.addPrerequisities(su18);
+            su29.addPrerequisities(su16);
+            su24.addPrerequisities(su19);
+            su30.addPrerequisities(su20);
+            su30.addPrerequisities(su22);
+            su31.addPrerequisities(su27);
+            su34.addPrerequisities(su11);
+            su35.addPrerequisities(su15);
+            su36.addPrerequisities(su1);
+            su36.addPrerequisities(su30);
+            su32.addPrerequisities(su7);
+            su32.addPrerequisities(su21);
+
+
+        }catch(Exception e){
+
+        }
 
         OfferedSubject o1 = new OfferedSubject(1, su1, y1);
         OfferedSubject o2 = new OfferedSubject(1, su2, y1);

@@ -1,17 +1,30 @@
 package gr.aueb.softeng.team02.view.Search.Information;
 
+import java.util.ArrayList;
+import java.util.Set;
+
 import gr.aueb.softeng.team02.dao.OfferedSubjectDAO;
 import gr.aueb.softeng.team02.model.OfferedSubject;
+import gr.aueb.softeng.team02.model.Subject;
 
 public class InformationPresenter {
 
     private OfferedSubjectDAO subjects;
     private InformationView view;
 
+    /**
+     * Constructor that initializer the DAO
+     *
+     * @param subs = OfferedSubjectDAO
+     **/
     public InformationPresenter(OfferedSubjectDAO subs) {
         this.subjects = subs;
     }
 
+    /**
+     * Initializer the view
+     * @param view : InformationView
+     **/
     public void setView(InformationView view) {
         this.view = view;
     }
@@ -22,9 +35,16 @@ public class InformationPresenter {
      * @param title : the selected offered subject
      **/
     public void setInfo(String title) {
-
+        ArrayList<String> prerequisites = new ArrayList<>();
         OfferedSubject sub = subjects.findByTitle(title);
-        view.showInfo(sub.getTitle(), sub.getProf(), sub.getEcts(), sub.getSubject().getId(), sub.getDesc());
+        Set<Subject> getprer = sub.getSubject().getPrerequisities();
+
+        for (Subject name : getprer) {
+            prerequisites.add(name.getTitle());
+
+        }
+
+        view.showInfo(sub.getTitle(), sub.getProf(), sub.getEcts(), sub.getSubject().getId(), sub.getDesc(), prerequisites);
 
 
     }

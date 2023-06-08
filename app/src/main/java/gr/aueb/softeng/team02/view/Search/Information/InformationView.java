@@ -1,6 +1,8 @@
 package gr.aueb.softeng.team02.view.Search.Information;
 
 
+import java.util.ArrayList;
+
 public interface InformationView {
 
     /**
@@ -11,6 +13,7 @@ public interface InformationView {
      * @param id        : the id of the offered subject
      * @param professor : the professor of the offered subject
      * @param title     : the title of the offered subject
+     * @param prerequisites : the prerequisites of the offered subject
      **/
-    void showInfo(String title, String professor, int ects, int id, String descrip);
+    void showInfo(String title, String professor, int ects, int id, String descrip, ArrayList<String> prerequisites);
 }

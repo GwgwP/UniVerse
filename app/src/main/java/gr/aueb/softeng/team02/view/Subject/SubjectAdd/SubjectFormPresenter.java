@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.widget.Toast;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import gr.aueb.softeng.team02.dao.SubjectDAO;
@@ -14,10 +15,20 @@ public class SubjectFormPresenter {
     private SubjectFormView view;
     private SubjectDAO sub;
 
+    /**
+     * Constructor that initializes the dao
+     *
+     * @param sub : SubjectDAO
+     **/
     public SubjectFormPresenter(SubjectDAO sub) {
         this.sub = sub;
     }
 
+    /**
+     * Initializes the View
+     *
+     * @param view : SubjectView
+     **/
     public void setView(SubjectFormView view) {
         this.view = view;
     }
@@ -27,7 +38,7 @@ public class SubjectFormPresenter {
      * there already is the same subject in the database
      **/
     public void valid() {
-
+        ArrayList<String> titles = view.getPrereq();
         String title = view.getSubTitle();
         if (allWritten()) { // we first check if all the attributes are written
             if ((isNumber(view.getEcts()))) { // IF THE USER  WROTE NUMBERS
@@ -37,6 +48,15 @@ public class SubjectFormPresenter {
                 } else {
                     int ects = Integer.parseInt(view.getEcts());
                     Subject a = new Subject(view.getProf(), ects, view.getDesc(), title);
+                    for (String k : titles) { // we save every prerequisite
+                        Subject ad = sub.findSubject(k.trim());
+                        try {
+                            a.addPrerequisities(ad);
+                        } catch (Exception e) {
+                            return;
+                        }
+                    }
+
                     this.sub.save(a);
                     view.messageSave();
                     goBack();
@@ -109,9 +129,9 @@ public class SubjectFormPresenter {
         String prof = view.getProf();
         String desc = view.getDesc();
         String ects = view.getEcts();
+        ArrayList<String> titles = view.getPrereq();
 
-
-        if (title.equals("") || prof.equals("") || desc.equals("") || ects.equals("")) {
+        if (title.equals("") || prof.equals("") || desc.equals("") || ects.equals("") || (titles.size() == 0)) {
             return false;
         }
         return true;
@@ -149,5 +169,29 @@ public class SubjectFormPresenter {
         return k.matches("\\d+");
 
     }
+
+    /**
+     * Creates a list with all the names of the subjects and
+     *
+     * @return it
+     **/
+    public ArrayList<String> getSubjects() {
+        ArrayList<String> subs = new ArrayList<>();
+
+        for (Subject k : sub.findAll()) {
+            subs.add(k.getTitle());
+        }
+
+        return subs;
+
+    }
+
+    /**
+     * Makes the form that show the available subjects
+     **/
+    public void makeForm() {
+        view.setForm(getSubjects());
+    }
+
 
 }

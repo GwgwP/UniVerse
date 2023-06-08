@@ -22,9 +22,9 @@ public class SubjectDAOMemory implements SubjectDAO {
 
     @Override
     public void save(Subject subject) {
-        if (!entities.contains(subject)) {
+        if (!this.entities.contains(subject)) {
             subject.setId(getNewId());
-            entities.add(subject);
+            this.entities.add(subject);
         }
     }
 

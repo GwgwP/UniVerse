@@ -44,4 +44,16 @@
     <string name="subject_s_prof">Subject\'s Prof:</string>
     <string name="subject_s_description">Subject\'s Description:</string>
     <string name="save">SAVE</string>
+    <string name="select_academic_year">Select Academic year:</string>
+    <string name="academic_year_management">Academic Year Management</string>
+    <string name="add_year">Add Year</string>
+    <string name="select_semester">Select Semester:</string>
+    <string name="insert_ects">Insert ECTS:</string>
+    <string name="enter_ects_here">enter ects here</string>
+    <string name="insert_start_date">Insert start date:</string>
+    <string name="_202x_xx_xx">202X-XX-XX</string>
+    <string name="insert_end_date">Insert end date:</string>
+    <string name="_202x_xx_xx__">202X-XX-XX</string>
+    <string name="check">CHECK</string>
+    <string name="submit">Submit</string>
 </resources>
