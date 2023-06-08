@@ -12,7 +12,7 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".view.AcademicYear.Registration.academic_year_registration"
+            android:name=".view.AcademicYear.Registration.AcademicYearRegistration"
             android:exported="false" />
         <activity
             android:name=".view.OfferedSubject.OfferedSubjectRegistration.OfferedSubjectRegistrationActivity"
