@@ -500,4 +500,11 @@ public abstract class Initializer {
 
 
     }
+
+    public void uploadGrades() {
+        getGradeDAO().save(new Grade(getStudentDAO().findStudentById(3200199), getOfferedSubjectDAO().findByTitle("Data Bases"), 10));
+        getGradeDAO().save(new Grade(getStudentDAO().findStudentById(3200199), getOfferedSubjectDAO().findByTitle("Operating Systems"), 10));
+        getGradeDAO().save(new Grade(getStudentDAO().findStudentById(3200199), getOfferedSubjectDAO().findByTitle("Algorithms"), 9));
+        getGradeDAO().save(new Grade(getStudentDAO().findStudentById(3200199), getOfferedSubjectDAO().findByTitle("Automata Systems"), 10));
+    }
 }

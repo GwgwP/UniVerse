@@ -65,7 +65,7 @@ public class OfferedSubjectPresenter {
     }
 
     /**
-     *
+     * Check for the selected year and semester if it does exist at least one offered subject
      */
     public void checkSelected() {
         String year = view.getYear();
@@ -78,7 +78,6 @@ public class OfferedSubjectPresenter {
             view.confirmBox("Notification", "You have already registered offered subjects for this year.Do you want to keep them ?");
         else
             view.goToRegistration(year, semester);
-
     }
 
     /**
