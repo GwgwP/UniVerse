@@ -28,9 +28,9 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
     Switch role;
     ImageView firstX;
     ImageView secondX;
-
-    private UserLoginPresenter presenter;
     private Initializer init;
+    private UserLoginPresenter presenter;
+
 
     /**
      * Initializers the data
@@ -54,12 +54,6 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
 
         // Define initializer & prepareData & presenter
         init = new MemoryInitializer();
-        try {
-            init.prepareData();
-        } catch (AcademicYearException e) {
-            Log.e("DEBUGGER", "Fault");
-            throw new RuntimeException(e);
-        }
         presenter = new UserLoginPresenter(this, init.getStudentDAO(), init.getSecretaryDAO());
     }
 
