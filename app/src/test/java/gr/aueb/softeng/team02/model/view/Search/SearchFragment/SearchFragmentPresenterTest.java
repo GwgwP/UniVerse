@@ -4,13 +4,11 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.List;
-
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 import gr.aueb.softeng.team02.model.AcademicYearException;
 import gr.aueb.softeng.team02.view.Subject.SubjectFragment.SubjectPresenter;
-import gr.aueb.softeng.team02.view.Subject.SubjectFragment.SubjectView;
+
 
 public class SearchFragmentPresenterTest {
 
