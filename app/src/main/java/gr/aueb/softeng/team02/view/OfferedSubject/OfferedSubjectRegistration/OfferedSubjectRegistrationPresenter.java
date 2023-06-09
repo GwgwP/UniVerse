@@ -65,7 +65,8 @@ public class OfferedSubjectRegistrationPresenter {
         if (sub != null) {
             view.alertBox("Warning", "This subject is already on another semester! Do you want to move it to the " + semester + " semester ?");
             this.selectedSubject = sub;
-        }
+        } else
+            view.setCheckBox(true);
     }
 
     /**

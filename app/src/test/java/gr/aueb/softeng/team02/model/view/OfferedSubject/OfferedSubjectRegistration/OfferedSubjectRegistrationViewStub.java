@@ -6,8 +6,9 @@ import gr.aueb.softeng.team02.view.OfferedSubject.OfferedSubjectForm.OfferedSubj
 import gr.aueb.softeng.team02.view.OfferedSubject.OfferedSubjectRegistration.OfferedSubjectRegistrationView;
 
 public class OfferedSubjectRegistrationViewStub implements OfferedSubjectRegistrationView {
-    String year, semester, alertTitle, alertMessage, moveReminder;
-    ArrayList<String> titles;
+    String year, semester, alertTitle, alertMessage, moveReminder, errorTitle, errorMsg;
+    ArrayList<String> titles = new ArrayList<>();
+    ArrayList<String> selectedSubjects;
     boolean checker = false;
 
     public OfferedSubjectRegistrationViewStub() {
@@ -16,7 +17,22 @@ public class OfferedSubjectRegistrationViewStub implements OfferedSubjectRegistr
         this.alertTitle = "";
         this.alertMessage = "";
         this.moveReminder = "";
+        this.errorTitle = "";
+        this.errorMsg = "";
         this.titles = new ArrayList<>();
+        this.selectedSubjects = new ArrayList<>();
+    }
+
+    public void addTitles(String title) {
+        this.selectedSubjects.add(title);
+    }
+
+    public String getErrorMsg() {
+        return this.errorMsg;
+    }
+
+    public String getErrorTitle() {
+        return this.errorTitle;
     }
 
     public boolean getChecker() {
@@ -65,7 +81,8 @@ public class OfferedSubjectRegistrationViewStub implements OfferedSubjectRegistr
 
     @Override
     public void errorBox(String title, String msg) {
-
+        this.errorTitle = title;
+        this.errorMsg = msg;
     }
 
     @Override
@@ -75,7 +92,7 @@ public class OfferedSubjectRegistrationViewStub implements OfferedSubjectRegistr
 
     @Override
     public ArrayList<String> submitClicked() {
-        return null;
+        return selectedSubjects;
     }
 
     @Override
