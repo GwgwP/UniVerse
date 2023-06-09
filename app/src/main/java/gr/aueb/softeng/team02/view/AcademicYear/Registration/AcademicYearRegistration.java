@@ -1,6 +1,7 @@
 package gr.aueb.softeng.team02.view.AcademicYear.Registration;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -144,4 +145,22 @@ public class AcademicYearRegistration extends Activity implements AcademicYearRe
     public void messageDIDNTSave(){
         Toast.makeText(getApplicationContext(),"The academic year is already stored.",Toast.LENGTH_SHORT).show();
     }
+
+    /**
+     * Shows an alert message to user.
+     * @param title the title of the message
+     * @param message the message being shown
+     */
+    @Override
+    public void alertUser(String title, String message)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle(title)
+                .setMessage(message)
+                .show();
+
+    }
+
+
+
 }

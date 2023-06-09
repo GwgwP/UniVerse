@@ -93,6 +93,9 @@ public class AcademicYearFragmentPresenter {
             if (this.c.checkValidity()) {
                 view.setVisibleSubmit();
             }
+            else {
+                view.messageNotValidCirc();
+            }
         } else {
             if (!validECTS) {
                 view.setVisibleFirstX();
