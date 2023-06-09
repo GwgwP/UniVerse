@@ -72,11 +72,11 @@ public class AcademicYearRegPresenter {
                     this.ac_years.save(ac);
                     view.messageSave();
                 }
-
             }
-            if(!hasFormatOfAcademicYear(view.getAcademicYear()))
+            if(!hasFormatOfAcademicYear(view.getAcademicYear())) {
+                view.alertUser("Not valid year", "The year you are trying to submit does not have the right format");
                 view.setVisibleFirstX();
-
+            }
         } else {
             if (view.getAcademicYear().equals("") || !hasFormatOfDate(view.getStartDate()))
                 view.setVisibleFirstX();

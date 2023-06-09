@@ -103,4 +103,11 @@ public interface AcademicYearFragmentView {
      */
     void setVisibleThirdX();
 
+    /**
+     * A Toast to inform user that the circumscription
+     * they are trying to submit is not valid
+     *
+     */
+    void messageNotValidCirc();
+
 }

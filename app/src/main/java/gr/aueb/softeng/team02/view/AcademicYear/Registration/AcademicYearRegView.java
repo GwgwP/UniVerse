@@ -48,6 +48,12 @@ public interface AcademicYearRegView {
      * visible
      */
     void setVisibleThirdX();
+    /**
+     * Shows an alert message to user.
+     * @param title the title of the message
+     * @param message the message being shown
+     */
+    void alertUser(String title, String message);
 
 
 }
