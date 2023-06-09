@@ -18,7 +18,9 @@ public class SubjectAddViewStub implements SubjectFormView {
     boolean exEcts;
     boolean exDesc;
 
-    static int message;
+    static int message; // 1 -> printE1
+                        // 2-> messageSaver
+                        // 3 -> invalidInput
 
     @Override
     public String getSubTitle() {
@@ -62,7 +64,7 @@ public class SubjectAddViewStub implements SubjectFormView {
 
     @Override
     public void printEr1() {
-
+        SubjectAddViewStub.message=1;
     }
 
     @Override
@@ -87,12 +89,23 @@ public class SubjectAddViewStub implements SubjectFormView {
 
     @Override
     public void sameSubject() {
+        if(answer==0){
+            setMessage();
+        }
+        if(answer==1){
+            messageSave();
+        }
 
     }
+    int answer;
+    public void setAnswser(int k){
+        this.answer=k;
+    }
+
 
     @Override
     public void messageSave() {
-
+        SubjectAddViewStub.message=2;
     }
 
     @Override
@@ -102,7 +115,7 @@ public class SubjectAddViewStub implements SubjectFormView {
 
     @Override
     public void invalidInput() {
-
+        SubjectAddViewStub.message=3;
     }
 
     @Override
@@ -134,7 +147,9 @@ public class SubjectAddViewStub implements SubjectFormView {
         this.ects = ects;
         this.desc = desc;
     }
-
+    public void setPrerequisites(ArrayList<String> names ){
+        this.prerequisites=names;
+    }
     public boolean getExTitle() {
         return this.exTitle;
     }
