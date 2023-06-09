@@ -1,8 +1,22 @@
 package gr.aueb.softeng.team02.model;
 
 public class Secretary extends User {
+    /**
+     * Constructor for the secretary
+     *
+     * @param id       id of the secretary as an integer
+     * @param username username of the secretary as a string
+     * @param password password of the secretary as a string
+     * @param name     name of the secretary as a string
+     * @param surname  surname of the secretary as a string
+     */
     public Secretary(int id, String username, String password, String name, String surname) {
         super(id, username, password, name, surname);
     }
-    public Secretary(){}
+
+    /**
+     * Default constructor
+     */
+    public Secretary() {
+    }
 }
