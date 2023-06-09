@@ -78,6 +78,7 @@ public abstract class Initializer {
      * @throws AcademicYearException
      */
     public void prepareData() throws AcademicYearException {
+        eraseData();
         Student s1 = new Student(3200125, "p3200125", "Irma", "Lydia-Christina", "Wallace", 6);
         Student s2 = new Student(3200155, "p3200155", "Well", "Georgia", "Petsa", 6);
         Student s3 = new Student(3200199, "p3200199", "Link", "Panagiotis", "Triantafillidis", 6);

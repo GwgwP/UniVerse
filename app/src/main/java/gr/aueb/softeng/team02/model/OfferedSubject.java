@@ -108,10 +108,7 @@ public class OfferedSubject {
      * @param semester the semester as a string
      * @throws Exception in case the semester is bigger than 8 or smaller than 1
      */
-    public void setSemester(int semester) throws Exception {
-        if (semester > 8 || semester < 1) {
-            throw new Exception("Invalid value of semester");
-        }
+    public void setSemester(int semester) {
         this.semester = semester;
     }
 

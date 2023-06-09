@@ -8,11 +8,15 @@ import android.view.View;
 import android.widget.ImageView;
 
 import gr.aueb.softeng.team02.R;
+import gr.aueb.softeng.team02.dao.Initializer;
+import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
+import gr.aueb.softeng.team02.model.AcademicYearException;
 import gr.aueb.softeng.team02.view.Authentication.UserLoginActivity;
 
 public class LogoActivity extends Activity implements LogoActivityView {
     ImageView pic;
     LogoActivityPresenter presenter;
+    private Initializer init;
 
     /**
      * Initializes the classes attributes
@@ -23,6 +27,13 @@ public class LogoActivity extends Activity implements LogoActivityView {
         setContentView(R.layout.activity_logo);
         pic = (ImageView) findViewById(R.id.imageLogo);
         presenter = new LogoActivityPresenter(this);
+        init = new MemoryInitializer();
+        try {
+            init.prepareData();
+        } catch (AcademicYearException e) {
+            Log.e("DEBUGGER", "Fault");
+            throw new RuntimeException(e);
+        }
     }
 
     /**

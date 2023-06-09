@@ -15,7 +15,7 @@ public interface OfferedSubjectRegistrationView {
      * Sets the checkbox 'checked' or 'unchecked', depending if the secretary
      * wants to move the selected offered subject to another semester
      *
-     * @param flag tru or false
+     * @param flag true or false
      */
     public void setCheckBox(boolean flag);
 
