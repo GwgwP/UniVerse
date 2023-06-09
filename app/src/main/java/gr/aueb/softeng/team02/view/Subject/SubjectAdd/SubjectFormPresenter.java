@@ -48,12 +48,15 @@ public class SubjectFormPresenter {
                 } else {
                     int ects = Integer.parseInt(view.getEcts());
                     Subject a = new Subject(view.getProf(), ects, view.getDesc(), title);
-                    for (String k : titles) { // we save every prerequisite
-                        Subject ad = sub.findSubject(k.trim());
-                        try {
-                            a.addPrerequisities(ad);
-                        } catch (Exception e) {
-                            return;
+                    if (!(titles == null))
+                    {
+                        for (String k : titles) { // we save every prerequisite
+                            Subject ad = sub.findSubject(k.trim());
+                            try {
+                                a.addPrerequisities(ad);
+                            } catch (Exception e) {
+                                return;
+                            }
                         }
                     }
 
@@ -131,9 +134,10 @@ public class SubjectFormPresenter {
         String ects = view.getEcts();
         ArrayList<String> titles = view.getPrereq();
 
-        if (title.equals("") || prof.equals("") || desc.equals("") || ects.equals("") || (titles.size() == 0)) {
+        if (title.equals("") || prof.equals("") || desc.equals("") || ects.equals("")) {
             return false;
         }
+
         return true;
     }
 

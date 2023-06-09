@@ -93,10 +93,16 @@ public class SubjectAddPresenterTest {
     @Test
     public void testGetSubjects() {
         ArrayList<String> test = presenter.getSubjects();
-        Assert.assertEquals(36,test.size());
+        Assert.assertEquals(37,test.size());
 
     }
 
+    @Test
+    public void testMakeForm(){
+        presenter.makeForm();
+        Assert.assertEquals(37,view.getSizePrerequisties());
+    }
+    @Test
     public void testValid(){
 
 
@@ -111,19 +117,21 @@ public class SubjectAddPresenterTest {
         view.setAnswser(1); // we want to save the new
         presenter.valid();
 
-        Assert.assertEquals(1,view.getMessage());
+        Assert.assertEquals(2,view.getMessage());
+
 
         // Version where everything is ok , but we already
         // have an old version and we want to keep the old
         view.setSubject("Java", "How to love cats", "9", "Lydia Wallace");
-        presenter.setView(view);
+
         view.setAnswser(0);
+        presenter.setView(view);
         presenter.valid();
 
         Assert.assertEquals(0,view.getMessage());
 
         // Version where not all the boxes are written(we forgot the prerequisites)
-        view.setSubject("Java", "How to love cats", "9", "Lydia Wallace");
+        view.setSubject("Java", "", "9", "Lydia Wallace");
         presenter.setView(view);
 
         presenter.valid();
@@ -136,9 +144,16 @@ public class SubjectAddPresenterTest {
         presenter.valid();
         Assert.assertEquals(3,view.getMessage());
 
-    }
+        //Version where we add a new subject
+        view.setSubject("Cats", "How to love cats", "9", "Lydia Wallace");
+        presenter.setView(view);
 
-    private void testErrorNotWritten(){
+        presenter.valid();
+        Assert.assertEquals(1,view.getBackAtrib());
+        Assert.assertEquals(2,view.getMessage());
+    }
+    @Test
+    public void testErrorNotWritten(){
 
 
         // The title box is not written
@@ -152,39 +167,45 @@ public class SubjectAddPresenterTest {
         Assert.assertEquals(false,view.getExDesc());
 
 
+
          // The desc box is not written
-        view.setSubject("Mini", "", "9", "Lydia Wallace");
-        presenter.setView(view);
+        SubjectAddViewStub view2 = new SubjectAddViewStub();
+        view2.setSubject("Mini", "", "9", "Lydia Wallace");
+        presenter.setView(view2);
 
         presenter.valid();
-        Assert.assertEquals(true,view.getDesc());
-        Assert.assertEquals(false,view.getExTitle());
-        Assert.assertEquals(false,view.getExEcts());
-        Assert.assertEquals(false,view.getExProf());
+        Assert.assertEquals(true,view2.getExDesc());
+        Assert.assertEquals(false,view2.getExTitle());
+        Assert.assertEquals(false,view2.getExEcts());
+        Assert.assertEquals(false,view2.getExProf());
 
          // The ects box is not written
-        view.setSubject("Mini", "How to love cats", "", "Lydia Wallace");
-        presenter.setView(view);
+        SubjectAddViewStub view3 = new SubjectAddViewStub();
+        view3.setSubject("Mini", "How to love cats", "", "Lydia Wallace");
+        presenter.setView(view3);
 
         presenter.valid();
-        Assert.assertEquals(true,view.getExEcts());
-        Assert.assertEquals(false,view.getExTitle());
-        Assert.assertEquals(false,view.getExProf());
-        Assert.assertEquals(false,view.getExDesc());
+        Assert.assertEquals(true,view3.getExEcts());
+        Assert.assertEquals(false,view3.getExTitle());
+        Assert.assertEquals(false,view3.getExProf());
+        Assert.assertEquals(false,view3.getExDesc());
 
         // The professor box is not written
-        view.setSubject("Mini", "How to love cats", "9", "");
-        presenter.setView(view);
+        SubjectAddViewStub view4 = new SubjectAddViewStub();
+        view4.setSubject("Mini", "How to love cats", "9", "");
+        presenter.setView(view4);
 
         presenter.valid();
-        Assert.assertEquals(true,view.getExProf());
-        Assert.assertEquals(false,view.getExDesc());
-        Assert.assertEquals(false,view.getExEcts());
-        Assert.assertEquals(false,view.getExTitle());
+        Assert.assertEquals(true,view4.getExProf());
+        Assert.assertEquals(false,view4.getExDesc());
+        Assert.assertEquals(false,view4.getExEcts());
+        Assert.assertEquals(false,view4.getExTitle());
 
 
 
 
     }
+
+
 
 }

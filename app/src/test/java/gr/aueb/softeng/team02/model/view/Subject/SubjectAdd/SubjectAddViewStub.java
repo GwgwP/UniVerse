@@ -69,7 +69,7 @@ public class SubjectAddViewStub implements SubjectFormView {
 
     @Override
     public void invTitle() {
-
+        this.exTitle=false;
     }
 
     @Override
@@ -90,7 +90,7 @@ public class SubjectAddViewStub implements SubjectFormView {
     @Override
     public void sameSubject() {
         if(answer==0){
-            setMessage();
+            SubjectAddViewStub.message=0;
         }
         if(answer==1){
             messageSave();
@@ -107,10 +107,14 @@ public class SubjectAddViewStub implements SubjectFormView {
     public void messageSave() {
         SubjectAddViewStub.message=2;
     }
+static int back;
 
+    public int getBackAtrib(){
+        return back ;
+    }
     @Override
     public void getBack() {
-
+        SubjectAddViewStub.back=1;
     }
 
     @Override
@@ -131,10 +135,6 @@ public class SubjectAddViewStub implements SubjectFormView {
 
     public int getSizePrerequisties() {
         return prerequisites.size();
-    }
-
-    public void setMessage() {
-        SubjectAddViewStub.message = 0;
     }
 
     public int getMessage() {
