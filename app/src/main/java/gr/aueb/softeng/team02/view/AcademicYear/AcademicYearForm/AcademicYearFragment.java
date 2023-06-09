@@ -260,4 +260,14 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
         thridX.setVisibility(View.VISIBLE);
     }
 
+    /**
+     * A Toast to inform user that the circumscription
+     * they are trying to submit is not valid
+     *
+     */
+    @Override
+    public void messageNotValidCirc() {
+        Toast.makeText(requireContext(), "The circumscrption is not valid", Toast.LENGTH_SHORT).show();
+    }
+
 }

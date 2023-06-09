@@ -51,25 +51,41 @@ public class Circumscription {
         this.semester = semester;
     }
 
+    /**
+     * Get the semester of the circumscription
+     * @return the semester as an integer
+     */
     public int getSemester() {
         return this.semester;
     }
 
+    /**
+     * Get the start date of the submission upload
+     * @return a local date object
+     */
     public LocalDate getStart() {
         return start;
     }
 
+    /**
+     * Set the start date of the submission upload
+     * @param start a local date object
+     */
     public void setStart(LocalDate start) {
         this.start = start;
     }
 
+    /**
+     * Get the end date of the submission upload
+     * @return a local date object
+     */
     public LocalDate getEnd() {
         return end;
     }
 
     /**
-     *
-     * @param end
+     * Set the end date for the submission upload
+     * @param end a local date object
      */
     public void setEnd(LocalDate end) {
         this.end = end;
