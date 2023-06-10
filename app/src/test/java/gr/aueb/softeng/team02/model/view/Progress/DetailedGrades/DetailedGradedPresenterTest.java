@@ -13,9 +13,7 @@ import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 import gr.aueb.softeng.team02.model.AcademicYearException;
 import gr.aueb.softeng.team02.model.Grade;
-import gr.aueb.softeng.team02.model.view.Progress.ProgressForm.ProgressFormViewStub;
 import gr.aueb.softeng.team02.view.Progress.DetailedGrades.DetailedGradesPresenter;
-import gr.aueb.softeng.team02.view.Progress.ProgressForm.ProgressPresenter;
 
 public class DetailedGradedPresenterTest {
     private Initializer init;
