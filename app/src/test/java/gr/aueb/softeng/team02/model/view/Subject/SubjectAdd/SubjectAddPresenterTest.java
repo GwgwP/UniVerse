@@ -87,14 +87,18 @@ public class SubjectAddPresenterTest {
 
     @Test
     public void testGetSubjects() {
+        view.setSubject("Java", "How to love cats", "9", "Lydia Wallace");
+        presenter.setView(view);
         ArrayList<String> test = presenter.getSubjects();
-        Assert.assertEquals(37, test.size());
+        Assert.assertEquals(36, test.size());
     }
 
     @Test
     public void testMakeForm() {
+        view.setSubject("Java", "How to love cats", "9", "Lydia Wallace");
+        presenter.setView(view);
         presenter.makeForm();
-        Assert.assertEquals(37, view.getSizePrerequisties());
+        Assert.assertEquals(36, view.getSizePrerequisties());
     }
 
     @Test

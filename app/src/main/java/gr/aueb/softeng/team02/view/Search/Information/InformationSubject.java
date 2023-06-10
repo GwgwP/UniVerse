@@ -66,6 +66,7 @@ public class InformationSubject extends AppCompatActivity implements Information
      * @param id        : the id of the offered subject
      * @param professor : the professor of the offered subject
      * @param title     : the title of the offered subject
+     * @param prerequisites : the prerequisites of the offered subject
      **/
     @Override
     public void showInfo(String title, String professor, int ects, int id, String descrip,ArrayList<String> prerequisites) {
