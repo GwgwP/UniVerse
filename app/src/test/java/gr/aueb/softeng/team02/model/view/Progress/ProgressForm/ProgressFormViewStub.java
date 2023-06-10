@@ -4,10 +4,12 @@ import java.util.HashMap;
 
 import gr.aueb.softeng.team02.view.Progress.ProgressForm.ProgressView;
 
-public class ProgressFormViewTest implements ProgressView {
+public class ProgressFormViewStub implements ProgressView {
 
     private double average, av1, av2, av3, av4, av5, av6, av7, av8;
 
+    private int number_of_passed_subjects, ects, student_id, times_shown_avgs, shown_passed_subjs, shown_avg;
+    HashMap<Integer, Double> av_grades;
     public double getAv1() {
         return av1;
     }
@@ -104,8 +106,6 @@ public class ProgressFormViewTest implements ProgressView {
         this.av_grades = av_grades;
     }
 
-    private int number_of_passed_subjects, ects, student_id;
-    HashMap<Integer, Double> av_grades;
 
     public double getAverage() {
         return average;
@@ -118,11 +118,18 @@ public class ProgressFormViewTest implements ProgressView {
 
     @Override
     public void showAverage(double avg) {
-        this.average = avg;
+       // this.average = avg;
+        this.shown_avg++;
     }
 
+
+    public int getSizeOfAveragesPerSem()
+    {
+        return av_grades.size();
+    }
     @Override
     public void showAveragePerSemester(HashMap<Integer, Double> av_grades) {
+        this.times_shown_avgs++;
         if (av_grades.containsKey(1)) {
             this.av1 = av_grades.get(1);
         }
@@ -152,7 +159,8 @@ public class ProgressFormViewTest implements ProgressView {
 
     @Override
     public void showNumPassed(int num) {
-        this.number_of_passed_subjects = num;
+        this.shown_passed_subjs ++;
+        //this.number_of_passed_subjects = num;
     }
 
     @Override
@@ -163,5 +171,29 @@ public class ProgressFormViewTest implements ProgressView {
     @Override
     public void showECTS(int num) {
         this.ects = num;
+    }
+
+    public int getTimes_shown_avgs() {
+        return times_shown_avgs;
+    }
+
+    public void setTimes_shown_avgs(int times_shown_avgs) {
+        this.times_shown_avgs = times_shown_avgs;
+    }
+
+    public int getShown_passed_subjs() {
+        return shown_passed_subjs;
+    }
+
+    public void setShown_passed_subjs(int shown_passed_subjs) {
+        this.shown_passed_subjs = shown_passed_subjs;
+    }
+
+    public int getShown_avg() {
+        return shown_avg;
+    }
+
+    public void setShown_avg(int shown_avg) {
+        this.shown_avg = shown_avg;
     }
 }

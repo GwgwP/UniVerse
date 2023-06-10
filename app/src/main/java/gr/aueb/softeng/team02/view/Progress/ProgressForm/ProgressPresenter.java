@@ -9,7 +9,7 @@ import gr.aueb.softeng.team02.model.Grade;
 
 
 public class ProgressPresenter {
-    private ProgressFragment view;
+    private ProgressView view;
     private GradeDAO grades;
 
 
@@ -23,7 +23,7 @@ public class ProgressPresenter {
      * setter for the view
      * @param v Progress Fragment view
      */
-    public void setView(ProgressFragment v)
+    public void setView(ProgressView v)
     {
         this.view = v;
     }
@@ -32,7 +32,7 @@ public class ProgressPresenter {
      * getter for the view instance
      * @return returns the view
      */
-    public ProgressFragment getView()
+    public ProgressView getView()
     {
         return this.view;
     }
