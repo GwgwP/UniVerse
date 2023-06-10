@@ -19,4 +19,27 @@ public class Secretary extends User {
      */
     public Secretary() {
     }
+
+    @Override
+    public boolean equals(Object other) {
+        if (other == null) {
+            return false;
+        }
+
+        if (this == other) {
+            return true;
+        }
+
+        if (!(other instanceof Secretary)) {
+            return false;
+        }
+
+        Secretary newOne = (Secretary) other;
+        return this.getId() == newOne.getId();
+    }
+
+    @Override
+    public int hashCode() {
+        return this.getId();
+    }
 }

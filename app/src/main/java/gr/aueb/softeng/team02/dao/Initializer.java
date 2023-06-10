@@ -4,6 +4,7 @@ import android.util.Log;
 
 import java.sql.Date;
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 import gr.aueb.softeng.team02.memorydao.SecretaryDAOMemory;
 import gr.aueb.softeng.team02.memorydao.StudentDAOMemory;
@@ -515,10 +516,24 @@ public abstract class Initializer {
 
     }
 
-    public void uploadGrades() {
-        getGradeDAO().save(new Grade(getStudentDAO().findStudentById(3200199), getOfferedSubjectDAO().findByTitle("Data Bases"), 10));
-        getGradeDAO().save(new Grade(getStudentDAO().findStudentById(3200199), getOfferedSubjectDAO().findByTitle("Operating Systems"), 10));
-        getGradeDAO().save(new Grade(getStudentDAO().findStudentById(3200199), getOfferedSubjectDAO().findByTitle("Algorithms"), 9));
-        getGradeDAO().save(new Grade(getStudentDAO().findStudentById(3200199), getOfferedSubjectDAO().findByTitle("Automata Systems"), 10));
+    public ArrayList<Grade> uploadGrades() {
+        ArrayList<Grade> grades = new ArrayList<>();
+        grades.add(new Grade(getStudentDAO().findStudentById(3200199), getOfferedSubjectDAO().findByTitle("Data Bases"), 10));
+        grades.add(new Grade(getStudentDAO().findStudentById(3200199), getOfferedSubjectDAO().findByTitle("Operating Systems"), 10));
+        grades.add(new Grade(getStudentDAO().findStudentById(3200199), getOfferedSubjectDAO().findByTitle("Algorithms"), 9));
+        grades.add(new Grade(getStudentDAO().findStudentById(3200199), getOfferedSubjectDAO().findByTitle("Automata Systems"), 10));
+
+        grades.add(new Grade(getStudentDAO().findStudentById(3200125), getOfferedSubjectDAO().findByTitle("Data Bases"), 10));
+        grades.add(new Grade(getStudentDAO().findStudentById(3200125), getOfferedSubjectDAO().findByTitle("Operating Systems"), 10));
+        grades.add(new Grade(getStudentDAO().findStudentById(3200125), getOfferedSubjectDAO().findByTitle("Algorithms"), 9));
+        grades.add(new Grade(getStudentDAO().findStudentById(3200125), getOfferedSubjectDAO().findByTitle("Automata Systems"), 10));
+
+        grades.add(new Grade(getStudentDAO().findStudentById(3200125), getOfferedSubjectDAO().findByTitle("Java"), 8));
+        grades.add(new Grade(getStudentDAO().findStudentById(3200125), getOfferedSubjectDAO().findByTitle("Design and analysis of digital systems"), 8));
+        grades.add(new Grade(getStudentDAO().findStudentById(3200125), getOfferedSubjectDAO().findByTitle("Business Management"), 8));
+        grades.add(new Grade(getStudentDAO().findStudentById(3200125), getOfferedSubjectDAO().findByTitle("Linear Algebra"), 8));
+        grades.add(new Grade(getStudentDAO().findStudentById(3200125), getOfferedSubjectDAO().findByTitle("Possibilities"), 8));
+
+        return grades;
     }
 }

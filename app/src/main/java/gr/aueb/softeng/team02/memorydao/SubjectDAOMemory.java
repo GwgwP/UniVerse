@@ -42,9 +42,9 @@ public class SubjectDAOMemory implements SubjectDAO {
      */
     @Override
     public void save(Subject subject) {
-        if (!this.entities.contains(subject)) {
+        if (!entities.contains(subject)) {
             subject.setId(getNewId());
-            this.entities.add(subject);
+            entities.add(subject);
         }
     }
 
@@ -57,16 +57,6 @@ public class SubjectDAOMemory implements SubjectDAO {
     public void delete(Subject subject) {
         if (entities.contains(subject))
             entities.remove(subject);
-    }
-
-    /**
-     * Get the next id as an integer for the new subject
-     *
-     * @return a new id
-     */
-    @Override
-    public int nextId() {
-        return (entities.size() > 0 ? entities.get(entities.size() - 1).getId() + 1 : 1);
     }
 
     /**
@@ -91,6 +81,6 @@ public class SubjectDAOMemory implements SubjectDAO {
      */
     @Override
     public int getNewId() {
-        return id++;
+        return ++id;
     }
 }

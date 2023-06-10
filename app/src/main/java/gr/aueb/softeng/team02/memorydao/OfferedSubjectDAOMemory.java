@@ -31,8 +31,7 @@ public class OfferedSubjectDAOMemory implements OfferedSubjectDAO {
      */
     @Override
     public void delete(OfferedSubject entity) {
-        if (list.contains(entity))
-            list.remove(entity);
+        list.remove(entity);
     }
 
     /**

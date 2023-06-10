@@ -27,8 +27,10 @@ import gr.aueb.softeng.team02.model.AcademicYear;
 import gr.aueb.softeng.team02.model.AcademicYearException;
 import gr.aueb.softeng.team02.model.Grade;
 import gr.aueb.softeng.team02.model.OfferedSubject;
+import gr.aueb.softeng.team02.model.Secretary;
 import gr.aueb.softeng.team02.model.Student;
 import gr.aueb.softeng.team02.model.Subject;
+import gr.aueb.softeng.team02.model.Submission;
 
 public class DAOTest {
     private StudentDAO studentDAO;
@@ -184,35 +186,127 @@ public class DAOTest {
     @Test
     public void TestOfferedSubject() {
         // save
+        Subject su36 = new Subject("Euagellia Vagena", 8, "Introduction on Elements of law and information", "Elements of law and information");
+        LocalDate dateOdd2022 = LocalDate.of(2022, 2, 28);
+        LocalDate dateEven2022 = LocalDate.of(2022, 8, 1);
+        AcademicYear y1 = new AcademicYear("2021-2022", dateEven2022, dateOdd2022);
+        OfferedSubject o36 = new OfferedSubject(8, su36, y1);
+        offeredSubjectDAO.save(o36);
+        Assert.assertEquals(offeredSubjectDAO.findAll().size(), 72);
+
+        Subject su37 = new Subject("Euagellia Vagena", 8, "Introduction on Security elements", "Security Elements");
+        OfferedSubject o37 = new OfferedSubject(8, su37, y1);
+        offeredSubjectDAO.save(o37);
+        Assert.assertEquals(offeredSubjectDAO.findAll().size(), 73);
 
         // delete
+        offeredSubjectDAO.delete(o37);
+        Assert.assertEquals(offeredSubjectDAO.findAll().size(), 72);
+
+        offeredSubjectDAO.delete(o37);
+        Assert.assertEquals(offeredSubjectDAO.findAll().size(), 72);
 
         // findAll
+        Assert.assertEquals(offeredSubjectDAO.findAll().size(), 72);
+
 
         // findByModulo
+        Assert.assertEquals(offeredSubjectDAO.findByModulo(0, "2021-2022").size(), 18);
+        Assert.assertEquals(offeredSubjectDAO.findByModulo(1, "2021-2022").size(), 18);
 
         // findByYearAndName
+        Assert.assertEquals(offeredSubjectDAO.findByYearAndName("2021-2022", "Algebra 1").getTitle(), "Algebra 1");
+        Assert.assertNull(offeredSubjectDAO.findByYearAndName("2021-2022", "Security Elements"));
 
         // findAllSubjectsByYearAndBySemester
+        Assert.assertEquals(offeredSubjectDAO.findAllSubjectsByYearAndBySemester("2021-2022", 6).size(), 5);
 
         // findByYear
+        Assert.assertEquals(offeredSubjectDAO.findByYear("2021-2022").size(), 36);
 
         // findByTitle
-
+        Assert.assertEquals(offeredSubjectDAO.findByTitle("Algebra 1").getTitle(), "Algebra 1");
+        Assert.assertNull(offeredSubjectDAO.findByTitle("Security Elements"));
     }
 
     @Test
     public void TestSecretary() {
+        // save
+        Secretary r1 = new Secretary(12345, "p12345", "0000", "Eusta8ios", "Xaralampidhs");
+        secretaryDAO.save(r1);
+        Assert.assertEquals(secretaryDAO.findAll().size(), 1);
 
+        Secretary r2 = new Secretary(56789, "p56789", "1111", "Basilhs", "Donis");
+        secretaryDAO.save(r2);
+        Assert.assertEquals(secretaryDAO.findAll().size(), 2);
+
+        // delete
+        secretaryDAO.delete(r2);
+        Assert.assertEquals(secretaryDAO.findAll().size(), 1);
+
+        secretaryDAO.delete(r2);
+        Assert.assertEquals(secretaryDAO.findAll().size(), 1);
+
+        // findSecretary
+        Assert.assertEquals(secretaryDAO.findSecretary("p12345", "0000").getId(), 12345);
+        Assert.assertNull(secretaryDAO.findSecretary("nuc", "cie923"));
+
+        // findAll
+        Assert.assertEquals(1, secretaryDAO.findAll().size());
     }
 
     @Test
     public void TestSubject() {
+        // save
+        subjectDAO.save(new Subject("Euagellia Vagena", 8, "Introduction on Elements of law and information", "Elements of law and information"));
+        Assert.assertEquals(subjectDAO.findAll().size(), 36);
 
+        subjectDAO.save(new Subject("Euagellia Vagena", 8, "Introduction on elements of security", "Security Elements"));
+        Assert.assertEquals(subjectDAO.findAll().size(), 37);
+
+        // delete
+        subjectDAO.delete(new Subject("Euagellia Vagena", 8, "Introduction on elements of security", "Security Elements"));
+        Assert.assertEquals(subjectDAO.findAll().size(), 36);
+
+        subjectDAO.delete(new Subject("Euagellia Vagena", 8, "Introduction on elements of security", "Security Elements"));
+        Assert.assertEquals(subjectDAO.findAll().size(), 36);
+
+        // findAll
+        Assert.assertEquals(subjectDAO.findAll().size(), 36);
+
+        // findSubject
+        Assert.assertNull(subjectDAO.findSubject("Security Elements"));
+
+        Assert.assertEquals(subjectDAO.findSubject("Algebra 1").getProfessor(), "Stauros Toumpis");
+
+        // getNewId
+        Assert.assertTrue(subjectDAO.getNewId() > 36); // changes  also in the other tests, so we test if it greater than the original 36
+
+        // exists
+        Assert.assertTrue(subjectDAO.exists("Algebra 1"));
+        Assert.assertFalse(subjectDAO.exists("Security Elements"));
     }
 
     @Test
-    public void TestSubmission() {
+    public void TestSubmission() throws Exception {
+        Subject su36 = new Subject("Euagellia Vagena", 8, "Introduction on Elements of law and information", "Elements of law and information");
+        Student s1 = new Student(3200125, "p3200125", "Irma", "Lydia-Christina", "Wallace", 6);
+        OfferedSubject o36 = new OfferedSubject(8, su36, academicYearDAO.find("2021-2022"));
 
+        Submission sub = new Submission();
+        sub.setStudent(s1);
+        sub.setSemester(6);
+        sub.setAcademicYear(academicYearDAO.find("2021-2022"));
+        sub.addChosenSub(o36);
+
+        submissionDAO.save(sub);
+
+        Assert.assertEquals(submissionDAO.findAll().size(), 1);
+        submissionDAO.save(sub);
+        Assert.assertEquals(submissionDAO.findAll().size(), 1);
+        submissionDAO.delete(sub);
+        Assert.assertEquals(submissionDAO.findAll().size(), 0);
+        submissionDAO.delete(sub);
+        Assert.assertEquals(submissionDAO.findAll().size(), 0);
     }
 }

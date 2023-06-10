@@ -26,4 +26,13 @@ public interface SubmissionDAO {
      * @param entity the submission object
      */
     public void delete(Submission entity);
+
+    /**
+     * Get the submission based on the student id in a given year and semester
+     * @param year the year time stamp as a string
+     * @param semester the semester as an integer
+     * @param studentId the student id as an integer
+     * @return the submission or null
+     */
+    public Submission findByAcademicYearAndSemesterAndStudentId(String year, int semester, int studentId);
 }

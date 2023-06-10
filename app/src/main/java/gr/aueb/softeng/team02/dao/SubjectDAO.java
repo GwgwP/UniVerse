@@ -35,13 +35,6 @@ public interface SubjectDAO {
     public void delete(Subject subject);
 
     /**
-     * Get the next id as an integer for the new subject
-     *
-     * @return a new id
-     */
-    public int nextId();
-
-    /**
      * Looks if a subject exists based on the title
      *
      * @param title the title of the subject as a string

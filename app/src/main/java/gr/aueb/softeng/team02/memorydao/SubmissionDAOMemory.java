@@ -38,7 +38,16 @@ public class SubmissionDAOMemory implements SubmissionDAO {
      */
     @Override
     public void delete(Submission entity) {
-        if (submissions.contains(entity))
-            submissions.remove(entity);
+        submissions.remove(entity);
     }
+
+    @Override
+    public Submission findByAcademicYearAndSemesterAndStudentId(String year, int semester, int studentId) {
+        for (Submission submission : submissions) {
+            if (submission.getStudentId() == studentId && submission.getSemester() == semester && submission.getAcademicYear().getAc_year().equals(year))
+                return submission;
+        }
+        return null;
+    }
+
 }

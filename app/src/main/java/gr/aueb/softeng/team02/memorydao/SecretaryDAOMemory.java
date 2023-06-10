@@ -57,6 +57,6 @@ public class SecretaryDAOMemory implements SecretaryDAO {
     @Override
     public void delete(Secretary secretary) {
         if (entities.contains(secretary))
-            entities.add(secretary);
+            entities.remove(secretary);
     }
 }

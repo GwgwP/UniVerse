@@ -156,6 +156,10 @@ public class SubmissionFragmentPresenter {
             return;
         }
 
+        Submission check = submissions.findByAcademicYearAndSemesterAndStudentId(year, semester, studentId);
+        if (check != null)
+            submissions.delete(check);
+
         submissions.save(sub);
         view.showPassedMsg("Successfully stored");
         view.changeToHomeScreen();
