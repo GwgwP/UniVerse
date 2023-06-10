@@ -33,12 +33,13 @@ public class SubmissionFragmentPresenter {
 
     /**
      * Contructor that initializes the daos
-     * @param years AcademicYearDAO
+     *
+     * @param years           AcademicYearDAO
      * @param offeredSubjects OfferedSubjectDAO
-     * @param students StudentDAO
-     * @param grades GradeDAO
-     * @param submissions SubmissionDAO
-     * @param subjects SubjectDAO
+     * @param students        StudentDAO
+     * @param grades          GradeDAO
+     * @param submissions     SubmissionDAO
+     * @param subjects        SubjectDAO
      */
     public SubmissionFragmentPresenter(AcademicYearDAO years, OfferedSubjectDAO offeredSubjects, StudentDAO students, GradeDAO grades, SubmissionDAO submissions, SubjectDAO subjects) {
         this.students = students;
@@ -51,6 +52,7 @@ public class SubmissionFragmentPresenter {
 
     /**
      * Set student id
+     *
      * @param id the student id
      */
     public void setStudentId(int id) {
@@ -59,6 +61,7 @@ public class SubmissionFragmentPresenter {
 
     /**
      * Set the view that will help the presenter call functions in the fragment
+     *
      * @param view
      */
     public void setView(SubmissionFragmentView view) {
@@ -67,8 +70,9 @@ public class SubmissionFragmentPresenter {
 
     /**
      * Creates a collection that will present the subjects in the fragment
+     *
      * @param student_id student id
-     * @param year selected year
+     * @param year       selected year
      * @return a hash map with key the title of the subject and value the semester
      */
     public HashMap<String, Integer> getOfferedSubjects(int student_id, String year) {
@@ -115,11 +119,17 @@ public class SubmissionFragmentPresenter {
         AcademicYear academicYear = years.find(year);
         int semester = students.findSemesterOfStudent(this.studentId);
 
+        if (titles.size() == 0) {
+            view.showErrorMessage("Error", "Select at least one subject");
+            return;
+        }
+
         Circumscription c;
 
         try {
             c = academicYear.getCircumscription(semester);
         } catch (AcademicYearException e) {
+            view.showErrorMessage("Error", "No circumscription for this semester, please wait until a secretary define a new one");
             return;
         }
 
@@ -127,11 +137,6 @@ public class SubmissionFragmentPresenter {
         sub.setSemester(students.findSemesterOfStudent(this.studentId));
         sub.setAcademicYear(years.find(this.year));
         sub.setStudent(students.findStudentById(this.studentId));
-
-        if (titles.size() == 0) {
-            view.showErrorMessage("Error", "Select at least one subject");
-            return;
-        }
 
         for (String s : titles) {
             try {
@@ -152,13 +157,14 @@ public class SubmissionFragmentPresenter {
         }
 
         submissions.save(sub);
-        view.showPassedMsg("Succesfully stored");
+        view.showPassedMsg("Successfully stored");
         view.changeToHomeScreen();
     }
 
     /**
      * Checks if the selected subject can be chosen be the student.
      * Searching if it exists at least one prerequisite subject
+     *
      * @param title the selected subject title
      */
     public void checkPrerequisites(String title) {
@@ -166,6 +172,7 @@ public class SubmissionFragmentPresenter {
 
         if (prerequisities.size() == 0) {
             // No prerequisites, then can be selected freely
+            view.setCheckBox(true);
             return;
         }
         Set<Grade> gradings = grades.findByStudent(studentId);
