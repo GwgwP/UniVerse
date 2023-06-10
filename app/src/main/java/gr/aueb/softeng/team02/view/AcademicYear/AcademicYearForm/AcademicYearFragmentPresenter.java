@@ -107,7 +107,7 @@ public class AcademicYearFragmentPresenter {
                 view.setVisibleThirdX();
             }
         }*/
-        if (allWritten() && checkECTS() && hasFormatOfDate(view.getDateStart()) && hasFormatOfDate(view.getDateEnd())) {
+        if (allWritten() && isNumeric(view.getECTS()) && hasFormatOfDate(view.getDateStart()) && hasFormatOfDate(view.getDateEnd())) {
             DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
             int semester = Integer.parseInt(view.getSelectedSemester());
             LocalDate date1 = LocalDate.parse(view.getDateStart(), formatter);
@@ -118,10 +118,16 @@ public class AcademicYearFragmentPresenter {
             {
                 view.setVisibleSubmit();
             }
+            else {
+                //we already know that the semesters will be between 1-8 so the only
+                // case for not valid circumscription is that the ects will be outof range.
+                view.setVisibleFirstX();
+                view.messageNotValidCirc();
+            }
 
         }
         else {
-            if(view.getECTS().equals("") || !checkECTS())
+            if(view.getECTS().equals("")||!isNumeric(view.getECTS()))
                 view.setVisibleFirstX();
             if(view.getDateStart().equals("")|| !hasFormatOfDate(view.getDateStart()))
                 view.setVisibleSecondX();
@@ -135,7 +141,7 @@ public class AcademicYearFragmentPresenter {
      * valid format and between th accepted values
      * @return boolean
      */
-    private boolean checkECTS()
+    /*private boolean checkECTS()
     {
         if (isNumeric(view.getECTS()))
         {
@@ -144,7 +150,7 @@ public class AcademicYearFragmentPresenter {
         }
         return false;
     }
-
+*/
     /**
      * decides if a date has the correct format
      * of Local Date.
@@ -171,6 +177,7 @@ public class AcademicYearFragmentPresenter {
      * @return boolean
      */
     private boolean isNumeric(String str) {
+
         if (str == null || str.length() == 0) {
             return false;
         }

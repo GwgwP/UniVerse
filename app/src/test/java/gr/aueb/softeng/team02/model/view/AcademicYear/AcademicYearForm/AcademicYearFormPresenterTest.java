@@ -130,10 +130,11 @@ public class AcademicYearFormPresenterTest {
         Assert.assertEquals("50", view.getECTS());
 
         //not valid dates
-        view.setStart_date("2021001");
+        view.setStart_date("");
+        Assert.assertEquals(0, view.getStart_date().length());
         view.setEnd_date("202103ee2qwhua01");
-        Assert.assertEquals("2021-02-01", view.getStart_date());
-        Assert.assertEquals("2021-03-01", view.getEnd_date());
+        Assert.assertEquals("", view.getStart_date());
+        Assert.assertEquals("202103ee2qwhua01", view.getEnd_date());
 
 
         presenter.checkValid();
@@ -141,7 +142,41 @@ public class AcademicYearFormPresenterTest {
         Assert.assertEquals(1, view.getSx());
         Assert.assertEquals(1, view.getTx());
 
+        //not valid ects
+        view.setStart_date("2024-02-01");
+        view.setEnd_date("2024-03-01");
+        view.setEcts("gd");
+        Assert.assertEquals("gd", view.getECTS());
+        presenter.checkValid();
+        Assert.assertEquals(0, view.getSubmit_visible());
+        Assert.assertEquals(1, view.getFx());
+        Assert.assertEquals(1, view.getSx());
+        Assert.assertEquals(1, view.getTx());
 
+
+
+
+
+    }
+    @Test
+    public void test5()
+    {
+        //valid except ects
+        view.setPosition_year(0);
+        Assert.assertEquals("2021-2022", view.getSelectedYear());
+
+        view.setPosition_sem(2);
+        Assert.assertEquals("3", view.getSelectedSemester());
+        view.setStart_date("2024-02-01");
+        view.setEnd_date("2024-03-01");
+        view.setEcts("2");
+        Assert.assertEquals("2", view.getECTS());
+        presenter.checkValid();
+        Assert.assertEquals(0, view.getSubmit_visible());
+        Assert.assertEquals(1, view.getFx());
+        Assert.assertEquals(0, view.getSx());
+        Assert.assertEquals(0, view.getTx());
+        Assert.assertEquals(1, view.getMessage_not_valid());
     }
 
 }
