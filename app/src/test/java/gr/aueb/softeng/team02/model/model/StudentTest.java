@@ -100,6 +100,20 @@ public class StudentTest {
         });
     }
 
+    @Test
+    public void checkEquality() {
+        Student s1 = new Student(3200125, "p3200125", "Irma", "Lydia-Christina", "Wallace", 6);
+        Student s2 = new Student(3200155, "p3200155", "Well", "Georgia", "Petsa", 6);
+
+        assertNotEquals(s1, s2);
+        Student s3 = new Student(3200125, "p3200125", "Irma", "Lydia-Christina", "Wallace", 6);
+        assertEquals(s1, s3);
+
+        Object other = new Object();
+        assertNotEquals(s1, other);
+        assertNotEquals(s1, null);
+        assertEquals(s1, s1);
+    }
 }
 
 

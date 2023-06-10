@@ -357,18 +357,6 @@ public abstract class Initializer {
         Grade g9 = new Grade(s1, o9, 9);
         Grade g10 = new Grade(s1, o10, 9);
 
-        Grade g11 = new Grade(s1, k1, 8);
-        Grade g22 = new Grade(s1, k2, 9);
-        Grade g33 = new Grade(s1, k3, 10);
-        Grade g44 = new Grade(s1, k4, 5);
-        Grade g55 = new Grade(s1, k5, 9);
-
-        Grade g66 = new Grade(s1, k6, 9);
-        Grade g77 = new Grade(s1, k7, 9);
-        Grade g88 = new Grade(s1, k8, 9);
-        Grade g99 = new Grade(s1, k9, 9);
-        Grade g100 = new Grade(s1, k10, 9);
-
         Grade ga = new Grade(s4, o1, 8);
         Grade gb = new Grade(s4, o2, 8);
         Grade gc = new Grade(s4, o3, 7);
@@ -391,17 +379,6 @@ public abstract class Initializer {
         getGradeDAO().save(g8);
         getGradeDAO().save(g9);
         getGradeDAO().save(g10);
-
-        getGradeDAO().save(g11);
-        getGradeDAO().save(g22);
-        getGradeDAO().save(g33);
-        getGradeDAO().save(g44);
-        getGradeDAO().save(g55);
-        getGradeDAO().save(g66);
-        getGradeDAO().save(g77);
-        getGradeDAO().save(g88);
-        getGradeDAO().save(g99);
-        getGradeDAO().save(g100);
 
         getSubjectDAO().save(su1);
         getSubjectDAO().save(su2);

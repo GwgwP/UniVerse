@@ -79,8 +79,7 @@ public class StudentDAOMemory implements StudentDAO {
      */
     @Override
     public void save(Student student) {
-        if (!entities.contains(student))
-            entities.add(student);
+        entities.add(student);
     }
 
     /**
@@ -90,7 +89,6 @@ public class StudentDAOMemory implements StudentDAO {
      */
     @Override
     public void delete(Student student) {
-        if (entities.contains(student))
-            entities.remove(student);
+        entities.remove(student);
     }
 }

@@ -1,5 +1,7 @@
 package gr.aueb.softeng.team02.model;
 
+import java.util.Objects;
+
 public class Grade {
     private int grade;
     private Student stud;
@@ -148,5 +150,10 @@ public class Grade {
             return false;
         Grade grade1 = (Grade) other;
         return (this.subject.getSubject().equals(grade1.getSubject().getSubject()) && this.stud.equals(grade1.stud));
+    }
+
+    @Override
+    public int hashCode() {
+        return (this.stud.hashCode() + "/" + this.subject.getSubject().hashCode()).hashCode();
     }
 }

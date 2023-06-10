@@ -31,7 +31,11 @@ public class GradeTest {
         this.sub.setSub(subject);
         this.grade.setStudent(this.student);
         this.grade.setSubject(this.sub);
-        this.testGrade = new Grade(this.student, this.sub, 9);
+        Student student1 = new Student(3200199, "Panattack", "Aueb20022", "Panagiotis", "Triantafillidis", 6);
+        OfferedSubject sub1 = new OfferedSubject(6);
+        Subject subject1 = new Subject( "Kotidis Ioannis", 5, "introduction to Databases", "SDAD");
+        sub1.setSub(subject1);
+        this.testGrade = new Grade(student1, sub1, 9);
     }
 
     @Test
@@ -78,5 +82,12 @@ public class GradeTest {
         this.grade.setStudent(this.student);
         this.grade.setSubject(this.sub);
         this.grade.setGrade(-1);
+    }
+
+    @Test
+    public void checkHashCode() {
+        int h1 = this.grade.hashCode();
+        int h2 = this.testGrade.hashCode();
+        Assert.assertEquals(h2, h1);
     }
 }

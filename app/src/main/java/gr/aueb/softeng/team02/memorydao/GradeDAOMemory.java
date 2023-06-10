@@ -90,8 +90,7 @@ public class GradeDAOMemory implements GradeDAO {
      */
     @Override
     public void save(Grade entity) {
-        if (!entities.contains(entity))
-            entities.add(entity);
+        entities.add(entity);
     }
 
     /**
@@ -101,8 +100,7 @@ public class GradeDAOMemory implements GradeDAO {
      */
     @Override
     public void delete(Grade entity) {
-        if (entities.contains(entity))
-            entities.add(entity);
+        entities.remove(entity);
     }
 
     /**
