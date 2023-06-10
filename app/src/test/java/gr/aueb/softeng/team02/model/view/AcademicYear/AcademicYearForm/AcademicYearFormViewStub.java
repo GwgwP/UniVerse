@@ -38,8 +38,7 @@ public class AcademicYearFormViewStub implements AcademicYearFragmentView {
 
     @Override
     public String getSelectedSemester() {
-        //return semester_list.get()
-        return "a";
+        return semester_list.get(0);
     }
 
     @Override

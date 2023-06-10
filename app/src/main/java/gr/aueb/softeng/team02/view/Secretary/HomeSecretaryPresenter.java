@@ -5,6 +5,8 @@ import java.time.Month;
 
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.AcademicYearDAO;
+import gr.aueb.softeng.team02.dao.Initializer;
+import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 import gr.aueb.softeng.team02.util.SystemDate;
 import gr.aueb.softeng.team02.view.AcademicYear.AcademicYearForm.AcademicYearFragment;
 import gr.aueb.softeng.team02.view.OfferedSubject.OfferedSubjectForm.OfferedSubjectFragment;
@@ -62,6 +64,8 @@ public class HomeSecretaryPresenter {
 
         if (SystemDate.now().isAfter(gradeDay)) {
             // TODO Initialize grades
+            Initializer init = new MemoryInitializer();
+            init.uploadGrades();
             view.showMessage("The grades have registered in the local Database");
         } else {
             view.showMessage("Grade day upload has yet to come");

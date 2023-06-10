@@ -40,8 +40,8 @@ public class OfferedSubjectRegistrationPresenter {
      * Initialized the table of the offered subjects shown in
      * the secretary
      *
-     * @param year     selected year
-     * @param semester selected semester
+     * @param year     selected year as a string
+     * @param semester selected semester as a string
      */
     public void init(String year, String semester) {
         this.semester = semester;
@@ -57,15 +57,16 @@ public class OfferedSubjectRegistrationPresenter {
     /**
      * Called when the secretary selects a subject
      *
-     * @param title
+     * @param title title of the selected subject as a string
      */
     public void checkSubject(String title) {
         OfferedSubject sub = offeredSubjects.findByYearAndName(year, title);
 
         if (sub != null) {
-            view.alertBox("Warning", "This subject is already on another semester! \n Do you want to move it to the " + semester + "semester ?");
+            view.alertBox("Warning", "This subject is already on another semester! Do you want to move it to the " + semester + " semester ?");
             this.selectedSubject = sub;
-        }
+        } else
+            view.setCheckBox(true);
     }
 
     /**
@@ -75,14 +76,12 @@ public class OfferedSubjectRegistrationPresenter {
     public void moveSubject() {
         this.offeredSubjects.delete(this.selectedSubject);
         view.setCheckBox(true);
-        try {
-            this.selectedSubject.setSemester(Integer.parseInt(semester));
 
-            this.offeredSubjects.save(this.selectedSubject);
-            view.moveReminder("The subject " + "\'" + this.selectedSubject.getTitle() + "\'" + " has it's semester moved");
-        } catch (Exception e) {
-            System.err.println("Wrong semester");
-        }
+        this.selectedSubject.setSemester(Integer.parseInt(semester));
+
+        this.offeredSubjects.save(this.selectedSubject);
+        view.moveReminder("The subject " + "\'" + this.selectedSubject.getTitle() + "\'" + " has it's semester moved");
+
     }
 
     /**

@@ -23,6 +23,7 @@ public class InformationPresenter {
 
     /**
      * Initializer the view
+     *
      * @param view : InformationView
      **/
     public void setView(InformationView view) {
@@ -38,13 +39,14 @@ public class InformationPresenter {
         ArrayList<String> prerequisites = new ArrayList<>();
         OfferedSubject sub = subjects.findByTitle(title);
         Set<Subject> getprer = sub.getSubject().getPrerequisities();
+        if(!(getprer==null)) {
+            for (Subject name : getprer) {
+                prerequisites.add(name.getTitle());
 
-        for (Subject name : getprer) {
-            prerequisites.add(name.getTitle());
-
+            }
         }
-
         view.showInfo(sub.getTitle(), sub.getProf(), sub.getEcts(), sub.getSubject().getId(), sub.getDesc(), prerequisites);
+
 
 
     }

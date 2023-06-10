@@ -90,8 +90,8 @@ public class OfferedSubjectRegistrationActivity extends AppCompatActivity implem
                     // Handle the checkbox state change here
                     if (isChecked) {
                         // Checkbox is checked
-                        presenter.checkSubject(title);
                         checker = check;
+                        presenter.checkSubject(title);
 
                     } else {
                         // Checkbox is unchecked
