@@ -78,35 +78,7 @@ public class AcademicYearFragmentPresenter {
      */
     public void checkValid()
     {
-        /*boolean allFieldsWritten = allWritten();
-        boolean validECTS = checkECTS();
-        boolean validStartDate = hasFormatOfDate(view.getDateStart());
-        boolean validEndDate = hasFormatOfDate(view.getDateEnd());
 
-        if (allFieldsWritten && validECTS && validStartDate && validEndDate) {
-            DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
-            int semester = Integer.parseInt(view.getSelectedSemester());
-            LocalDate date1 = LocalDate.parse(view.getDateStart(), formatter);
-            LocalDate date2 = LocalDate.parse(view.getDateEnd(), formatter);
-            int ects = Integer.parseInt(view.getECTS());
-            this.c = new Circumscription(semester, ects, date1, date2);
-            if (this.c.checkValidity()) {
-                view.setVisibleSubmit();
-            }
-            else {
-                view.messageNotValidCirc();
-            }
-        } else {
-            if (!validECTS) {
-                view.setVisibleFirstX();
-            }
-            if (!validStartDate) {
-                view.setVisibleSecondX();
-            }
-            if (!validEndDate) {
-                view.setVisibleThirdX();
-            }
-        }*/
         if (allWritten() && isNumeric(view.getECTS()) && hasFormatOfDate(view.getDateStart()) && hasFormatOfDate(view.getDateEnd())) {
             DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
             int semester = Integer.parseInt(view.getSelectedSemester());
@@ -178,9 +150,6 @@ public class AcademicYearFragmentPresenter {
      */
     private boolean isNumeric(String str) {
 
-        if (str == null || str.length() == 0) {
-            return false;
-        }
         for (char c : str.toCharArray()) {
             if (!Character.isDigit(c)) {
                 return false;

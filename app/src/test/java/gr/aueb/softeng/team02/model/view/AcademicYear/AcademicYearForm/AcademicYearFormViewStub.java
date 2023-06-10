@@ -76,9 +76,6 @@ public class AcademicYearFormViewStub implements AcademicYearFragmentView {
         this.end_date = end_date;
     }
 
-    /*public String getAcademic_year() {
-        return academic_year;
-    }*/
 
     public String getTitle() {
         return title;
@@ -90,41 +87,14 @@ public class AcademicYearFormViewStub implements AcademicYearFragmentView {
     }
 
 
-   /* public void setEcts(String ects) {
-        this.ects = ects;
-    }*/
-
-    /*public String getSemester() {
-        return semester;
-    }*/
-
-   /* public void setSemester(String semester) {
-        this.semester = semester;
-    }*/
-
-   /* public String getYear() {
-        return year;
-    }*/
-
     public void setYear(String year) {
         this.year = year;
     }
 
-    /*public ArrayList<String> getYear_list() {
-        return year_list;
-    }*/
-
-    /*public void setYear_list(ArrayList<String> year_list) {
-        this.year_list = year_list;
-    }*/
 
     public ArrayList<String> getSemester_list() {
         return semester_list;
     }
-
-    /*public void setSemester_list(ArrayList<String> semester_list) {
-        this.semester_list = semester_list;
-    }*/
 
 
     @Override
@@ -132,9 +102,6 @@ public class AcademicYearFormViewStub implements AcademicYearFragmentView {
         return year_list.get(position_year);
     }
 
-  /*  public void setAcademic_year(String ac_year) {
-        this.academic_year = ac_year;
-    }*/
 
     @Override
     public void createYearList(ArrayList<String> years) {
@@ -160,6 +127,7 @@ public class AcademicYearFormViewStub implements AcademicYearFragmentView {
     public String getECTS() {
         return ects;
     }
+
     public void setEcts(String ects) {
         this.ects = ects;
     }

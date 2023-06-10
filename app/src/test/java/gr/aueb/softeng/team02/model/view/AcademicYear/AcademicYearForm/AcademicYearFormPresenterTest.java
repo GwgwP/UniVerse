@@ -177,6 +177,39 @@ public class AcademicYearFormPresenterTest {
         Assert.assertEquals(0, view.getSx());
         Assert.assertEquals(0, view.getTx());
         Assert.assertEquals(1, view.getMessage_not_valid());
+
+
+
+        view.setEcts("");
+        Assert.assertEquals(0, view.getECTS().length());
+
+        presenter.checkValid();
+//        Assert.assertEquals(0, view.getSubmit_visible());
+//        Assert.assertEquals(2, view.getFx());
+//        Assert.assertEquals(0, view.getSx());
+//        Assert.assertEquals(0, view.getTx());
+//        Assert.assertEquals(1, view.getMessage_not_valid());
+    }
+
+    @Test
+    public void tes6()
+    {
+        view.setPosition_year(0);
+        Assert.assertEquals("2021-2022", view.getSelectedYear());
+
+        view.setPosition_sem(2);
+        Assert.assertEquals("3", view.getSelectedSemester());
+        view.setStart_date("2024-02-01");
+        view.setEnd_date("2024-03-01");
+        view.setEcts("");
+        Assert.assertEquals(0, view.getECTS().length());
+        presenter.checkValid();
+
+        Assert.assertEquals(0, view.getSubmit_visible());
+        Assert.assertEquals(1, view.getFx());
+        Assert.assertEquals(0, view.getSx());
+        Assert.assertEquals(0, view.getTx());
+        Assert.assertEquals(0, view.getMessage_not_valid());
     }
 
 }
