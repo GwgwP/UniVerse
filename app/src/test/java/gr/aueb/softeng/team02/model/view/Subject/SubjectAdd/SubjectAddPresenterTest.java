@@ -148,6 +148,18 @@ public class SubjectAddPresenterTest {
         presenter.valid();
         Assert.assertEquals(1, view.getBackAtrib());
         Assert.assertEquals(2, view.getMessage());
+
+        //Version where we add a new subject that has prerequisites
+        view.setSubject("Cats2", "How to love cats", "9", "Lydia Wallace");
+        ArrayList<String> prere= new ArrayList<>();
+        prere.add("Java");
+        view.setPrerequisites(prere);
+        presenter.setView(view);
+
+        presenter.valid();
+        Assert.assertEquals(1, view.getBackAtrib());
+        Assert.assertEquals(2, view.getMessage());
+
     }
 
     @Test
