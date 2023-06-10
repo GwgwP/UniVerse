@@ -28,14 +28,7 @@ public class ProgressPresenter {
         this.view = v;
     }
 
-    /**
-     * getter for the view instance
-     * @return returns the view
-     */
-    public ProgressView getView()
-    {
-        return this.view;
-    }
+
     /**
      * shows the average of a student
      * @param id the id of the student
@@ -94,19 +87,18 @@ public class ProgressPresenter {
      * @param id the id of the student
      */
     public void getNumOfSubs(int id) {
-        int counter = 0;
-        for (Grade g : grades.findByStudent(id)) {
-            if (g.getGrade() >= 5) {
-                counter++;
-            }
+        int c = 0;
+        for(Grade g:grades.findPassedSubjectsByStudent(id))
+        {
+            c++;
         }
-        view.showNumPassed(counter);
+        view.showNumPassed(c);
     }
 
     /**
      * triggers the transition to detailed grades activity
      */
-    void onSeeGrades() {
+    public void onSeeGrades() {
         view.showDetailedGrades();
     }
 

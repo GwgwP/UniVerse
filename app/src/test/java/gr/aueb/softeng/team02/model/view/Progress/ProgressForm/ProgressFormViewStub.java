@@ -8,7 +8,15 @@ public class ProgressFormViewStub implements ProgressView {
 
     private double average, av1, av2, av3, av4, av5, av6, av7, av8;
 
-    private int number_of_passed_subjects, ects, student_id, times_shown_avgs, shown_passed_subjs, shown_avg;
+    private int number_of_passed_subjects;
+    private int ects, num_ects_shown;
+    private int student_id;
+    private int times_shown_avgs;
+    private int shown_passed_subjs;
+    private int shown_avg;
+
+
+    private int onseegrades;
     HashMap<Integer, Double> av_grades;
     public double getAv1() {
         return av1;
@@ -18,6 +26,10 @@ public class ProgressFormViewStub implements ProgressView {
         this.av1 = av1;
     }
 
+    public int getEctsShown()
+    {
+        return this.num_ects_shown;
+    }
     public double getAv2() {
         return av2;
     }
@@ -130,32 +142,11 @@ public class ProgressFormViewStub implements ProgressView {
     @Override
     public void showAveragePerSemester(HashMap<Integer, Double> av_grades) {
         this.times_shown_avgs++;
-        if (av_grades.containsKey(1)) {
-            this.av1 = av_grades.get(1);
-        }
-        if (av_grades.containsKey(2)) {
-            this.av2 = av_grades.get(2);
-        }
-        if (av_grades.containsKey(3)) {
-            this.av3 = av_grades.get(3);
-        }
-        if (av_grades.containsKey(4)) {
-            this.av4 = av_grades.get(4);
-        }
-        if (av_grades.containsKey(5)) {
-            this.av5 = av_grades.get(5);
-        }
-        if (av_grades.containsKey(6)) {
-            this.av6 = av_grades.get(6);
-        }
-        if (av_grades.containsKey(7)) {
-            this.av7 = av_grades.get(7);
-        }
-        if (av_grades.containsKey(8)) {
-            this.av8 = av_grades.get(8);
-        }
-
     }
+    public int getOnseegrades() {
+        return onseegrades;
+    }
+
 
     @Override
     public void showNumPassed(int num) {
@@ -165,12 +156,12 @@ public class ProgressFormViewStub implements ProgressView {
 
     @Override
     public void showDetailedGrades() {
-
+        this.onseegrades++;
     }
 
     @Override
     public void showECTS(int num) {
-        this.ects = num;
+        this.num_ects_shown++;
     }
 
     public int getTimes_shown_avgs() {

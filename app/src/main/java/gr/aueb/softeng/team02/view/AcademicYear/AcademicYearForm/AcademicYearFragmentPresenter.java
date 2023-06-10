@@ -53,7 +53,7 @@ public class AcademicYearFragmentPresenter {
      * creates a list with semesters from 1-8
      * @return the list with the semesters
      */
-    public ArrayList<String> get_semesters() {
+    private ArrayList<String> get_semesters() {
         ArrayList<String> semesters = new ArrayList<>();
         for (int i = 1; i <= 8; i++) {
             semesters.add(String.valueOf(i));
@@ -76,38 +76,10 @@ public class AcademicYearFragmentPresenter {
      * triggers the correspiding "x" images in the
      * presenter for every field that is not valid
      */
-    public void checkValidity()
+    public void checkValid()
     {
-        boolean allFieldsWritten = allWritten();
-        boolean validECTS = checkECTS();
-        boolean validStartDate = hasFormatOfDate(view.getDateStart());
-        boolean validEndDate = hasFormatOfDate(view.getDateEnd());
 
-        if (allFieldsWritten && validECTS && validStartDate && validEndDate) {
-            DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
-            int semester = Integer.parseInt(view.getSelectedSemester());
-            LocalDate date1 = LocalDate.parse(view.getDateStart(), formatter);
-            LocalDate date2 = LocalDate.parse(view.getDateEnd(), formatter);
-            int ects = Integer.parseInt(view.getECTS());
-            this.c = new Circumscription(semester, ects, date1, date2);
-            if (this.c.checkValidity()) {
-                view.setVisibleSubmit();
-            }
-            else {
-                view.messageNotValidCirc();
-            }
-        } else {
-            if (!validECTS) {
-                view.setVisibleFirstX();
-            }
-            if (!validStartDate) {
-                view.setVisibleSecondX();
-            }
-            if (!validEndDate) {
-                view.setVisibleThirdX();
-            }
-        }
-        /*if (allWritten() && checkECTS() && hasFormatOfDate(view.getDateStart()) && hasFormatOfDate(view.getDateStart())) {
+        if (allWritten() && isNumeric(view.getECTS()) && hasFormatOfDate(view.getDateStart()) && hasFormatOfDate(view.getDateEnd())) {
             DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
             int semester = Integer.parseInt(view.getSelectedSemester());
             LocalDate date1 = LocalDate.parse(view.getDateStart(), formatter);
@@ -118,16 +90,22 @@ public class AcademicYearFragmentPresenter {
             {
                 view.setVisibleSubmit();
             }
+            else {
+                //we already know that the semesters will be between 1-8 so the only
+                // case for not valid circumscription is that the ects will be outof range.
+                view.setVisibleFirstX();
+                view.messageNotValidCirc();
+            }
 
         }
         else {
-            if(view.getECTS().equals("")||checkECTS())
+            if(view.getECTS().equals("")||!isNumeric(view.getECTS()))
                 view.setVisibleFirstX();
-            if(view.getDateStart().equals("")||hasFormatOfDate(view.getDateStart()))
+            if(view.getDateStart().equals("")|| !hasFormatOfDate(view.getDateStart()))
                 view.setVisibleSecondX();
-            if(view.getDateEnd().equals("")||hasFormatOfDate(view.getDateEnd()))
+            if(view.getDateEnd().equals("")|| !hasFormatOfDate(view.getDateEnd()))
                 view.setVisibleThirdX();
-        }*/
+        }
     }
 
     /**
@@ -135,7 +113,7 @@ public class AcademicYearFragmentPresenter {
      * valid format and between th accepted values
      * @return boolean
      */
-    private boolean checkECTS()
+    /*private boolean checkECTS()
     {
         if (isNumeric(view.getECTS()))
         {
@@ -144,7 +122,7 @@ public class AcademicYearFragmentPresenter {
         }
         return false;
     }
-
+*/
     /**
      * decides if a date has the correct format
      * of Local Date.
@@ -171,9 +149,7 @@ public class AcademicYearFragmentPresenter {
      * @return boolean
      */
     private boolean isNumeric(String str) {
-        if (str == null || str.length() == 0) {
-            return false;
-        }
+
         for (char c : str.toCharArray()) {
             if (!Character.isDigit(c)) {
                 return false;
