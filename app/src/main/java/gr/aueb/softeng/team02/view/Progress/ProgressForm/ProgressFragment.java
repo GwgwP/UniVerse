@@ -15,6 +15,7 @@ import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
 import gr.aueb.softeng.team02.view.Progress.DetailedGrades.DetailedGradesActivity;
 
+import java.text.DecimalFormat;
 import java.util.HashMap;
 
 
@@ -107,7 +108,11 @@ public class ProgressFragment extends Fragment implements ProgressView {
      * @param avg the average to be shown
      */
     public void showAverage(double avg) {
-        txtAverageGrade.setText(String.valueOf(avg));
+
+        DecimalFormat decimalFormat = new DecimalFormat("#0.00");
+        String avg_foramtted = decimalFormat.format(avg);
+
+        txtAverageGrade.setText(avg_foramtted);
 
     }
 
@@ -151,7 +156,6 @@ public class ProgressFragment extends Fragment implements ProgressView {
         intent.putExtra("sem8", sem8);
 
         startActivity(intent);
-
     }
 
     /**
