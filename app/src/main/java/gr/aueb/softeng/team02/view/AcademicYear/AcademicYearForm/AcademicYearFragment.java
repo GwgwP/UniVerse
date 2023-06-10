@@ -100,7 +100,7 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
         model.getPresenter().initLists();
 
         addYearButton.setOnClickListener(v -> model.getPresenter().onSeeAcademicYear());
-        checkButton.setOnClickListener(v -> model.getPresenter().checkValidity());
+        checkButton.setOnClickListener(v -> model.getPresenter().checkValid());
         submitButton.setOnClickListener(v -> model.getPresenter().createAcademicYearCircumscription());
     }
 

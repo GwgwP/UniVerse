@@ -53,7 +53,7 @@ public class AcademicYearFragmentPresenter {
      * creates a list with semesters from 1-8
      * @return the list with the semesters
      */
-    public ArrayList<String> get_semesters() {
+    private ArrayList<String> get_semesters() {
         ArrayList<String> semesters = new ArrayList<>();
         for (int i = 1; i <= 8; i++) {
             semesters.add(String.valueOf(i));
@@ -76,9 +76,9 @@ public class AcademicYearFragmentPresenter {
      * triggers the correspiding "x" images in the
      * presenter for every field that is not valid
      */
-    public void checkValidity()
+    public void checkValid()
     {
-        boolean allFieldsWritten = allWritten();
+        /*boolean allFieldsWritten = allWritten();
         boolean validECTS = checkECTS();
         boolean validStartDate = hasFormatOfDate(view.getDateStart());
         boolean validEndDate = hasFormatOfDate(view.getDateEnd());
@@ -106,8 +106,8 @@ public class AcademicYearFragmentPresenter {
             if (!validEndDate) {
                 view.setVisibleThirdX();
             }
-        }
-        /*if (allWritten() && checkECTS() && hasFormatOfDate(view.getDateStart()) && hasFormatOfDate(view.getDateStart())) {
+        }*/
+        if (allWritten() && checkECTS() && hasFormatOfDate(view.getDateStart()) && hasFormatOfDate(view.getDateStart())) {
             DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
             int semester = Integer.parseInt(view.getSelectedSemester());
             LocalDate date1 = LocalDate.parse(view.getDateStart(), formatter);
@@ -127,7 +127,7 @@ public class AcademicYearFragmentPresenter {
                 view.setVisibleSecondX();
             if(view.getDateEnd().equals("")||hasFormatOfDate(view.getDateEnd()))
                 view.setVisibleThirdX();
-        }*/
+        }
     }
 
     /**
