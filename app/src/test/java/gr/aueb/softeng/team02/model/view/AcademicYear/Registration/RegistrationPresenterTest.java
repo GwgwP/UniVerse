@@ -171,16 +171,6 @@ public class RegistrationPresenterTest {
         Assert.assertEquals(3, view.getSx()); //from previous validation
         Assert.assertEquals(3, view.getTx());
 
-        //for not valid format of date.
-        //the accepted format is YYYY-MM-DD
-        //we cant pass dd-mm-yyyy because the local date accepts only yyyy-mm-dd
-
-
-
-
     }
-
-
-
 
 }
