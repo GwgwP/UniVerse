@@ -15,21 +15,18 @@ public class SecretaryHomeFragmentPresenter {
     private SecretearyHomeFragmentViewStub view;
 
     @Before
-    public void setUp()throws AcademicYearException {
-
+    public void setUp() throws AcademicYearException {
         init = new MemoryInitializer();
         init.prepareData();
         view = new SecretearyHomeFragmentViewStub();
-        presenter= new SecretaryHomePresenter();
+        presenter = new SecretaryHomePresenter();
         presenter.setView(view);
-
     }
+
     @Test
-    public void testLogout(){
-
+    public void testLogout() {
         presenter.logout();
-        Assert.assertEquals(1,view.getK());
-
+        Assert.assertEquals(1, view.getK());
     }
 
 }

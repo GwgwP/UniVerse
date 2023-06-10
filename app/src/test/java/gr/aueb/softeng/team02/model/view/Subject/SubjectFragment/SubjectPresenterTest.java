@@ -31,7 +31,6 @@ public class SubjectPresenterTest {
         presenter.showSub();
         // we have 36 subjects
         Assert.assertEquals(36, view.getSize());
-
     }
 
 }

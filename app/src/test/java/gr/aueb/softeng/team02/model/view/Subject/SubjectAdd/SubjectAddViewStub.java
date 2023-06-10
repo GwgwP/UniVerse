@@ -17,10 +17,7 @@ public class SubjectAddViewStub implements SubjectFormView {
     boolean exProf;
     boolean exEcts;
     boolean exDesc;
-
-    static int message; // 1 -> printE1
-                        // 2-> messageSaver
-                        // 3 -> invalidInput
+    static int message; // 1 -> printE1, 2-> messageSaver, 3 -> invalidInput
 
     @Override
     public String getSubTitle() {
@@ -64,12 +61,12 @@ public class SubjectAddViewStub implements SubjectFormView {
 
     @Override
     public void printEr1() {
-        SubjectAddViewStub.message=1;
+        SubjectAddViewStub.message = 1;
     }
 
     @Override
     public void invTitle() {
-        this.exTitle=false;
+        this.exTitle = false;
     }
 
     @Override
@@ -89,37 +86,40 @@ public class SubjectAddViewStub implements SubjectFormView {
 
     @Override
     public void sameSubject() {
-        if(answer==0){
-            SubjectAddViewStub.message=0;
+        if (answer == 0) {
+            SubjectAddViewStub.message = 0;
         }
-        if(answer==1){
+        if (answer == 1) {
             messageSave();
         }
-
     }
+
     int answer;
-    public void setAnswser(int k){
-        this.answer=k;
+
+    public void setAnswser(int k) {
+        this.answer = k;
     }
 
 
     @Override
     public void messageSave() {
-        SubjectAddViewStub.message=2;
+        SubjectAddViewStub.message = 2;
     }
-static int back;
 
-    public int getBackAtrib(){
-        return back ;
+    static int back;
+
+    public int getBackAtrib() {
+        return back;
     }
+
     @Override
     public void getBack() {
-        SubjectAddViewStub.back=1;
+        SubjectAddViewStub.back = 1;
     }
 
     @Override
     public void invalidInput() {
-        SubjectAddViewStub.message=3;
+        SubjectAddViewStub.message = 3;
     }
 
     @Override
@@ -130,7 +130,6 @@ static int back;
     @Override
     public void setForm(ArrayList<String> titles) {
         this.prerequisites = titles;
-
     }
 
     public int getSizePrerequisties() {
@@ -147,9 +146,11 @@ static int back;
         this.ects = ects;
         this.desc = desc;
     }
-    public void setPrerequisites(ArrayList<String> names ){
-        this.prerequisites=names;
+
+    public void setPrerequisites(ArrayList<String> names) {
+        this.prerequisites = names;
     }
+
     public boolean getExTitle() {
         return this.exTitle;
     }
@@ -165,6 +166,4 @@ static int back;
     public boolean getExEcts() {
         return this.exEcts;
     }
-
-
 }

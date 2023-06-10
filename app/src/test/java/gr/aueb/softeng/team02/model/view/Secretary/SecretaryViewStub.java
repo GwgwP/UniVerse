@@ -15,8 +15,6 @@ public class SecretaryViewStub implements HomeSecretaryView {
 
     @Override
     public void replaceFragment(Fragment fragment) {
-
-
         if (fragment instanceof SecretaryHome) {
             SecretaryViewStub.k = 1;
         } else if (fragment instanceof AcademicYearFragment) {

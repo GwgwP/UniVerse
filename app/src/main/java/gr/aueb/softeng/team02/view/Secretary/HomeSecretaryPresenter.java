@@ -71,7 +71,6 @@ public class HomeSecretaryPresenter {
         }
 
         if (SystemDate.now().isAfter(gradeDay)) {
-            // TODO Initialize grades
             Initializer init = new MemoryInitializer();
             ArrayList<Grade> grades = init.uploadGrades();
             for (Grade grade : grades) {

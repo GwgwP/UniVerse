@@ -17,26 +17,26 @@ public class SearchFragmentPresenterTest {
     private Initializer init;
 
     @Before
-    public void setUp()throws AcademicYearException {
+    public void setUp() throws AcademicYearException {
         init = new MemoryInitializer();
         init.prepareData();
-        view= new SeachFragmentViewStub();
+        view = new SeachFragmentViewStub();
         presenter = new SubjectPresenter(init.getSubjectDAO());
         presenter.setView(view);
 
     }
+
     @Test
-    public void testShowSub(){
+    public void testShowSub() {
         presenter.showSub();
-        Assert.assertEquals(36,view.getNames());
+        Assert.assertEquals(36, view.getNames());
 
     }
+
     @Test
-    public void testAddForm(){
+    public void testAddForm() {
         presenter.addForm();
-        Assert.assertEquals(1,view.k);
-
+        Assert.assertEquals(1, view.k);
     }
-
 
 }

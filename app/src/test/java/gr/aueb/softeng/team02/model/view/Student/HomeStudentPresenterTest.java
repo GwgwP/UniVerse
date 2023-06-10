@@ -23,27 +23,24 @@ public class HomeStudentPresenterTest {
         init.prepareData();
         view = new StudentHomeViewStub();
         presenter = new HomeStudentPresenter(view);
-
     }
-    @Test
-    public void testChangeFragment(){
 
+    @Test
+    public void testChangeFragment() {
         //We selected the home screen
         presenter.changeFragment(R.id.homeFragment);
-        Assert.assertEquals(1,view.getK());
+        Assert.assertEquals(1, view.getK());
 
         //We selected the academic year screen
-        presenter.changeFragment( R.id.submissionFragment);
-        Assert.assertEquals(2,view.getK());
+        presenter.changeFragment(R.id.submissionFragment);
+        Assert.assertEquals(2, view.getK());
 
         //We selected the subject screen
-        presenter.changeFragment( R.id.progressFragment);
-        Assert.assertEquals(3,view.getK());
+        presenter.changeFragment(R.id.progressFragment);
+        Assert.assertEquals(3, view.getK());
 
         //We selected the offered subject screen
-        presenter.changeFragment( R.id.searchFragment);
-        Assert.assertEquals(4,view.getK());
-
-
+        presenter.changeFragment(R.id.searchFragment);
+        Assert.assertEquals(4, view.getK());
     }
 }

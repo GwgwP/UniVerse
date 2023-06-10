@@ -30,34 +30,34 @@ public class SecretaryPresenterTest {
     }
 
     @Test
-    public void testChangeFragment(){
+    public void testChangeFragment() {
 
         //We selected the home screen
         presenter.changeFragment(R.id.secretaryHome);
-        Assert.assertEquals(1,view.getK());
+        Assert.assertEquals(1, view.getK());
 
         //We selected the academic year screen
-        presenter.changeFragment( R.id.academicYearFragment);
-        Assert.assertEquals(2,view.getK());
+        presenter.changeFragment(R.id.academicYearFragment);
+        Assert.assertEquals(2, view.getK());
 
         //We selected the subject screen
-        presenter.changeFragment( R.id.subjectFragment);
-        Assert.assertEquals(3,view.getK());
+        presenter.changeFragment(R.id.subjectFragment);
+        Assert.assertEquals(3, view.getK());
 
         //We selected the offered subject screen
-        presenter.changeFragment( R.id.offeredSubjectFragment);
-        Assert.assertEquals(4,view.getK());
-
+        presenter.changeFragment(R.id.offeredSubjectFragment);
+        Assert.assertEquals(4, view.getK());
 
     }
+
     @Test
-    public void updateGrades(){
+    public void updateGrades() {
 
         presenter.updateGrades();
         Set<Grade> grades = init.getGradeDAO().findAll();
-//TODO : maybe change the date that the grades can be uploaded
-        Assert.assertEquals(5,view.getK());
-        Assert.assertEquals(29,grades.size());
+        //TODO : maybe change the date that the grades can be uploaded
+        Assert.assertEquals(5, view.getK());
+        Assert.assertEquals(29, grades.size());
 
     }
 

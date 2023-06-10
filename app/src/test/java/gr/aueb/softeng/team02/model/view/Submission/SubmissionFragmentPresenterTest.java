@@ -56,6 +56,7 @@ public class SubmissionFragmentPresenterTest {
         SystemDateStub.setStub(LocalDate.of(2023, 6, 15));
         presenter.submitClicked();
         Assert.assertEquals(view.getPassedMsg(), "Successfully stored");
+        Assert.assertEquals(dataHelper.getSubmissionDAO().findAll().size(), 1);
         view.changeToHomeScreen();
     }
 

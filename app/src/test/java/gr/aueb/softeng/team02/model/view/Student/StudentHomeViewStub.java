@@ -26,7 +26,6 @@ public class StudentHomeViewStub implements HomeStudentView {
         } else if (fragment instanceof SearchFragment) {
             StudentHomeViewStub.k = 4;
         }
-
     }
 
     public int getK() {
