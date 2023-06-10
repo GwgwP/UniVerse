@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -16,7 +16,7 @@ import android.widget.Toast;
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
-import gr.aueb.softeng.team02.model.AcademicYearException;
+
 import gr.aueb.softeng.team02.view.Secretary.HomeSecretaryActivity;
 import gr.aueb.softeng.team02.view.Student.HomeStudentActivity;
 
@@ -108,7 +108,7 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
     }
 
     /**
-     * If the user who is trying to login is a student then we go to the Student Home
+     * If the user who is trying to login is a student, then we go to the Student Home
      *
      * @param id : the students id
      **/
@@ -120,7 +120,7 @@ public class UserLoginActivity extends AppCompatActivity implements UserLoginVie
     }
 
     /**
-     * If the user who is trying to login is a secretary then we go to the Secretary Home
+     * If the user who is trying to login is a secretary, then we go to the Secretary Home
      *
      * @param id : the secretary id
      **/
