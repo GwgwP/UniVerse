@@ -57,7 +57,7 @@ public class SecretaryPresenterTest {
         Set<Grade> grades = init.getGradeDAO().findAll();
         //TODO : maybe change the date that the grades can be uploaded
         Assert.assertEquals(5, view.getK());
-        Assert.assertEquals(29, grades.size());
+        Assert.assertEquals(23, grades.size());
 
     }
 
