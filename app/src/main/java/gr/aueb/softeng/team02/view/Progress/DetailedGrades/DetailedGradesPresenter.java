@@ -5,7 +5,7 @@ import gr.aueb.softeng.team02.dao.GradeDAO;
 import gr.aueb.softeng.team02.model.Grade;
 
 public class DetailedGradesPresenter {
-    private DetailedGradesActivity view;
+    private DetailedGradesView view;
     private GradeDAO grades;
     private int student_id;
 
@@ -14,7 +14,7 @@ public class DetailedGradesPresenter {
      * @param view view instance
      * @param grades grades instance
      */
-    public DetailedGradesPresenter(DetailedGradesActivity view, GradeDAO grades) {
+    public DetailedGradesPresenter(DetailedGradesView view, GradeDAO grades) {
         this.view = view;
         this.grades = grades;
     }
