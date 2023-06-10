@@ -131,6 +131,8 @@ public class Grade {
 
     /**
      * Comparing the grade with another object
+     * There is an equality if the student and the subject (not the offered subject)
+     * is the same
      *
      * @param other an object that can be of every type
      * @return a boolean true or false
@@ -145,6 +147,6 @@ public class Grade {
         if (!(other instanceof Grade))
             return false;
         Grade grade1 = (Grade) other;
-        return (this.grade == grade1.grade);
+        return (this.subject.getSubject().equals(grade1.getSubject().getSubject()) && this.stud.equals(grade1.stud));
     }
 }

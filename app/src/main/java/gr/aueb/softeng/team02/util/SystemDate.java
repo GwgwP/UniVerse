@@ -34,14 +34,14 @@ public class SystemDate {
      * ως ημερομηνία του συστήματος ή {@code null} για
      * να επιστρέφει την πραγματική ημερομηνία
      */
-    protected static void setStub(LocalDate stubDate) {
+    public static void setStub(LocalDate stubDate) {
         stub = stubDate;
     }
 
     /**
      * Απομακρύνει το στέλεχος.
      */
-    protected static void removeStub() {
+    public static void removeStub() {
         stub = null;
     }
 

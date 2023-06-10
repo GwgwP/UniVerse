@@ -82,7 +82,7 @@ public abstract class Initializer {
         Student s1 = new Student(3200125, "p3200125", "Irma", "Lydia-Christina", "Wallace", 6);
         Student s2 = new Student(3200155, "p3200155", "Well", "Georgia", "Petsa", 6);
         Student s3 = new Student(3200199, "p3200199", "Link", "Panagiotis", "Triantafillidis", 6);
-
+        Student s4 = new Student(3210125, "p3210125", "abcd", "Christina", "Limperi", 1);
         Secretary r1 = new Secretary(12345, "p12345", "0000", "Eusta8ios", "Xaralampidhs");
 
         Subject b1 = new Subject("ak", 5, "alalal", "title");
@@ -90,7 +90,7 @@ public abstract class Initializer {
         getStudentDAO().save(s1);
         getStudentDAO().save(s2);
         getStudentDAO().save(s3);
-
+        getStudentDAO().save(s4);
         getSecretaryDAO().save(r1);
 
         LocalDate dateOdd2023 = LocalDate.of(2023, 2, 28);
@@ -101,6 +101,7 @@ public abstract class Initializer {
 
         AcademicYear y2 = new AcademicYear("2022-2023", dateEven2023, dateOdd2023);
         AcademicYear y1 = new AcademicYear("2021-2022", dateEven2022, dateOdd2022);
+        // For the test in the submission
         getAcademicYearDAO().setCurrentAcadYear(y2);
 
         LocalDate start1 = LocalDate.of(2022, 10, 15);
@@ -356,6 +357,30 @@ public abstract class Initializer {
         Grade g9 = new Grade(s1, o9, 9);
         Grade g10 = new Grade(s1, o10, 9);
 
+        Grade g11 = new Grade(s1, k1, 8);
+        Grade g22 = new Grade(s1, k2, 9);
+        Grade g33 = new Grade(s1, k3, 10);
+        Grade g44 = new Grade(s1, k4, 5);
+        Grade g55 = new Grade(s1, k5, 9);
+
+        Grade g66 = new Grade(s1, k6, 9);
+        Grade g77 = new Grade(s1, k7, 9);
+        Grade g88 = new Grade(s1, k8, 9);
+        Grade g99 = new Grade(s1, k9, 9);
+        Grade g100 = new Grade(s1, k10, 9);
+
+        Grade ga = new Grade(s4, o1, 8);
+        Grade gb = new Grade(s4, o2, 8);
+        Grade gc = new Grade(s4, o3, 7);
+        Grade gd = new Grade(s4, o4, 9);
+        Grade ge = new Grade(s4, o5, 8);
+
+        getGradeDAO().save(ga);
+        getGradeDAO().save(gb);
+        getGradeDAO().save(gc);
+        getGradeDAO().save(gd);
+        getGradeDAO().save(ge);
+
         getGradeDAO().save(g1);
         getGradeDAO().save(g2);
         getGradeDAO().save(g3);
@@ -366,6 +391,17 @@ public abstract class Initializer {
         getGradeDAO().save(g8);
         getGradeDAO().save(g9);
         getGradeDAO().save(g10);
+
+        getGradeDAO().save(g11);
+        getGradeDAO().save(g22);
+        getGradeDAO().save(g33);
+        getGradeDAO().save(g44);
+        getGradeDAO().save(g55);
+        getGradeDAO().save(g66);
+        getGradeDAO().save(g77);
+        getGradeDAO().save(g88);
+        getGradeDAO().save(g99);
+        getGradeDAO().save(g100);
 
         getSubjectDAO().save(su1);
         getSubjectDAO().save(su2);
