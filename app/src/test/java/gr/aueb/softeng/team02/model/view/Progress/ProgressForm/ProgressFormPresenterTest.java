@@ -7,6 +7,7 @@ import org.junit.Test;
 import gr.aueb.softeng.team02.dao.GradeDAO;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
+import gr.aueb.softeng.team02.model.AcademicYearException;
 import gr.aueb.softeng.team02.view.Progress.ProgressForm.ProgressPresenter;
 
 public class ProgressFormPresenterTest {
@@ -16,8 +17,9 @@ public class ProgressFormPresenterTest {
     private GradeDAO grades;
 
     @Before
-    public void setUp(){
+    public void setUp() throws AcademicYearException {
         init = new MemoryInitializer();
+        init.prepareData();
         view = new ProgressFormViewStub();
         presenter = new ProgressPresenter();
         presenter.setView(view);
