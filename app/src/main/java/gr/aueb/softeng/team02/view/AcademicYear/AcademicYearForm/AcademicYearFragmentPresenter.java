@@ -107,7 +107,7 @@ public class AcademicYearFragmentPresenter {
                 view.setVisibleThirdX();
             }
         }*/
-        if (allWritten() && checkECTS() && hasFormatOfDate(view.getDateStart()) && hasFormatOfDate(view.getDateStart())) {
+        if (allWritten() && checkECTS() && hasFormatOfDate(view.getDateStart()) && hasFormatOfDate(view.getDateEnd())) {
             DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;
             int semester = Integer.parseInt(view.getSelectedSemester());
             LocalDate date1 = LocalDate.parse(view.getDateStart(), formatter);
@@ -121,11 +121,11 @@ public class AcademicYearFragmentPresenter {
 
         }
         else {
-            if(view.getECTS().equals("")||checkECTS())
+            if(view.getECTS().equals("") || !checkECTS())
                 view.setVisibleFirstX();
-            if(view.getDateStart().equals("")||hasFormatOfDate(view.getDateStart()))
+            if(view.getDateStart().equals("")|| !hasFormatOfDate(view.getDateStart()))
                 view.setVisibleSecondX();
-            if(view.getDateEnd().equals("")||hasFormatOfDate(view.getDateEnd()))
+            if(view.getDateEnd().equals("")|| !hasFormatOfDate(view.getDateEnd()))
                 view.setVisibleThirdX();
         }
     }

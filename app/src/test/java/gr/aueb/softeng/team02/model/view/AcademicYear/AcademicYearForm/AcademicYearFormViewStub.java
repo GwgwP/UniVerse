@@ -189,6 +189,7 @@ public class AcademicYearFormViewStub implements AcademicYearFragmentView {
     public void alertMessage(String title, String message) {
         this.title = title;
         this.message = message;
+        this.message_alert++;
     }
 
     @Override
