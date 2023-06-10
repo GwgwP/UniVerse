@@ -84,7 +84,7 @@ public class SearchFragment extends Fragment implements SearchView {
      *  returns the finished TextView
      * **/
 
-    public TextView createSubjectTextView(String title) {
+    private TextView createSubjectTextView(String title) {
 
         TextView textView = new TextView(requireContext());
         textView.setText(title);
