@@ -79,7 +79,6 @@ public class HomeSecretaryActivity extends AppCompatActivity implements HomeSecr
         Bundle bundle = new Bundle();
         bundle.putInt("STUDENT_ID", secretaryId);
         fragment.setArguments(bundle);
-
         transaction.replace(R.id.frame_layout, fragment);
         transaction.commit();
     }
@@ -94,3 +93,4 @@ public class HomeSecretaryActivity extends AppCompatActivity implements HomeSecr
         Toast.makeText(this, txt, Toast.LENGTH_LONG).show();
     }
 }
+

@@ -1,5 +1,7 @@
 package gr.aueb.softeng.team02.view.Secretary;
 
+import android.app.FragmentTransaction;
+
 import java.time.LocalDate;
 import java.time.Month;
 
@@ -13,6 +15,7 @@ import gr.aueb.softeng.team02.view.OfferedSubject.OfferedSubjectForm.OfferedSubj
 import gr.aueb.softeng.team02.view.SecretaryHomeFragment.SecretaryHome;
 import gr.aueb.softeng.team02.view.Subject.SubjectFragment.SubjectFragment;
 
+import androidx.fragment.app.FragmentManager;
 
 public class HomeSecretaryPresenter {
     private HomeSecretaryView view;
@@ -37,6 +40,9 @@ public class HomeSecretaryPresenter {
     public void changeFragment(int id) {
         switch (id) {
             case R.id.secretaryHome:
+                //For tests
+                //SecretaryHome home = new SecretaryHome();
+                //FragmentTransaction transaction = view.getClass().getSupportFragmentManager().beginTransaction();
                 view.replaceFragment(new SecretaryHome());
                 break;
             case R.id.academicYearFragment:

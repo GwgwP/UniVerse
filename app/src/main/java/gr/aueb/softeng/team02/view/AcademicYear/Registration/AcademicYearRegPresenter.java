@@ -1,44 +1,38 @@
 package gr.aueb.softeng.team02.view.AcademicYear.Registration;
 
 import android.text.TextUtils;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.regex.Pattern;
+
 import gr.aueb.softeng.team02.dao.AcademicYearDAO;
 import gr.aueb.softeng.team02.model.AcademicYear;
 
 
 /**
  * @author Georgia Petsa
- *
+ * <p>
  * Υλοποιήθηκε στα πλαίσια του μαθήματος Τεχνολογία Λογισμικού το έτος 2022-2023
- *
  */
 
 public class AcademicYearRegPresenter {
 
-    private AcademicYearRegistration view;
-    private final AcademicYearDAO ac_years;
+    private AcademicYearRegView view;
+    private  AcademicYearDAO ac_years;
 
     /**
      * Constructor
-     * @param view view instance
+     *
+     * @param view     view instance
      * @param ac_years academic year instance
      */
-    public AcademicYearRegPresenter(AcademicYearRegistration view, AcademicYearDAO ac_years) {
+    public AcademicYearRegPresenter(AcademicYearRegView view, AcademicYearDAO ac_years) {
         this.ac_years = ac_years;
         this.view = view;
     }
 
-
-    /**
-     *
-     * @param view sets the view instance
-     */
-    public void setView(AcademicYearRegistration view) {
-        this.view = view;
-    }
 
     /**
      * Checks if all the attributes are valid in order to
@@ -58,14 +52,13 @@ public class AcademicYearRegPresenter {
                 LocalDate end_date = LocalDate.parse(view.getEndDate(), formatter);
 
                 //if there is already a year inside th datastore
-                if(ac_years.find(view.getAcademicYear())!=null)
-                {
+                if (ac_years.find(view.getAcademicYear()) != null) {
                     view.messageDIDNTSave();
                     return;
                 }
-                if(isODD(start_date.getMonthValue()))
+                if (isODD(start_date.getMonthValue()))
                     view.setVisibleSecondX();
-                if(!isODD(end_date.getMonthValue()))
+                if (!isODD(end_date.getMonthValue()))
                     view.setVisibleThirdX();
                 if (!isODD(start_date.getMonthValue()) && isODD(end_date.getMonthValue())) {
                     AcademicYear ac = new AcademicYear(view.getAcademicYear(), start_date, end_date);
@@ -73,24 +66,31 @@ public class AcademicYearRegPresenter {
                     view.messageSave();
                 }
             }
-            if(!hasFormatOfAcademicYear(view.getAcademicYear())) {
+            if(!hasFormatOfDate(view.getStartDate()))
+            {
+                view.setVisibleSecondX();
+            }
+            if (!hasFormatOfAcademicYear(view.getAcademicYear())) {
                 view.alertUser("Not valid year", "The year you are trying to submit does not have the right format");
                 view.setVisibleFirstX();
             }
-        } else {
-            if (view.getAcademicYear().equals("") || !hasFormatOfDate(view.getStartDate()))
-                view.setVisibleFirstX();
-            if (view.getStartDate().equals("") || !hasFormatOfDate(view.getEndDate()))
-                view.setVisibleSecondX();
-            if (view.getEndDate().equals("") || !hasFormatOfAcademicYear(view.getAcademicYear()))
+            if(!hasFormatOfDate(view.getEndDate()))
+            {
                 view.setVisibleThirdX();
-            if(!hasFormatOfAcademicYear(view.getAcademicYear()))
+            }
+        } else {
+            if (view.getAcademicYear().equals("") )
                 view.setVisibleFirstX();
+            if (view.getStartDate().equals("") )
+                view.setVisibleSecondX();
+            if (view.getEndDate().equals("") )
+                view.setVisibleThirdX();
         }
     }
 
     /**
      * decides if a month is odd
+     *
      * @param month the month
      * @return returns if the month is odd.
      */
@@ -99,7 +99,6 @@ public class AcademicYearRegPresenter {
     }
 
     /**
-     *
      * @param date_string string of date given
      * @return returns if the given string has the correct format of date
      * ex "2023-02-01" is valid.
@@ -117,29 +116,26 @@ public class AcademicYearRegPresenter {
     }
 
     /**
-     *
      * @param ac academic year
      * @return returns if the academic year has the correct format
      * in order to be able to be saved.
      * ex "2023-2024" is valid
      */
     private boolean hasFormatOfAcademicYear(String ac) {
-        if (ac != null) {
-            String regex = "\\d{4}-\\d{4}";
-            return Pattern.matches(regex, ac);
-        }
-        return false;
+        String regex = "\\d{4}-\\d{4}";
+        return Pattern.matches(regex, ac);
+
     }
 
     /**
-     *
      * @return returns if all the fields are written
      */
-    public boolean allWritten() {
+    private boolean allWritten() {
         String acYear = view.getAcademicYear();
         String startDate = view.getStartDate();
         String endDate = view.getEndDate();
-        return !TextUtils.isEmpty(acYear) && !TextUtils.isEmpty(startDate) && !TextUtils.isEmpty(endDate);
+        //return !TextUtils.isEmpty(acYear) && !TextUtils.isEmpty(startDate) && !TextUtils.isEmpty(endDate);
+        return !acYear.equals("") && !startDate.equals("") && !endDate.equals("");
     }
 
 }

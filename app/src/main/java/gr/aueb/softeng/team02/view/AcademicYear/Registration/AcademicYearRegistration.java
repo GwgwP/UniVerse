@@ -45,7 +45,6 @@ public class AcademicYearRegistration extends Activity implements AcademicYearRe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_academic_year_registration);
         presenter = new AcademicYearRegPresenter(this, new AcademicYearDAOMemory());
-        presenter.setView(this);
         init = new MemoryInitializer();
         add = (Button) findViewById(R.id.button_register_ac_year);
 

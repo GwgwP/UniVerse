@@ -56,4 +56,6 @@
     <string name="_202x_xx_xx__">202X-XX-XX</string>
     <string name="check">CHECK</string>
     <string name="submit">Submit</string>
+    <string name="logout">LOGOUT</string>
+    <string name="welcome">WELCOME</string>
 </resources>
