@@ -33,4 +33,10 @@ public class SubjectPresenterTest {
         Assert.assertEquals(36, view.getSize());
     }
 
+    @Test
+    public void testAddForm() {
+        presenter.addForm();
+        Assert.assertEquals(1, view.k);
+    }
+
 }
