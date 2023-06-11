@@ -77,6 +77,7 @@ public class AcademicYearRegistration extends Activity implements AcademicYearRe
      * makes the "X" image for the academic year input
      * visible
      */
+    @Override
     public void setVisibleFirstX()
     {
         firstX.setVisibility(View.VISIBLE);
@@ -85,6 +86,7 @@ public class AcademicYearRegistration extends Activity implements AcademicYearRe
      * makes the "X" image for the start date input
      * visible
      */
+    @Override
     public void setVisibleSecondX()
     {
         secondX.setVisibility(View.VISIBLE);
@@ -94,6 +96,7 @@ public class AcademicYearRegistration extends Activity implements AcademicYearRe
      * makes the "X" image for the end date input
      * visible
      */
+    @Override
     public void setVisibleThirdX()
     {
         thirdX.setVisibility(View.VISIBLE);
@@ -141,6 +144,7 @@ public class AcademicYearRegistration extends Activity implements AcademicYearRe
      * informs the user that the override of academic year's fields
      * was stored successfully
      */
+    @Override
     public void messageDIDNTSave(){
         Toast.makeText(getApplicationContext(),"The academic year is already stored.",Toast.LENGTH_SHORT).show();
     }

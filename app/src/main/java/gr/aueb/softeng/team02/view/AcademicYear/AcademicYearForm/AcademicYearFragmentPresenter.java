@@ -108,27 +108,6 @@ public class AcademicYearFragmentPresenter {
         }
     }
 
-    /**
-     * checks if the ects given from the user are in
-     * valid format and between th accepted values
-     * @return boolean
-     */
-    /*private boolean checkECTS()
-    {
-        if (isNumeric(view.getECTS()))
-        {
-            int ects = Integer.parseInt(view.getECTS());
-            return ects >= 30 && ects <= 130;
-        }
-        return false;
-    }
-*/
-    /**
-     * decides if a date has the correct format
-     * of Local Date.
-     * @param date the date given
-     * @return boolean
-     */
     private boolean hasFormatOfDate(String date)
     {
         DateTimeFormatter formatter = DateTimeFormatter.ISO_LOCAL_DATE;

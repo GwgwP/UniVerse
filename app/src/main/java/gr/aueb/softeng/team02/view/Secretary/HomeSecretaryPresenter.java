@@ -1,11 +1,9 @@
 package gr.aueb.softeng.team02.view.Secretary;
 
-import android.app.FragmentTransaction;
 
 import java.time.LocalDate;
 import java.time.Month;
 import java.util.ArrayList;
-
 import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.dao.AcademicYearDAO;
 import gr.aueb.softeng.team02.dao.Initializer;
@@ -16,8 +14,6 @@ import gr.aueb.softeng.team02.view.AcademicYear.AcademicYearForm.AcademicYearFra
 import gr.aueb.softeng.team02.view.OfferedSubject.OfferedSubjectForm.OfferedSubjectFragment;
 import gr.aueb.softeng.team02.view.SecretaryHomeFragment.SecretaryHome;
 import gr.aueb.softeng.team02.view.Subject.SubjectFragment.SubjectFragment;
-
-import androidx.fragment.app.FragmentManager;
 
 public class HomeSecretaryPresenter {
     private HomeSecretaryView view;
