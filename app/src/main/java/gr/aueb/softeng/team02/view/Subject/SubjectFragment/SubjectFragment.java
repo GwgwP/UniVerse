@@ -74,7 +74,7 @@ public class SubjectFragment extends Fragment implements SubjectView {
     /**Creates for a TextView that shows the title of the subject
      * @param title the subject's' title
      * @return the finished TextView **/
-    public TextView createSubjectTextView(String title) {
+    private TextView createSubjectTextView(String title) {
 
         TextView textView = new TextView(requireContext());
         textView.setText(title);

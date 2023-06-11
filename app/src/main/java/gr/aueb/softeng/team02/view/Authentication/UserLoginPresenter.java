@@ -70,7 +70,7 @@ public class UserLoginPresenter {
      * @param username : the username the user inputs
      * @return a Map with the role number and the suitable User
      **/
-    public Map.Entry<Integer, User> findUser(String username, String password) {
+    private Map.Entry<Integer, User> findUser(String username, String password) {
         Student student = students.findStudentByUsernameAndPassword(username, password);
         Secretary secretary = secretaries.findSecretary(username, password);
 

@@ -1,7 +1,7 @@
 package gr.aueb.softeng.team02.view.Logo;
 
 public class LogoActivityPresenter {
-    LogoActivityView view;
+    private LogoActivityView view;
 
     /**
      * Constructor that initializes the view
