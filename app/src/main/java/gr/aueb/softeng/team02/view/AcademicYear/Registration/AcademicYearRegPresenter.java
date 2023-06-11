@@ -1,12 +1,9 @@
 package gr.aueb.softeng.team02.view.AcademicYear.Registration;
 
-import android.text.TextUtils;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.regex.Pattern;
-
 import gr.aueb.softeng.team02.dao.AcademicYearDAO;
 import gr.aueb.softeng.team02.model.AcademicYear;
 

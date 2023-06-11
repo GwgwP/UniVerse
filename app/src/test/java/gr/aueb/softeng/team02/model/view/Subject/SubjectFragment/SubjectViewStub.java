@@ -15,8 +15,9 @@ public class SubjectViewStub  implements SubjectView {
     public int getSize(){
         return this.subjectArray.size();
     }
+    int k = 0;
     @Override
     public void showForm() {
-
+        k=1;
     }
 }

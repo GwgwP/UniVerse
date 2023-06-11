@@ -98,6 +98,7 @@ public class DetailedGradesActivity extends AppCompatActivity implements Detaile
     /**
      * receives the average grades per semester
      */
+    @Override
     public void receiveAverages() {
         Bundle bundle = getIntent().getExtras();
 

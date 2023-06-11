@@ -34,6 +34,15 @@ public class InformationPresenterTest {
         Assert.assertEquals("Stauros Toumpis", view.getProf());
         Assert.assertEquals(0, view.getPrereSize());
 
+
+        presenter.setInfo("Multimedia technology");
+        Assert.assertEquals("Introduction on multimedia technology", view.getDesc());
+        Assert.assertEquals("Multimedia technology", view.getTitle());
+        Assert.assertEquals(8, view.getEcts());
+        Assert.assertEquals("George Xulomenos", view.getProf());
+        Assert.assertEquals(1, view.getPrereSize());
     }
+
+
 
 }

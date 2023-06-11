@@ -108,6 +108,7 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
      * makes the submit button visible
      * for the user.
      */
+    @Override
     public void setVisibleSubmit() {
         submitButton.setVisibility(View.VISIBLE);
     }
@@ -134,6 +135,7 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
      * redirects the user to the
      * page for registering a new academic year.
      */
+    @Override
     public void showAcYearsRegistration() {
         Intent intent = new Intent(requireContext(), AcademicYearRegistration.class);
         startActivity(intent);
@@ -145,6 +147,7 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
      * creates a list of years for the spinner.
      * @param years list of years that could be selected
      */
+    @Override
     public void createYearList(ArrayList<String> years) {
         // Create an ArrayAdapter using the choices ArrayList
         ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_dropdown_item, years);
@@ -161,6 +164,7 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
      * creates a list with semesters for the spinner
      * @param semesters list of semesters that could be selected
      */
+    @Override
     public void createSemesterList(ArrayList<String> semesters) {
         ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_spinner_dropdown_item, semesters);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -191,6 +195,7 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
      *
      * @return  returns the number of ects from the user's input
      */
+    @Override
     public String getECTS() {
         return ects.getText().toString().trim();
     }
@@ -219,6 +224,7 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
      * triggered when the circumscription
      * is stored successfully
      */
+    @Override
     public void messageSave() {
         Toast.makeText(requireContext(), "The circumscription in the academic year was saved successfully", Toast.LENGTH_SHORT).show();
     }
@@ -228,6 +234,7 @@ public class AcademicYearFragment extends Fragment implements AcademicYearFragme
      * triggered when the override
      * of the circumscription was stored successfully
      */
+    @Override
     public void messageOverride() {
         Toast.makeText(requireContext(), "The override in the academic year was saved successfully", Toast.LENGTH_SHORT).show();
     }

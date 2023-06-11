@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02.model.view.SecretaryHomeFragment;
+package gr.aueb.softeng.team02.model.view.Search.SearchFragment.SecretaryHomeFragment;
 
 import org.junit.Assert;
 import org.junit.Before;

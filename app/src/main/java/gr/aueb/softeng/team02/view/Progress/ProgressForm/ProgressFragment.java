@@ -107,6 +107,7 @@ public class ProgressFragment extends Fragment implements ProgressView {
      *
      * @param avg the average to be shown
      */
+    @Override
     public void showAverage(double avg) {
 
         DecimalFormat decimalFormat = new DecimalFormat("#0.00");
@@ -121,6 +122,7 @@ public class ProgressFragment extends Fragment implements ProgressView {
      *
      * @param num the number of passed subjects
      */
+    @Override
     public void showNumPassed(int num) {
         txt_num_passed.setText(String.valueOf(num));
 

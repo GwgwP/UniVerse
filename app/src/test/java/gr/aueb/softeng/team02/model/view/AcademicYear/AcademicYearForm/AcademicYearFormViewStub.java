@@ -2,21 +2,10 @@ package gr.aueb.softeng.team02.model.view.AcademicYear.AcademicYearForm;
 
 
 import java.util.ArrayList;
-
 import gr.aueb.softeng.team02.view.AcademicYear.AcademicYearForm.AcademicYearFragmentView;
 
 public class AcademicYearFormViewStub implements AcademicYearFragmentView {
-    private int fx;
-    private int sx;
-    private int tx;
-    private int submit_visible;
-    private int intent_to_reg;
-    private int message_save;
-    private int message_not_valid;
-    private int message_alert;
-    private int message_override;
-    private int position_sem;
-    private int position_year;
+    private int fx, sx, tx, submit_visible, intent_to_reg,message_save,message_not_valid,message_alert,message_override, position_sem,position_year;
     private String start_date, end_date, academic_year, title, message, ects, semester, year;
     private ArrayList<String> year_list, semester_list;
 

@@ -517,6 +517,7 @@ public abstract class Initializer {
     }
 
     public ArrayList<Grade> uploadGrades() {
+        //Deletion of 5
         ArrayList<Grade> grades = new ArrayList<>();
         grades.add(new Grade(getStudentDAO().findStudentById(3200199), getOfferedSubjectDAO().findByTitle("Data Bases"), 10));
         grades.add(new Grade(getStudentDAO().findStudentById(3200199), getOfferedSubjectDAO().findByTitle("Operating Systems"), 10));
