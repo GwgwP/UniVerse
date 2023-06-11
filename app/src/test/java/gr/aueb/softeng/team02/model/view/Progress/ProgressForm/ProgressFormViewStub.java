@@ -5,7 +5,7 @@ import gr.aueb.softeng.team02.view.Progress.ProgressForm.ProgressView;
 
 public class ProgressFormViewStub implements ProgressView {
 
-    private double average, av1, av2, av3, av4, av5, av6, av7, av8;
+    private double average;
 
     private int number_of_passed_subjects;
     private int ects, num_ects_shown;
@@ -17,73 +17,13 @@ public class ProgressFormViewStub implements ProgressView {
 
     private int onseegrades;
     HashMap<Integer, Double> av_grades;
-    public double getAv1() {
-        return av1;
-    }
 
-    public void setAv1(double av1) {
-        this.av1 = av1;
-    }
 
     public int getEctsShown()
     {
         return this.num_ects_shown;
     }
-    public double getAv2() {
-        return av2;
-    }
 
-    public void setAv2(double av2) {
-        this.av2 = av2;
-    }
-
-    public double getAv3() {
-        return av3;
-    }
-
-    public void setAv3(double av3) {
-        this.av3 = av3;
-    }
-
-    public double getAv4() {
-        return av4;
-    }
-
-    public void setAv4(double av4) {
-        this.av4 = av4;
-    }
-
-    public double getAv5() {
-        return av5;
-    }
-
-    public void setAv5(double av5) {
-        this.av5 = av5;
-    }
-
-    public double getAv6() {
-        return av6;
-    }
-
-    public void setAv6(double av6) {
-        this.av6 = av6;
-    }
-
-    public double getAv7() {
-        return av7;
-    }
-
-    public void setAv7(double av7) {
-        this.av7 = av7;
-    }
-
-    public double getAv8() {
-        return av8;
-    }
-
-    public void setAv8(double av8) {
-        this.av8 = av8;
-    }
 
     public int getNumber_of_passed_subjects() {
         return number_of_passed_subjects;
@@ -169,23 +109,14 @@ public class ProgressFormViewStub implements ProgressView {
         return times_shown_avgs;
     }
 
-    public void setTimes_shown_avgs(int times_shown_avgs) {
-        this.times_shown_avgs = times_shown_avgs;
-    }
 
     public int getShown_passed_subjs() {
         return shown_passed_subjs;
     }
 
-    public void setShown_passed_subjs(int shown_passed_subjs) {
-        this.shown_passed_subjs = shown_passed_subjs;
-    }
 
     public int getShown_avg() {
         return shown_avg;
     }
 
-    public void setShown_avg(int shown_avg) {
-        this.shown_avg = shown_avg;
-    }
 }
