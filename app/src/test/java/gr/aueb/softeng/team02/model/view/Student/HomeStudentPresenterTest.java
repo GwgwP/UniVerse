@@ -25,6 +25,9 @@ public class HomeStudentPresenterTest {
         presenter = new HomeStudentPresenter(view);
     }
 
+    /**
+     * We test to see if the presenter changes to the correct fragment
+     **/
     @Test
     public void testChangeFragment() {
         //We selected the home screen

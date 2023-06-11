@@ -30,14 +30,20 @@ public class SubjectAddPresenterTest {
         this.dao = init.getSubjectDAO();
     }
 
+    /**
+     * We test that we get and set correctly
+     **/
     @Test
     public void testGettersSetters() {
+        //Initialization
         ArrayList<String> prep = new ArrayList<>();
         prep.add("Philisophy");
         prep.add("Politics");
 
         view.setSubject("Art", "Romatics and Modern", "5", "Lydia Wallace");
         view.setPrerequisites(prep);
+
+
         // we test the getters for the subjects attributes
         Assert.assertEquals("Art", view.getSubTitle());
         Assert.assertEquals("Romatics and Modern", view.getDesc());
@@ -45,7 +51,7 @@ public class SubjectAddPresenterTest {
         Assert.assertEquals(2, view.getSizePrerequisties());
         Assert.assertEquals("5", view.getEcts());
 
-        //we test the X image getters
+        //we test the X image getters. We did not set a description , so the image exDesc must appear
         view.setexEcts();
         Assert.assertEquals(true, view.getExEcts());
 
@@ -59,13 +65,16 @@ public class SubjectAddPresenterTest {
         Assert.assertEquals(false, view.getExProf());
     }
 
+    /**
+     * We test that the method produces the correct result  We put a not-number character on the ects box , so it must return false
+     **/
     @Test
     public void testIsNumber() {
         view.setSubject("Cats", "How to love cats", "t", "Lydia Wallace");
         boolean result = presenter.isNumber(view.getEcts());
         Assert.assertEquals(false, result);
     }
-
+/** We test to see that method caches**/
     @Test
     public void testAllWritten() {
         view.setSubject("Cats", "How to love cats", "9", "");
@@ -151,7 +160,7 @@ public class SubjectAddPresenterTest {
 
         //Version where we add a new subject that has prerequisites
         view.setSubject("Cats2", "How to love cats", "9", "Lydia Wallace");
-        ArrayList<String> prere= new ArrayList<>();
+        ArrayList<String> prere = new ArrayList<>();
         prere.add("Java");
         view.setPrerequisites(prere);
         presenter.setView(view);

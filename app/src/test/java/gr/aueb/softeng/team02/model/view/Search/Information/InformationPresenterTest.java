@@ -25,6 +25,12 @@ public class InformationPresenterTest {
 
     }
 
+    /**
+     * We check to see if the information that the presenter got is correct
+     * 1) A subject with no prerequisites
+     * 2) A subject with prerequisites
+     **/
+
     @Test
     public void testSetInfo() {
         presenter.setInfo("Algebra 1");
@@ -42,7 +48,6 @@ public class InformationPresenterTest {
         Assert.assertEquals("George Xulomenos", view.getProf());
         Assert.assertEquals(1, view.getPrereSize());
     }
-
 
 
 }

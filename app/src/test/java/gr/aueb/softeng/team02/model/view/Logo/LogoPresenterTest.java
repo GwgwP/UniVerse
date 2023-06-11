@@ -12,14 +12,17 @@ public class LogoPresenterTest {
     private LogoActivityPresenter presenter;
 
     @Before
-    public void setUp(){
+    public void setUp() {
         view = new LogoViewStub();
-        presenter= new LogoActivityPresenter(view);
+        presenter = new LogoActivityPresenter(view);
     }
 
+    /**
+     * We test to see if the presenter calls the right method
+     **/
     @Test
-    public void testMoveScreen(){
+    public void testMoveScreen() {
         presenter.moveScreen();
-        Assert.assertEquals(1,view.getK());
+        Assert.assertEquals(1, view.getK());
     }
 }

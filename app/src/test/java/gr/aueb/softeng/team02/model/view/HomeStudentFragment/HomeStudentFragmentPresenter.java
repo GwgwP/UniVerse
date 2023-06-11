@@ -16,20 +16,24 @@ public class HomeStudentFragmentPresenter {
     private HomeStudentFragmentViewStub view;
 
     @Before
-    public void setUp()throws AcademicYearException{
+    public void setUp() throws AcademicYearException {
 
         init = new MemoryInitializer();
         init.prepareData();
         view = new HomeStudentFragmentViewStub();
-        presenter= new StudentHomePresenter();
+        presenter = new StudentHomePresenter();
         presenter.setView(view);
 
     }
+
+    /**
+     * We test if the presenter calls the right method
+     **/
     @Test
-    public void testPress(){
+    public void testPress() {
 
         presenter.press();
-        Assert.assertEquals(1,view.getK());
+        Assert.assertEquals(1, view.getK());
 
     }
 }

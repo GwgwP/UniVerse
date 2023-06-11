@@ -1,4 +1,4 @@
-package gr.aueb.softeng.team02.model.view.Search.SearchFragment.SecretaryHomeFragment;
+package gr.aueb.softeng.team02.model.view.SecretaryHomeFragment;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -23,6 +23,9 @@ public class SecretaryHomeFragmentPresenter {
         presenter.setView(view);
     }
 
+    /**
+     * We test to see if the presenter goes to the right method
+     **/
     @Test
     public void testLogout() {
         presenter.logout();

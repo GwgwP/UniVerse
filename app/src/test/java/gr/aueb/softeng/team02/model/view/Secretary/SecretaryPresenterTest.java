@@ -3,6 +3,7 @@ package gr.aueb.softeng.team02.model.view.Secretary;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
 import java.time.LocalDate;
 
 import java.util.Set;
@@ -31,6 +32,10 @@ public class SecretaryPresenterTest {
 
     }
 
+    /**
+     * We test to see if the presenter changes to the correct fragment
+     **/
+
     @Test
     public void testChangeFragment() {
 
@@ -52,28 +57,27 @@ public class SecretaryPresenterTest {
 
     }
 
+    /**
+     * We test to see if the grades are uploaded , according to the Date
+     **/
     @Test
     public void updateGrades() {
         Set<Grade> grades = init.getGradeDAO().findAll();
 
         // The grades cannot be uploaded
         SystemDateStub date = new SystemDateStub();
-        LocalDate  now =  LocalDate.of(2022,10,03);
+        LocalDate now = LocalDate.of(2022, 10, 03);
         date.setStub(now);
         presenter.updateGrades();
         Assert.assertEquals(5, view.getK());
         Assert.assertEquals(15, grades.size());
 
         // The grades can be uploaded
-
-        LocalDate  now2 =  LocalDate.of(2023,6,11);
+        LocalDate now2 = LocalDate.of(2023, 6, 11);
         date.setStub(now2);
         presenter.updateGrades();
-        //TODO : maybe change the date that the grades can be uploaded
         Assert.assertEquals(5, view.getK());
         Assert.assertEquals(23, init.getGradeDAO().findAll().size());
-
-
 
 
     }
