@@ -19,7 +19,7 @@ public class OfferedSubject {
     }
 
     /**
-     * Contructor of the OfferedSubject
+     * Constructor of the OfferedSubject
      *
      * @param semester the semester as an integer
      */
@@ -129,7 +129,7 @@ public class OfferedSubject {
      * Compare the offered subject with a different object. If they have the same academic year and the same subjects,
      * then they are equal
      *
-     * @param other A different object
+     * @param other A different object or maybe the same
      * @return true or false depending on the equality
      */
     @Override

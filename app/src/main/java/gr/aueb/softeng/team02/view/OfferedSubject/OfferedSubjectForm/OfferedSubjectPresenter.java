@@ -11,7 +11,6 @@ import gr.aueb.softeng.team02.model.OfferedSubject;
 
 public class OfferedSubjectPresenter {
     OfferedSubjectDAO offeredSubjects;
-    SubjectDAO subjects;
     AcademicYearDAO years;
     OfferedSubjectView view;
 
@@ -19,12 +18,10 @@ public class OfferedSubjectPresenter {
      * Contructor that initializes all the daos
      *
      * @param view            OfferedSubjectView view
-     * @param subjects        SubjectDAO
      * @param offeredSubjects OfferedSubjectDAO
      * @param years           AcademicYearDAO
      */
-    public OfferedSubjectPresenter(OfferedSubjectView view, SubjectDAO subjects, OfferedSubjectDAO offeredSubjects, AcademicYearDAO years) {
-        this.subjects = subjects;
+    public OfferedSubjectPresenter(OfferedSubjectView view, OfferedSubjectDAO offeredSubjects, AcademicYearDAO years) {
         this.offeredSubjects = offeredSubjects;
         this.years = years;
         this.view = view;

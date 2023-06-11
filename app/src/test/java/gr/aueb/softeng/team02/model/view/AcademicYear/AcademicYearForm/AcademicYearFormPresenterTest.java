@@ -225,8 +225,11 @@ public class AcademicYearFormPresenterTest {
         Assert.assertEquals(1, view.getMessage_not_valid());
     }
 
+    /**
+     * empty ects field
+     */
     @Test
-    public void tes6()
+    public void test_for_ects()
     {
         view.setPosition_year(0);
         Assert.assertEquals("2021-2022", view.getSelectedYear());
@@ -235,6 +238,7 @@ public class AcademicYearFormPresenterTest {
         Assert.assertEquals("3", view.getSelectedSemester());
         view.setStart_date("2024-02-01");
         view.setEnd_date("2024-03-01");
+        //invalid ects
         view.setEcts("");
         Assert.assertEquals(0, view.getECTS().length());
         presenter.checkValid();
