@@ -1,7 +1,6 @@
 package gr.aueb.softeng.team02.model.view.Progress.ProgressForm;
 
 import java.util.HashMap;
-
 import gr.aueb.softeng.team02.view.Progress.ProgressForm.ProgressView;
 
 public class ProgressFormViewStub implements ProgressView {
@@ -130,7 +129,7 @@ public class ProgressFormViewStub implements ProgressView {
 
     @Override
     public void showAverage(double avg) {
-       // this.average = avg;
+        this.average = avg;
         this.shown_avg++;
     }
 
@@ -141,6 +140,7 @@ public class ProgressFormViewStub implements ProgressView {
     }
     @Override
     public void showAveragePerSemester(HashMap<Integer, Double> av_grades) {
+        this.av_grades = av_grades;
         this.times_shown_avgs++;
     }
     public int getOnseegrades() {
@@ -151,7 +151,7 @@ public class ProgressFormViewStub implements ProgressView {
     @Override
     public void showNumPassed(int num) {
         this.shown_passed_subjs ++;
-        //this.number_of_passed_subjects = num;
+        this.number_of_passed_subjects = num;
     }
 
     @Override
@@ -161,6 +161,7 @@ public class ProgressFormViewStub implements ProgressView {
 
     @Override
     public void showECTS(int num) {
+        this.ects = num;
         this.num_ects_shown++;
     }
 
