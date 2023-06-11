@@ -28,7 +28,7 @@ public class OfferedSubjectFormPresenterTest {
 
     @Test
     public void checkSelected() {
-        presenter = new OfferedSubjectPresenter(view, dataHelper.getSubjectDAO(), dataHelper.getOfferedSubjectDAO(), dataHelper.getAcademicYearDAO());
+        presenter = new OfferedSubjectPresenter(view, dataHelper.getOfferedSubjectDAO(), dataHelper.getAcademicYearDAO());
 
         view.setYear("2021-2022");
         view.setSemester("8");
