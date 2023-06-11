@@ -3,10 +3,6 @@ package gr.aueb.softeng.team02.model.view.AcademicYear.Registration;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 import gr.aueb.softeng.team02.dao.AcademicYearDAO;
 import gr.aueb.softeng.team02.dao.Initializer;
 import gr.aueb.softeng.team02.memorydao.MemoryInitializer;
@@ -31,19 +27,20 @@ public class RegistrationPresenterTest {
 
     }
 
+    /**
+     * Testing registration of new academic year
+     */
     @Test
     public void test_various_combinations_of_fields() {
         //all fields correctly written
         view.setAc_year("2024-2025");
         Assert.assertEquals("2024-2025", view.getAcademicYear());
 
-        //LocalDate start = LocalDate.of(2024, 2, 1);
         view.setStart_date("2024-02-01");
         Assert.assertEquals("2024-02-01",view.getStart_date());
         Assert.assertNotEquals("", view.getStart_date());
 
 
-        //LocalDate end = LocalDate.of(2025, 3, 1);
         view.setEnd_date("2025-03-01");
         Assert.assertEquals("2025-03-01", view.getEnd_date());
         Assert.assertNotEquals("", view.getEnd_date());
@@ -52,20 +49,23 @@ public class RegistrationPresenterTest {
         Assert.assertEquals(0, view.getFx());
         Assert.assertEquals(0, view.getSx());
         Assert.assertEquals(0, view.getTx());
+        //checking if it is stored in the database
+        Assert.assertEquals(ac_years.find("2024-2025").getAc_year(), "2024-2025");
+
+        //-----------------other combination
 
         //not valid year
         view.setAc_year("");
         Assert.assertEquals("", view.getAcademicYear());
 
-        //LocalDate start2 = LocalDate.of(2024, 2, 1);
         view.setStart_date("2024-02-01");
-        Assert.assertEquals("2024-02-01",view.getStart_date().toString());
-        Assert.assertNotEquals("", view.getStart_date().toString());
+        Assert.assertEquals("2024-02-01",view.getStart_date());
+        Assert.assertNotEquals("", view.getStart_date());
 
-        //LocalDate end2 = LocalDate.of(2025, 3, 1);
+
         view.setEnd_date("2025-03-01");
-        Assert.assertEquals("2025-03-01", view.getEnd_date().toString());
-        Assert.assertNotEquals("", view.getEnd_date().toString());
+        Assert.assertEquals("2025-03-01", view.getEnd_date());
+        Assert.assertNotEquals("", view.getEnd_date());
         presenter.valid();
 
         //only year not written so we want the x of year to be invoked
@@ -73,18 +73,18 @@ public class RegistrationPresenterTest {
         Assert.assertEquals(0, view.getSx());
         Assert.assertEquals(0, view.getTx());
         Assert.assertEquals(1, view.getMessage_save());
+        Assert.assertNull(ac_years.find(""));
 
+        //---------------other combination
         //not valid start date
         view.setAc_year("2026-2027");
-        //LocalDate start3 = LocalDate.of(2026, 3, 1);
         view.setStart_date("2026-03-01");
-        Assert.assertEquals("2026-03-01",view.getStart_date().toString());
-        Assert.assertNotEquals("", view.getStart_date().toString());
+        Assert.assertEquals("2026-03-01",view.getStart_date());
+        Assert.assertNotEquals("", view.getStart_date());
 
-        //LocalDate end3 = LocalDate.of(2027, 5, 1);
         view.setEnd_date("2027-05-01");
-        Assert.assertEquals("2027-05-01", view.getEnd_date().toString());
-        Assert.assertNotEquals("", view.getEnd_date().toString());
+        Assert.assertEquals("2027-05-01", view.getEnd_date());
+        Assert.assertNotEquals("", view.getEnd_date());
         presenter.valid();
 
         //only year not written so we want the x of year to be invoked
@@ -92,14 +92,13 @@ public class RegistrationPresenterTest {
         Assert.assertEquals(1, view.getSx());
         Assert.assertEquals(0, view.getTx());
 
+        //-------------other combination
         //not valid end date
         view.setAc_year("2026-2027");
-        //LocalDate start4 = LocalDate.of(2026, 2, 1);
         view.setStart_date("2026-02-01");
         Assert.assertEquals("2026-02-01",view.getStart_date());
         Assert.assertNotEquals("", view.getStart_date());
 
-        //LocalDate end4 = LocalDate.of(2027, 4, 1);
         view.setEnd_date("2027-04-01");
         Assert.assertEquals("2027-04-01", view.getEnd_date());
         Assert.assertNotEquals("", view.getEnd_date());
@@ -122,6 +121,7 @@ public class RegistrationPresenterTest {
         Assert.assertEquals(1, view.getSx()); //from previous validation
         Assert.assertEquals(1, view.getTx());
 
+        //---------other combo
         view.setAc_year("");
         presenter.valid();
         Assert.assertEquals(1, view.getAlert_message());
@@ -151,6 +151,8 @@ public class RegistrationPresenterTest {
         presenter.valid();
         Assert.assertEquals(1, view.getMessage_not_save());
 
+
+        //other combo
         //empty dates
         view.setStart_date("");
         view.setEnd_date("");
