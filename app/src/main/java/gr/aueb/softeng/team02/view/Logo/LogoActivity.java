@@ -16,13 +16,14 @@ import gr.aueb.softeng.team02.view.Authentication.UserLoginActivity;
 public class LogoActivity extends Activity implements LogoActivityView {
     private ImageView pic;
     private LogoActivityPresenter presenter;
-
+    private Initializer init;
     /**
      * Initializes the classes attributes
      **/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        init = new MemoryInitializer();
         setContentView(R.layout.activity_logo);
         pic = (ImageView) findViewById(R.id.imageLogo);
         presenter = new LogoActivityPresenter(this);

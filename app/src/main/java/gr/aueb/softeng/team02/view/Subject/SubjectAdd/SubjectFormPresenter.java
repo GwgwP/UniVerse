@@ -179,7 +179,7 @@ public class SubjectFormPresenter {
      *
      * @return it
      **/
-    private ArrayList<String> getSubjects() {
+    public ArrayList<String> getSubjects() {
         ArrayList<String> subs = new ArrayList<>();
 
         for (Subject k : sub.findAll()) {
