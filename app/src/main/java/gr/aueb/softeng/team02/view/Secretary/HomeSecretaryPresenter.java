@@ -60,7 +60,8 @@ public class HomeSecretaryPresenter {
      **/
     public void updateGrades() {
         LocalDate gradeDay;
-        if (SystemDate.now().getMonth().compareTo(Month.SEPTEMBER) >= 0 && SystemDate.now().getMonth().compareTo(Month.FEBRUARY) <= 0) {
+
+        if (SystemDate.now().getMonth().compareTo(Month.SEPTEMBER) >= 0 &&  Month.FEBRUARY.compareTo(SystemDate.now().getMonth()) <= 0) {
             gradeDay = years.getCurrentAcadYear().getGradeDateOdd();
         } else {
             gradeDay = years.getCurrentAcadYear().getGradeDateEven();
@@ -73,6 +74,7 @@ public class HomeSecretaryPresenter {
                 init.getGradeDAO().delete(grade);
                 init.getGradeDAO().save(grade);
             }
+
             view.showMessage("The grades have registered in the local Database");
         } else {
             view.showMessage("Grade day upload has yet to come");
