@@ -76,12 +76,8 @@ public class SubjectTest {
     @Test
     public void check_hashCode() {
         Subject subject2 = new Subject("Giannis Parios", 10, "introduction to robotics", "Robotics");
-        assertEquals(1234, subject2.hashCode());
-        assertEquals(3319, this.subject.hashCode());
-        assertNotEquals(2219, this.subject.hashCode());
         assertNotEquals(this.subject.hashCode(), subject2.hashCode());
-        subject2.setId(3319);
-        assertEquals(this.subject.hashCode(), subject2.hashCode());
+        assertEquals(new Subject("Kotidis Ioannis", 5, "introduction to Databases", "SDAD").hashCode(), this.subject.hashCode());
     }
 
     @Test
