@@ -83,8 +83,6 @@ public class StudentTest {
         //checking averages for the 2 semesters on the new student
         assertEquals(5, newStudent.getAvgBySpecificSemester(7), 0);
         assertEquals(5.5, newStudent.getAvgBySpecificSemester(8), 0);
-
-
     }
 
     @Test()
@@ -113,6 +111,9 @@ public class StudentTest {
         assertNotEquals(s1, other);
         assertNotEquals(s1, null);
         assertEquals(s1, s1);
+        assertEquals(s2.hashCode(), s2.hashCode());
+        assertEquals(s1.hashCode(), s3.hashCode());
+        assertNotEquals(s1.hashCode(), s2.hashCode());
     }
 }
 

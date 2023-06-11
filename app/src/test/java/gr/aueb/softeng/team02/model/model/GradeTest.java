@@ -49,9 +49,9 @@ public class GradeTest {
         Grade grade1 = new Grade();
         grade1.setGrade(10);
 
-        assertEquals(this.grade, grade1);
-
-        this.grade.setGrade(9);
+        assertEquals(this.grade, testGrade);
+        grade1.setSubject(this.sub);
+        grade1.setStudent(new Student(3200125, "WallC", "Aueb20022", "Christina", "Wallace", 6));
         assertNotEquals(this.grade, grade1);
 
         assertEquals(this.grade, this.grade);
@@ -72,7 +72,7 @@ public class GradeTest {
         Assert.assertEquals(this.grade.getAcademicYear(), new AcademicYear("2022-2023", dateEven2023, dateOdd2023));
         Assert.assertEquals(3200199, this.grade.getStudentId());
         Assert.assertEquals("SDAD", this.grade.getSubjectTitle());
-        this.grade.getSubject();
+        Assert.assertEquals(this.sub, this.grade.getSubject());
         assertEquals(6, this.testGrade.getSemester());
         assertEquals("SDAD", this.testGrade.getTitle());
     }

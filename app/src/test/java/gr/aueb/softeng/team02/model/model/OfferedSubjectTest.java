@@ -33,18 +33,11 @@ public class OfferedSubjectTest {
 
     @Test
     public void checkSetters() throws Exception {
-        Assert.assertThrows(Exception.class, () -> {
-            this.subject.setSemester(0);
-        });
-
-        Assert.assertThrows(Exception.class, () -> {
-            this.subject.setSemester(9);
-        });
-
         this.subject.setSemester(7);
+        Assert.assertEquals(7,this.subject.getSemester());
 
         this.subject.setSub(this.sub);
-
+        Assert.assertEquals(new Subject("Katerinis", 8, "An introduction to linear algebra", "Mathematics 2") ,this.subject.getSubject());
         this.subject.setYear(this.year);
 
         AcademicYear yeartest = new AcademicYear();

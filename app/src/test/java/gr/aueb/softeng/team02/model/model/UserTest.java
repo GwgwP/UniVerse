@@ -12,11 +12,14 @@ import gr.aueb.softeng.team02.model.Student;
 public class UserTest {
     private Student us;
     private Student rs;
-//mm
+    private Secretary s1;
+    private Secretary s2;
 
     @Before
     public void setUp() {
         this.us = new Student(1, "Lydiacwall", "kk", "Lydia", "Wallace", 7);
+        this.s2 = new Secretary(23456, "p23456", "2312", "Spyros", "Spyrou");
+        this.s1 = new Secretary(98765, "p98765", "5544", "Tryfon", "Trufylli");
         this.rs = new Student();
     }
 
@@ -36,6 +39,16 @@ public class UserTest {
 
         // Check Secretary
         Secretary sec = new Secretary();
+        sec.setId(23456);
         Assert.assertNotNull(sec);
+
+        Assert.assertEquals(sec, s2);
+        assertNotEquals(sec, s1);
+        assertNotEquals(sec, new Object());
+        assertNotEquals(sec, null);
+        assertEquals(sec, sec);
+
+        assertEquals(sec.hashCode(), s2.hashCode());
+        assertNotEquals(sec.hashCode(), s1.hashCode());
     }
 }

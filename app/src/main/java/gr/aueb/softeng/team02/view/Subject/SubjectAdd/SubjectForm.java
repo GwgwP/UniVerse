@@ -271,6 +271,7 @@ public class SubjectForm extends Activity implements SubjectFormView {
      *
      * @return the list of the checked Subjects
      **/
+    @Override
     public ArrayList<String> getPrereq() {
         ArrayList<String> subjects = new ArrayList<>();
         int rowCount = prereq.getChildCount();
@@ -298,6 +299,7 @@ public class SubjectForm extends Activity implements SubjectFormView {
      *
      * @param titles : the list that has the names of the subjects
      **/
+    @Override
     public void setForm(ArrayList<String> titles) {
         prereq.setVisibility(View.VISIBLE);
         prereq.removeAllViews();
