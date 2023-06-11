@@ -13,14 +13,7 @@ public class DetailedGradesViewStub implements DetailedGradesView {
     private int num_of_shown_subjs;
 
     private int received_avgs;
-    private double sem1;
-    private double sem2;
-    private double sem3;
-    private double sem4;
-    private double sem5;
-    private double sem6;
-    private double sem7;
-    private double sem8;
+
     private HashMap<Integer, HashMap<String, Integer>> gradings;
 
 
