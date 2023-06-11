@@ -14,15 +14,12 @@ import gr.aueb.softeng.team02.model.util.SystemDateStub;
 import gr.aueb.softeng.team02.view.Submission.SubmissionFragmentPresenter;
 
 public class SubmissionFragmentPresenterTest {
-
     Initializer dataHelper;
     SubmissionFragmentPresenter presenter;
     SubmissionFragmentViewStub view;
-    SystemDateStub dateStub;
 
     @Before
     public void setUp() throws AcademicYearException {
-        dateStub = new SystemDateStub();
         dataHelper = new MemoryInitializer();
         dataHelper.prepareData();
         view = new SubmissionFragmentViewStub();
@@ -33,6 +30,36 @@ public class SubmissionFragmentPresenterTest {
 
     @Test
     public void SimpleTest() {
+        // Create a new submission - no submission before
+        presenter.makeForm();
+        Assert.assertEquals(view.getMap().size(), 13);
+        presenter.checkPrerequisites("Theory of computability and complexity");
+
+        Assert.assertEquals(view.getErrormsg(), "Cannot select this subject because you had not passed at least one prerequisite course");
+        Assert.assertEquals(view.getErrorTitle(), "Error");
+        Assert.assertFalse(view.getChecker());
+
+        presenter.submitClicked();
+
+        Assert.assertEquals(view.getErrorTitle(), "Error");
+        Assert.assertEquals(view.getErrormsg(), "Select at least one subject");
+
+        presenter.checkPrerequisites("SDAD");
+        Assert.assertTrue(view.getChecker());
+        view.addSelectedTitle("SDAD");
+
+        presenter.checkPrerequisites("Elements of law and information");
+        Assert.assertTrue(view.getChecker());
+        view.addSelectedTitle("Elements of law and information");
+        SystemDateStub.setStub(LocalDate.of(2023, 6, 15));
+        presenter.submitClicked();
+        Assert.assertEquals(view.getPassedMsg(), "Successfully stored");
+        Assert.assertEquals(dataHelper.getSubmissionDAO().findAll().size(), 1);
+        view.changeToHomeScreen();
+
+        view.clearTitles();
+
+        // Create a new submission and delete the old one
         presenter.makeForm();
         Assert.assertEquals(view.getMap().size(), 13);
         presenter.checkPrerequisites("Theory of computability and complexity");

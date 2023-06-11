@@ -16,6 +16,10 @@ public class SubmissionFragmentViewStub implements SubmissionFragmentView {
         this.selectedTitles = new ArrayList<>();
     }
 
+    public void clearTitles() {
+        this.selectedTitles.clear();
+    }
+
     public String getErrorTitle() {
         return this.errorTitle;
     }

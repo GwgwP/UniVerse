@@ -23,7 +23,7 @@ public class AcademicYear {
      *
      * @param ac_year       the time stamp of the academic year
      * @param gradeDateEven the day of the grade upload for the spring semester
-     * @param gradeDateOdd  the day of the grade upload for the winter semeter
+     * @param gradeDateOdd  the day of the grade upload for the winter semester
      */
     public AcademicYear(String ac_year, LocalDate gradeDateEven, LocalDate gradeDateOdd) {
         this.ac_year = ac_year;
@@ -52,7 +52,7 @@ public class AcademicYear {
     /**
      * Get the time stamp of the academic year
      *
-     * @return
+     * @return the time stamp as a string
      */
     public String getAc_year() {
         return ac_year;

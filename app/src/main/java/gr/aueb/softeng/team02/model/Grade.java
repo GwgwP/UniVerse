@@ -152,6 +152,11 @@ public class Grade {
         return (this.subject.getSubject().equals(grade1.getSubject().getSubject()) && this.stud.equals(grade1.stud));
     }
 
+    /**
+     * Get the hash Code based on the student hash code + subject hash code and '/'
+     *
+     * @return the hash code as an integer of the hash code of the generated string
+     */
     @Override
     public int hashCode() {
         return (this.stud.hashCode() + "/" + this.subject.getSubject().hashCode()).hashCode();

@@ -50,7 +50,7 @@ public class OfferedSubjectFragment extends Fragment implements OfferedSubjectVi
         spinnerSemester = (Spinner) view.findViewById(R.id.spinner_semester);
         builder = new AlertDialog.Builder(requireContext());
         init = new MemoryInitializer();
-        presenter = new OfferedSubjectPresenter(this, init.getSubjectDAO(), init.getOfferedSubjectDAO(), init.getAcademicYearDAO());
+        presenter = new OfferedSubjectPresenter(this, init.getOfferedSubjectDAO(), init.getAcademicYearDAO());
         presenter.initLists();
         check = (Button) view.findViewById(R.id.button_check);
         return view;
