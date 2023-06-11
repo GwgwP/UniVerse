@@ -36,25 +36,33 @@ public class AcademicYearFormPresenterTest {
         presenter.initLists();
     }
 
+    /**
+     * Testing the page navigation
+     */
     @Test
     public void TestPageIntent()
     {
+        Assert.assertEquals(0, view.getIntent_to_reg());
         presenter.onSeeAcademicYear();
         Assert.assertEquals(1, view.getIntent_to_reg());
     }
+
+    /**
+     * Test for override
+     * valid fields given from the user.
+     */
     @Test
-    public void TestVariousCombinationsOfFields()
-    {
+    public void TestVariousCombinationsOfFields() throws AcademicYearException {
         //everything valid but already existing form
         //checking override
         view.setPosition_year(0);
-        Assert.assertEquals("2021-2022", view.getSelectedYear());
+        Assert.assertEquals("2021-2022", view.getSelectedYear()); //this academic year already exists and has circumscription
 
         view.setPosition_sem(2);
         Assert.assertEquals("3", view.getSelectedSemester());
 
-        view.setEcts("50");
-        Assert.assertEquals("50", view.getECTS());
+        view.setEcts("49");
+        Assert.assertEquals("49", view.getECTS());
 
         view.setStart_date("2021-02-01");
         view.setEnd_date("2021-03-01");
@@ -67,23 +75,31 @@ public class AcademicYearFormPresenterTest {
         Assert.assertEquals(0, view.getSx());
         Assert.assertEquals(0, view.getTx());
 
+        //the circumscription is valid, so we want the submit button to be visible
         Assert.assertEquals(1, view.getSubmit_visible());
         presenter.createAcademicYearCircumscription();
+        //the check for the existing circumscription takes place when submit is clicked,
+        //so we should get an alert message
         Assert.assertEquals(1, view.getMessage_alert());
-
         Assert.assertEquals("Warning", view.getTitle());
         Assert.assertEquals("There is already a circumscription for the same year and semester.\n Do you want to override it?", view.getMessage());
 
 
+        //we know that the already existing circumscription has 30 ects as limit
+        Assert.assertEquals(30, ac_years.findCircumscriptionBySemesterAndYear(3, "2021-2022").getEcts());
         //yes is clicked for override
         presenter.overrideCirc();
+        //checking if the override has taken place
         Assert.assertEquals(1, view.getMessage_override());
-
-
-
+        Assert.assertEquals(49, ac_years.findCircumscriptionBySemesterAndYear(3, "2021-2022").getEcts());
     }
+
+    /**
+     * First we create a new Academic Year.
+     * Every field is valid
+     */
     @Test
-    public void Test2()
+    public void Test_valid_creation()
     {
         //everything valid
         //We create a new academic year so there will not be any override.
@@ -109,23 +125,40 @@ public class AcademicYearFormPresenterTest {
 
         presenter.checkValid();
         Assert.assertEquals(1, view.getSubmit_visible());
+        // submit is clicked
         presenter.createAcademicYearCircumscription();
         Assert.assertEquals(1, view.getMessage_save());
 
         Assert.assertEquals(0, view.getFx());
         Assert.assertEquals(0, view.getSx());
         Assert.assertEquals(0, view.getTx());
-    }
-    @Test
-    public void Test3()
-    {
+        //checking if the circumscription has been saved
+        try {
+            Assert.assertEquals(56, ac_years.findCircumscriptionBySemesterAndYear(3, "2024-2025").getEcts());
+            Assert.assertEquals(l1, ac_years.find("2024-2025").getGradeDateEven());
+            Assert.assertEquals(l2, ac_years.find("2024-2025").getGradeDateOdd());
+        } catch (AcademicYearException e) {
+            throw new RuntimeException(e);
+        }
 
+    }
+
+    /**
+     * Testing various valid
+     * and invalid user inputs
+     */
+    @Test
+    public void Test_valid_invalid_combos()
+    {
+        //valid year
         view.setPosition_year(0);
         Assert.assertEquals("2021-2022", view.getSelectedYear());
 
+        //valid semester
         view.setPosition_sem(2);
         Assert.assertEquals("3", view.getSelectedSemester());
 
+        //valid ects
         view.setEcts("50");
         Assert.assertEquals("50", view.getECTS());
 
@@ -153,15 +186,16 @@ public class AcademicYearFormPresenterTest {
         Assert.assertEquals(1, view.getSx());
         Assert.assertEquals(1, view.getTx());
 
-
-
-
-
     }
+
+    /**
+     * Testing various valid
+     *  and invalid user inputs
+     */
     @Test
-    public void test5()
+    public void test_valid_invalid_combos_2()
     {
-        //valid except ects
+        //all valid except ects
         view.setPosition_year(0);
         Assert.assertEquals("2021-2022", view.getSelectedYear());
 
@@ -184,11 +218,11 @@ public class AcademicYearFormPresenterTest {
         Assert.assertEquals(0, view.getECTS().length());
 
         presenter.checkValid();
-//        Assert.assertEquals(0, view.getSubmit_visible());
-//        Assert.assertEquals(2, view.getFx());
-//        Assert.assertEquals(0, view.getSx());
-//        Assert.assertEquals(0, view.getTx());
-//        Assert.assertEquals(1, view.getMessage_not_valid());
+        Assert.assertEquals(0, view.getSubmit_visible());
+        Assert.assertEquals(2, view.getFx());
+        Assert.assertEquals(0, view.getSx());
+        Assert.assertEquals(0, view.getTx());
+        Assert.assertEquals(1, view.getMessage_not_valid());
     }
 
     @Test
