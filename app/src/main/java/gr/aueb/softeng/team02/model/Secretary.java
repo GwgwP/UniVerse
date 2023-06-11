@@ -20,6 +20,12 @@ public class Secretary extends User {
     public Secretary() {
     }
 
+    /**
+     * Compare the secretary with a different object. If they have the same id then they are equal
+     *
+     * @param other A different object or maybe the same
+     * @return true or false depending on the equality
+     */
     @Override
     public boolean equals(Object other) {
         if (other == null) {
@@ -38,6 +44,11 @@ public class Secretary extends User {
         return this.getId() == newOne.getId();
     }
 
+    /**
+     * Get the hash code based on the id of the secretary
+     *
+     * @return the id of the secretary as an integer
+     */
     @Override
     public int hashCode() {
         return this.getId();

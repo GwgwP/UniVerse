@@ -4,79 +4,51 @@ import java.util.*;
 
 public class Student extends User {
     private int semester;
-    private double avg;
-    private int numPassed;
+    /**
+     * Default constructor
+     */
+    public Student() {
+    }
 
-    private int totalEcts;
-    private Map<Integer, Double> avgPerSemester;
-
-    public Student() {}
-
+    /**
+     * Constructor of the Student
+     *
+     * @param id       the student id as an integer
+     * @param username the username of the student as a string
+     * @param password the password of the student as a string
+     * @param name     the name of the student as a string
+     * @param surname  the surname of the student as a string
+     * @param semester the current semester of the student as an integer
+     */
     public Student(int id, String username, String password, String name, String surname, int semester) {
         super(id, username, password, name, surname);
         this.semester = semester;
-        this.avgPerSemester = new HashMap<>();
     }
 
-    public void setAvgPerSemester(int semester, double avg) throws StudentException {
-        if (semester > 8 || semester < 1)
-            throw new StudentException("Invalid semester");
-        this.avgPerSemester.put(semester, avg);
-    }
-
-    public Map<Integer, Double> getAvgPerSemester() {
-        return this.avgPerSemester;
-    }
-
-    public Double getAvgBySpecificSemester(int semester) throws StudentException {
-        if (this.getAvgPerSemester().get(semester) == null) {
-            throw new StudentException("nullSemester");
-        } else {
-            return this.avgPerSemester.get(semester);
-        }
-    }
-
-    public double getAvg() {
-        return this.avg;
-    }
-
-    public void setAvg(double avg) {
-        this.avg = avg;
-    }
-
-    public int getNumPassed() {
-        return this.numPassed;
-    }
-
-    public void setNumPassed(int numPassed) {
-        this.numPassed = numPassed;
-    }
-
-    public int getTotalEcts() {
-        return this.totalEcts;
-    }
-
-    public void setTotalEcts(int totalEcts) {
-        this.totalEcts = totalEcts;
-    }
-
-    public void updateAvg(double score, int passed) {
-        this.avg = (this.avg * this.numPassed + score) / (this.numPassed + passed);
-        this.numPassed = this.numPassed + passed;
-    }
-
-    public void updateEcts(int Ects) {
-        this.totalEcts += Ects;
-    }
-
+    /**
+     * Get the current semester of the student
+     *
+     * @return the semester as an integer
+     */
     public int getSemester() {
         return semester;
     }
 
+    /**
+     * Set the current semester
+     *
+     * @param semester the semester as an integer
+     */
     public void setSemester(int semester) {
         this.semester = semester;
     }
 
+    /**
+     * Compare a student with another object. If they have the same id as student objects, they are the same
+     *
+     * @param other another object
+     * @return true or false based on the criteria
+     */
     @Override
     public boolean equals(Object other) {
         if (other == null) {
@@ -95,6 +67,11 @@ public class Student extends User {
         return this.getId() == newOne.getId();
     }
 
+    /**
+     * Get the hash code based in the id of the student
+     *
+     * @return the id of the student
+     */
     @Override
     public int hashCode() {
         return this.getId();

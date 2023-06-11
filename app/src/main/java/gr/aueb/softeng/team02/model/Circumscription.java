@@ -36,7 +36,7 @@ public class Circumscription {
     /**
      * Get the ects of the circumscription
      *
-     * @return the ects as an integer
+     * @return ects as an integer
      */
     public int getEcts() {
         return this.ects;
