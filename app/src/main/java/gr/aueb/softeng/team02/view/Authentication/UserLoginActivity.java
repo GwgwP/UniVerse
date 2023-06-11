@@ -22,12 +22,12 @@ import gr.aueb.softeng.team02.view.Student.HomeStudentActivity;
 
 public class UserLoginActivity extends AppCompatActivity implements UserLoginView {
 
-    Button login;
-    EditText name;
-    EditText pass;
-    Switch role;
-    ImageView firstX;
-    ImageView secondX;
+    private Button login;
+    private EditText name;
+    private EditText pass;
+    private Switch role;
+    private ImageView firstX;
+    private ImageView secondX;
     private Initializer init;
     private UserLoginPresenter presenter;
 

@@ -14,9 +14,8 @@ import gr.aueb.softeng.team02.model.AcademicYearException;
 import gr.aueb.softeng.team02.view.Authentication.UserLoginActivity;
 
 public class LogoActivity extends Activity implements LogoActivityView {
-    ImageView pic;
-    LogoActivityPresenter presenter;
-    private Initializer init;
+    private ImageView pic;
+    private LogoActivityPresenter presenter;
 
     /**
      * Initializes the classes attributes
@@ -27,7 +26,6 @@ public class LogoActivity extends Activity implements LogoActivityView {
         setContentView(R.layout.activity_logo);
         pic = (ImageView) findViewById(R.id.imageLogo);
         presenter = new LogoActivityPresenter(this);
-        init = new MemoryInitializer();
         try {
             init.prepareData();
         } catch (AcademicYearException e) {
