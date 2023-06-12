@@ -24,7 +24,7 @@ public class DetailedGradedPresenterTest {
     @Before
     public void setUp() throws AcademicYearException {
         init = new MemoryInitializer();
-        init.prepareData();
+        init.prepareData(); // this line throws academic year exception but we know that it will not
         grades = init.getGradeDAO();
         view = new DetailedGradesViewStub();
         presenter = new DetailedGradesPresenter(view, grades);
@@ -47,7 +47,7 @@ public class DetailedGradedPresenterTest {
         presenter.initSubView();
         Assert.assertEquals(5, view.getGradings().get(1).size()); //checking that we have 5 subjects inside
         Assert.assertEquals(5, view.getGradings().get(2).size()); //checking that we have 5 subjects inside
-        Assert.assertEquals(0, view.getGradings().get(3).size()); //checking that we have 0 subjects inside
+        Assert.assertEquals(4, view.getGradings().get(3).size()); //checking that we have 0 subjects inside
         Assert.assertEquals(0, view.getGradings().get(4).size()); //checking that we have 0 subjects inside
         Assert.assertEquals(0, view.getGradings().get(5).size()); //checking that we have 0 subjects inside
         Assert.assertEquals(0, view.getGradings().get(6).size()); //checking that we have 0 subjects inside
@@ -65,7 +65,12 @@ public class DetailedGradedPresenterTest {
         Assert.assertEquals("9", view.getGradings().get(2).get("Design and analysis of digital systems").toString());
         Assert.assertEquals("9", view.getGradings().get(2).get("Linear Algebra").toString());
         Assert.assertEquals("9", view.getGradings().get(2).get("Possibilities").toString());
-        Assert.assertEquals("9", view.getGradings().get(2).get("Business Management").toString());
+        Assert.assertEquals("9", view.getGradings().get(2).get("Business Management").toString());Assert.assertEquals("9", view.getGradings().get(2).get("Java").toString());
+
+        Assert.assertEquals("5", view.getGradings().get(3).get("Computer systems organization").toString());
+        Assert.assertEquals("4", view.getGradings().get(3).get("C++").toString());
+        Assert.assertEquals("5", view.getGradings().get(3).get("Data structures").toString());
+        Assert.assertEquals("5", view.getGradings().get(3).get("Computational mathematics").toString());
 
 
     }

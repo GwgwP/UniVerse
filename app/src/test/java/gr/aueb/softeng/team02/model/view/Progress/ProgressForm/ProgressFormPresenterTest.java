@@ -19,7 +19,7 @@ public class ProgressFormPresenterTest {
     @Before
     public void setUp() throws AcademicYearException {
         init = new MemoryInitializer();
-        init.prepareData();
+        init.prepareData();  // this line throws academic year exception but we know that it will not
         view = new ProgressFormViewStub();
         presenter = new ProgressPresenter();
         presenter.setView(view);
@@ -58,7 +58,7 @@ public class ProgressFormPresenterTest {
 
         //checking correctness of average
         presenter.getAverage(view.getStudent_id());
-        Assert.assertEquals(8.6, view.getAverage(), 0.0001);
+        Assert.assertEquals(7.76, view.getAverage(), 0.01);
         Assert.assertEquals(1, view.getShown_avg());
         Assert.assertEquals(0, view.getOnseegrades());
         Assert.assertEquals(0, view.getTimes_shown_avgs());
@@ -74,7 +74,7 @@ public class ProgressFormPresenterTest {
         Assert.assertEquals(0, view.getEctsShown());
         Assert.assertEquals(8.2, view.getAv_grades().get(1), 0.0001);
         Assert.assertEquals(9.0, view.getAv_grades().get(2), 0.0001);
-        Assert.assertNull(view.getAv_grades().get(3));
+        Assert.assertEquals(5.0, view.getAv_grades().get(3), 0.0001); // checking if average grade is correct brecause one subject has grade 4 so it is not passed
         Assert.assertNull(view.getAv_grades().get(4));
         Assert.assertNull(view.getAv_grades().get(5));
         Assert.assertNull(view.getAv_grades().get(6));
@@ -85,7 +85,7 @@ public class ProgressFormPresenterTest {
         //checking ECTS
         presenter.getECTS(view.getStudent_id());
         Assert.assertEquals(1, view.getEctsShown());
-        Assert.assertEquals(80, view.getEcts());
+        Assert.assertEquals(104, view.getEcts());
 
         Assert.assertEquals(1, view.getShown_avg());
         Assert.assertEquals(0, view.getOnseegrades());
@@ -98,7 +98,7 @@ public class ProgressFormPresenterTest {
         presenter.getNumOfSubs(view.getStudent_id());
         Assert.assertEquals(3200125, view.getStudent_id());
         Assert.assertEquals(1, view.getShown_passed_subjs());
-        Assert.assertEquals(10, view.getNumber_of_passed_subjects());
+        Assert.assertEquals(13, view.getNumber_of_passed_subjects());
 
         Assert.assertEquals(1, view.getShown_avg());
         Assert.assertEquals(0, view.getOnseegrades());

@@ -53,7 +53,7 @@ public class ProgressPresenter {
      */
     public void getAGperSem(int id) {
         HashMap<Integer, ArrayList<Integer>> grades_per_sem = new HashMap<>();
-        for (Grade g : grades.findByStudent(id)) {
+        for (Grade g : grades.findPassedSubjectsByStudent(id)) {
             if (!grades_per_sem.containsKey(g.getSemester()))
                 grades_per_sem.put(g.getSemester(), new ArrayList<Integer>());
 

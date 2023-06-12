@@ -18,6 +18,12 @@ public class OfferedSubjectRegistrationPresenterTest {
     private OfferedSubjectRegistrationPresenter presenter;
     OfferedSubjectRegistrationViewStub view;
     Initializer dataHelper;
+
+    /**
+     * Initialize the daos, presenter and the view
+     *
+     * @throws AcademicYearException
+     */
     @Before
     public void setUp() throws AcademicYearException {
         view = new OfferedSubjectRegistrationViewStub();
@@ -32,6 +38,15 @@ public class OfferedSubjectRegistrationPresenterTest {
         presenter = new OfferedSubjectRegistrationPresenter(view, dataHelper.getOfferedSubjectDAO(), dataHelper.getSubjectDAO(), dataHelper.getAcademicYearDAO());
     }
 
+    /**
+     * Steps of scenario:
+     * 1. Select a year and a semester (mark as selected)
+     * 2. Select a subject
+     * 3. Check the alert title and the alert message
+     * 4. Press Yes (to move the semester)
+     * 5. Check the moved semester
+     * 6. Check the the messages
+     */
     @Test
     public void checkIfPressedYes() {
         presenter.init("2021-2022", "6");
@@ -47,6 +62,15 @@ public class OfferedSubjectRegistrationPresenterTest {
         Assert.assertTrue(view.getChecker());
     }
 
+    /**
+     * Steps of scenario:
+     * 1. Select a year and a semester (mark as selected)
+     * 2. Select a subject
+     * 3. Check the alert title and the alert message
+     * 4. Press Yes (to move the semester)
+     * 5. Check the moved semester
+     * 6. Check the the messages
+     */
     @Test
     public void checkIfPressedNo() {
         presenter.init("2021-2022", "6");
@@ -63,6 +87,14 @@ public class OfferedSubjectRegistrationPresenterTest {
         Assert.assertFalse(view.getChecker());
     }
 
+    /**
+     * Steps of scenario:
+     * 1. Select a year and a semester (mark as selected)
+     * 2. Register the submission
+     * 3. Check the error messages
+     * 4. Select a subject
+     * 5. Submit the message with no complication (check it)
+     */
     @Test
     public void noRegisteredOfferedSubjects() {
         presenter.init("2021-2022", "6");
@@ -75,8 +107,7 @@ public class OfferedSubjectRegistrationPresenterTest {
         view.addTitles("SDAD");
         presenter.register();
 
-        Assert.assertEquals(dataHelper.getOfferedSubjectDAO()
-                .findByYear("2021-2022").size(), 36);
+        Assert.assertEquals(dataHelper.getOfferedSubjectDAO().findByYear("2021-2022").size(), 36);
         Assert.assertEquals(dataHelper.getOfferedSubjectDAO().findAllSubjectsByYearAndBySemester("2021-2022", 6).size(), 5);
         Assert.assertEquals(view.getMoveReminder(), "Your registration was a success !");
     }

@@ -28,7 +28,7 @@ public class AcademicYearFormPresenterTest {
     @Before
     public void setUp() throws AcademicYearException {
         init = new MemoryInitializer();
-        init.prepareData();
+        init.prepareData();  // this line throws academic year exception but we know that it will not
         view = new AcademicYearFormViewStub();
         this.ac_years = init.getAcademicYearDAO();
         this.presenter = new AcademicYearFragmentPresenter(ac_years);
@@ -86,12 +86,12 @@ public class AcademicYearFormPresenterTest {
 
 
         //we know that the already existing circumscription has 30 ects as limit
-        Assert.assertEquals(30, ac_years.findCircumscriptionBySemesterAndYear(3, "2021-2022").getEcts());
+        Assert.assertEquals(30, ac_years.findCircumscriptionBySemesterAndYear(3, "2021-2022").getEcts()); //throws academic year exception if semester does not exist but we know that exists
         //yes is clicked for override
         presenter.overrideCirc();
         //checking if the override has taken place
         Assert.assertEquals(1, view.getMessage_override());
-        Assert.assertEquals(49, ac_years.findCircumscriptionBySemesterAndYear(3, "2021-2022").getEcts());
+        Assert.assertEquals(49, ac_years.findCircumscriptionBySemesterAndYear(3, "2021-2022").getEcts()); //throws academic year exception if semester does not exist but we know that existd
     }
 
     /**
