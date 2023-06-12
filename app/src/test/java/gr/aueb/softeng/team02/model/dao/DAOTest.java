@@ -304,9 +304,16 @@ public class DAOTest {
         Assert.assertEquals(submissionDAO.findAll().size(), 1);
         submissionDAO.save(sub);
         Assert.assertEquals(submissionDAO.findAll().size(), 1);
+
+        Assert.assertEquals(sub, submissionDAO.findByAcademicYearAndSemesterAndStudentId("2021-2022", 6, 3200125));
+        Assert.assertNull(submissionDAO.findByAcademicYearAndSemesterAndStudentId("2022-2023", 6, 3200125));
+
         submissionDAO.delete(sub);
         Assert.assertEquals(submissionDAO.findAll().size(), 0);
         submissionDAO.delete(sub);
         Assert.assertEquals(submissionDAO.findAll().size(), 0);
+
+        Assert.assertNull(submissionDAO.findByAcademicYearAndSemesterAndStudentId("2021-2022", 6, 3200125));
+
     }
 }
