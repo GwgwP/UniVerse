@@ -103,6 +103,8 @@
 <br>
 
 **DAO & MEMORY DAO**
+<br>
+
 ![DAO & MEMORY DAO COVERAGE](uml/requirements/coverage/dao_test_coverage.jpg)
 
 <br>
