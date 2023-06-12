@@ -74,7 +74,10 @@ public class SubjectAddPresenterTest {
         boolean result = presenter.isNumber(view.getEcts());
         Assert.assertEquals(false, result);
     }
-/** We test to see that method caches**/
+
+    /**
+     * We test to see that method caches
+     **/
     @Test
     public void testAllWritten() {
         view.setSubject("Cats", "How to love cats", "9", "");
@@ -82,6 +85,9 @@ public class SubjectAddPresenterTest {
         Assert.assertEquals(false, presenter.allWritten());
     }
 
+    /**
+     * We test to see when we save a new subject , we get the correct message and that it was saved at the dao
+     **/
     @Test
     public void testCreateSubject() {
         view.setSubject("Java", "How to love cats", "9", "Lydia Wallace");
@@ -94,6 +100,9 @@ public class SubjectAddPresenterTest {
         Assert.assertEquals("How to love cats", save.getDesc());
     }
 
+    /**
+     * we test that the presenters gets from the doa the correct amount of subjects
+     **/
     @Test
     public void testGetSubjects() {
         view.setSubject("Java", "How to love cats", "9", "Lydia Wallace");
@@ -102,6 +111,9 @@ public class SubjectAddPresenterTest {
         Assert.assertEquals(36, test.size());
     }
 
+    /**
+     * We test to see if the presenter shows all the available subjects to be selected as prerequisites
+     **/
     @Test
     public void testMakeForm() {
         view.setSubject("Java", "How to love cats", "9", "Lydia Wallace");
@@ -110,13 +122,16 @@ public class SubjectAddPresenterTest {
         Assert.assertEquals(36, view.getSizePrerequisties());
     }
 
+    /**
+     * We test to see if the presenter chooses correct , about the validity of the new form . There are 6 different scenarios
+     **/
     @Test
     public void testValid() {
-
 
         // Answer = 0 -> we want to keep the old version
         // Answer = 1 -> we want to save the new version
         // Version where everything is ok , but we already
+
         // have an old version and we want to save the new
         view.setSubject("Java", "How to love cats", "9", "Lydia Wallace");
         presenter.setView(view);
@@ -171,6 +186,9 @@ public class SubjectAddPresenterTest {
 
     }
 
+    /**
+     * We test to see if a box is nit written , the correct X image is shown. The are 4 different scenarios
+     **/
     @Test
     public void testErrorNotWritten() {
         // The title box is not written

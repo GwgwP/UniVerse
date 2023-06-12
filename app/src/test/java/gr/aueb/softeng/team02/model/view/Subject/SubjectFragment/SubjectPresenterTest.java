@@ -15,6 +15,7 @@ public class SubjectPresenterTest {
     private Initializer init;
     private SubjectPresenter presenter;
     private SubjectViewStub view;
+
     @Before
     public void setUp() throws AcademicYearException {
         init = new MemoryInitializer();
@@ -26,13 +27,19 @@ public class SubjectPresenterTest {
         presenter.setView(view);
     }
 
+    /**
+     * We need to test to see if  it shows the correct amount of subjects
+     **/
     @Test
-    public void testShowSub(){ // we need to see how many subjects it shows
+    public void testShowSub() {
         presenter.showSub();
         // we have 36 subjects
         Assert.assertEquals(36, view.getSize());
     }
 
+    /**
+     * We see if the presenter calls the correct method
+     **/
     @Test
     public void testAddForm() {
         presenter.addForm();
