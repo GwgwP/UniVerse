@@ -96,9 +96,7 @@ public class SubjectForm extends Activity implements SubjectFormView {
         send.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Log.e("DEBUGGER", ects.getText().toString().trim());
                 presenter.valid();
-
             }
         });
 
