@@ -89,7 +89,7 @@
         Το Fragment που υλοποιεί την καταχώρηση ενός περιορισμού. Περιέχει spinner για την επιλογή ακαδημαικού έτους (μεταξύ όσων έχουν δημιουργηθεί), spinner για την επιλογή του εξαμήνου, καθώς και αντίστοιχα πεδία για τη συμπλήρωση των ects, και των ημερομηνιών. Εκτελεί τον έλεγχο της δήλωσης και την καταχώρηση ή την επικάλυψη της (έαν είναι έγκυρη) 
         </li> 
 
-    ![Academic Year ](uml/requirements/aca.png)
+    ![Academic Year ](uml/requirements/academic-year-frag.png)
     </ul>
         <li><b>Registration</b>
         <br>
@@ -97,7 +97,7 @@
         </li>
     </ul>
 
-    ![Academic Year ](uml/requirements/aca.png)
+    ![Academic Year ](uml/requirements/academic-year-reg.png)
 4. **OfferedSubject**
     <ul>
         <li> <b>OfferedSubjectForm</b>
