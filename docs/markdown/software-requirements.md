@@ -129,7 +129,7 @@
 ---
 ![Διαγράμματα Ακολουθίας Συναρτήσεων B](uml/requirements/method-sequence2.jpg) 
 ---
-![Διαγράμματα Ακολουθίας Συναρτήσεων Γ](uml/requirements/method-sequence3.png) 
+![Διαγράμματα Ακολουθίας Συναρτήσεων Γ](uml/requirements/method-sequence3.jpg) 
 
 
 ![Κλάσεις Ανάλυσης]
