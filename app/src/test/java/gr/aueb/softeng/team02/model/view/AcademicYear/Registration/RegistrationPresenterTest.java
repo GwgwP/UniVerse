@@ -20,7 +20,7 @@ public class RegistrationPresenterTest {
     @Before
     public void setUp() throws AcademicYearException {
         init = new MemoryInitializer();
-        init.prepareData();
+        init.prepareData();  // this line throws academic year exception but we know that it will not
         view = new AcademicYearRegViewStub();
         this.ac_years = init.getAcademicYearDAO();
         this.presenter = new AcademicYearRegPresenter(view, ac_years);

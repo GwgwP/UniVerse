@@ -1,7 +1,6 @@
 package gr.aueb.softeng.team02.model.view.Progress.DetailedGrades;
 
 import java.util.HashMap;
-
 import gr.aueb.softeng.team02.view.Progress.DetailedGrades.DetailedGradesView;
 
 public class DetailedGradesViewStub implements DetailedGradesView {

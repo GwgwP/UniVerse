@@ -358,11 +358,22 @@ public abstract class Initializer {
         Grade g9 = new Grade(s1, o9, 9);
         Grade g10 = new Grade(s1, o10, 9);
 
+        Grade g11 = new Grade(s1, o11, 4);
+        Grade g12 = new Grade(s1, o12, 5);
+        Grade g13 = new Grade(s1, o13, 5);
+        Grade g14 = new Grade(s1, o14, 5);
+
         Grade ga = new Grade(s4, o1, 8);
         Grade gb = new Grade(s4, o2, 8);
         Grade gc = new Grade(s4, o3, 7);
         Grade gd = new Grade(s4, o4, 9);
         Grade ge = new Grade(s4, o5, 8);
+
+        getGradeDAO().save(g11);
+        getGradeDAO().save(g12);
+        getGradeDAO().save(g13);
+        getGradeDAO().save(g14);
+
 
         getGradeDAO().save(ga);
         getGradeDAO().save(gb);
