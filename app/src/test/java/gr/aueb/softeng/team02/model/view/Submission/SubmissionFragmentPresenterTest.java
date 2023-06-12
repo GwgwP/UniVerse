@@ -107,7 +107,7 @@ public class SubmissionFragmentPresenterTest {
     /**
      * Steps of scenario:
      * 1. Make form
-     * 2. Check the size of the offered subjects that the view
+     * 2. Check the size of the offered subjects that the view presents
      */
     @Test
     public void TestInDifferentSemester() {
