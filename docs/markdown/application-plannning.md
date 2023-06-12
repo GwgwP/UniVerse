@@ -95,3 +95,37 @@
 
 **Σημείωση:** <br>
 Όλα τα Activities και τα Fragments που δημιουργήθηκαν συμμορφώνονται με τα αντίστοιχα UseCases και τα Requirements.
+
+<br>
+
+## Coverage Report
+
+<br>
+
+**DAO & MEMORY DAO**
+![DAO & MEMORY DAO COVERAGE](uml/requirements/coverage/dao_test_coverage.jpg)
+
+<br>
+
+**MODEL**
+<br>
+
+![MODEL COVERAGE](uml/requirements/coverage/model_test_coverage.jpg)
+
+<br>
+
+**VIEW**
+
+<br>
+
+![VIEW PART 1](uml/requirements/coverage/view_test_coverage_1.jpg)
+
+<br>
+
+![VIEW PART 2](uml/requirements/coverage/view_test_coverage_2.jpg)
+
+<br>
+
+![VIEW PART 3](uml/requirements/coverage/view_test_coverage_3.jpg)
+
+<br>
