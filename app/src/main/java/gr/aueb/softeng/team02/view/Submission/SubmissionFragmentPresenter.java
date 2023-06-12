@@ -32,7 +32,7 @@ public class SubmissionFragmentPresenter {
     private int studentId;
 
     /**
-     * Contructor that initializes the daos
+     * Constructor that initializes the daos
      *
      * @param years           AcademicYearDAO
      * @param offeredSubjects OfferedSubjectDAO

@@ -148,28 +148,28 @@ public class DAOTest {
         Student s1 = new Student(3200125, "p3200125", "Irma", "Lydia-Christina", "Wallace", 6);
         Grade g1 = new Grade(s1, o1, 8);
         gradeDAO.save(g1);
-        Assert.assertEquals(gradeDAO.findAll().size(), 15);
+        Assert.assertEquals(gradeDAO.findAll().size(), 19);
 
         Subject su29 = new Subject("Bill Zafeirhs", 8, "Introduction on Web technologies and programming", " Web Development");
         OfferedSubject o29 = new OfferedSubject(1, su29, y1);
         Student s2 = new Student(3200125, "p3200125", "Irma", "Lydia-Christina", "Wallace", 6);
         Grade g2 = new Grade(s2, o29, 8);
         gradeDAO.save(g2);
-        Assert.assertEquals(gradeDAO.findAll().size(), 16);
+        Assert.assertEquals(gradeDAO.findAll().size(), 20);
 
         // delete
         gradeDAO.delete(g2);
-        Assert.assertEquals(gradeDAO.findAll().size(), 15);
+        Assert.assertEquals(gradeDAO.findAll().size(), 19);
 
         gradeDAO.delete(g2);
-        Assert.assertEquals(gradeDAO.findAll().size(), 15);
+        Assert.assertEquals(gradeDAO.findAll().size(), 19);
 
         // findAll
         Set<Grade> grades = gradeDAO.findAll();
-        Assert.assertEquals(gradeDAO.findAll().size(), 15);
+        Assert.assertEquals(gradeDAO.findAll().size(), 19);
 
         // findPassedSubjectsByStudent
-        Assert.assertEquals(gradeDAO.findPassedSubjectsByStudent(3200125).size(), 10);
+        Assert.assertEquals(gradeDAO.findPassedSubjectsByStudent(3200125).size(), 13);
 
         // findBySubject
         Assert.assertEquals(gradeDAO.findBySubject("Algebra 1", 3200125).getGrade(), 8);
@@ -180,7 +180,7 @@ public class DAOTest {
 
         // FindByStudent
         Assert.assertEquals(gradeDAO.findByStudent(3200199).size(), 0);
-        Assert.assertEquals(gradeDAO.findByStudent(3200125).size(), 10);
+        Assert.assertEquals(gradeDAO.findByStudent(3200125).size(), 14);
     }
 
     @Test

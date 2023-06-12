@@ -70,14 +70,14 @@ public class SecretaryPresenterTest {
         date.setStub(now);
         presenter.updateGrades();
         Assert.assertEquals(5, view.getK());
-        Assert.assertEquals(15, grades.size());
+        Assert.assertEquals(19, grades.size());
 
         // The grades can be uploaded
         LocalDate now2 = LocalDate.of(2023, 6, 11);
         date.setStub(now2);
         presenter.updateGrades();
         Assert.assertEquals(5, view.getK());
-        Assert.assertEquals(23, init.getGradeDAO().findAll().size());
+        Assert.assertEquals(27, init.getGradeDAO().findAll().size());
 
 
     }

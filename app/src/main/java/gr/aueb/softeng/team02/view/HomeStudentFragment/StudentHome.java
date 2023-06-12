@@ -14,8 +14,6 @@ import gr.aueb.softeng.team02.R;
 import gr.aueb.softeng.team02.view.Authentication.UserLoginActivity;
 
 public class StudentHome extends Fragment implements StudentHomeView {
-
-
     private Button logout;
     private StudentHomePresenter presenter;
 

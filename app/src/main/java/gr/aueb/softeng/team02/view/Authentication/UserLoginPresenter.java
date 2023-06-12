@@ -1,7 +1,5 @@
 package gr.aueb.softeng.team02.view.Authentication;
 
-
-
 import java.util.AbstractMap;
 import java.util.Map;
 

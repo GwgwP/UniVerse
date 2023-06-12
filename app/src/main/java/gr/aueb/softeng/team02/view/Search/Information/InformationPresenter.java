@@ -8,7 +8,6 @@ import gr.aueb.softeng.team02.model.OfferedSubject;
 import gr.aueb.softeng.team02.model.Subject;
 
 public class InformationPresenter {
-
     private OfferedSubjectDAO subjects;
     private InformationView view;
 
@@ -39,15 +38,11 @@ public class InformationPresenter {
         ArrayList<String> prerequisites = new ArrayList<>();
         OfferedSubject sub = subjects.findByTitle(title);
         Set<Subject> getprer = sub.getSubject().getPrerequisities();
-        if(!(getprer==null)) {
+        if (!(getprer == null)) {
             for (Subject name : getprer) {
                 prerequisites.add(name.getTitle());
-
             }
         }
         view.showInfo(sub.getTitle(), sub.getProf(), sub.getEcts(), sub.getSubject().getId(), sub.getDesc(), prerequisites);
-
-
-
     }
 }
