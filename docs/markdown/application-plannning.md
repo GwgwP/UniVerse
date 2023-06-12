@@ -57,17 +57,22 @@
     ![Information](uml/requirements/information.drawio.png)
 
 4. **Progress**
-    <ul>
-        <li> <b>ProgressForm</b>
-        <br>
-        Το Fragment που περιέχει πληροφορίες όπως ο γενικός μέσος όρος και ο μέσος όρος ανά εξάμηνο, τα συνολικά ects του φοιτητή, τον αριθμό περασμένων μαθημάτων του καθώς και το κουμπί για τους λεπτομερείς βαθμούς (μέσω της ανακατεύθυνσης στο παρακάτω Activity) 
-        </li> 
+<ul><li> <b>ProgressForm</b><br>
+     Το Fragment που περιέχει πληροφορίες όπως ο γενικός μέσος όρος και ο μέσος όρος ανά εξάμηνο, τα συνολικά ects του φοιτητή, τον αριθμό περασμένων μαθημάτων του καθώς και το κουμπί για τους λεπτομερείς βαθμούς (μέσω της ανακατεύθυνσης στο παρακάτω Activity) </li> </ul>
+
+    
+![Progress Form](uml/requirements/progress-form.png)
+
+</ul> 
         <li><b>DetailedGrades</b>
         <br>
         Περιέχει και παρουσιάζει με Dynamic List τα μαθήματα που έχει εξεταστεί ο φοιτητής μαζί με τον βαθμό τους χωρισμένα ανά εξάμηνο, όπως και τον μέσο όρο για το κάθε εξάμηνο ξεχωριστά.
         </li>
-    </ul>
+</ul>
 
+![Detailed Grades](uml/requirements/detailed-grades.png)
+     
+</ul>
 
 Για τον ρόλο της <b>Γραμματείας</b> έχουμε τα εξής views:
 1. **SecretaryHomeFragment**
@@ -81,23 +86,30 @@
         Το Activity για την Γραμματεία. Μέσω του navigation bar ανακατευθύνει τον Γραμματέα στα αντίστοιχα fragments & views. 
     </ul>
 
-    ![Secretary](uml/requirements/secretary.png)
+![Secretary ](uml/requirements/secretary.png)
+
+
+    
 3. **AcademicYear**
-    <ul>
+<ul>
         <li> <b>AcademicYearForm</b>
         <br>
         Το Fragment που υλοποιεί την καταχώρηση ενός περιορισμού. Περιέχει spinner για την επιλογή ακαδημαικού έτους (μεταξύ όσων έχουν δημιουργηθεί), spinner για την επιλογή του εξαμήνου, καθώς και αντίστοιχα πεδία για τη συμπλήρωση των ects, και των ημερομηνιών. Εκτελεί τον έλεγχο της δήλωσης και την καταχώρηση ή την επικάλυψη της (έαν είναι έγκυρη) 
         </li> 
 
-    ![Academic Year ](uml/requirements/academic-year-frag.png)
-    </ul>
+<ul>
+
+![Academic Year ](uml/requirements/academic-year-frag.png)
+    
+</ul>
         <li><b>Registration</b>
         <br>
         Το Activity που εκτελεί την δημιουργία νέου ακαδημαικού έτους. Ο Γραμματέας εισάγει τα κατάλληλα στοιχεία (ακαδημαικό έτος, ημερομηνίες) και το σύστημα εκτελεί την καταχώρηση. Αν υπάρχει ήδη το ακαδημαικό έτος εμφανίζεται κατάλληλο μήνυμα.   
         </li>
-    </ul>
+</ul>
 
-    ![Academic Year ](uml/requirements/academic-year-reg.png)
+![Academic Year ](uml/requirements/academic-year-reg.png)
+
 4. **OfferedSubject**
     <ul>
         <li> <b>OfferedSubjectForm</b>
@@ -137,6 +149,19 @@
 **Σημείωση:** <br>
 Όλα τα Activities και τα Fragments που δημιουργήθηκαν συμμορφώνονται με τα αντίστοιχα UseCases και τα Requirements.
 
+
+### Sequence Diagrams
+
+**Method valid in Academic Year Registration**
+![ac_year_reg](uml/requirements/sequence_reg_ac_year-registration_of_ac_year_sequene_diagram.jpg)
+
+***Method decide in SearchPresenter**
+![search_decide](uml/requirements/search-decide_seq.png)
+
+**Method valid in SubjectFormPresenter**
+![valid](uml/requirements/subject-valid.png)
+
+
 <br>
 
 ## Coverage Report
@@ -145,6 +170,7 @@
 
 **DAO & MEMORY DAO**
 <br>
+
 
 ![DAO & MEMORY DAO COVERAGE](uml/requirements/coverage/dao_test_coverage.jpg)
 
