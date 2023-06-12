@@ -81,7 +81,7 @@
         Το Activity για την Γραμματεία. Μέσω του navigation bar ανακατευθύνει τον Γραμματέα στα αντίστοιχα fragments & views. 
     </ul>
 
-    
+    ![Secretary](uml/requirements/secretary.png)
 3. **AcademicYear**
     <ul>
         <li> <b>AcademicYearForm</b>
