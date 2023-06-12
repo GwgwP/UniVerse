@@ -129,3 +129,27 @@
 ![VIEW PART 3](uml/requirements/coverage/view_test_coverage_3.jpg)
 
 <br>
+
+## Metrics 
+### Class Metrics
+![class metrics 1](uml/requirements/coverage/class_metrics_1_.jpg)
+
+<br>
+
+![class metrics 2](uml/requirements/coverage/class_metrics_2_.jpg)
+
+<br>
+
+### Module Metrics
+![Module metrics](uml/requirements/coverage/module_metrics.jpg)
+
+<br>
+
+### Package Metrics
+
+![Package metrics](uml/requirements/coverage/package_metrics.jpg)
+
+<br>
+
+### Project Metrics
+![Project metrics](uml/requirements/coverage/projects_metrics.jpg)
