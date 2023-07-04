@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.regex.Pattern;
+
 import gr.aueb.softeng.team02.dao.AcademicYearDAO;
 import gr.aueb.softeng.team02.model.AcademicYear;
 
@@ -17,7 +18,7 @@ import gr.aueb.softeng.team02.model.AcademicYear;
 public class AcademicYearRegPresenter {
 
     private AcademicYearRegView view;
-    private  AcademicYearDAO ac_years;
+    private AcademicYearDAO ac_years;
 
     /**
      * Constructor
@@ -29,7 +30,6 @@ public class AcademicYearRegPresenter {
         this.ac_years = ac_years;
         this.view = view;
     }
-
 
     /**
      * Checks if all the attributes are valid in order to
@@ -63,24 +63,22 @@ public class AcademicYearRegPresenter {
                     view.messageSave();
                 }
             }
-            if(!hasFormatOfDate(view.getStartDate()))
-            {
+            if (!hasFormatOfDate(view.getStartDate())) {
                 view.setVisibleSecondX();
             }
             if (!hasFormatOfAcademicYear(view.getAcademicYear())) {
                 view.alertUser("Not valid year", "The year you are trying to submit does not have the right format");
                 view.setVisibleFirstX();
             }
-            if(!hasFormatOfDate(view.getEndDate()))
-            {
+            if (!hasFormatOfDate(view.getEndDate())) {
                 view.setVisibleThirdX();
             }
         } else {
-            if (view.getAcademicYear().equals("") )
+            if (view.getAcademicYear().equals(""))
                 view.setVisibleFirstX();
-            if (view.getStartDate().equals("") )
+            if (view.getStartDate().equals(""))
                 view.setVisibleSecondX();
-            if (view.getEndDate().equals("") )
+            if (view.getEndDate().equals(""))
                 view.setVisibleThirdX();
         }
     }
